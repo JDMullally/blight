@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2cxroji8n8d3"]
+
+[ext_resource type="Texture2D" uid="uid://brslajjmaogd5" path="res://icon.svg" id="1_nrc3s"]
+[ext_resource type="Script" uid="uid://ba4ln3val3uya" path="res://scripts/wand.gd" id="1_ran2g"]
+
+[node name="Wand" type="Node2D"]
+script = ExtResource("1_ran2g")
+
+[node name="WandSprite" type="Sprite2D" parent="."]
+position = Vector2(47, 5.684342e-14)
+rotation = -1.5707964
+scale = Vector2(0.05468747, 0.34375)
+texture = ExtResource("1_nrc3s")
+
+[node name="WandPoint" type="Node2D" parent="WandSprite"]
+position = Vector2(-5.4495706e-07, 58.181824)

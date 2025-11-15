@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkg2e45s87qw0"]
+
+[ext_resource type="Script" uid="uid://2m4qos8c71c3" path="res://scripts/bullet.gd" id="1_mkf8s"]
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_mkf8s")
+
+[node name="Hitbox" type="CollisionPolygon2D" parent="."]
+position = Vector2(4, 4)
+polygon = PackedVector2Array(-30, 0, 20, -10, 50, 20, -10, 30)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
