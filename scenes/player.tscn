@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi5t5rs6j68by"]
+[gd_scene load_steps=7 format=3 uid="uid://bi5t5rs6j68by"]
 
 [ext_resource type="Script" uid="uid://csw2shgruxl4m" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://brslajjmaogd5" path="res://icon.svg" id="2_qhqgy"]
@@ -7,6 +7,15 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
 radius = 6.0
 height = 16.0
+
+[sub_resource type="Gradient" id="Gradient_qhqgy"]
+offsets = PackedFloat32Array(0, 0.2924731, 0.6666667)
+colors = PackedColorArray(1, 1, 1, 1, 0.42580646, 0.42580646, 0.42580646, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dqkch"]
+gradient = SubResource("Gradient_qhqgy")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_g2els")
@@ -26,3 +35,9 @@ zoom = Vector2(4, 4)
 [node name="Wand" parent="." instance=ExtResource("3_qhqgy")]
 position = Vector2(0, -6)
 scale = Vector2(0.3, 0.3)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -9)
+color = Color(0.47058824, 1, 0.79607844, 1)
+texture = SubResource("GradientTexture2D_dqkch")
+texture_scale = 0.75

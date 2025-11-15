@@ -1,6 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccf5jhypapbd7"]
+[gd_scene load_steps=12 format=3 uid="uid://ccf5jhypapbd7"]
 
 [ext_resource type="Texture2D" uid="uid://c5hysykjniyep" path="res://art/Sprite-0001.png" id="1_uovoq"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uovoq"]
+blend_mode = 1
+light_mode = 1
 
 [sub_resource type="Curve" id="Curve_enntb"]
 _data = [Vector2(0.15116279, 0.17164183), 0.0, 0.0, 0, 0, Vector2(0.7209302, 0.9253732), 0.0, 0.0, 0, 0, Vector2(0.90116274, 0.03731346), 0.0, 0.0, 0, 0]
@@ -23,11 +27,16 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_nu7em"]
 curve = SubResource("Curve_jr271")
 
+[sub_resource type="Curve" id="Curve_uovoq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.28571427, 0.26966298), -1.1887639, -1.1887639, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_syslc"]
+curve = SubResource("Curve_uovoq")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l5glv"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(0.05, 0.05, 1)
-emission_shape = 1
-emission_sphere_radius = 1.0
 angular_velocity_min = -697.99
 angular_velocity_max = 719.99994
 orbit_velocity_min = 9.49949e-08
@@ -37,14 +46,16 @@ radial_velocity_max = 4.9999776
 gravity = Vector3(0, 0, 0)
 scale_min = 0.19999999
 scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_syslc")
 color = Color(1, 0.53384537, 0.7306284, 1)
 color_ramp = SubResource("GradientTexture1D_uq3go")
 alpha_curve = SubResource("CurveTexture_uovoq")
 emission_curve = SubResource("CurveTexture_nu7em")
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_uovoq")
 amount = 100
 sub_emitter = NodePath(".")
 texture = ExtResource("1_uovoq")
-lifetime = 0.09999999999999999
+lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_l5glv")
