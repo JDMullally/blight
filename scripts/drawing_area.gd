@@ -13,6 +13,7 @@ extends TextureRect
 @export var simplify_distance : float = 2.0
 @export var simplify_collinear : float = 1.0
 
+var showing : bool = false
 var strokes : Array[PackedVector2Array] = []
 var current : PackedVector2Array = PackedVector2Array()
 var polygons : Array[PackedVector2Array] = []
@@ -54,17 +55,15 @@ func start_stop_draw(event : InputEvent):
 		current = PackedVector2Array()
 		queue_redraw()
 
-func _unhandled_input(event : InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo:
-		match event.keycode:
-			Key.KEY_Z:
-				undo_last_drawing()
-			Key.KEY_C:
-				clear_unsaved_polygons()
-			Key.KEY_SPACE:
-				save_all_polygons()
-			Key.KEY_DELETE:
-				remove_all_polygons()
+func _input(event : InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == Key.KEY_TAB:
+		if self.showing:
+			self.hide()
+			get_tree().paused = false
+		else:
+			self.show()
+			get_tree().paused = true
+		self.showing = !self.showing
 
 func undo_last_drawing():
 	if strokes.size() > 0:
@@ -89,6 +88,7 @@ func save_all_polygons():
 		poly.append(poly[0])
 		polygons.append(poly)
 		print("Saved polygon with ", poly.size(), " vertices.")
+		SignalBus.update_poly.emit(poly)
 		
 	strokes.clear()
 	current = PackedVector2Array()
@@ -97,6 +97,7 @@ func save_all_polygons():
 
 func remove_all_polygons():
 	polygons.clear()
+	clear_unsaved_polygons()
 	queue_redraw()
 	accept_event()
 
@@ -217,12 +218,12 @@ func _simplify_polygon(poly : PackedVector2Array, distance_epsilon : float, coll
 		changed = false
 		var out2 : PackedVector2Array = PackedVector2Array()
 		for i in range(rdp.size()):
-			var prev_vertex : Vector2 = rdp[(i - 1 + rdp.size()) % rdp.size()]
+			# var prev_vertex : Vector2 = rdp[(i - 1 + rdp.size()) % rdp.size()]
 			var current_vertex : Vector2 = rdp[i]
-			var next_vertex : Vector2 = rdp[(i + 1) % rdp.size()]
-			if is_collinear(prev_vertex, current_vertex, next_vertex, collinear_epsilon):
-				changed = true
-			else:
-				out2.append(current_vertex)
+			# var next_vertex : Vector2 = rdp[(i + 1) % rdp.size()]
+			#if is_collinear(prev_vertex, current_vertex, next_vertex, collinear_epsilon):
+				#changed = true
+			#else:
+			out2.append(current_vertex)
 		rdp = out2
 	return rdp

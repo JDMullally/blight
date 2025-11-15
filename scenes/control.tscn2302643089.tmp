@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://cs6iojcmspkqt" path="res://scripts/drawing_area.gd" id="2_brbbq"]
 
 [node name="DrawingArea" type="TextureRect"]
-process_mode = 3
 offset_left = 126.0
 offset_top = 107.0
 offset_right = 678.0
@@ -23,6 +22,15 @@ offset_right = 101.0
 offset_bottom = 480.0
 focus_mode = 1
 text = "Undo"
+
+[node name="Clear" type="Button" parent="."]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 440.0
+offset_right = 219.0
+offset_bottom = 480.0
+focus_mode = 1
+text = "Clear"
 
 [node name="Delete" type="Button" parent="."]
 layout_mode = 0
@@ -44,5 +52,6 @@ text = "Save
 "
 
 [connection signal="pressed" from="Undo" to="." method="undo_last_drawing"]
+[connection signal="pressed" from="Clear" to="." method="clear_unsaved_polygons"]
 [connection signal="pressed" from="Delete" to="." method="remove_all_polygons"]
 [connection signal="pressed" from="Save" to="." method="save_all_polygons"]
