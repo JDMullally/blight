@@ -7,7 +7,7 @@
 script = ExtResource("1_ran2g")
 
 [node name="WandSprite" type="Sprite2D" parent="."]
-position = Vector2(47, 5.684342e-14)
+position = Vector2(49.000004, 5.684342e-14)
 rotation = -1.5707964
 scale = Vector2(0.05468747, 0.34375)
 texture = ExtResource("1_nrc3s")

@@ -39,7 +39,7 @@ func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2) 
 			gpu_part.position = local_poly[index]
 			gpu_part.scale = Vector2(100,100)
 			hitbox.add_child(gpu_part)
-			print(index)
+			# print(index)
 	global_position = start_pos
 	velocity = direction.normalized() * speed
 

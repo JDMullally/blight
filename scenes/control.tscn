@@ -43,6 +43,19 @@ focus_mode = 1
 text = "Save
 "
 
+[node name="ErrorLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 152.0
+offset_right = 476.0
+offset_bottom = 232.0
+bbcode_enabled = true
+scroll_active = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
 [connection signal="pressed" from="Undo" to="." method="undo_last_drawing"]
 [connection signal="pressed" from="Delete" to="." method="remove_all_polygons"]
 [connection signal="pressed" from="Save" to="." method="save_all_polygons"]
