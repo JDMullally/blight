@@ -26,8 +26,8 @@ func _unhandled_input(event : InputEvent) -> void:
 		var bullet : Area2D = load(BULLET_SCENE_UID).instantiate() as Area2D
 
 		var start_pos : Vector2 = wand_point.global_position
-		# var mouse_pos : Vector2 = get_global_mouse_position()
-		var dir : Vector2 = start_pos.normalized()
+		var mouse_pos : Vector2 = get_global_mouse_position()
+		var dir : Vector2 = (mouse_pos - start_pos).normalized()
 		
 		get_tree().current_scene.add_child(bullet)
 		bullet.setup(bullet_poly, start_pos, dir)
