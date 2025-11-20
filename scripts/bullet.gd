@@ -7,6 +7,7 @@ var velocity : Vector2 = Vector2.ZERO
 @onready var hitbox: CollisionPolygon2D = $Hitbox
 @onready var timer: Timer = $Timer
 const BASIC_PARTICLES_UID = "uid://ccf5jhypapbd7"
+const SPELL_SHADER_UID = "uid://bypgr602phyh7"
 
 
 func _center_polygon(poly : PackedVector2Array) -> PackedVector2Array:
@@ -25,15 +26,30 @@ func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2) 
 	timer.start()
 	var local_poly := _center_polygon(poly)
 	
-	if len(local_poly) <= 100:
+	var new_poly = Polygon2D.new()
+	new_poly.polygon = local_poly
+	new_poly.color = Color(0.8, 0.4, 0.7)
+	new_poly.modulate.a = 0.7
+	add_child(new_poly)
+
+	#
+	#var new_shader : Shader = load(SPELL_SHADER_UID)
+	#print(new_shader)
+	#new_shader.set("shader_param/tint_color", Color(0.0, 0.2, 1.0))
+	#new_shader.set("shader_param/tint_alpha", 0.7)
+	#self.material.shader = new_shader
+	#print(self.material)
+	#
+
+	if len(local_poly) <= 30:
 		for point in local_poly:
 			var gpu_part : GPUParticles2D = load(BASIC_PARTICLES_UID).instantiate() as GPUParticles2D
 			gpu_part.position = point
 			gpu_part.scale = Vector2(100,100)
 			hitbox.add_child(gpu_part)
 	else:
-		var multiplier : float = len(local_poly) / 100.0
-		for i in range(100):
+		var multiplier : float = len(local_poly) / 30.0
+		for i in range(30):
 			var index = int(ceil(i * multiplier))
 			var gpu_part : GPUParticles2D = load(BASIC_PARTICLES_UID).instantiate() as GPUParticles2D
 			gpu_part.position = local_poly[index]

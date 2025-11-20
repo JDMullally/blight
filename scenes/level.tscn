@@ -22,8 +22,56 @@ visible = false
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.72199506, 0.9999998, 0.7965523, 1)
-energy = 0.6
+energy = 0.0
 blend_mode = 1
 
 [node name="Monster" parent="." instance=ExtResource("5_ppgk2")]
 position = Vector2(84, -11)
+
+[node name="Monster2" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(67, -60)
+
+[node name="Monster3" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(37, -52)
+
+[node name="Monster4" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(-26, -29)
+
+[node name="Monster5" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(5, -44)
+
+[node name="Monster6" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(14, 23)
+
+[node name="Monster7" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(41, 21)
+
+[node name="Monster8" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(72, 27)
+
+[node name="Monster9" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(115, -8)
+
+[node name="Monster10" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(83, -43)
+
+[node name="Monster11" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(103, 16)
+
+[node name="Monster12" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(29, -19)
+
+[node name="Monster13" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(55, 8)
+
+[node name="Monster14" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(127, 19)
+
+[node name="Monster15" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(101, -27)
+
+[node name="Monster16" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(130, -25)
+
+[node name="Monster17" parent="." instance=ExtResource("5_ppgk2")]
+position = Vector2(54, -34)

@@ -45,7 +45,7 @@ radial_velocity_min = -5.0000224
 radial_velocity_max = 4.9999776
 gravity = Vector3(0, 0, 0)
 scale_min = 0.39999998
-scale_max = 0.5
+scale_max = 0.59999996
 scale_curve = SubResource("CurveTexture_syslc")
 color = Color(1, 0.53384537, 0.7306284, 1)
 color_ramp = SubResource("GradientTexture1D_uq3go")
@@ -54,8 +54,9 @@ emission_curve = SubResource("CurveTexture_nu7em")
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
 material = SubResource("CanvasItemMaterial_uovoq")
-amount = 100
+amount = 25
 sub_emitter = NodePath(".")
 texture = ExtResource("1_uovoq")
-lifetime = 0.5
+lifetime = 0.3
+fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_l5glv")
