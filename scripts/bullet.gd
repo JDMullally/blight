@@ -32,15 +32,6 @@ func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2) 
 	new_poly.modulate.a = 0.7
 	add_child(new_poly)
 
-	#
-	#var new_shader : Shader = load(SPELL_SHADER_UID)
-	#print(new_shader)
-	#new_shader.set("shader_param/tint_color", Color(0.0, 0.2, 1.0))
-	#new_shader.set("shader_param/tint_alpha", 0.7)
-	#self.material.shader = new_shader
-	#print(self.material)
-	#
-
 	if len(local_poly) <= 30:
 		for point in local_poly:
 			var gpu_part : GPUParticles2D = load(BASIC_PARTICLES_UID).instantiate() as GPUParticles2D

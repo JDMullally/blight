@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c3ljdqx2aany6" path="res://scenes/tile_map_layer.tscn" id="1_w8frs"]
 [ext_resource type="PackedScene" uid="uid://bi5t5rs6j68by" path="res://scenes/player.tscn" id="2_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://b8cti6qe10mbd" path="res://scenes/control.tscn" id="3_ppgk2"]
-[ext_resource type="PackedScene" uid="uid://b5oqg6hilbih" path="res://scenes/monster.tscn" id="5_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://1lv1aprrskld" path="res://scenes/monster_spawner.tscn" id="5_ppgk2"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_mx8sn")
@@ -20,58 +20,20 @@ tile_map_data = PackedByteArray("AADo//n/AAABAAAAAADo//r/AAABAAEAAADo//v/AAABAAA
 [node name="DrawingArea" parent="CanvasLayer" instance=ExtResource("3_ppgk2")]
 visible = false
 
+[node name="FPS" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="FPS2" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.72199506, 0.9999998, 0.7965523, 1)
 energy = 0.0
 blend_mode = 1
 
-[node name="Monster" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(84, -11)
-
-[node name="Monster2" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(67, -60)
-
-[node name="Monster3" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(37, -52)
-
-[node name="Monster4" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(-26, -29)
-
-[node name="Monster5" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(5, -44)
-
-[node name="Monster6" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(14, 23)
-
-[node name="Monster7" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(41, 21)
-
-[node name="Monster8" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(72, 27)
-
-[node name="Monster9" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(115, -8)
-
-[node name="Monster10" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(83, -43)
-
-[node name="Monster11" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(103, 16)
-
-[node name="Monster12" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(29, -19)
-
-[node name="Monster13" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(55, 8)
-
-[node name="Monster14" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(127, 19)
-
-[node name="Monster15" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(101, -27)
-
-[node name="Monster16" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(130, -25)
-
-[node name="Monster17" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(54, -34)
+[node name="MonsterSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
+position = Vector2(71, -24)
+max_monsters = 50
+player = NodePath("../Player")

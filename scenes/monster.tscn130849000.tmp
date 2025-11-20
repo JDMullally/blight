@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5oqg6hilbih"]
+[gd_scene load_steps=14 format=3 uid="uid://b5oqg6hilbih"]
 
 [ext_resource type="Script" uid="uid://css51i5xkinaa" path="res://scripts/monster.gd" id="1_1cbnp"]
 [ext_resource type="Texture2D" uid="uid://dcvu0fs3eubpf" path="res://art/Bunny001-running-5-frame-Sheet.png" id="2_1cbnp"]
@@ -6,8 +6,6 @@
 [ext_resource type="Script" uid="uid://d1e5cpysxgpxw" path="res://scripts/states/idle.gd" id="4_gp4s5"]
 [ext_resource type="Script" uid="uid://era8q204ts1n" path="res://scripts/states/chase.gd" id="5_gdl1p"]
 [ext_resource type="Script" uid="uid://dfcvifdmvwaus" path="res://scripts/states/hit.gd" id="6_gdl1p"]
-[ext_resource type="Script" uid="uid://dqkg6al5ply4o" path="res://scenes/cooldown.gd" id="7_v8ewj"]
-[ext_resource type="Script" uid="uid://cixof1qqpq01l" path="res://scripts/despawn.gd" id="8_yce20"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c47ug"]
 atlas = ExtResource("2_1cbnp")
@@ -36,30 +34,30 @@ animations = [{
 "texture": SubResource("AtlasTexture_c47ug")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"default",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.2,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jlss8")
 }, {
-"duration": 0.2,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gp4s5")
 }, {
-"duration": 0.2,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gdl1p")
 }, {
-"duration": 0.2,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_v8ewj")
 }],
 "loop": true,
-"name": &"run",
+"name": &"new_animation",
 "speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jlss8"]
-radius = 9.0
-height = 22.0
+radius = 5.0
+height = 20.0
 
 [node name="Monster" type="CharacterBody2D"]
 script = ExtResource("1_1cbnp")
@@ -67,8 +65,6 @@ script = ExtResource("1_1cbnp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_yce20")
-animation = &"run"
-frame_progress = 0.49592906
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 position = Vector2(2, -10)
@@ -77,7 +73,7 @@ affect_navigation_mesh = true
 avoidance_layers = 4026531841
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -11)
+position = Vector2(1, -5)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_jlss8")
 
@@ -86,8 +82,8 @@ unique_name_in_owner = true
 path_desired_distance = 10.0
 target_desired_distance = 5.0
 navigation_layers = 2147483649
-path_postprocessing = 1
 avoidance_enabled = true
+debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Timer" type="Timer" parent="."]
@@ -102,37 +98,17 @@ initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("monster")]
 script = ExtResource("4_gp4s5")
-state = 2
 monster = NodePath("../..")
 
 [node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("monster")]
 script = ExtResource("5_gdl1p")
-state = 3
-monster = NodePath("../..")
-
-[node name="Hit" type="Node" parent="StateMachine" node_paths=PackedStringArray("monster")]
-script = ExtResource("6_gdl1p")
-state = 4
-monster = NodePath("../..")
-
-[node name="Cooldown" type="Node" parent="StateMachine" node_paths=PackedStringArray("monster")]
-script = ExtResource("7_v8ewj")
-state = 5
-monster = NodePath("../..")
-
-[node name="Despawn" type="Node" parent="StateMachine" node_paths=PackedStringArray("monster")]
-script = ExtResource("8_yce20")
 state = 1
 monster = NodePath("../..")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -11.0
-offset_top = -28.0
-offset_right = 607.0
-offset_bottom = 82.0
-scale = Vector2(0.05, 0.05)
-theme_override_font_sizes/font_size = 80
-text = "CURRENT STATE"
+[node name="Hit" type="Node" parent="StateMachine"]
+script = ExtResource("6_gdl1p")
+
+[node name="Cooldown" type="Node" parent="StateMachine"]
 
 [connection signal="timeout" from="Timer" to="StateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="StateMachine/Chase" method="_on_timer_timeout"]
