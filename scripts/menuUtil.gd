@@ -40,4 +40,9 @@ func _on_grey_scale_check_button_toggled(toggled_on: bool) -> void:
 
 
 func _on_title_screen_button_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/title.tscn")
+
+
+func _on_credits_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")

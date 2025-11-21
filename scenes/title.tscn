@@ -21,20 +21,33 @@ text = "START"
 
 [node name="SettingsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 534.0
-offset_right = 473.0
-offset_bottom = 632.0
+offset_left = 181.0
+offset_top = 529.0
+offset_right = 478.0
+offset_bottom = 627.0
 text = "SETTINGS"
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 648.0
+offset_right = 476.0
+offset_bottom = 746.0
+text = "CREDITS
+"
 
 [node name="QuitGameButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 662.0
-offset_right = 473.0
-offset_bottom = 760.0
+offset_left = 178.0
+offset_top = 766.0
+offset_right = 475.0
+offset_bottom = 864.0
 text = "QUIT"
+
+[node name="MainTitleMusic" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="QuitGameButton" to="." method="_on_quit_game_button_pressed"]
