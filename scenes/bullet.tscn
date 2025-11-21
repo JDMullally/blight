@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkg2e45s87qw0"]
+[gd_scene load_steps=3 format=3 uid="uid://dkg2e45s87qw0"]
 
 [ext_resource type="Script" uid="uid://2m4qos8c71c3" path="res://scripts/bullet.gd" id="1_mkf8s"]
+[ext_resource type="Material" uid="uid://p4sikjlwdqtt" path="res://resources/spell_shader.tres" id="1_y25gk"]
 
 [node name="Bullet" type="Area2D"]
+material = ExtResource("1_y25gk")
 script = ExtResource("1_mkf8s")
 
 [node name="Hitbox" type="CollisionPolygon2D" parent="."]

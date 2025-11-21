@@ -1,33 +1,138 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5oqg6hilbih"]
+[gd_scene load_steps=16 format=3 uid="uid://b5oqg6hilbih"]
 
 [ext_resource type="Script" uid="uid://css51i5xkinaa" path="res://scripts/monster.gd" id="1_1cbnp"]
-[ext_resource type="Texture2D" uid="uid://brslajjmaogd5" path="res://icon.svg" id="2_c47ug"]
+[ext_resource type="Texture2D" uid="uid://dcvu0fs3eubpf" path="res://art/Bunny001-running-5-frame-Sheet.png" id="2_1cbnp"]
+[ext_resource type="Script" uid="uid://bap8fb2mrtci6" path="res://scripts/states/state_machine.gd" id="3_c47ug"]
+[ext_resource type="Script" uid="uid://d1e5cpysxgpxw" path="res://scripts/states/idle.gd" id="4_gp4s5"]
+[ext_resource type="Script" uid="uid://era8q204ts1n" path="res://scripts/states/chase.gd" id="5_gdl1p"]
+[ext_resource type="Script" uid="uid://dfcvifdmvwaus" path="res://scripts/states/hit.gd" id="6_gdl1p"]
+[ext_resource type="Script" uid="uid://dqkg6al5ply4o" path="res://scenes/cooldown.gd" id="7_v8ewj"]
+[ext_resource type="Script" uid="uid://cixof1qqpq01l" path="res://scripts/despawn.gd" id="8_yce20"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c47ug"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlss8"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp4s5"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdl1p"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8ewj"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yce20"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c47ug")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_jlss8")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_gp4s5")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_gdl1p")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_v8ewj")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jlss8"]
-radius = 11.0
-height = 34.0
+radius = 9.0
+height = 22.0
 
 [node name="Monster" type="CharacterBody2D"]
-collision_layer = 0
-collision_mask = 0
 script = ExtResource("1_1cbnp")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -15)
-scale = Vector2(0.1875, 0.2578125)
-texture = ExtResource("2_c47ug")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -17)
+sprite_frames = SubResource("SpriteFrames_yce20")
+animation = &"run"
+frame_progress = 0.49592906
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+position = Vector2(2, -10)
+radius = 8.98
+affect_navigation_mesh = true
+avoidance_layers = 4026531841
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
+position = Vector2(1, -11)
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_jlss8")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 32.0
+unique_name_in_owner = true
+path_desired_distance = 10.0
+target_desired_distance = 5.0
 navigation_layers = 2147483649
+path_postprocessing = 1
 avoidance_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
+unique_name_in_owner = true
+wait_time = 0.5
 one_shot = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timout"]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("monster", "initial_state")]
+script = ExtResource("3_c47ug")
+monster = NodePath("..")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("monster")]
+script = ExtResource("4_gp4s5")
+state = 2
+monster = NodePath("../..")
+
+[node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("monster")]
+script = ExtResource("5_gdl1p")
+state = 3
+monster = NodePath("../..")
+
+[node name="Hit" type="Node" parent="StateMachine" node_paths=PackedStringArray("monster")]
+script = ExtResource("6_gdl1p")
+state = 4
+monster = NodePath("../..")
+
+[node name="Cooldown" type="Node" parent="StateMachine" node_paths=PackedStringArray("monster")]
+script = ExtResource("7_v8ewj")
+state = 5
+monster = NodePath("../..")
+
+[node name="Despawn" type="Node" parent="StateMachine" node_paths=PackedStringArray("monster")]
+script = ExtResource("8_yce20")
+state = 1
+monster = NodePath("../..")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -11.0
+offset_top = -28.0
+offset_right = 607.0
+offset_bottom = 82.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 80
+text = "CURRENT STATE"
+
+[connection signal="timeout" from="Timer" to="StateMachine/Idle" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="StateMachine/Chase" method="_on_timer_timeout"]
