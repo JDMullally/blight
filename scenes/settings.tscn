@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceubbywo4jush"]
+
+[ext_resource type="Script" uid="uid://dta0mjfe67mcw" path="res://scripts/menuUtil.gd" id="1_5p8wc"]
+[ext_resource type="PackedScene" uid="uid://cwig508gpj7v" path="res://scenes/volume.tscn" id="2_r6d6q"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5p8wc")
+
+[node name="TitleScreenButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 966.0
+offset_top = 472.0
+offset_right = 1275.0
+offset_bottom = 540.0
+text = "TITLE SCREEN"
+
+[node name="QuitGameButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 966.0
+offset_top = 556.0
+offset_right = 1275.0
+offset_bottom = 624.0
+text = "QUIT"
+
+[node name="MusicCheckButton" type="CheckButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 618.0
+offset_top = 528.0
+offset_right = 756.0
+offset_bottom = 601.0
+button_pressed = true
+text = "MUSIC"
+
+[node name="SFXCheckButton" type="CheckButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 616.0
+offset_top = 460.0
+offset_right = 754.0
+offset_bottom = 533.0
+button_pressed = true
+text = "SFX"
+
+[node name="GreyScaleCheckButton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 659.0
+offset_right = 758.0
+offset_bottom = 732.0
+text = "GREYSCALE"
+
+[node name="Volume" parent="." instance=ExtResource("2_r6d6q")]
+layout_mode = 0
+
+[connection signal="pressed" from="TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
+[connection signal="pressed" from="QuitGameButton" to="." method="_on_quit_game_button_pressed"]
+[connection signal="toggled" from="MusicCheckButton" to="." method="_on_music_check_button_toggled"]
+[connection signal="toggled" from="SFXCheckButton" to="." method="_on_sfx_check_button_toggled"]
+[connection signal="toggled" from="GreyScaleCheckButton" to="." method="_on_grey_scale_check_button_toggled"]
