@@ -1,14 +1,13 @@
 extends Area2D
 
 @export var speed : float = 150.0
-
 var velocity : Vector2 = Vector2.ZERO
 
 @onready var hitbox: CollisionPolygon2D = $Hitbox
 @onready var timer: Timer = $Timer
-const BASIC_PARTICLES_UID = "uid://ccf5jhypapbd7"
-const SPELL_SHADER_UID = "uid://bypgr602phyh7"
+const LOVE_PARTICLE_UID = "uid://ccf5jhypapbd7"
 
+enum Element {Light, Love, Water, Song}
 
 func _center_polygon(poly : PackedVector2Array) -> PackedVector2Array:
 	var center := Vector2.ZERO
@@ -34,7 +33,7 @@ func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2) 
 
 	if len(local_poly) <= 30:
 		for point in local_poly:
-			var gpu_part : GPUParticles2D = load(BASIC_PARTICLES_UID).instantiate() as GPUParticles2D
+			var gpu_part : GPUParticles2D = load(LOVE_PARTICLE_UID).instantiate() as GPUParticles2D
 			gpu_part.position = point
 			gpu_part.scale = Vector2(100,100)
 			hitbox.add_child(gpu_part)
@@ -42,7 +41,7 @@ func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2) 
 		var multiplier : float = len(local_poly) / 30.0
 		for i in range(30):
 			var index = int(ceil(i * multiplier))
-			var gpu_part : GPUParticles2D = load(BASIC_PARTICLES_UID).instantiate() as GPUParticles2D
+			var gpu_part : GPUParticles2D = load(LOVE_PARTICLE_UID).instantiate() as GPUParticles2D
 			gpu_part.position = local_poly[index]
 			gpu_part.scale = Vector2(100,100)
 			hitbox.add_child(gpu_part)
@@ -65,3 +64,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta : float) -> void:
 	global_position += velocity * delta
+
+
+func _on_body_entered(body: Node2D) -> void:
+	print(body)
