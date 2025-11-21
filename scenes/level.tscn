@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cg02b1yiyqdxh" path="res://scripts/level.gd" id="1_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://c3ljdqx2aany6" path="res://scenes/tile_map_layer.tscn" id="1_w8frs"]
 [ext_resource type="PackedScene" uid="uid://bi5t5rs6j68by" path="res://scenes/player.tscn" id="2_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://b8cti6qe10mbd" path="res://scenes/control.tscn" id="3_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://1lv1aprrskld" path="res://scenes/monster_spawner.tscn" id="5_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://b8cti6qe10mbd" path="res://control.tscn" id="3_ppgk2"]
 [ext_resource type="Script" uid="uid://cg8dows8oxv7n" path="res://scripts/menu.gd" id="5_b121j"]
 [ext_resource type="PackedScene" uid="uid://b5oqg6hilbih" path="res://scenes/monster.tscn" id="5_ppgk2"]
@@ -25,6 +27,14 @@ tile_map_data = PackedByteArray("AADo//n/AAABAAAAAADo//r/AAABAAEAAADo//v/AAABAAA
 [node name="DrawingArea" parent="CanvasLayer" instance=ExtResource("3_ppgk2")]
 visible = false
 
+[node name="FPS" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="FPS2" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="Menu" type="Node" parent="CanvasLayer"]
 script = ExtResource("5_b121j")
 
@@ -33,11 +43,13 @@ visible = false
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.72199506, 0.9999998, 0.7965523, 1)
-energy = 0.6
+energy = 0.0
 blend_mode = 1
 
-[node name="Monster" parent="." instance=ExtResource("5_ppgk2")]
-position = Vector2(84, -11)
+[node name="MonsterSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
+position = Vector2(71, -24)
+max_monsters = 50
+player = NodePath("../Player")
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -49,3 +61,4 @@ stream = ExtResource("6_2r41h")
 autoplay = true
 bus = &"Music"
 parameters/looping = false
+
