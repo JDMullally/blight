@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=4 uid="uid://crumj7tyj5pac"]
+[gd_scene load_steps=9 format=4 uid="uid://crumj7tyj5pac"]
 
 [ext_resource type="Script" uid="uid://cg02b1yiyqdxh" path="res://scripts/level.gd" id="1_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://c3ljdqx2aany6" path="res://scenes/tile_map_layer.tscn" id="1_w8frs"]
 [ext_resource type="PackedScene" uid="uid://bi5t5rs6j68by" path="res://scenes/player.tscn" id="2_mx8sn"]
-[ext_resource type="PackedScene" uid="uid://b8cti6qe10mbd" path="res://scenes/control.tscn" id="3_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://b8cti6qe10mbd" path="res://control.tscn" id="3_ppgk2"]
+[ext_resource type="Script" uid="uid://cg8dows8oxv7n" path="res://scripts/menu.gd" id="5_b121j"]
 [ext_resource type="PackedScene" uid="uid://b5oqg6hilbih" path="res://scenes/monster.tscn" id="5_ppgk2"]
+[ext_resource type="AudioStream" uid="uid://csdhlauk5cpux" path="res://audio/music/COPYWRITTEN DO NOT USE Clair Obscur_ Expedition 33 (Original Soundtrack) 12 - Spring Meadows - Cello Motifs.mp3" id="6_2r41h"]
+[ext_resource type="PackedScene" uid="uid://dldfcs4d7t6fk" path="res://scenes/paused.tscn" id="7_klq6b"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_mx8sn")
@@ -15,9 +18,17 @@ tile_map_data = PackedByteArray("AADo//n/AAABAAAAAADo//r/AAABAAEAAADo//v/AAABAAA
 
 [node name="Player" parent="." instance=ExtResource("2_mx8sn")]
 
+[node name="AudioListener2D" type="AudioListener2D" parent="Player"]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DrawingArea" parent="CanvasLayer" instance=ExtResource("3_ppgk2")]
+visible = false
+
+[node name="Menu" type="Node" parent="CanvasLayer"]
+script = ExtResource("5_b121j")
+
+[node name="Paused" parent="CanvasLayer/Menu" instance=ExtResource("7_klq6b")]
 visible = false
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
@@ -27,3 +38,14 @@ blend_mode = 1
 
 [node name="Monster" parent="." instance=ExtResource("5_ppgk2")]
 position = Vector2(84, -11)
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+bus = &"SFX"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("6_2r41h")
+autoplay = true
+bus = &"Music"
+parameters/looping = false
