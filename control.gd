@@ -13,6 +13,7 @@ extends TextureRect
 @export var simplify_distance : float = 2.0
 @export var simplify_collinear : float = 1.0
 
+var showing : bool = false
 var strokes : Array[PackedVector2Array] = []
 var current : PackedVector2Array = PackedVector2Array()
 var polygons : Array[PackedVector2Array] = []
@@ -54,17 +55,16 @@ func start_stop_draw(event : InputEvent):
 		current = PackedVector2Array()
 		queue_redraw()
 
-func _unhandled_input(event : InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo:
-		match event.keycode:
-			Key.KEY_Z:
-				undo_last_drawing()
-			Key.KEY_C:
-				clear_unsaved_polygons()
-			Key.KEY_SPACE:
-				save_all_polygons()
-			Key.KEY_DELETE:
-				remove_all_polygons()
+func _input(event : InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == Key.KEY_TAB:
+		if self.showing:
+			self.hide()
+			get_tree().paused = false
+		else:
+			self.show()
+			get_tree().paused = true
+		self.showing = !self.showing
+
 
 func undo_last_drawing():
 	if strokes.size() > 0:
