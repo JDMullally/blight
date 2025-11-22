@@ -21,7 +21,7 @@ tile_map_data = PackedByteArray("AADo//n/AAABAAAAAADo//r/AAABAAEAAADo//v/AAABAAA
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="DrawingArea" parent="CanvasLayer" instance=ExtResource("3_ppgk2")]
+[node name="Control" parent="CanvasLayer" instance=ExtResource("3_ppgk2")]
 visible = false
 
 [node name="FPS" type="Label" parent="CanvasLayer"]

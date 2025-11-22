@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8cti6qe10mbd"]
 
 [ext_resource type="Texture2D" uid="uid://brslajjmaogd5" path="res://icon.svg" id="1_r67kn"]
-[ext_resource type="Script" uid="uid://cs6iojcmspkqt" path="res://scripts/drawing_area.gd" id="2_brbbq"]
+[ext_resource type="Script" uid="uid://cs6iojcmspkqt" path="res://control.gd" id="2_brbbq"]
 
 [node name="DrawingArea" type="TextureRect"]
 process_mode = 3

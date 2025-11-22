@@ -12,6 +12,8 @@ extends TextureRect
 @export var simplify_enable : bool = true
 @export var simplify_distance : float = 2.0
 @export var simplify_collinear : float = 1.0
+@onready var error_label: RichTextLabel = $ErrorLabel
+@onready var timer: Timer = $Timer
 
 var showing : bool = false
 var strokes : Array[PackedVector2Array] = []
@@ -28,8 +30,12 @@ func _ready() -> void:
 func _gui_input(event : InputEvent) -> void:
 	var existing_polygon : bool = len(polygons) >= 1 or len(strokes) >= 1
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not existing_polygon:
+		if !timer.is_stopped():
+			timer.stop()
 		start_stop_draw(event)
 	elif event is InputEventMouseMotion and is_drawing and not existing_polygon:
+		if !timer.is_stopped():
+			timer.stop()
 		move_and_draw(event)
 
 func move_and_draw(event : InputEvent):
@@ -65,7 +71,6 @@ func _input(event : InputEvent) -> void:
 			get_tree().paused = true
 		self.showing = !self.showing
 
-
 func undo_last_drawing():
 	if strokes.size() > 0:
 		strokes.resize(strokes.size() - 1)
@@ -87,8 +92,14 @@ func save_all_polygons():
 	for poly in outlines:
 		poly = _simplify_polygon(poly, simplify_distance, simplify_collinear)
 		poly.append(poly[0])
-		polygons.append(poly)
-		print("Saved polygon with ", poly.size(), " vertices.")
+		if poly.size() < 150:
+			polygons.append(poly)
+			var area = polygon_area(poly)
+			print("Saved polygon with ", poly.size(), " vertices and ", area, " area.")
+			SignalBus.update_poly.emit(poly)
+		else:
+			timer.start()
+			error_label.append_text("[color=RED][font_size=20]Too many vertices. Unable to save shaped spell.[/font_size][/color]")
 		
 	strokes.clear()
 	current = PackedVector2Array()
@@ -97,6 +108,7 @@ func save_all_polygons():
 
 func remove_all_polygons():
 	polygons.clear()
+	clear_unsaved_polygons()
 	queue_redraw()
 	accept_event()
 
@@ -193,7 +205,7 @@ func _rdp_polyline(points : PackedVector2Array, epsilon : float) -> PackedVector
 	else:
 		return PackedVector2Array([points[0], points[end_point]])
 
-func _simplify_polygon(poly : PackedVector2Array, distance_epsilon : float, collinear_epsilon : float) -> PackedVector2Array:
+func _simplify_polygon(poly : PackedVector2Array, distance_epsilon : float, _collinear_epsilon : float) -> PackedVector2Array:
 	if poly.size() < 3:
 		return poly
 		
@@ -217,12 +229,29 @@ func _simplify_polygon(poly : PackedVector2Array, distance_epsilon : float, coll
 		changed = false
 		var out2 : PackedVector2Array = PackedVector2Array()
 		for i in range(rdp.size()):
-			var prev_vertex : Vector2 = rdp[(i - 1 + rdp.size()) % rdp.size()]
+			#var prev_vertex : Vector2 = rdp[(i - 1 + rdp.size()) % rdp.size()]
 			var current_vertex : Vector2 = rdp[i]
-			var next_vertex : Vector2 = rdp[(i + 1) % rdp.size()]
-			if is_collinear(prev_vertex, current_vertex, next_vertex, collinear_epsilon):
-				changed = true
-			else:
-				out2.append(current_vertex)
+			#var next_vertex : Vector2 = rdp[(i + 1) % rdp.size()]
+			#if is_collinear(prev_vertex, current_vertex, next_vertex, collinear_epsilon):
+				#changed = true
+			#else:
+			out2.append(current_vertex)
 		rdp = out2
 	return rdp
+
+func polygon_area(poly : PackedVector2Array) -> float:
+	var area := 0.0
+	var n := poly.size()
+	if n < 3:
+		return 0.0
+
+	for i in range(n):
+		var j := (i + 1) % n
+		area += poly[i].x * poly[j].y
+		area -= poly[j].x * poly[i].y
+
+	return abs(area) * 0.5
+
+func _process(_delta : float):
+	if timer.is_stopped():
+		error_label.clear()
