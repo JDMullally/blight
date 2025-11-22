@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://p4sikjlwdqtt"]
 
-[ext_resource type="Shader" uid="uid://bypgr602phyh7" path="res://resources/spell_shader.gdshader" id="1_u3arx"]
+[ext_resource type="Shader" path="res://resources/spell_shader.gdshader" id="1_u3arx"]
 
 [resource]
 shader = ExtResource("1_u3arx")
