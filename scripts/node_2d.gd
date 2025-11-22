@@ -40,7 +40,7 @@ func _on_spawn_timer_timeout() -> void:
 		new_monster.home = spawn_point
 		monster_list.append(new_monster)
 		add_child(new_monster)
-		spawn_timer.wait_time = len(monster_list) * .05
+		spawn_timer.wait_time = clampf(len(monster_list) * .05, .1, 1.0)
 		spawn_timer.start()
 
 
