@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlmge34naqhh5"]
+
+[ext_resource type="Texture2D" uid="uid://cks5qhiiu74h6" path="res://art/shrines/water_shrine/Godot Import Bottom Right Well.png" id="1_t823o"]
+[ext_resource type="Script" uid="uid://w8mau1r3hem8" path="res://scripts/well.gd" id="2_qh03e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy4l3"]
+atlas = ExtResource("1_t823o")
+region = Rect2(0, 0, 640, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y28kb"]
+size = Vector2(59, 36)
+
+[node name="BottomWell" type="Sprite2D"]
+texture = SubResource("AtlasTexture_qy4l3")
+flip_h = true
+script = ExtResource("2_qh03e")
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
+position = Vector2(-262.5, 81)
+shape = SubResource("RectangleShape2D_y28kb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-292, 63)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 0, 56, -1, 62, 6, 105, -18, 140, 1, 61, 18, 59, 27, 39, 37, 15, 35, -1, 25)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-144, 35)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(-13, 0, 19, 21, 78, -5, 67, -22)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://d1e5cpysxgpxw" path="res://scripts/states/idle.gd" id="4_gp4s5"]
 [ext_resource type="Script" uid="uid://era8q204ts1n" path="res://scripts/states/chase.gd" id="5_gdl1p"]
 [ext_resource type="Script" uid="uid://dfcvifdmvwaus" path="res://scripts/states/hit.gd" id="6_gdl1p"]
-[ext_resource type="Script" uid="uid://dqkg6al5ply4o" path="res://scenes/cooldown.gd" id="7_v8ewj"]
-[ext_resource type="Script" uid="uid://cixof1qqpq01l" path="res://scripts/despawn.gd" id="8_yce20"]
+[ext_resource type="Script" uid="uid://dqkg6al5ply4o" path="res://scripts/states/cooldown.gd" id="7_v8ewj"]
+[ext_resource type="Script" path="res://scripts/despawn.gd" id="8_yce20"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c47ug"]
 atlas = ExtResource("2_1cbnp")
@@ -88,7 +88,10 @@ target_desired_distance = 5.0
 navigation_layers = 2147483649
 path_postprocessing = 1
 avoidance_enabled = true
+debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
+debug_path_custom_point_size = 2.0
+debug_path_custom_line_width = 1.0
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true

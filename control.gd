@@ -12,8 +12,8 @@ extends TextureRect
 @export var simplify_enable : bool = true
 @export var simplify_distance : float = 2.0
 @export var simplify_collinear : float = 1.0
-@onready var error_label: RichTextLabel = $ErrorLabel
-@onready var timer: Timer = $Timer
+@onready var error_label: RichTextLabel = %ErrorLabel
+@onready var timer: Timer = %Timer
 
 var showing : bool = false
 var strokes : Array[PackedVector2Array] = []

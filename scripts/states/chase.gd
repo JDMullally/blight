@@ -51,6 +51,7 @@ func _move_to_target() -> void:
 
 func _update_agent_target(force : bool) -> void:
 	var player_pos : Vector2 = player.global_position
+	var player_velocity : Vector2 = player.velocity
 	if monster.global_position.distance_to(player_pos) <= monster.attack_range:
 		transition_requested.emit(self, MonsterState.State.Hit, monster)
 		return
@@ -62,5 +63,6 @@ func _update_agent_target(force : bool) -> void:
 	
 	if not force and last_player_target.distance_to(player_pos) < repath_distance_threshold:
 		return
-	agent.target_position = player_pos
-	last_player_target = player_pos
+	
+	agent.target_position = player_pos + player_velocity * monster.hunter_time/3
+	last_player_target = player_pos + player_velocity * monster.hunter_time/3

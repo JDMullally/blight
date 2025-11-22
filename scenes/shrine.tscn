@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://b37yy2bwfqns2"]
+
+[ext_resource type="PackedScene" uid="uid://pofsb057c42" path="res://scenes/top_well.tscn" id="1_c1ic8"]
+[ext_resource type="Script" uid="uid://be072dwv1tcq4" path="res://scripts/water_shrine.gd" id="1_d4gs6"]
+[ext_resource type="PackedScene" uid="uid://dlmge34naqhh5" path="res://scenes/bottom_well.tscn" id="2_fmupm"]
+[ext_resource type="Texture2D" uid="uid://cqdveh2a81f66" path="res://art/shrines/water_shrine/Godot Import Top Left Well.png" id="2_sexw3"]
+[ext_resource type="Texture2D" uid="uid://bqw6rqh4aa2xm" path="res://art/shrines/water_shrine/Godot Import Shrine Structure.png" id="3_sexw3"]
+[ext_resource type="Texture2D" uid="uid://cks5qhiiu74h6" path="res://art/shrines/water_shrine/Godot Import Bottom Right Well.png" id="4_d4gs6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvg58"]
+atlas = ExtResource("2_sexw3")
+region = Rect2(0, 0, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7q7c"]
+atlas = ExtResource("2_sexw3")
+region = Rect2(0, 0, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jndlm"]
+atlas = ExtResource("4_d4gs6")
+region = Rect2(0, 0, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbuan"]
+atlas = ExtResource("4_d4gs6")
+region = Rect2(0, 0, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4gs6"]
+atlas = ExtResource("3_sexw3")
+region = Rect2(0, 0, 640, 320)
+
+[node name="WaterShrine" type="Node2D"]
+position = Vector2(301, 135)
+script = ExtResource("1_d4gs6")
+
+[node name="TopLeftWell" parent="." instance=ExtResource("1_c1ic8")]
+unique_name_in_owner = true
+texture = SubResource("AtlasTexture_kvg58")
+
+[node name="TopRightWell" parent="." instance=ExtResource("1_c1ic8")]
+unique_name_in_owner = true
+position = Vector2(15, -2)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+texture = SubResource("AtlasTexture_x7q7c")
+
+[node name="BottomLeftWell" parent="." instance=ExtResource("2_fmupm")]
+unique_name_in_owner = true
+position = Vector2(20, 0)
+texture = SubResource("AtlasTexture_jndlm")
+
+[node name="BottomRightWell" parent="." instance=ExtResource("2_fmupm")]
+unique_name_in_owner = true
+scale = Vector2(-1, 1)
+texture = SubResource("AtlasTexture_mbuan")
+
+[node name="ShrineSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_d4gs6")
+
+[node name="Node2D" type="StaticBody2D" parent="ShrineSprite"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="ShrineSprite/Node2D"]
+position = Vector2(6.5, -12)
+polygon = PackedVector2Array(36.5, -67, 33.5, -70, 70.5, -30, 72.5, 34, 76.5, 66, 46.5, 92, 16.5, 74, -6.5, 60, -42.5, 64, -72.5, 66, -86.5, 55, -72.5, 19, -68.5, -41, 5.5, -91, 33.5, -70)

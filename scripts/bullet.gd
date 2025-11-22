@@ -1,10 +1,12 @@
 extends Area2D
+class_name Bullet
 
 @export var speed : float = 150.0
 var velocity : Vector2 = Vector2.ZERO
 
 @onready var hitbox: CollisionPolygon2D = $Hitbox
 @onready var timer: Timer = $Timer
+var element : Element = Element.Water
 const LOVE_PARTICLE_UID = "uid://ccf5jhypapbd7"
 
 enum Element {Light, Love, Water, Song}
@@ -27,7 +29,8 @@ func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2) 
 	
 	var new_poly = Polygon2D.new()
 	new_poly.polygon = local_poly
-	new_poly.color = Color(0.8, 0.4, 0.7)
+	# new_poly.color = Color(0.8, 0.4, 0.7)
+	new_poly.color = Color(0,.6,.8)
 	new_poly.modulate.a = 0.7
 	add_child(new_poly)
 
@@ -37,6 +40,7 @@ func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2) 
 			gpu_part.position = point
 			gpu_part.scale = Vector2(100,100)
 			hitbox.add_child(gpu_part)
+			hitbox.polygon = local_poly
 	else:
 		var multiplier : float = len(local_poly) / 30.0
 		for i in range(30):
@@ -45,6 +49,7 @@ func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2) 
 			gpu_part.position = local_poly[index]
 			gpu_part.scale = Vector2(100,100)
 			hitbox.add_child(gpu_part)
+			hitbox.polygon = local_poly
 			# print(index)
 	global_position = start_pos
 	velocity = direction.normalized() * speed
@@ -55,8 +60,7 @@ func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2) 
 		self.scale = Vector2(0.1, -0.1)
 	rotation = direction.angle()
 	
-	hitbox.polygon = local_poly
-	hitbox.visible = true
+	# hitbox.visible = true
 
 func _process(_delta: float) -> void:
 	if timer.is_stopped():

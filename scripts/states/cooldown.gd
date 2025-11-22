@@ -11,5 +11,3 @@ func enter():
 func on_tick():
 	if timer.is_stopped():
 		transition_requested.emit(self, MonsterState.State.Idle, monster)
-	else:
-		print("resting")
