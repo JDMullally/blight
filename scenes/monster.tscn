@@ -68,7 +68,7 @@ script = ExtResource("1_1cbnp")
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_yce20")
 animation = &"run"
-frame_progress = 0.49592906
+frame_progress = 0.88203275
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 position = Vector2(2, -10)
