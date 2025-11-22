@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://jfs5i4mhvrlw"]
+
+[ext_resource type="Script" uid="uid://dta0mjfe67mcw" path="res://scripts/menuUtil.gd" id="1_sf880"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i57f3"]
+font_size = 38
+
+[node name="Failure" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sf880")
+
+[node name="QuitGameButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 766.0
+offset_right = 475.0
+offset_bottom = 864.0
+text = "QUIT"
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 533.0
+offset_right = 477.0
+offset_bottom = 631.0
+text = "RESTART"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 433.0
+offset_right = 1084.0
+offset_bottom = 542.0
+text = "Loser!"
+label_settings = SubResource("LabelSettings_i57f3")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="QuitGameButton" to="." method="_on_quit_game_button_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
