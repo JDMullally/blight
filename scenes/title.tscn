@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://54h4hjoeo0dw"]
+[gd_scene load_steps=5 format=3 uid="uid://54h4hjoeo0dw"]
 
 [ext_resource type="Script" uid="uid://dta0mjfe67mcw" path="res://scripts/menuUtil.gd" id="1_4ignj"]
+[ext_resource type="Texture2D" uid="uid://kd825adc653l" path="res://art/UI/basic button-Sheet-blight.png" id="2_wosw1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6dhs"]
+atlas = ExtResource("2_wosw1")
+region = Rect2(0, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyl7j"]
+atlas = ExtResource("2_wosw1")
+region = Rect2(128, 0, 128, 32)
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -27,14 +36,15 @@ offset_right = 478.0
 offset_bottom = 627.0
 text = "SETTINGS"
 
-[node name="CreditsButton" type="Button" parent="."]
+[node name="CreditsButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 179.0
+offset_left = 138.0
 offset_top = 648.0
-offset_right = 476.0
-offset_bottom = 746.0
-text = "CREDITS
-"
+offset_right = 522.0
+offset_bottom = 744.0
+texture_normal = SubResource("AtlasTexture_p6dhs")
+texture_pressed = SubResource("AtlasTexture_pyl7j")
+stretch_mode = 0
 
 [node name="QuitGameButton" type="Button" parent="."]
 layout_mode = 0
