@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://54h4hjoeo0dw"]
+[gd_scene load_steps=6 format=3 uid="uid://54h4hjoeo0dw"]
 
 [ext_resource type="Script" uid="uid://dta0mjfe67mcw" path="res://scripts/menuUtil.gd" id="1_4ignj"]
 [ext_resource type="Texture2D" uid="uid://kd825adc653l" path="res://art/UI/basic button-Sheet-blight.png" id="2_wosw1"]
@@ -10,6 +10,9 @@ region = Rect2(0, 0, 128, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_pyl7j"]
 atlas = ExtResource("2_wosw1")
 region = Rect2(128, 0, 128, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wosw1"]
+font_size = 24
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -28,13 +31,24 @@ offset_right = 471.0
 offset_bottom = 507.0
 text = "START"
 
-[node name="SettingsButton" type="Button" parent="."]
+[node name="SettingsButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 181.0
-offset_top = 529.0
-offset_right = 478.0
-offset_bottom = 627.0
+offset_left = 138.0
+offset_top = 548.0
+offset_right = 522.0
+offset_bottom = 644.0
+texture_normal = SubResource("AtlasTexture_p6dhs")
+texture_pressed = SubResource("AtlasTexture_pyl7j")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="SettingsButton"]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 96.0
 text = "SETTINGS"
+label_settings = SubResource("LabelSettings_wosw1")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CreditsButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -45,6 +59,15 @@ offset_bottom = 744.0
 texture_normal = SubResource("AtlasTexture_p6dhs")
 texture_pressed = SubResource("AtlasTexture_pyl7j")
 stretch_mode = 0
+
+[node name="Label" type="Label" parent="CreditsButton"]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 96.0
+text = "CREDITS"
+label_settings = SubResource("LabelSettings_wosw1")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="QuitGameButton" type="Button" parent="."]
 layout_mode = 0
@@ -58,6 +81,8 @@ text = "QUIT"
 bus = &"Music"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="button_down" from="SettingsButton" to="." method="_on_settings_button_button_down"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="button_down" from="CreditsButton" to="." method="_on_credits_button_button_down"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="QuitGameButton" to="." method="_on_quit_game_button_pressed"]

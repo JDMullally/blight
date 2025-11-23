@@ -21,6 +21,10 @@ func _on_restart_button_pressed() -> void:
 
 func _on_settings_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/settings.tscn")
+	
+func _on_settings_button_button_down() -> void:
+	$SettingsButton/Label.set_position($SettingsButton/Label.position + Vector2(6,6))
+
 
 
 func _on_quit_game_button_pressed() -> void:
@@ -46,3 +50,6 @@ func _on_title_screen_button_pressed() -> void:
 
 func _on_credits_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
+
+func _on_credits_button_button_down() -> void:
+	$CreditsButton/Label.set_position($CreditsButton/Label.position + Vector2(6,6))

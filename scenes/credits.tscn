@@ -17,21 +17,38 @@ script = ExtResource("1_0bpdh")
 [node name="TitleScreenButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 190.0
-offset_top = 742.0
+offset_top = 940.0
 offset_right = 499.0
-offset_bottom = 810.0
+offset_bottom = 1008.0
 text = "TITLE SCREEN"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 213.0
-offset_top = 267.0
+offset_top = 73.0
 offset_right = 483.0
-offset_bottom = 643.0
+offset_bottom = 889.0
 text = "CREDITS
 
+DEVELOPMENT
+Joseph Mullally
 
-Yayyyyyyyyyyy"
+ART
+Abirami Sankar
+Nicole Cerundolo
+Sudharshan Rajan
+
+UI/UX
+Abirami Sankar
+Alexander Langrock
+
+PUZZLE DESIGN
+Abirami Sankar
+Nicole Cerundolo
+Sudharshan Rajan
+
+SFX/MUSIC
+Alexander Langrock"
 label_settings = SubResource("LabelSettings_0bpdh")
 horizontal_alignment = 1
 
