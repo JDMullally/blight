@@ -1,0 +1,94 @@
+[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://cjqiyibpovm2d"]
+
+[ext_resource type="Texture2D" uid="uid://4kbwlklduq2t" path="res://art/tiles/Corrupted Bush Base.png" id="1_did67"]
+[ext_resource type="Texture2D" uid="uid://sj3v3dk3yqix" path="res://art/tiles/Sample Corrupted Grass Tile.png" id="2_qvmtg"]
+[ext_resource type="Texture2D" uid="uid://47nvu2e4b5hb" path="res://art/tiles/Grass Top Blend.png" id="3_lmoxx"]
+[ext_resource type="Texture2D" uid="uid://br4uejic5bp2o" path="res://art/tiles/dirt path1.png" id="3_qvmtg"]
+[ext_resource type="Texture2D" uid="uid://bcasxk0xvuvea" path="res://art/tiles/Grass Side Blend.png" id="4_km64h"]
+[ext_resource type="Texture2D" uid="uid://caaobo666lycr" path="res://art/tiles/Grass Bottom Blend.png" id="5_yi33r"]
+[ext_resource type="Texture2D" uid="uid://bojb1kkuh3dk4" path="res://art/tiles/Sample Grass Tile.png" id="6_otc5m"]
+[ext_resource type="Texture2D" uid="uid://v1ltslhhvd7m" path="res://art/tiles/tile set.png" id="7_x560g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_thky2"]
+texture = ExtResource("1_did67")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8ul8"]
+texture = ExtResource("2_qvmtg")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lmoxx"]
+texture = ExtResource("3_qvmtg")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ixuq7"]
+texture = ExtResource("3_lmoxx")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lumo4"]
+texture = ExtResource("4_km64h")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gc8d3"]
+texture = ExtResource("5_yi33r")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eufp2"]
+texture = ExtResource("6_otc5m")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6006"]
+texture = ExtResource("7_x560g")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_thky2")
+sources/1 = SubResource("TileSetAtlasSource_k8ul8")
+sources/2 = SubResource("TileSetAtlasSource_ixuq7")
+sources/3 = SubResource("TileSetAtlasSource_lumo4")
+sources/4 = SubResource("TileSetAtlasSource_gc8d3")
+sources/6 = SubResource("TileSetAtlasSource_eufp2")
+sources/7 = SubResource("TileSetAtlasSource_s6006")
+sources/11 = SubResource("TileSetAtlasSource_lmoxx")

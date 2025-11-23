@@ -8,6 +8,7 @@ class_name Monster
 @onready var idle: Node = $StateMachine/Idle
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var purge_me = false
+@onready var kill_me = false
 
 var home : Vector2 = Vector2.ZERO
 var talking_stick : bool = true
@@ -37,8 +38,6 @@ func play_animation():
 		animated_sprite_2d.play("idle")
 
 func dissapear():
-	#velocity = Vector2.ZERO
-	#animated_sprite_2d.play("idle")
 	var tween := create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 1.0)
 	tween.tween_callback(func(): 

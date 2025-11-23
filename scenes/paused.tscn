@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dldfcs4d7t6fk"]
+[gd_scene load_steps=5 format=3 uid="uid://dldfcs4d7t6fk"]
 
 [ext_resource type="Script" uid="uid://dta0mjfe67mcw" path="res://scripts/menuUtil.gd" id="1_r8o1p"]
 [ext_resource type="PackedScene" uid="uid://cwig508gpj7v" path="res://scenes/volume.tscn" id="2_f4kqd"]
+[ext_resource type="Texture2D" uid="uid://cl0eman8b4r4w" path="res://art/ui/basic button up.png" id="3_2eaon"]
+[ext_resource type="Texture2D" uid="uid://bfsyul2q4hogu" path="res://art/ui/basic button down.png" id="4_j5rf4"]
 
 [node name="Paused" type="Control"]
 layout_mode = 3
@@ -12,73 +14,111 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r8o1p")
 
-[node name="ResumeButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1014.0
-offset_top = 456.0
-offset_right = 1323.0
-offset_bottom = 524.0
-text = "RESUME"
-
-[node name="RestartButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1014.0
-offset_top = 543.0
-offset_right = 1323.0
-offset_bottom = 611.0
-text = "RESTART"
-
-[node name="TitleScreenButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1015.0
-offset_top = 630.0
-offset_right = 1324.0
-offset_bottom = 698.0
-text = "TITLE SCREEN"
-
-[node name="QuitGameButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1015.0
-offset_top = 714.0
-offset_right = 1324.0
-offset_bottom = 782.0
-text = "QUIT"
-
-[node name="MusicCheckButton" type="CheckButton" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 618.0
-offset_top = 528.0
-offset_right = 756.0
-offset_bottom = 601.0
-button_pressed = true
-text = "MUSIC"
-
-[node name="SFXCheckButton" type="CheckButton" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 616.0
-offset_top = 460.0
-offset_right = 754.0
-offset_bottom = 533.0
-button_pressed = true
-text = "SFX"
-
 [node name="GreyScaleCheckButton" type="CheckButton" parent="."]
 layout_mode = 0
-offset_left = 620.0
-offset_top = 659.0
-offset_right = 758.0
-offset_bottom = 732.0
+offset_left = 100.0
+offset_top = 700.0
+offset_right = 238.0
+offset_bottom = 773.0
 text = "GREYSCALE"
 
 [node name="Volume" parent="." instance=ExtResource("2_f4kqd")]
 layout_mode = 0
+offset_left = 25.0
+offset_top = 525.0
+offset_right = 25.0
+offset_bottom = 525.0
 
-[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
-[connection signal="pressed" from="QuitGameButton" to="." method="_on_quit_game_button_pressed"]
-[connection signal="toggled" from="MusicCheckButton" to="." method="_on_music_check_button_toggled"]
-[connection signal="toggled" from="SFXCheckButton" to="." method="_on_sfx_check_button_toggled"]
+[node name="Restart" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 225.0
+offset_right = 153.0
+offset_bottom = 265.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_2eaon")
+texture_pressed = ExtResource("4_j5rf4")
+
+[node name="Restart" type="RichTextLabel" parent="Restart"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 5.0
+offset_right = 110.0
+offset_bottom = 27.0
+scale = Vector2(0.8, 0.8)
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center]Restart[/center]"
+scroll_active = false
+
+[node name="Title" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 300.0
+offset_right = 153.0
+offset_bottom = 340.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_2eaon")
+texture_pressed = ExtResource("4_j5rf4")
+
+[node name="Title" type="RichTextLabel" parent="Title"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 5.0
+offset_right = 120.25
+offset_bottom = 26.0
+scale = Vector2(0.8, 0.8)
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center]Title Screen[/center]"
+scroll_active = false
+
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 375.0
+offset_right = 153.0
+offset_bottom = 415.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_2eaon")
+texture_pressed = ExtResource("4_j5rf4")
+
+[node name="Quit" type="RichTextLabel" parent="Quit"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 5.0
+offset_right = 110.0
+offset_bottom = 27.0
+scale = Vector2(0.8, 0.8)
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center]Quit[/center]"
+scroll_active = false
+
+[node name="Resume" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 450.0
+offset_right = 153.0
+offset_bottom = 490.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_2eaon")
+texture_pressed = ExtResource("4_j5rf4")
+
+[node name="Resume" type="RichTextLabel" parent="Resume"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 5.0
+offset_right = 110.0
+offset_bottom = 27.0
+scale = Vector2(0.8, 0.8)
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center]Resume[/center]"
+scroll_active = false
+
 [connection signal="toggled" from="GreyScaleCheckButton" to="." method="_on_grey_scale_check_button_toggled"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Title" to="." method="_on_title_screen_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_game_button_pressed"]
+[connection signal="pressed" from="Resume" to="." method="_on_resume_button_pressed"]

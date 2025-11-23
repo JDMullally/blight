@@ -1,15 +1,13 @@
 extends Area2D
 class_name Bullet
 
-@export var speed : float = 150.0
-var velocity : Vector2 = Vector2.ZERO
-
 @onready var hitbox: CollisionPolygon2D = $Hitbox
 @onready var timer: Timer = $Timer
-var element : Element = Element.Water
-const LOVE_PARTICLE_UID = "uid://ccf5jhypapbd7"
 
-enum Element {Light, Love, Water, Song}
+var velocity : Vector2 = Vector2.ZERO
+var stats : BulletStats
+
+const LOVE_PARTICLE_UID = "uid://ccf5jhypapbd7"
 
 func _center_polygon(poly : PackedVector2Array) -> PackedVector2Array:
 	var center := Vector2.ZERO
@@ -23,10 +21,10 @@ func _center_polygon(poly : PackedVector2Array) -> PackedVector2Array:
 	return result
 
 
-func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2) -> void:
+func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2, bullet_stats : BulletStats) -> void:
 	timer.start()
 	var local_poly := _center_polygon(poly)
-	
+	self.stats = bullet_stats
 	var new_poly = Polygon2D.new()
 	new_poly.polygon = local_poly
 	# new_poly.color = Color(0.8, 0.4, 0.7)
@@ -52,7 +50,8 @@ func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2) 
 			hitbox.polygon = local_poly
 			# print(index)
 	global_position = start_pos
-	velocity = direction.normalized() * speed
+	if stats:
+		velocity = direction.normalized() * stats.speed
 
 	if direction.normalized().x >= 0:
 		self.scale = Vector2(0.1, 0.1)
@@ -61,6 +60,9 @@ func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2) 
 	rotation = direction.angle()
 	
 	# hitbox.visible = true
+
+func is_element(element : SignalBus.Element):
+	return stats and element == stats.element
 
 func _process(_delta: float) -> void:
 	if timer.is_stopped():

@@ -1,5 +1,6 @@
 extends TextureRect
 
+@export var element : SignalBus.Element = SignalBus.Element.Water
 @export var line_width : float = 6.0
 @export var line_color : Color = Color.BLACK
 @export var min_point_dist : float = 2.0
@@ -12,8 +13,6 @@ extends TextureRect
 @export var simplify_enable : bool = true
 @export var simplify_distance : float = 2.0
 @export var simplify_collinear : float = 1.0
-@onready var error_label: RichTextLabel = $ErrorLabel
-@onready var timer: Timer = $Timer
 
 var showing : bool = false
 var strokes : Array[PackedVector2Array] = []
@@ -30,12 +29,8 @@ func _ready() -> void:
 func _gui_input(event : InputEvent) -> void:
 	var existing_polygon : bool = len(polygons) >= 1 or len(strokes) >= 1
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not existing_polygon:
-		if !timer.is_stopped():
-			timer.stop()
 		start_stop_draw(event)
 	elif event is InputEventMouseMotion and is_drawing and not existing_polygon:
-		if !timer.is_stopped():
-			timer.stop()
 		move_and_draw(event)
 
 func move_and_draw(event : InputEvent):
@@ -61,16 +56,6 @@ func start_stop_draw(event : InputEvent):
 		current = PackedVector2Array()
 		queue_redraw()
 
-func _input(event : InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo and event.keycode == Key.KEY_TAB:
-		if self.showing:
-			self.hide()
-			get_tree().paused = false
-		else:
-			self.show()
-			get_tree().paused = true
-		self.showing = !self.showing
-
 func undo_last_drawing():
 	if strokes.size() > 0:
 		strokes.resize(strokes.size() - 1)
@@ -92,14 +77,13 @@ func save_all_polygons():
 	for poly in outlines:
 		poly = _simplify_polygon(poly, simplify_distance, simplify_collinear)
 		poly.append(poly[0])
-		if poly.size() < 150:
+		var area : float = polygon_area(poly)
+		var max_area : float = self.size.x * self.size.y
+		var percentage_area : float = area/max_area
+		if poly.size() < 150 and percentage_area < 1:
 			polygons.append(poly)
-			var area = polygon_area(poly)
-			print("Saved polygon with ", poly.size(), " vertices and ", area, " area.")
-			SignalBus.update_poly.emit(poly)
-		else:
-			timer.start()
-			error_label.append_text("[color=RED][font_size=20]Too many vertices. Unable to save shaped spell.[/font_size][/color]")
+			print("Saved polygon with ", poly.size(), " vertices and ", percentage_area, " area.")
+			SignalBus.update_poly.emit(poly, percentage_area, element)
 		
 	strokes.clear()
 	current = PackedVector2Array()
@@ -251,7 +235,3 @@ func polygon_area(poly : PackedVector2Array) -> float:
 		area -= poly[j].x * poly[i].y
 
 	return abs(area) * 0.5
-
-func _process(_delta : float):
-	if timer.is_stopped():
-		error_label.clear()

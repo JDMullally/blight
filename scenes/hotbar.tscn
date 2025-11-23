@@ -1,0 +1,167 @@
+[gd_scene load_steps=3 format=3 uid="uid://qtbcio8t7kmf"]
+
+[ext_resource type="Script" uid="uid://c300wk2tkowhm" path="res://scripts/hotbar.gd" id="1_4qkdb"]
+[ext_resource type="Texture2D" uid="uid://c3bo54inchesx" path="res://art/ui/draw_page.png" id="1_yj1xu"]
+
+[node name="Hotbar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4qkdb")
+
+[node name="Water" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 810.0
+offset_top = 900.0
+offset_right = 1085.0
+offset_bottom = 1175.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_yj1xu")
+expand_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Water"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rounded = true
+show_percentage = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Water"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 96.0
+offset_right = 246.0
+offset_bottom = 194.0
+bbcode_enabled = true
+text = "[font_size=64][center]Water[/center][/font_size]"
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Water"]
+layout_mode = 0
+offset_right = 106.0
+offset_bottom = 88.0
+bbcode_enabled = true
+text = "[font_size=64][center]1[/center][/font_size]"
+scroll_active = false
+
+[node name="Love" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1060.0
+offset_top = 900.0
+offset_right = 1335.0
+offset_bottom = 1175.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_yj1xu")
+expand_mode = 2
+
+[node name="ProgressBar2" type="ProgressBar" parent="Love"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rounded = true
+show_percentage = false
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Love"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -6.0
+offset_right = 84.0
+offset_bottom = 82.0
+bbcode_enabled = true
+text = "[font_size=64][center]2[/center][/font_size]"
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Love"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 50.0
+offset_right = 242.0
+offset_bottom = 148.0
+bbcode_enabled = true
+text = "[font_size=64][center]Love[/center][/font_size]"
+scroll_active = false
+
+[node name="Light" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1310.0
+offset_top = 900.0
+offset_right = 1585.0
+offset_bottom = 1175.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_yj1xu")
+expand_mode = 2
+
+[node name="ProgressBar3" type="ProgressBar" parent="Light"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rounded = true
+show_percentage = false
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Light"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -6.0
+offset_right = 88.0
+offset_bottom = 82.0
+bbcode_enabled = true
+text = "[font_size=64][center]3[/center][/font_size]"
+scroll_active = false
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Light"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 46.0
+offset_right = 244.0
+offset_bottom = 144.0
+bbcode_enabled = true
+text = "[font_size=64][center]Light[/center][/font_size]"
+scroll_active = false
+
+[node name="Song" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1560.0
+offset_top = 900.0
+offset_right = 1835.0
+offset_bottom = 1175.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_yj1xu")
+expand_mode = 2
+
+[node name="ProgressBar4" type="ProgressBar" parent="Song"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rounded = true
+show_percentage = false
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Song"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = -6.0
+offset_right = 78.0
+offset_bottom = 82.0
+bbcode_enabled = true
+text = "[font_size=64][center]4[/center][/font_size]"
+scroll_active = false
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Song"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 46.0
+offset_right = 252.0
+offset_bottom = 144.0
+bbcode_enabled = true
+text = "[font_size=64][center]Song[/center][/font_size]"
+scroll_active = false

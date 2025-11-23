@@ -1,15 +1,16 @@
 extends MonsterState
 
 const MELEE_DISTANCE = 16.0
-
+const MAX_RETRIES = 5
 @onready var agent : NavigationAgent2D = %NavigationAgent2D
 @onready var player : Node2D = get_tree().get_first_node_in_group("player")
-
+var retries = 0
 var repath_distance_threshold : float = 32.0
 var last_player_target : Vector2 = Vector2.INF
 
 func enter() -> void:
 	if player != null:
+		monster.modulate.a = 1.0
 		_update_agent_target(true)
 	monster.talking_stick = true
 	#if timer != null:
@@ -49,6 +50,14 @@ func _move_to_target() -> void:
 	monster.move_and_slide()
 
 
+func get_circle_points(center: Vector2, radius: float, count: int = 16) -> Array[Vector2]:
+	var points: Array[Vector2] = []
+	for i: int in count:
+		var angle: float = TAU * float(i) / float(count) # TAU = 2 * PI
+		var offset: Vector2 = Vector2(cos(angle), sin(angle)) * radius
+		points.append(center + offset)
+	return points
+
 func _update_agent_target(force : bool) -> void:
 	var player_pos : Vector2 = player.global_position
 	var player_velocity : Vector2 = player.velocity
@@ -57,12 +66,20 @@ func _update_agent_target(force : bool) -> void:
 		return
 		
 	if !agent.is_target_reachable():
-		transition_requested.emit(self, MonsterState.State.Despawn, monster)
-		agent.target_position = monster.home
-		return
+		if retries >= MAX_RETRIES:
+			transition_requested.emit(self, MonsterState.State.Despawn, monster)
+			agent.target_position = monster.home
+			return
+		else:
+			retries += 1
+			return
 	
 	if not force and last_player_target.distance_to(player_pos) < repath_distance_threshold:
 		return
 	
+	var rad = player_velocity.length() * monster.hunter_time/3
+	var points = get_circle_points(player_pos, rad)
+	points.shuffle()
+	retries = 0
 	agent.target_position = player_pos + player_velocity * monster.hunter_time/3
 	last_player_target = player_pos + player_velocity * monster.hunter_time/3

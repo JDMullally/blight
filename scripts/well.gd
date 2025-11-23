@@ -28,6 +28,6 @@ func increment_well():
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area is Bullet:
 		var bullet : Bullet = area
-		if bullet.element == Bullet.Element.Water:
+		if bullet.is_element(SignalBus.Element.Water):
 			self.increment_well()
 			area.queue_free()

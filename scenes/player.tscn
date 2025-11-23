@@ -1,9 +1,106 @@
-[gd_scene load_steps=8 format=3 uid="uid://bi5t5rs6j68by"]
+[gd_scene load_steps=21 format=3 uid="uid://bi5t5rs6j68by"]
 
 [ext_resource type="Script" uid="uid://csw2shgruxl4m" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://brslajjmaogd5" path="res://icon.svg" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://cjaajdilua3co" path="res://art/player/walk cycle.png" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://b2cxroji8n8d3" path="res://scenes/wand.tscn" id="3_qhqgy"]
-[ext_resource type="PackedScene" uid="uid://b8cti6qe10mbd" path="res://scenes/control.tscn" id="4_dqkch"]
+[ext_resource type="PackedScene" uid="uid://dltvpaj0isjxc" path="res://scenes/mock_scenes/spellbook.tscn" id="4_dqkch"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(0, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(0, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(45, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(90, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(135, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(180, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(225, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(270, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(315, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(360, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(405, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(450, 0, 45, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qfm1y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_fjrip")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_d2wvv")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_3v2ag")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_oprun")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_a8ls1")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
 radius = 4.0
@@ -23,10 +120,13 @@ collision_layer = 2147483650
 collision_mask = 2147483650
 script = ExtResource("1_g2els")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.4901161e-08, -8)
-scale = Vector2(0.09765625, 0.15429688)
-texture = ExtResource("2_qhqgy")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.4210855e-14, -5)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_qfm1y")
+animation = &"walk"
+frame_progress = 0.08870997
+offset = Vector2(4.9999995, -7.499999)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
@@ -41,14 +141,16 @@ position = Vector2(0, -6)
 scale = Vector2(0.3, 0.3)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, -9)
+position = Vector2(1, -8)
 color = Color(0.47058824, 1, 0.79607844, 1)
 texture = SubResource("GradientTexture2D_dqkch")
 texture_scale = 0.75
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="DrawingArea" parent="CanvasLayer" instance=ExtResource("4_dqkch")]
+[node name="Menu" parent="CanvasLayer" instance=ExtResource("4_dqkch")]
 visible = false
-
-[editable path="CanvasLayer/DrawingArea"]
+offset_left = 259.0
+offset_top = 166.0
+offset_right = 899.0
+offset_bottom = 526.0

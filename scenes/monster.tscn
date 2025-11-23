@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://era8q204ts1n" path="res://scripts/states/chase.gd" id="5_gdl1p"]
 [ext_resource type="Script" uid="uid://dfcvifdmvwaus" path="res://scripts/states/hit.gd" id="6_gdl1p"]
 [ext_resource type="Script" uid="uid://dqkg6al5ply4o" path="res://scripts/states/cooldown.gd" id="7_v8ewj"]
-[ext_resource type="Script" path="res://scripts/despawn.gd" id="8_yce20"]
+[ext_resource type="Script" uid="uid://cixof1qqpq01l" path="res://scripts/despawn.gd" id="8_yce20"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c47ug"]
 atlas = ExtResource("2_1cbnp")
@@ -58,8 +58,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jlss8"]
-radius = 9.0
-height = 22.0
+radius = 5.0
+height = 18.0
 
 [node name="Monster" type="CharacterBody2D"]
 script = ExtResource("1_1cbnp")
@@ -70,14 +70,8 @@ sprite_frames = SubResource("SpriteFrames_yce20")
 animation = &"run"
 frame_progress = 0.88203275
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-position = Vector2(2, -10)
-radius = 8.98
-affect_navigation_mesh = true
-avoidance_layers = 4026531841
-
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -11)
+position = Vector2(-1, -7)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_jlss8")
 
@@ -86,7 +80,6 @@ unique_name_in_owner = true
 path_desired_distance = 10.0
 target_desired_distance = 5.0
 navigation_layers = 2147483649
-path_postprocessing = 1
 avoidance_enabled = true
 debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
@@ -127,6 +120,8 @@ monster = NodePath("../..")
 script = ExtResource("8_yce20")
 state = 1
 monster = NodePath("../..")
+
+[node name="Die" type="Node" parent="StateMachine"]
 
 [node name="Label" type="Label" parent="."]
 offset_left = -11.0

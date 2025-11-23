@@ -8,6 +8,7 @@ extends MonsterState
 
 func enter() -> void:
 	if player != null and monster != null:
+		monster.modulate.a = 1.0
 		check_aggro_radius()
 	
 	if timer != null:

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8cti6qe10mbd"]
+[gd_scene load_steps=5 format=3 uid="uid://b8cti6qe10mbd"]
 
-[ext_resource type="Texture2D" uid="uid://brslajjmaogd5" path="res://icon.svg" id="1_r67kn"]
-[ext_resource type="Script" uid="uid://cs6iojcmspkqt" path="res://control.gd" id="2_brbbq"]
+[ext_resource type="Texture2D" uid="uid://c3bo54inchesx" path="res://art/ui/draw_page.png" id="1_r67kn"]
+[ext_resource type="Script" uid="uid://cdy1owx64b1nm" path="res://scripts/stupid_thing.gd" id="2_8n18e"]
+[ext_resource type="Texture2D" uid="uid://cl0eman8b4r4w" path="res://art/ui/basic button up.png" id="3_8n18e"]
+[ext_resource type="Texture2D" uid="uid://bfsyul2q4hogu" path="res://art/ui/basic button down.png" id="4_tjwpk"]
 
 [node name="DrawingArea" type="TextureRect"]
 process_mode = 3
@@ -10,57 +12,77 @@ offset_top = 107.0
 offset_right = 678.0
 offset_bottom = 577.0
 texture = ExtResource("1_r67kn")
-script = ExtResource("2_brbbq")
-line_color = Color(0, 0.5019608, 1, 1)
-outline_fill = Color(0, 0.5019608, 1, 0.28627452)
-outline_stroke = Color(0, 0.5019608, 1, 0.6039216)
+script = ExtResource("2_8n18e")
 
-[node name="Undo" type="Button" parent="."]
-unique_name_in_owner = true
+[node name="Del" type="TextureButton" parent="."]
+z_index = 1
 layout_mode = 0
-offset_left = 11.0
-offset_top = 440.0
-offset_right = 101.0
-offset_bottom = 480.0
-focus_mode = 1
-text = "Undo"
+offset_left = 234.0
+offset_top = 437.0
+offset_right = 362.0
+offset_bottom = 471.0
+tooltip_text = "Delete"
+texture_normal = ExtResource("3_8n18e")
+texture_pressed = ExtResource("4_tjwpk")
 
-[node name="Delete" type="Button" parent="."]
-unique_name_in_owner = true
+[node name="RichTextLabel" type="RichTextLabel" parent="Del"]
+z_index = 1
 layout_mode = 0
-offset_left = 254.0
-offset_top = 440.0
-offset_right = 344.0
-offset_bottom = 480.0
-focus_mode = 1
-text = "Delete"
-
-[node name="Save" type="Button" parent="."]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 451.0
-offset_top = 440.0
-offset_right = 541.0
-offset_bottom = 480.0
-focus_mode = 1
-text = "Save
-"
-
-[node name="ErrorLabel" type="RichTextLabel" parent="."]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 68.0
-offset_top = 152.0
-offset_right = 476.0
-offset_bottom = 232.0
+offset_left = 20.0
+offset_top = 5.0
+offset_right = 109.0
+offset_bottom = 26.0
+mouse_filter = 2
 bbcode_enabled = true
+text = "[center]Delete[/center]"
 scroll_active = false
 
-[node name="Timer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 4.0
-one_shot = true
+[node name="Und" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = -6.0
+offset_top = 437.0
+offset_right = 122.0
+offset_bottom = 471.0
+tooltip_text = "Delete"
+texture_normal = ExtResource("3_8n18e")
+texture_pressed = ExtResource("4_tjwpk")
 
-[connection signal="pressed" from="Undo" to="." method="undo_last_drawing"]
-[connection signal="pressed" from="Delete" to="." method="remove_all_polygons"]
-[connection signal="pressed" from="Save" to="." method="save_all_polygons"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Und"]
+z_index = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 5.0
+offset_right = 109.0
+offset_bottom = 26.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center]Undo[/center]"
+scroll_active = false
+
+[node name="Sav" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 428.0
+offset_top = 437.0
+offset_right = 556.0
+offset_bottom = 471.0
+tooltip_text = "Delete"
+texture_normal = ExtResource("3_8n18e")
+texture_pressed = ExtResource("4_tjwpk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sav"]
+z_index = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 5.0
+offset_right = 109.0
+offset_bottom = 26.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center]Save[/center]"
+scroll_active = false
+
+[connection signal="pressed" from="Del" to="." method="remove_all_polygons"]
+[connection signal="pressed" from="Und" to="." method="undo_last_drawing"]
+[connection signal="pressed" from="Sav" to="." method="save_all_polygons"]

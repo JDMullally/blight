@@ -3,13 +3,14 @@ class_name MonsterSpawner
 
 const MONSTER_UID = "uid://b5oqg6hilbih"
 @export var max_monsters : int = 5
-
+@export var spawning = false
 # var monster_list : Array[Monster] = []
 var monster_index : int = 0
 
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var talking_stick_timer: Timer = $TalkingStickTimer
 @export var player : Player
+@onready var removed_monster_count = 0
 
 func _ready() -> void:
 	spawn_timer.wait_time = 1.0
@@ -33,26 +34,37 @@ func get_monster_list() -> Array[Monster]:
 	
 	for n in purge_list:
 		n.queue_free()
+		removed_monster_count += 1
 	return monster_list
 
+func get_new_spawn_point() -> Vector2:
+	var x_sign : int = -1 if (randi() % 2 == 0) else 1
+	var y_sign : int = -1 if (randi() % 2 == 0) else 1
+	return Vector2(player.global_position.x + 150 * x_sign, player.global_position.y + 150 * y_sign)
+
 func _on_spawn_timer_timeout() -> void:
+	if !spawning:
+		spawn_timer.start()
+		return
 	var monster_list : Array[Monster] = get_monster_list()
 	
 	if len(monster_list) < max_monsters:
 		var new_monster = load(MONSTER_UID).instantiate()
 		new_monster.scale = Vector2(0.5,0.5)
-		var x_sign : int = -1 if (randi() % 2 == 0) else 1
-		var y_sign : int = -1 if (randi() % 2 == 0) else 1
-		var spawn_point : Vector2 = Vector2(player.global_position.x + 300 * x_sign, player.global_position.y + 300 * y_sign)
+		var spawn_point = get_new_spawn_point()
 		new_monster.global_position = spawn_point
 		new_monster.home = spawn_point
 		add_child(new_monster)
-		spawn_timer.wait_time = get_new_wait_time(monster_list)
+		if removed_monster_count > 0:
+			removed_monster_count = clampi(removed_monster_count - 1, 0, max_monsters)
+			spawn_timer.wait_time = .1
+		else:
+			spawn_timer.wait_time = get_new_wait_time(monster_list)
 	spawn_timer.start()
 
-
 func get_new_wait_time(monster_list : Array[Monster]):
-	return clampf(len(monster_list) * .05, .1, 1.0)
+	var new_wait_time =  clampf(len(monster_list) * .05, .1, 1.0)
+	return new_wait_time
 
 func _on_talking_stick_timer_timeout() -> void:
 	talking_stick_timer.start()
