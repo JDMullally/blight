@@ -5,9 +5,14 @@ var showing = false
 @onready var love_area: TextureRect = $Control/LoveArea
 @onready var light_area: TextureRect = $Control/LightArea
 @onready var song_area: TextureRect = $Control/SongArea
+@onready var water: TextureRect = $Control/Water
+@onready var song: TextureRect = $Control/Song
+@onready var light: TextureRect = $Control/Light
+@onready var heart: TextureRect = $Control/Heart
 
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
+	_on_water_button_pressed()
 
 func _input(event : InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == Key.KEY_TAB:
@@ -39,21 +44,37 @@ func _on_love_button_pressed() -> void:
 	love_area.show()
 	light_area.hide()
 	song_area.hide()
+	heart.show()
+	song.hide()
+	light.hide()
+	water.hide()
 
 func _on_song_button_pressed() -> void:
 	water_area.hide()
 	love_area.hide()
 	light_area.hide()
 	song_area.show()
+	heart.hide()
+	song.show()
+	light.hide()
+	water.hide()
 
 func _on_water_button_pressed() -> void:
 	water_area.show()
 	love_area.hide()
 	light_area.hide()
 	song_area.hide()
+	heart.hide()
+	song.hide()
+	light.hide()
+	water.show()
 
 func _on_light_button_pressed() -> void:
 	water_area.hide()
 	love_area.hide()
 	light_area.show()
 	song_area.hide()
+	heart.hide()
+	song.hide()
+	light.show()
+	water.hide()

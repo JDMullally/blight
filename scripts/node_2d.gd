@@ -10,7 +10,7 @@ var monster_index : int = 0
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var talking_stick_timer: Timer = $TalkingStickTimer
 @export var player : Player
-@onready var removed_monster_count = 0
+@onready var despawned_monster_count = 0
 
 func _ready() -> void:
 	spawn_timer.wait_time = 1.0
@@ -21,20 +21,34 @@ func _ready() -> void:
 	talking_stick_timer.one_shot = true
 	talking_stick_timer.start()
 
+func disable_monster_spawner():
+	despawned_monster_count = 0
+	spawning = false
+
+func enable_monster_spawner():
+	spawning = true
+
 func get_monster_list() -> Array[Monster]:
 	var monster_list : Array[Monster] = []
 	var purge_list : Array[Monster] = []
-	
+	var kill_list : Array[Monster] = []
 	for child in get_children():
 		if child is Monster:
 			if child.purge_me:
 				purge_list.append(child)
+			elif child.kill_me:
+				kill_list.append(child)
 			else:
 				monster_list.append(child)
 	
 	for n in purge_list:
 		n.queue_free()
-		removed_monster_count += 1
+		despawned_monster_count += 1
+	
+	for n in kill_list:
+		print("killed em!")
+		n.queue_free()
+	
 	return monster_list
 
 func get_new_spawn_point() -> Vector2:
@@ -50,13 +64,12 @@ func _on_spawn_timer_timeout() -> void:
 	
 	if len(monster_list) < max_monsters:
 		var new_monster = load(MONSTER_UID).instantiate()
-		new_monster.scale = Vector2(0.5,0.5)
 		var spawn_point = get_new_spawn_point()
 		new_monster.global_position = spawn_point
 		new_monster.home = spawn_point
 		add_child(new_monster)
-		if removed_monster_count > 0:
-			removed_monster_count = clampi(removed_monster_count - 1, 0, max_monsters)
+		if despawned_monster_count > 0:
+			despawned_monster_count = clampi(despawned_monster_count - 1, 0, max_monsters)
 			spawn_timer.wait_time = .1
 		else:
 			spawn_timer.wait_time = get_new_wait_time(monster_list)

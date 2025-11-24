@@ -3,6 +3,7 @@ class_name Monster
 
 @onready var agent : NavigationAgent2D = $NavigationAgent2D
 @onready var timer : Timer = $Timer
+@onready var monster_stats : MonsterStats = MonsterStats.new()
 @onready var player : Node2D = get_tree().get_first_node_in_group("player")
 @onready var state_machine: StateMachine = $StateMachine
 @onready var idle: Node = $StateMachine/Idle
@@ -31,15 +32,28 @@ func flip_to_direction(direction : Vector2):
 	if direction.x < 0:
 		animated_sprite_2d.flip_h = true
 
+func take_damage(damage : int):
+	monster_stats.take_damage(damage)
+	
+	if monster_stats.is_dead():
+		print('im dead!')
+		state_machine.set_kill_state()
+	
 func play_animation():
 	if velocity.length() > 0:
 		animated_sprite_2d.play("run")
 	else:
 		animated_sprite_2d.play("idle")
 
+
 func dissapear():
 	var tween := create_tween()
-	tween.tween_property(self, "modulate:a", 0.0, 1.0)
+	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	tween.tween_callback(func(): 
 		purge_me = true
-)
+	)
+
+func die():
+	var tween := create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(func(): kill_me = true)

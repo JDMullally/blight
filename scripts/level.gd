@@ -15,3 +15,13 @@ func _on_timer_timeout() -> void:
 	timer.start()
 	fps.text = "FPS:" + str(Engine.get_frames_per_second())
 	num_enemies.text = "Total Enemies:" + str(len(monster_spawner.get_monster_list()))
+
+
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	print("hi")
+	monster_spawner.disable_monster_spawner()
+
+
+func _on_area_2d_body_exited(_body: Node2D) -> void:
+	print("bye")
+	monster_spawner.enable_monster_spawner()

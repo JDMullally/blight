@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://det0c7hb3ewvg"]
+
+[ext_resource type="Texture2D" uid="uid://bn0yq3x472hpx" path="res://art/misc/water particle 3.png" id="1_ymv4l"]
+
+[sub_resource type="Curve" id="Curve_ymv4l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.12080537, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rwgy0"]
+curve = SubResource("Curve_ymv4l")
+
+[sub_resource type="Curve" id="Curve_rwgy0"]
+_limits = [0.0, 0.83151424, 0.0, 1.0]
+_data = [Vector2(0, 0.80642337), 0.0, 0.0, 0, 0, Vector2(0.32550335, 0.32273638), -0.3853743, -0.3853743, 0, 0, Vector2(0.50671136, 0.101528645), -0.836812, -0.836812, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_pjkj7"]
+curve = SubResource("Curve_rwgy0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_54hlm"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_pjkj7")
+alpha_curve = SubResource("CurveTexture_rwgy0")
+
+[node name="WaterParticle" type="GPUParticles2D"]
+amount = 25
+texture = ExtResource("1_ymv4l")
+lifetime = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_54hlm")

@@ -3,6 +3,7 @@ extends MonsterState
 
 func enter() -> void:
 	if timer:
+		SignalBus.hurt_player.emit(monster.monster_stats.damage, monster.global_position)
 		timer.stop()
 		timer.wait_time = .2
 		timer.one_shot = true

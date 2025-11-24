@@ -1,15 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2cxroji8n8d3"]
+[gd_scene load_steps=5 format=3 uid="uid://b2cxroji8n8d3"]
 
 [ext_resource type="Script" uid="uid://ba4ln3val3uya" path="res://scripts/wand.gd" id="1_ran2g"]
 [ext_resource type="Texture2D" uid="uid://ffk7hwx7gtaa" path="res://art/player/staff.png" id="2_ran2g"]
+
+[sub_resource type="Gradient" id="Gradient_qhqgy"]
+offsets = PackedFloat32Array(0, 0.12341772, 0.3227848, 0.54746836, 0.8829114)
+colors = PackedColorArray(1, 1, 1, 1, 0.42580646, 0.42580646, 0.42580646, 1, 0.23687875, 0.23687889, 0.23687881, 1, 0.22310278, 0.22310293, 0.22310284, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ran2g"]
+gradient = SubResource("Gradient_qhqgy")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9188034, 0.13675214)
 
 [node name="Wand" type="Node2D"]
 script = ExtResource("1_ran2g")
 
 [node name="WandSprite" type="Sprite2D" parent="."]
-position = Vector2(49, 0)
+position = Vector2(32, 1.8593315e-07)
 rotation = 1.5707964
+scale = Vector2(1, 0.8227644)
 texture = ExtResource("2_ran2g")
 
 [node name="WandPoint" type="Node2D" parent="WandSprite"]
 position = Vector2(7.1525574e-07, -17)
+
+[node name="WandLight" type="PointLight2D" parent="WandSprite/WandPoint"]
+position = Vector2(-1.4305115e-06, 0)
+color = Color(0.16862746, 0.40392157, 0.79607844, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_ran2g")
+texture_scale = 0.4
+
+[node name="WaterSpellTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="LoveSpellTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="LightSpellTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="SongSpellTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

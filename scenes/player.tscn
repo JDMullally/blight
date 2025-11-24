@@ -1,13 +1,35 @@
-[gd_scene load_steps=21 format=3 uid="uid://bi5t5rs6j68by"]
+[gd_scene load_steps=28 format=3 uid="uid://bi5t5rs6j68by"]
 
 [ext_resource type="Script" uid="uid://csw2shgruxl4m" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cjaajdilua3co" path="res://art/player/walk cycle.png" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://b2cxroji8n8d3" path="res://scenes/wand.tscn" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bwyo38mngw3oq" path="res://art/player/idle_withoriginalcanvassize.png" id="3_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://dltvpaj0isjxc" path="res://scenes/mock_scenes/spellbook.tscn" id="4_dqkch"]
+[ext_resource type="PackedScene" uid="uid://qtbcio8t7kmf" path="res://scenes/hotbar.tscn" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
 atlas = ExtResource("2_dqkch")
 region = Rect2(0, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("3_tuyoq")
+region = Rect2(0, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
+atlas = ExtResource("3_tuyoq")
+region = Rect2(45, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
+atlas = ExtResource("3_tuyoq")
+region = Rect2(90, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
+atlas = ExtResource("3_tuyoq")
+region = Rect2(135, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
+atlas = ExtResource("3_tuyoq")
+region = Rect2(180, 0, 45, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_dqkch")
@@ -56,8 +78,23 @@ region = Rect2(450, 0, 45, 48)
 [sub_resource type="SpriteFrames" id="SpriteFrames_qfm1y"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_qlg0r")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_qfm1y")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_fulsm")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_4r5pv")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_60mlk")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_i4ail")
 }],
 "loop": true,
 "name": &"idle",
@@ -103,8 +140,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
-radius = 4.0
-height = 12.0
+radius = 6.0
+height = 22.0
 
 [sub_resource type="Gradient" id="Gradient_qhqgy"]
 offsets = PackedFloat32Array(0, 0.2924731, 0.6666667)
@@ -121,36 +158,48 @@ collision_mask = 2147483650
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.4210855e-14, -5)
-scale = Vector2(0.4, 0.4)
+position = Vector2(-1.4210855e-14, -8)
 sprite_frames = SubResource("SpriteFrames_qfm1y")
-animation = &"walk"
-frame_progress = 0.08870997
+animation = &"idle"
 offset = Vector2(4.9999995, -7.499999)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(0, 4)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_dqkch")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+zoom = Vector2(3.5, 3.5)
+limit_left = -575
+limit_top = -1850
+limit_right = 845
+limit_bottom = -515
 
 [node name="Wand" parent="." instance=ExtResource("3_qhqgy")]
 position = Vector2(0, -6)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.75, 0.75)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(1, -8)
+scale = Vector2(2.5, 2.5)
 color = Color(0.47058824, 1, 0.79607844, 1)
+energy = 0.6
 texture = SubResource("GradientTexture2D_dqkch")
 texture_scale = 0.75
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("5_qlg0r")]
+offset_left = 20.0
+offset_top = -77.0
+offset_right = 20.0
+offset_bottom = -77.0
+mouse_filter = 2
+
 [node name="Menu" parent="CanvasLayer" instance=ExtResource("4_dqkch")]
 visible = false
-offset_left = 259.0
-offset_top = 166.0
-offset_right = 899.0
-offset_bottom = 526.0
+offset_left = 160.0
+offset_top = 64.0
+offset_right = 800.0
+offset_bottom = 424.0
+scale = Vector2(2.5, 2.5)

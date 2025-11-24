@@ -1,56 +1,100 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5oqg6hilbih"]
+[gd_scene load_steps=24 format=3 uid="uid://b5oqg6hilbih"]
 
 [ext_resource type="Script" uid="uid://css51i5xkinaa" path="res://scripts/monster.gd" id="1_1cbnp"]
-[ext_resource type="Texture2D" uid="uid://dcvu0fs3eubpf" path="res://art/Bunny001-running-5-frame-Sheet.png" id="2_1cbnp"]
+[ext_resource type="Texture2D" uid="uid://3mjgwpne0fw8" path="res://art/monsters/plantidle.png" id="2_fttm7"]
+[ext_resource type="Texture2D" uid="uid://c50dom0jwv11e" path="res://art/monsters/plantwalk.png" id="3_akk5r"]
 [ext_resource type="Script" uid="uid://bap8fb2mrtci6" path="res://scripts/states/state_machine.gd" id="3_c47ug"]
 [ext_resource type="Script" uid="uid://d1e5cpysxgpxw" path="res://scripts/states/idle.gd" id="4_gp4s5"]
 [ext_resource type="Script" uid="uid://era8q204ts1n" path="res://scripts/states/chase.gd" id="5_gdl1p"]
 [ext_resource type="Script" uid="uid://dfcvifdmvwaus" path="res://scripts/states/hit.gd" id="6_gdl1p"]
 [ext_resource type="Script" uid="uid://dqkg6al5ply4o" path="res://scripts/states/cooldown.gd" id="7_v8ewj"]
 [ext_resource type="Script" uid="uid://cixof1qqpq01l" path="res://scripts/despawn.gd" id="8_yce20"]
+[ext_resource type="Script" uid="uid://bvtb002v8lyig" path="res://scripts/die.gd" id="10_akk5r"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c47ug"]
-atlas = ExtResource("2_1cbnp")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_akk5r"]
+atlas = ExtResource("2_fttm7")
+region = Rect2(0, 0, 32, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jlss8"]
-atlas = ExtResource("2_1cbnp")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2c6u"]
+atlas = ExtResource("2_fttm7")
+region = Rect2(32, 0, 32, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gp4s5"]
-atlas = ExtResource("2_1cbnp")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei7v0"]
+atlas = ExtResource("2_fttm7")
+region = Rect2(64, 0, 32, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gdl1p"]
-atlas = ExtResource("2_1cbnp")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1v1i4"]
+atlas = ExtResource("2_fttm7")
+region = Rect2(96, 0, 32, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v8ewj"]
-atlas = ExtResource("2_1cbnp")
-region = Rect2(128, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_n78d1"]
+atlas = ExtResource("2_fttm7")
+region = Rect2(128, 0, 32, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_yce20"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7han3"]
+atlas = ExtResource("3_akk5r")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70tfl"]
+atlas = ExtResource("3_akk5r")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0ec1"]
+atlas = ExtResource("3_akk5r")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4862"]
+atlas = ExtResource("3_akk5r")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iwja"]
+atlas = ExtResource("3_akk5r")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opw4d"]
+atlas = ExtResource("3_akk5r")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7han3"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c47ug")
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_akk5r")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_x2c6u")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ei7v0")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1v1i4")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_n78d1")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_jlss8")
+"duration": 0.15,
+"texture": SubResource("AtlasTexture_7han3")
 }, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_gp4s5")
+"duration": 0.15,
+"texture": SubResource("AtlasTexture_70tfl")
 }, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_gdl1p")
+"duration": 0.15,
+"texture": SubResource("AtlasTexture_k0ec1")
 }, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_v8ewj")
+"duration": 0.15,
+"texture": SubResource("AtlasTexture_k4862")
+}, {
+"duration": 0.15,
+"texture": SubResource("AtlasTexture_0iwja")
+}, {
+"duration": 0.15,
+"texture": SubResource("AtlasTexture_opw4d")
 }],
 "loop": true,
 "name": &"run",
@@ -58,20 +102,20 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jlss8"]
-radius = 5.0
-height = 18.0
+height = 20.0
 
 [node name="Monster" type="CharacterBody2D"]
 script = ExtResource("1_1cbnp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -17)
-sprite_frames = SubResource("SpriteFrames_yce20")
+position = Vector2(4.0000005, -18)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_7han3")
 animation = &"run"
-frame_progress = 0.88203275
+frame_progress = 0.9631591
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -7)
+position = Vector2(4, -14)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_jlss8")
 
@@ -81,7 +125,6 @@ path_desired_distance = 10.0
 target_desired_distance = 5.0
 navigation_layers = 2147483649
 avoidance_enabled = true
-debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 debug_path_custom_point_size = 2.0
 debug_path_custom_line_width = 1.0
@@ -121,9 +164,13 @@ script = ExtResource("8_yce20")
 state = 1
 monster = NodePath("../..")
 
-[node name="Die" type="Node" parent="StateMachine"]
+[node name="Die" type="Node" parent="StateMachine" node_paths=PackedStringArray("monster")]
+script = ExtResource("10_akk5r")
+state = 6
+monster = NodePath("../..")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -11.0
 offset_top = -28.0
 offset_right = 607.0

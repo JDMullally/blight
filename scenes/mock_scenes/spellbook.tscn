@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dltvpaj0isjxc"]
+[gd_scene load_steps=26 format=3 uid="uid://dltvpaj0isjxc"]
 
 [ext_resource type="Texture2D" uid="uid://4i8h5thoh66k" path="res://art/ui/Menu (1).png" id="1_xssyf"]
 [ext_resource type="Script" uid="uid://bysufsh3ihv8f" path="res://scripts/spellbook.gd" id="2_xfrxm"]
@@ -51,6 +51,22 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ef3e6"]
 atlas = ExtResource("11_13a7e")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoydh"]
+atlas = ExtResource("8_xfrxm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpacq"]
+atlas = ExtResource("10_ccaqx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipg7y"]
+atlas = ExtResource("9_jclf1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_holsd"]
+atlas = ExtResource("11_13a7e")
+region = Rect2(0, 0, 16, 16)
 
 [node name="Spellbook" type="TextureRect"]
 process_mode = 3
@@ -256,6 +272,41 @@ offset_right = 498.5
 offset_bottom = 44.0
 texture_normal = SubResource("AtlasTexture_6thth")
 texture_pressed = SubResource("AtlasTexture_ef3e6")
+
+[node name="Heart" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 342.0
+offset_top = 14.5
+offset_right = 374.0
+offset_bottom = 46.5
+texture = SubResource("AtlasTexture_yoydh")
+
+[node name="Water" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 14.5
+offset_right = 374.0
+offset_bottom = 46.5
+texture = SubResource("AtlasTexture_fpacq")
+
+[node name="Song" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 342.0
+offset_top = 14.5
+offset_right = 374.0
+offset_bottom = 46.5
+texture = SubResource("AtlasTexture_ipg7y")
+
+[node name="Light" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 342.0
+offset_top = 14.5
+offset_right = 374.0
+offset_bottom = 46.5
+texture = SubResource("AtlasTexture_holsd")
 
 [connection signal="pressed" from="ExitButton" to="." method="show_or_hide"]
 [connection signal="pressed" from="Components/Restart" to="." method="restart"]

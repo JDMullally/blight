@@ -22,6 +22,10 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	current_state.on_tick()
 
+func set_kill_state():
+	_on_transition_request(current_state, MonsterState.State.Dead, monster)
+
+
 func _on_transition_request(from: MonsterState, to: MonsterState.State, sent_monster : Monster):
 	if sent_monster == monster:
 		if from != current_state:

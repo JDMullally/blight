@@ -213,13 +213,13 @@ func _simplify_polygon(poly : PackedVector2Array, distance_epsilon : float, _col
 		changed = false
 		var out2 : PackedVector2Array = PackedVector2Array()
 		for i in range(rdp.size()):
-			#var prev_vertex : Vector2 = rdp[(i - 1 + rdp.size()) % rdp.size()]
+			var prev_vertex : Vector2 = rdp[(i - 1 + rdp.size()) % rdp.size()]
 			var current_vertex : Vector2 = rdp[i]
-			#var next_vertex : Vector2 = rdp[(i + 1) % rdp.size()]
-			#if is_collinear(prev_vertex, current_vertex, next_vertex, collinear_epsilon):
-				#changed = true
-			#else:
-			out2.append(current_vertex)
+			var next_vertex : Vector2 = rdp[(i + 1) % rdp.size()]
+			if is_collinear(prev_vertex, current_vertex, next_vertex, _collinear_epsilon):
+				changed = true
+			else:
+				out2.append(current_vertex)
 		rdp = out2
 	return rdp
 

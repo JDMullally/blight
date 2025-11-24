@@ -59,6 +59,7 @@ func get_circle_points(center: Vector2, radius: float, count: int = 16) -> Array
 	return points
 
 func _update_agent_target(force : bool) -> void:
+	monster.play_animation()
 	var player_pos : Vector2 = player.global_position
 	var player_velocity : Vector2 = player.velocity
 	if monster.global_position.distance_to(player_pos) <= monster.attack_range:
@@ -68,7 +69,7 @@ func _update_agent_target(force : bool) -> void:
 	if !agent.is_target_reachable():
 		if retries >= MAX_RETRIES:
 			transition_requested.emit(self, MonsterState.State.Despawn, monster)
-			agent.target_position = monster.home
+			# agent.target_position = monster.home
 			return
 		else:
 			retries += 1
@@ -77,9 +78,10 @@ func _update_agent_target(force : bool) -> void:
 	if not force and last_player_target.distance_to(player_pos) < repath_distance_threshold:
 		return
 	
-	var rad = player_velocity.length() * monster.hunter_time/3
+	var rad = 16
 	var points = get_circle_points(player_pos, rad)
 	points.shuffle()
 	retries = 0
-	agent.target_position = player_pos + player_velocity * monster.hunter_time/3
-	last_player_target = player_pos + player_velocity * monster.hunter_time/3
+	var new_pos = points[0] + player.velocity * monster.hunter_time/3
+	agent.target_position = new_pos
+	last_player_target = new_pos
