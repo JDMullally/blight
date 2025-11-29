@@ -1,108 +1,19 @@
-[gd_scene load_steps=24 format=3 uid="uid://b5oqg6hilbih"]
+[gd_scene load_steps=15 format=3 uid="uid://b5oqg6hilbih"]
 
 [ext_resource type="Script" uid="uid://css51i5xkinaa" path="res://scripts/monster.gd" id="1_1cbnp"]
-[ext_resource type="Texture2D" uid="uid://3mjgwpne0fw8" path="res://art/monsters/plantidle.png" id="2_fttm7"]
-[ext_resource type="Texture2D" uid="uid://c50dom0jwv11e" path="res://art/monsters/plantwalk.png" id="3_akk5r"]
+[ext_resource type="SpriteFrames" uid="uid://ba66wxvryb5mp" path="res://resources/plant_sprite_frames.tres" id="2_akk5r"]
 [ext_resource type="Script" uid="uid://bap8fb2mrtci6" path="res://scripts/states/state_machine.gd" id="3_c47ug"]
+[ext_resource type="Shape2D" uid="uid://dyklc1dks4n2b" path="res://resources/plant_hitbox.tres" id="4_1v1i4"]
 [ext_resource type="Script" uid="uid://d1e5cpysxgpxw" path="res://scripts/states/idle.gd" id="4_gp4s5"]
 [ext_resource type="Script" uid="uid://era8q204ts1n" path="res://scripts/states/chase.gd" id="5_gdl1p"]
 [ext_resource type="Script" uid="uid://dfcvifdmvwaus" path="res://scripts/states/hit.gd" id="6_gdl1p"]
 [ext_resource type="Script" uid="uid://dqkg6al5ply4o" path="res://scripts/states/cooldown.gd" id="7_v8ewj"]
 [ext_resource type="Script" uid="uid://cixof1qqpq01l" path="res://scripts/despawn.gd" id="8_yce20"]
 [ext_resource type="Script" uid="uid://bvtb002v8lyig" path="res://scripts/die.gd" id="10_akk5r"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_akk5r"]
-atlas = ExtResource("2_fttm7")
-region = Rect2(0, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x2c6u"]
-atlas = ExtResource("2_fttm7")
-region = Rect2(32, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ei7v0"]
-atlas = ExtResource("2_fttm7")
-region = Rect2(64, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1v1i4"]
-atlas = ExtResource("2_fttm7")
-region = Rect2(96, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n78d1"]
-atlas = ExtResource("2_fttm7")
-region = Rect2(128, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7han3"]
-atlas = ExtResource("3_akk5r")
-region = Rect2(0, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_70tfl"]
-atlas = ExtResource("3_akk5r")
-region = Rect2(32, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k0ec1"]
-atlas = ExtResource("3_akk5r")
-region = Rect2(64, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k4862"]
-atlas = ExtResource("3_akk5r")
-region = Rect2(96, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0iwja"]
-atlas = ExtResource("3_akk5r")
-region = Rect2(128, 0, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_opw4d"]
-atlas = ExtResource("3_akk5r")
-region = Rect2(160, 0, 32, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7han3"]
-animations = [{
-"frames": [{
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_akk5r")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_x2c6u")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_ei7v0")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_1v1i4")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_n78d1")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 0.15,
-"texture": SubResource("AtlasTexture_7han3")
-}, {
-"duration": 0.15,
-"texture": SubResource("AtlasTexture_70tfl")
-}, {
-"duration": 0.15,
-"texture": SubResource("AtlasTexture_k0ec1")
-}, {
-"duration": 0.15,
-"texture": SubResource("AtlasTexture_k4862")
-}, {
-"duration": 0.15,
-"texture": SubResource("AtlasTexture_0iwja")
-}, {
-"duration": 0.15,
-"texture": SubResource("AtlasTexture_opw4d")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jlss8"]
-height = 20.0
+[ext_resource type="Script" uid="uid://bf35jmnv38kg" path="res://scripts/dazzled.gd" id="11_ei7v0"]
+[ext_resource type="Script" uid="uid://coslxlbdhcyhw" path="res://scenes/stun.gd" id="12_1v1i4"]
+[ext_resource type="PackedScene" uid="uid://cda0gwjkdeuwp" path="res://scenes/dazzle_particles.tscn" id="13_1v1i4"]
+[ext_resource type="PackedScene" uid="uid://dguu8adbse0xs" path="res://scenes/stun_particles.tscn" id="14_n78d1"]
 
 [node name="Monster" type="CharacterBody2D"]
 script = ExtResource("1_1cbnp")
@@ -110,14 +21,14 @@ script = ExtResource("1_1cbnp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4.0000005, -18)
 scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_7han3")
+sprite_frames = ExtResource("2_akk5r")
 animation = &"run"
-frame_progress = 0.9631591
+frame_progress = 0.7296127
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -14)
+position = Vector2(4, -15)
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_jlss8")
+shape = ExtResource("4_1v1i4")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
@@ -169,6 +80,16 @@ script = ExtResource("10_akk5r")
 state = 6
 monster = NodePath("../..")
 
+[node name="Dazzled" type="Node" parent="StateMachine" node_paths=PackedStringArray("monster")]
+script = ExtResource("11_ei7v0")
+state = 7
+monster = NodePath("../..")
+
+[node name="Stun" type="Node" parent="StateMachine" node_paths=PackedStringArray("monster")]
+script = ExtResource("12_1v1i4")
+state = 8
+monster = NodePath("../..")
+
 [node name="Label" type="Label" parent="."]
 visible = false
 offset_left = -11.0
@@ -178,6 +99,13 @@ offset_bottom = 82.0
 scale = Vector2(0.05, 0.05)
 theme_override_font_sizes/font_size = 80
 text = "CURRENT STATE"
+
+[node name="DazzleParticles" parent="." instance=ExtResource("13_1v1i4")]
+position = Vector2(3, -17)
+scale = Vector2(0.5, 0.5)
+
+[node name="StunParticles" parent="." instance=ExtResource("14_n78d1")]
+position = Vector2(5, -17)
 
 [connection signal="timeout" from="Timer" to="StateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="StateMachine/Chase" method="_on_timer_timeout"]

@@ -693,8 +693,6 @@ position = Vector2(104, -998)
 [node name="Player" parent="." instance=ExtResource("2_mx8sn")]
 position = Vector2(144, -1572)
 
-[node name="AudioListener2D" type="AudioListener2D" parent="Player"]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="FPS" type="Label" parent="CanvasLayer"]
@@ -738,8 +736,23 @@ autoplay = true
 navigation_polygon = SubResource("NavigationPolygon_8c41q")
 navigation_layers = 2147483648
 
-[node name="MonsterSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
-max_monsters = 30
+[node name="FrogSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
+max_monsters = 25
+player = NodePath("../Player")
+
+[node name="DogSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
+max_monsters = 8
+type = 1
+player = NodePath("../Player")
+
+[node name="BirdSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
+max_monsters = 20
+type = 2
+player = NodePath("../Player")
+
+[node name="FlowerSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
+max_monsters = 12
+type = 3
 player = NodePath("../Player")
 
 [node name="Area2D" type="Area2D" parent="."]

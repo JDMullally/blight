@@ -4,7 +4,7 @@ class_name Well
 const MAX_THRESHOLD : int = 4
 const WIDTH : float = 640.0
 const HEIGHT : float = 320.0
-const MAX_HITS : int = 2
+const MAX_HITS : int = 1
 
 signal all_done
 
@@ -30,4 +30,4 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		var bullet : Bullet = area
 		if bullet.is_element(SignalBus.Element.Water):
 			self.increment_well()
-			area.queue_free()
+			area.dissapear()

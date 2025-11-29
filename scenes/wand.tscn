@@ -17,18 +17,19 @@ fill_to = Vector2(0.9188034, 0.13675214)
 script = ExtResource("1_ran2g")
 
 [node name="WandSprite" type="Sprite2D" parent="."]
-position = Vector2(32, 1.8593315e-07)
+position = Vector2(26, 2.3841858e-07)
 rotation = 1.5707964
-scale = Vector2(1, 0.8227644)
+scale = Vector2(0.6621737, 0.5448129)
 texture = ExtResource("2_ran2g")
 
 [node name="WandPoint" type="Node2D" parent="WandSprite"]
 position = Vector2(7.1525574e-07, -17)
 
 [node name="WandLight" type="PointLight2D" parent="WandSprite/WandPoint"]
-position = Vector2(-1.4305115e-06, 0)
+position = Vector2(-1.66893e-06, 0.48056686)
+scale = Vector2(1.7174374, 1.8913617)
 color = Color(0.16862746, 0.40392157, 0.79607844, 1)
-energy = 2.0
+energy = 4.0
 texture = SubResource("GradientTexture2D_ran2g")
 texture_scale = 0.4
 

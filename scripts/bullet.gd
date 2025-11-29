@@ -25,6 +25,7 @@ func _center_polygon(poly : PackedVector2Array) -> PackedVector2Array:
 
 
 func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2, bullet_stats : BulletStats) -> void:
+	# timer.wait_time = bullet_stats.cooldown
 	timer.start()
 	var local_poly := _center_polygon(poly)
 	self.stats = bullet_stats
@@ -35,6 +36,7 @@ func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2, 
 	match bullet_stats.element:
 		SignalBus.Element.Water:
 			new_poly.color = Color("adf6ff")
+			new_poly.modulate.a = 0.8
 			usable_gpu_part = load(WATER_PARTICLE_UID).instantiate() as GPUParticles2D
 		SignalBus.Element.Love:
 			new_poly.color = Color("ff88ba")
@@ -64,7 +66,6 @@ func setup(poly : PackedVector2Array, start_pos : Vector2, direction : Vector2, 
 			gpu_part.scale = Vector2(100,100)
 			hitbox.add_child(gpu_part)
 			hitbox.polygon = local_poly
-			# print(index)
 	global_position = start_pos
 	if stats:
 		velocity = direction.normalized() * stats.speed
@@ -82,7 +83,12 @@ func is_element(element : SignalBus.Element):
 
 func _process(_delta: float) -> void:
 	if timer.is_stopped() or stats.hits_spent():
-		self.queue_free()
+		dissapear()
+
+func dissapear() -> void:
+	var tween := create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.1)
+	tween.tween_callback(func(): self.queue_free())
 
 func _physics_process(delta : float) -> void:
 	global_position += velocity * delta
@@ -92,7 +98,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Monster:
 		if body.monster_stats.affinity == self.stats.element:
 			body.take_damage(stats.damage)
-		#body.apply_affix(self.stats.element)
+		body.apply_affix(self.stats.element, self.stats.debuff_time)
 		stats.decrement_hits()
 		if stats.hits_spent():
-			self.queue_free()
+			dissapear()

@@ -9,10 +9,29 @@ var showing = false
 @onready var song: TextureRect = $Control/Song
 @onready var light: TextureRect = $Control/Light
 @onready var heart: TextureRect = $Control/Heart
+@onready var love_button: TextureButton = $Control/LoveButton
+@onready var song_button: TextureButton = $Control/SongButton
+@onready var water_button: TextureButton = $Control/WaterButton
+@onready var light_button: TextureButton = $Control/LightButton
 
 func _ready() -> void:
+	SignalBus.unlock_spell.connect(unlock_spell)
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
+	love_button.hide()
+	song_button.hide()
+	light_button.hide()
 	_on_water_button_pressed()
+
+func unlock_spell(element : SignalBus.Element):
+	match element:
+		SignalBus.Element.Water:
+			water_button.show()
+		SignalBus.Element.Love:
+			love_button.show()
+		SignalBus.Element.Light:
+			light_button.show()
+		SignalBus.Element.Song:
+			song_button.show()
 
 func _input(event : InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == Key.KEY_TAB:

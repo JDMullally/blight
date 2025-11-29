@@ -32,8 +32,11 @@ region = Rect2(0, 0, 80, 24)
 [node name="Hotbar" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 148.0
-offset_right = 148.0
+offset_left = 798.0
+offset_top = 379.0
+offset_right = 798.0
+offset_bottom = 379.0
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_4qkdb")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]

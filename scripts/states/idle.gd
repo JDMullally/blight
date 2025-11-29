@@ -3,8 +3,8 @@ extends MonsterState
 @onready var agent : NavigationAgent2D = %NavigationAgent2D
 @onready var timer : Timer = %Timer
 @onready var player : Node2D = get_tree().get_first_node_in_group("player")
-@onready var aggro_radius : float = 1000.0
-@onready var max_distance : float = 2000.0
+@onready var aggro_radius : float = 2000.0
+@onready var max_distance : float = 4000.0
 
 func enter() -> void:
 	if player != null and monster != null:

@@ -1,16 +1,65 @@
 extends Node2D
 class_name MonsterSpawner
 
+var edge_points : Array[Vector2] = [
+	Vector2(-600, -1850),
+	Vector2(-600, -1657.143),
+	Vector2(-600, -1464.286),
+	Vector2(-600, -1271.429),
+	Vector2(-600, -1078.571),
+	Vector2(-600, -885.714),
+	Vector2(-600, -692.857),
+	Vector2(-600, -500),
+	Vector2(860, -1850),
+	Vector2(860, -1657.143),
+	Vector2(860, -1464.286),
+	Vector2(860, -1271.429),
+	Vector2(860, -1078.571),
+	Vector2(860, -885.714),
+	Vector2(860, -692.857),
+	Vector2(860, -500),
+	Vector2(-600, -500),
+	Vector2(-391.429, -500),
+	Vector2(-182.857, -500),
+	Vector2(24.286, -500),
+	Vector2(232.857, -500),
+	Vector2(441.429, -500),
+	Vector2(650.0, -500),
+	Vector2(860.0, -500)
+]
+
+enum SpawnerType {Frog, Dog, Bird, Flower}
 const MONSTER_UID = "uid://b5oqg6hilbih"
 @export var max_monsters : int = 5
 @export var spawning = false
+@export var type : SpawnerType
 # var monster_list : Array[Monster] = []
+var locked = true
+var debuffed = false
 var monster_index : int = 0
+const FROG_STATS_UID = "uid://chje4u2r1pq2n"
+const WOLF_STATS = "uid://cv7hcrod5wvii"
+const BIRD_STATS = "uid://cih0oy60nqxpj"
+const PLANT_STATS = "uid://0qfd68nm2n7"
+
 
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var talking_stick_timer: Timer = $TalkingStickTimer
 @export var player : Player
 @onready var despawned_monster_count = 0
+
+func get_uid() -> String:
+	match type:
+		SpawnerType.Frog:
+			return FROG_STATS_UID
+		SpawnerType.Dog:
+			return WOLF_STATS
+		SpawnerType.Bird:
+			return BIRD_STATS
+		SpawnerType.Flower:
+			return PLANT_STATS
+		_:
+			return ""
 
 func _ready() -> void:
 	spawn_timer.wait_time = 1.0
@@ -46,37 +95,41 @@ func get_monster_list() -> Array[Monster]:
 		despawned_monster_count += 1
 	
 	for n in kill_list:
-		print("killed em!")
 		n.queue_free()
 	
 	return monster_list
 
 func get_new_spawn_point() -> Vector2:
-	var x_sign : int = -1 if (randi() % 2 == 0) else 1
-	var y_sign : int = -1 if (randi() % 2 == 0) else 1
-	return Vector2(player.global_position.x + 150 * x_sign, player.global_position.y + 150 * y_sign)
+	edge_points.shuffle()
+	return edge_points[0]
+
+func debuff_spawner():
+	max_monsters = int(float(max_monsters / 2.0))
 
 func _on_spawn_timer_timeout() -> void:
-	if !spawning:
+	if !spawning or locked:
 		spawn_timer.start()
 		return
 	var monster_list : Array[Monster] = get_monster_list()
 	
 	if len(monster_list) < max_monsters:
-		var new_monster = load(MONSTER_UID).instantiate()
+		var new_monster : Monster = load(MONSTER_UID).instantiate()
+		new_monster.monster_stats = load(get_uid()).duplicate(true)
+		if type == SpawnerType.Dog:
+			new_monster.scale = Vector2(1.5, 1.5)
 		var spawn_point = get_new_spawn_point()
 		new_monster.global_position = spawn_point
 		new_monster.home = spawn_point
 		add_child(new_monster)
 		if despawned_monster_count > 0:
 			despawned_monster_count = clampi(despawned_monster_count - 1, 0, max_monsters)
-			spawn_timer.wait_time = .1
+			spawn_timer.wait_time = .2
 		else:
 			spawn_timer.wait_time = get_new_wait_time(monster_list)
 	spawn_timer.start()
 
 func get_new_wait_time(monster_list : Array[Monster]):
-	var new_wait_time =  clampf(len(monster_list) * .05, .1, 1.0)
+	var new_wait_time =  clampf(len(monster_list) * .2, .1, 1.0)
 	return new_wait_time
 
 func _on_talking_stick_timer_timeout() -> void:

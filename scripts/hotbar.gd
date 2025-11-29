@@ -9,11 +9,12 @@ class_name Hotbar
 var shake_tween : Tween
 
 func _ready():
+	SignalBus.unlock_spell.connect(unlock_spell)
 	SignalBus.spell_error_message.connect(error_shake_button)
 	SignalBus.update_prog_bars.connect(update_progress_bars)
-	#love_progress_bar.hide()
-	#light_progress_bar.hide()
-	#song_progress_bar.hide()
+	love_progress_bar.hide()
+	light_progress_bar.hide()
+	song_progress_bar.hide()
 
 func update_progress_bars(water_prog : float, love_prog : float, light_prog : float, song_prog : float):
 	update_progress_bar(SignalBus.Element.Water, water_prog)
@@ -31,6 +32,18 @@ func update_progress_bar(element : SignalBus.Element, percentage : float):
 			light_progress_bar.value = clampf(light_progress_bar.max_value * percentage, light_progress_bar.min_value, light_progress_bar.max_value)
 		SignalBus.Element.Song:
 			song_progress_bar.value = clampf(song_progress_bar.max_value * percentage, song_progress_bar.min_value, song_progress_bar.max_value)
+
+func unlock_spell(element : SignalBus.Element):
+	match element:
+		SignalBus.Element.Water:
+			water_progress_bar.show()
+		SignalBus.Element.Love:
+			love_progress_bar.show()
+		SignalBus.Element.Light:
+			light_progress_bar.show()
+		SignalBus.Element.Song:
+			song_progress_bar.show()
+
 
 func error_shake_button(element : SignalBus.Element):
 	var to_be_selected_progress_bar : TextureProgressBar

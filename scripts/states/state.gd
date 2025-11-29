@@ -1,7 +1,7 @@
 class_name MonsterState
 extends Node
 
-enum State {Spawn, Despawn, Idle, Chase, Hit, Cooldown, Dead}
+enum State {Spawn, Despawn, Idle, Chase, Hit, Cooldown, Dead, Dazzle, Stun}
 
 signal transition_requested(from: MonsterState, to: State)
 

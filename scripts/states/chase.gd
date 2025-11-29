@@ -18,6 +18,13 @@ func enter() -> void:
 
 func on_tick() -> void:
 	_move_to_target()
+	_hit_player()
+
+func _hit_player():
+	var player_pos : Vector2 = player.global_position
+	# var player_velocity : Vector2 = player.velocity
+	if monster.global_position.distance_to(player_pos) <= monster.attack_range:
+		transition_requested.emit(self, MonsterState.State.Hit, monster)
 
 func _move_to_target() -> void:
 	if monster.talking_stick:
@@ -45,7 +52,7 @@ func _move_to_target() -> void:
 	
 	monster.flip_to_direction(direction)
 	
-	monster.velocity = direction * monster.speed
+	monster.velocity = monster.create_velocity_vector(monster.get_speed(), direction)
 	monster.play_animation()
 	monster.move_and_slide()
 
@@ -62,14 +69,11 @@ func _update_agent_target(force : bool) -> void:
 	monster.play_animation()
 	var player_pos : Vector2 = player.global_position
 	var player_velocity : Vector2 = player.velocity
-	if monster.global_position.distance_to(player_pos) <= monster.attack_range:
-		transition_requested.emit(self, MonsterState.State.Hit, monster)
-		return
-		
+
 	if !agent.is_target_reachable():
 		if retries >= MAX_RETRIES:
 			transition_requested.emit(self, MonsterState.State.Despawn, monster)
-			# agent.target_position = monster.home
+			# awagent.target_position = monster.home
 			return
 		else:
 			retries += 1
@@ -78,7 +82,7 @@ func _update_agent_target(force : bool) -> void:
 	if not force and last_player_target.distance_to(player_pos) < repath_distance_threshold:
 		return
 	
-	var rad = 16
+	var rad = 14
 	var points = get_circle_points(player_pos, rad)
 	points.shuffle()
 	retries = 0

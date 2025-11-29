@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MonsterStats" load_steps=4 format=3 uid="uid://0qfd68nm2n7"]
+
+[ext_resource type="Script" uid="uid://bsvgdfy8s6qb8" path="res://scripts/stats.gd" id="1_0xxel"]
+[ext_resource type="Shape2D" uid="uid://dyklc1dks4n2b" path="res://resources/plant_hitbox.tres" id="1_6q4ur"]
+[ext_resource type="SpriteFrames" uid="uid://ba66wxvryb5mp" path="res://resources/plant_sprite_frames.tres" id="3_pncdo"]
+
+[resource]
+script = ExtResource("1_0xxel")
+hitpoints = 25
+damage = 25
+speed = 60
+affinity = 2
+sprite_frames = ExtResource("3_pncdo")
+hitbox_shape = ExtResource("1_6q4ur")
+hitbox_position = Vector2(4, -15)
+metadata/_custom_type_script = "uid://bsvgdfy8s6qb8"

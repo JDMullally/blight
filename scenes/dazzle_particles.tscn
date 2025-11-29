@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cda0gwjkdeuwp"]
+
+[ext_resource type="Texture2D" uid="uid://kgtxbnuv6tf3" path="res://art/misc/lightparticle.png" id="1_o3b16"]
+
+[sub_resource type="Curve" id="Curve_8vtgf"]
+_data = [Vector2(0.029962547, 0.39062494), 0.0, 0.0, 0, 0, Vector2(0.42322102, 0.84765625), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_u850g"]
+curve = SubResource("Curve_8vtgf")
+
+[sub_resource type="Curve" id="Curve_da446"]
+_data = [Vector2(0.011235952, 0.29921865), 0.0, 0.0, 0, 0, Vector2(0.54307115, 0.8375), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_l30vs"]
+curve = SubResource("Curve_da446")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h3m18"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 33.86
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_l30vs")
+alpha_curve = SubResource("CurveTexture_u850g")
+
+[node name="DazzleParticles" type="GPUParticles2D"]
+texture = ExtResource("1_o3b16")
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_h3m18")
