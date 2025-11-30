@@ -1,36 +1,212 @@
-[gd_scene load_steps=6 format=3 uid="uid://doayssbbh6syd"]
+[gd_scene load_steps=18 format=3 uid="uid://doayssbbh6syd"]
 
 [ext_resource type="Texture2D" uid="uid://bg47g1hyv4et1" path="res://art/shrines/love_shrine/more stuff/col_1.png" id="1_ij2vw"]
 [ext_resource type="Texture2D" uid="uid://rv02dfgg7w7d" path="res://art/shrines/love_shrine/more stuff/col_2.png" id="2_so84l"]
 [ext_resource type="Texture2D" uid="uid://cu10j4vmajbpv" path="res://art/shrines/love_shrine/more stuff/col3.png" id="3_qqr2b"]
 [ext_resource type="Texture2D" uid="uid://dikmo6bljjri1" path="res://art/shrines/love_shrine/more stuff/col4.png" id="4_qqr2b"]
 [ext_resource type="Texture2D" uid="uid://flhigwros1ll" path="res://art/shrines/love_shrine/more stuff/col5.png" id="5_c7pgu"]
+[ext_resource type="Texture2D" uid="uid://rgp1c67f06ly" path="res://art/shrines/love_shrine/more stuff/col6.png" id="6_bywxi"]
+[ext_resource type="Texture2D" uid="uid://dwdkjwfgma470" path="res://art/shrines/love_shrine/more stuff/col7.png" id="7_ggtw7"]
+[ext_resource type="Texture2D" uid="uid://cci67oisa0ctw" path="res://art/shrines/love_shrine/more stuff/col8.png" id="8_u7wcr"]
+[ext_resource type="Texture2D" uid="uid://db6g4514l615" path="res://art/shrines/love_shrine/more stuff/love_shrine_columntops.png" id="9_ggtw7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7wcr"]
+radius = 8.0
+height = 18.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1an5o"]
+radius = 8.0
+height = 22.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ci1jc"]
+radius = 8.0
+height = 18.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_58g60"]
+radius = 6.0
+height = 18.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivwc5"]
+radius = 5.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a5w4k"]
+radius = 7.0
+height = 18.000004
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qp5kb"]
+radius = 6.0
+height = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0y2t"]
+atlas = ExtResource("9_ggtw7")
+region = Rect2(0, 0, 640, 640)
 
 [node name="Columns" type="Node2D"]
 
 [node name="Col_1" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-102, -6)
 texture = ExtResource("1_ij2vw")
 offset = Vector2(60, -19)
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Col_1"]
+position = Vector2(-15, -119)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Col_1/StaticBody2D"]
+position = Vector2(-40, 95)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_u7wcr")
+
 [node name="Col_2" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-39, 4)
 texture = ExtResource("2_so84l")
 offset = Vector2(-3, -29)
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="Col_2"]
+position = Vector2(-23, -102)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Col_2/StaticBody2D2"]
+position = Vector2(-40, 95)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_u7wcr")
+
 [node name="Col_3" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(24, -8)
 texture = ExtResource("3_qqr2b")
 offset = Vector2(-66, -17)
 
+[node name="StaticBody2D3" type="StaticBody2D" parent="Col_3"]
+position = Vector2(-24, -79)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Col_3/StaticBody2D3"]
+position = Vector2(-39, 96)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_1an5o")
+
 [node name="Col_4" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(73, -36)
 texture = ExtResource("4_qqr2b")
 offset = Vector2(-115, 11)
 
+[node name="StaticBody2D4" type="StaticBody2D" parent="Col_4"]
+position = Vector2(-10, -63)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Col_4/StaticBody2D4"]
+position = Vector2(-39, 96)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ci1jc")
+
+[node name="Col_10" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(73, -36)
+texture = ExtResource("4_qqr2b")
+offset = Vector2(-115, 11)
+flip_h = true
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="Col_10"]
+position = Vector2(-47, -192)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Col_10/StaticBody2D10"]
+position = Vector2(-39, 96)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_58g60")
+
 [node name="Col_5" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(87, -80)
 texture = ExtResource("5_c7pgu")
 offset = Vector2(-129, 55)
 
-[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+[node name="StaticBody2D5" type="StaticBody2D" parent="Col_5"]
+position = Vector2(25, -47)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Col_5/StaticBody2D5"]
+position = Vector2(-39, 96)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ci1jc")
+
+[node name="Col_6" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(33, -126)
+texture = ExtResource("6_bywxi")
+offset = Vector2(-75, 101)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Col_6"]
+position = Vector2(90, -42)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Col_6/StaticBody2D6"]
+position = Vector2(-36, 92)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ivwc5")
+
+[node name="Col_7" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-13, -135)
+texture = ExtResource("7_ggtw7")
+offset = Vector2(-29, 110)
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Col_7"]
+position = Vector2(82, -81)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Col_7/StaticBody2D7"]
+position = Vector2(-36, 93)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_a5w4k")
+
+[node name="Col_8" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-64, -133)
+texture = ExtResource("8_u7wcr")
+offset = Vector2(22, 108)
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Col_8"]
+position = Vector2(-17, -82)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Col_8/StaticBody2D8"]
+position = Vector2(-36, 93)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_a5w4k")
+
+[node name="Col_9" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-117, -126)
+texture = ExtResource("6_bywxi")
+offset = Vector2(75, 101)
+flip_h = true
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="Col_9"]
+position = Vector2(91, -101)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Col_9/StaticBody2D9"]
+position = Vector2(-38, 95)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qp5kb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 100
+position = Vector2(-43, -14)
+texture = SubResource("AtlasTexture_r0y2t")

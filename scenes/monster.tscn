@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://dguu8adbse0xs" path="res://scenes/stun_particles.tscn" id="14_n78d1"]
 
 [node name="Monster" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_1cbnp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

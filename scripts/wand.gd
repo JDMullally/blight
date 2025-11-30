@@ -35,8 +35,10 @@ func unlock_spell(element : SignalBus.Element):
 	new_bullet_poly.append(Vector2(150, 0))
 	new_bullet_poly.append(Vector2(75, 50))
 	new_bullet_poly.append(Vector2.ZERO)
-	spellbook[SignalBus.Element.find_key(element)] = {"poly" : new_bullet_poly, "percentage" : .05}
-
+	print(SignalBus.Element.find_key(element))
+	# spellbook[SignalBus.Element.find_key(element)] = {"poly" : new_bullet_poly, "percentage" : .05}
+	update_bullet_poly(new_bullet_poly, .05, element)
+	
 func _ready() -> void:
 	SignalBus.unlock_spell.connect(unlock_spell)
 	SignalBus.select_spell.connect(update_current_element)
@@ -105,13 +107,16 @@ func _unhandled_input(event : InputEvent) -> void:
 		
 		var bullet_poly = spellbook[SignalBus.Element.find_key(element_screenshot)]["poly"]
 		var percentage = spellbook[SignalBus.Element.find_key(element_screenshot)]["percentage"]
-		
-		var stupid_bullshit : BulletStats = BulletStats.new()
-		stupid_bullshit.update_stats(percentage, element_screenshot)
+		var stats = spellbook[SignalBus.Element.find_key(element_screenshot)]["stats"].duplicate()
+		stats.update_stats(percentage, element_screenshot)
+		#var stupid_bullshit : BulletStats = BulletStats.new()
+		#stupid_bullshit.update_stats(percentage, element_screenshot)
 		
 		get_tree().current_scene.add_child(bullet)
-		trigger_cooldown(element_screenshot, stupid_bullshit.cooldown)
-		bullet.setup(bullet_poly, start_pos, dir, stupid_bullshit)
+		trigger_cooldown(element_screenshot, stats.cooldown)
+		bullet.setup(bullet_poly, start_pos, dir, stats)
 
 func update_bullet_poly(new_poly : PackedVector2Array, percentage_size : float, element : SignalBus.Element) -> void:
-	spellbook[SignalBus.Element.find_key(element)] = {"poly" : new_poly, "percentage" : percentage_size}
+	var stupid_bullshit : BulletStats = BulletStats.new()
+	stupid_bullshit.update_stats(percentage_size, element)
+	spellbook[SignalBus.Element.find_key(element)] = {"poly" : new_poly, "percentage" : percentage_size, "stats": stupid_bullshit}

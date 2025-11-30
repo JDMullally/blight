@@ -9,55 +9,73 @@
 texture = ExtResource("1_273vy")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-90, 22, -123, 109, -150, 122, -182, 119, -201, 109, -200, 95, -201, 62, -184, 73, -168, 76, -142, 73, -129, 66, -124, 60, -129, 51, -109, 35)
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D5"]
-polygon = PackedVector2Array(-112, 6, -158, 42, -177, 42, -197, 51, -201, 61, -201, 52, -193, 44, -168, 36, -159, 37)
-
 [node name="StaticBody2D6" type="StaticBody2D" parent="."]
 position = Vector2(4, 0)
-scale = Vector2(-1, 1)
+rotation = 3.1415925
+scale = Vector2(1, -1)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D6"]
+polygon = PackedVector2Array(-112, 6, -158, 42, -177, 42, -197, 51, -201, 61, -201, 52, -193, 44, -168, 36, -159, 37)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D5"]
 polygon = PackedVector2Array(-112, 6, -158, 42, -177, 42, -197, 51, -201, 61, -201, 52, -193, 44, -168, 36, -159, 37)
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="."]
 position = Vector2(4, 0)
 scale = Vector2(1, -1)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D7"]
 polygon = PackedVector2Array(-83, 97, -133, 123, -128, 131, -132, 137, -150, 146, -170, 148, -183, 146, -199, 139, -205, 130, -206, 133, -199, 142, -184, 148, -168, 150, -150, 148, -138, 142, -129, 138, -125, 128, -130, 123, -111, 113, -92, 104)
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="."]
 position = Vector2(4, 1)
-scale = Vector2(-1, -1)
+rotation = 3.1415925
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D8"]
 polygon = PackedVector2Array(-83, 97, -133, 123, -128, 131, -132, 137, -150, 146, -170, 148, -183, 146, -199, 139, -205, 130, -206, 133, -199, 142, -184, 148, -168, 150, -150, 148, -138, 142, -129, 138, -125, 128, -130, 123, -111, 113, -92, 104)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(5, 0)
-scale = Vector2(-1, 1)
+rotation = 3.1415925
+scale = Vector2(1, -1)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
 polygon = PackedVector2Array(-90, 22, -123, 109, -150, 122, -182, 119, -201, 109, -200, 95, -201, 62, -184, 73, -168, 76, -142, 73, -129, 66, -124, 60, -129, 51, -109, 35)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(5, 0)
-scale = Vector2(-1, 1)
+rotation = 3.1415925
+scale = Vector2(1, -1)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
 polygon = PackedVector2Array(107, -85, 183, -68, 207, -78, 206, -130, 195, -120, 184, -115, 162, -112, 156, -114)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 position = Vector2(3, 0)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D4"]
 polygon = PackedVector2Array(107, -85, 183, -68, 207, -78, 206, -130, 195, -120, 184, -115, 162, -112, 156, -114)
 
 [node name="DefenseRing" parent="." instance=ExtResource("2_273vy")]
-visible = false

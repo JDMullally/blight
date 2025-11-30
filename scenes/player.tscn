@@ -153,8 +153,10 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 2147483650
-collision_mask = 2147483650
+y_sort_enabled = true
+position = Vector2(0, 3)
+collision_layer = 2147483651
+collision_mask = 2147483651
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -164,15 +166,15 @@ animation = &"idle"
 offset = Vector2(4.9999995, -7.499999)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(-1.7763568e-14, 2)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_dqkch")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3.5, 3.5)
-limit_left = -575
+limit_left = -975
 limit_top = -1850
-limit_right = 845
+limit_right = 1230
 limit_bottom = -515
 
 [node name="Wand" parent="." instance=ExtResource("3_qhqgy")]

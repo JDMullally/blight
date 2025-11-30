@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dltvpaj0isjxc"]
+[gd_scene load_steps=27 format=3 uid="uid://dltvpaj0isjxc"]
 
 [ext_resource type="Texture2D" uid="uid://4i8h5thoh66k" path="res://art/ui/Menu (1).png" id="1_xssyf"]
 [ext_resource type="Script" uid="uid://bysufsh3ihv8f" path="res://scripts/spellbook.gd" id="2_xfrxm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://qr45pel4w7fw" path="res://art/ui/all buttons-Sheet.png" id="4_pqdiw"]
 [ext_resource type="PackedScene" uid="uid://cwig508gpj7v" path="res://scenes/volume.tscn" id="5_ccaqx"]
 [ext_resource type="Texture2D" uid="uid://cl0eman8b4r4w" path="res://art/ui/basic button up.png" id="6_13a7e"]
+[ext_resource type="PackedScene" uid="uid://vb68bis4s2l0" path="res://scenes/radar_chart_graph.tscn" id="7_13a7e"]
 [ext_resource type="Texture2D" uid="uid://bfsyul2q4hogu" path="res://art/ui/basic button down.png" id="7_shkej"]
 [ext_resource type="Texture2D" uid="uid://dlghbjssw5yhk" path="res://art/ui/Love Button.png" id="8_xfrxm"]
 [ext_resource type="Texture2D" uid="uid://bh36gp0tx1rtc" path="res://art/ui/Song Button.png" id="9_jclf1"]
@@ -60,12 +61,12 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("10_ccaqx")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ipg7y"]
-atlas = ExtResource("9_jclf1")
-region = Rect2(0, 0, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_holsd"]
 atlas = ExtResource("11_13a7e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipg7y"]
+atlas = ExtResource("9_jclf1")
 region = Rect2(0, 0, 16, 16)
 
 [node name="Spellbook" type="TextureRect"]
@@ -199,21 +200,56 @@ scroll_active = false
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
 
+[node name="WaterChart" parent="Control" instance=ExtResource("7_13a7e")]
+layout_mode = 0
+offset_left = 475.5
+offset_top = 232.99998
+offset_right = 625.5
+offset_bottom = 289.0
+scale = Vector2(0.6, 0.6)
+
+[node name="LoveChart" parent="Control" instance=ExtResource("7_13a7e")]
+visible = false
+layout_mode = 0
+offset_left = 475.5
+offset_top = 232.99998
+offset_right = 625.5
+offset_bottom = 289.0
+scale = Vector2(0.6, 0.6)
+
+[node name="LightChart" parent="Control" instance=ExtResource("7_13a7e")]
+visible = false
+layout_mode = 0
+offset_left = 475.5
+offset_top = 232.99998
+offset_right = 625.5
+offset_bottom = 289.0
+scale = Vector2(0.6, 0.6)
+
+[node name="SongChart" parent="Control" instance=ExtResource("7_13a7e")]
+visible = false
+layout_mode = 0
+offset_left = 475.5
+offset_top = 232.99998
+offset_right = 625.5
+offset_bottom = 289.0
+scale = Vector2(0.6, 0.6)
+
 [node name="WaterArea" parent="Control" instance=ExtResource("3_jclf1")]
 layout_mode = 0
 offset_left = 344.5
-offset_top = 48.5
+offset_top = 41.0
 offset_right = 896.5
-offset_bottom = 518.5
+offset_bottom = 511.0
 scale = Vector2(0.4, 0.4)
 
 [node name="LoveArea" parent="Control" instance=ExtResource("3_jclf1")]
 visible = false
 layout_mode = 0
 offset_left = 344.5
-offset_top = 48.5
+offset_top = 40.5
 offset_right = 896.5
-offset_bottom = 518.5
+offset_bottom = 510.5
 scale = Vector2(0.4, 0.4)
 element = 1
 
@@ -221,9 +257,9 @@ element = 1
 visible = false
 layout_mode = 0
 offset_left = 344.5
-offset_top = 48.5
+offset_top = 40.5
 offset_right = 896.5
-offset_bottom = 518.5
+offset_bottom = 510.5
 scale = Vector2(0.4, 0.4)
 element = 2
 
@@ -231,82 +267,82 @@ element = 2
 visible = false
 layout_mode = 0
 offset_left = 344.5
-offset_top = 48.5
+offset_top = 40.5
 offset_right = 896.5
-offset_bottom = 518.5
+offset_bottom = 510.5
 scale = Vector2(0.4, 0.4)
 element = 3
 
 [node name="LoveButton" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 407.5
-offset_top = 28.0
-offset_right = 423.5
-offset_bottom = 44.0
+offset_left = 406.5
+offset_top = 232.5
+offset_right = 422.5
+offset_bottom = 248.5
 texture_normal = SubResource("AtlasTexture_jclf1")
 texture_pressed = SubResource("AtlasTexture_pqdiw")
 
 [node name="SongButton" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 432.5
-offset_top = 28.0
-offset_right = 448.5
-offset_bottom = 44.0
+offset_left = 454.5
+offset_top = 232.5
+offset_right = 470.5
+offset_bottom = 248.5
 texture_normal = SubResource("AtlasTexture_ccaqx")
 texture_pressed = SubResource("AtlasTexture_13a7e")
 
 [node name="WaterButton" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 457.5
-offset_top = 28.0
-offset_right = 473.5
-offset_bottom = 44.0
+offset_left = 382.5
+offset_top = 232.5
+offset_right = 398.5
+offset_bottom = 248.5
 texture_normal = SubResource("AtlasTexture_shkej")
 texture_pressed = SubResource("AtlasTexture_d7fim")
 
 [node name="LightButton" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 482.5
-offset_top = 28.0
-offset_right = 498.5
-offset_bottom = 44.0
+offset_left = 430.5
+offset_top = 232.5
+offset_right = 446.5
+offset_bottom = 248.5
 texture_normal = SubResource("AtlasTexture_6thth")
 texture_pressed = SubResource("AtlasTexture_ef3e6")
 
 [node name="Heart" type="TextureRect" parent="Control"]
 visible = false
 layout_mode = 0
-offset_left = 342.0
-offset_top = 14.5
-offset_right = 374.0
-offset_bottom = 46.5
+offset_left = 345.0
+offset_top = 232.0
+offset_right = 377.0
+offset_bottom = 264.0
 texture = SubResource("AtlasTexture_yoydh")
 
 [node name="Water" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_left = 342.0
-offset_top = 14.5
-offset_right = 374.0
-offset_bottom = 46.5
+offset_left = 345.0
+offset_top = 231.5
+offset_right = 377.0
+offset_bottom = 263.5
 texture = SubResource("AtlasTexture_fpacq")
-
-[node name="Song" type="TextureRect" parent="Control"]
-visible = false
-layout_mode = 0
-offset_left = 342.0
-offset_top = 14.5
-offset_right = 374.0
-offset_bottom = 46.5
-texture = SubResource("AtlasTexture_ipg7y")
 
 [node name="Light" type="TextureRect" parent="Control"]
 visible = false
 layout_mode = 0
-offset_left = 342.0
-offset_top = 14.5
-offset_right = 374.0
-offset_bottom = 46.5
+offset_left = 345.0
+offset_top = 232.0
+offset_right = 377.0
+offset_bottom = 264.0
 texture = SubResource("AtlasTexture_holsd")
+
+[node name="Song" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 345.0
+offset_top = 232.0
+offset_right = 377.0
+offset_bottom = 264.0
+texture = SubResource("AtlasTexture_ipg7y")
 
 [connection signal="pressed" from="ExitButton" to="." method="show_or_hide"]
 [connection signal="pressed" from="Components/Restart" to="." method="restart"]

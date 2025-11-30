@@ -49,10 +49,15 @@ func _move_to_target() -> void:
 		return
 	
 	direction = direction.normalized()
-	
+	var player_pos : Vector2 = player.global_position
+	var distance_from_player: Vector2  = player_pos - monster.global_position
+	# print(abs(distance_from_player.length()))
 	monster.flip_to_direction(direction)
-	
-	monster.velocity = monster.create_velocity_vector(monster.get_speed(), direction)
+	if abs(distance_from_player.length()) > 350:
+		monster.velocity = monster.create_velocity_vector(monster.get_speed() * 10, direction)
+	else:
+		monster.velocity = monster.create_velocity_vector(monster.get_speed(), direction)
+
 	monster.play_animation()
 	monster.move_and_slide()
 

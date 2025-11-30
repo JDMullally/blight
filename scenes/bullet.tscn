@@ -5,6 +5,8 @@
 
 [node name="Bullet" type="Area2D"]
 material = ExtResource("1_y25gk")
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_mkf8s")
 
 [node name="Hitbox" type="CollisionPolygon2D" parent="."]

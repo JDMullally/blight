@@ -3,10 +3,10 @@ extends Node2D
 @onready var fps: Label = %FPS
 @onready var num_enemies: Label = %NumEnemies
 @onready var timer: Timer = %Timer
-@onready var frog_spawner: MonsterSpawner = $FrogSpawner
-@onready var dog_spawner: MonsterSpawner = $DogSpawner
-@onready var bird_spawner: MonsterSpawner = $BirdSpawner
-@onready var flower_spawner: MonsterSpawner = $FlowerSpawner
+@onready var frog_spawner: MonsterSpawner = %FrogSpawner
+@onready var dog_spawner: MonsterSpawner = %DogSpawner
+@onready var bird_spawner: MonsterSpawner = %BirdSpawner
+@onready var flower_spawner: MonsterSpawner = %FlowerSpawner
 
 func _ready() -> void:
 	fps.text = str(Engine.get_frames_per_second())
@@ -16,9 +16,9 @@ func _ready() -> void:
 	SignalBus.unlock_spell.emit(SignalBus.Element.Love)
 	SignalBus.unlock_spell.emit(SignalBus.Element.Song)
 	frog_spawner.locked = false
-	dog_spawner.locked = false
-	bird_spawner.locked = false
-	flower_spawner.locked = false
+	dog_spawner.locked = true
+	bird_spawner.locked = true
+	flower_spawner.locked = true
 
 func _on_timer_timeout() -> void:
 	timer.start()

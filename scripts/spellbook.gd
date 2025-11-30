@@ -13,9 +13,14 @@ var showing = false
 @onready var song_button: TextureButton = $Control/SongButton
 @onready var water_button: TextureButton = $Control/WaterButton
 @onready var light_button: TextureButton = $Control/LightButton
+@onready var water_chart: StatChart = $Control/WaterChart
+@onready var love_chart: StatChart = $Control/LoveChart
+@onready var light_chart: StatChart = $Control/LightChart
+@onready var song_chart: StatChart = $Control/SongChart
 
 func _ready() -> void:
 	SignalBus.unlock_spell.connect(unlock_spell)
+	SignalBus.update_spell_stats.connect(update_spell_stats)
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	love_button.hide()
 	song_button.hide()
@@ -32,6 +37,17 @@ func unlock_spell(element : SignalBus.Element):
 			light_button.show()
 		SignalBus.Element.Song:
 			song_button.show()
+
+func update_spell_stats(element : SignalBus.Element, damage : float, pierce : float, speed : float, duration : float, cooldown : float):
+	match element:
+		SignalBus.Element.Water:
+			water_chart.update_values(damage, pierce, speed, duration, cooldown)
+		SignalBus.Element.Love:
+			love_chart.update_values(damage, pierce, speed, duration, cooldown)
+		SignalBus.Element.Light:
+			light_chart.update_values(damage, pierce, speed, duration, cooldown)
+		SignalBus.Element.Song:
+			song_chart.update_values(damage, pierce, speed, duration, cooldown)
 
 func _input(event : InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == Key.KEY_TAB:
@@ -67,6 +83,10 @@ func _on_love_button_pressed() -> void:
 	song.hide()
 	light.hide()
 	water.hide()
+	water_chart.hide()
+	love_chart.show()
+	light_chart.hide()
+	song_chart.hide()
 
 func _on_song_button_pressed() -> void:
 	water_area.hide()
@@ -77,6 +97,10 @@ func _on_song_button_pressed() -> void:
 	song.show()
 	light.hide()
 	water.hide()
+	water_chart.hide()
+	love_chart.hide()
+	light_chart.hide()
+	song_chart.show()
 
 func _on_water_button_pressed() -> void:
 	water_area.show()
@@ -87,6 +111,10 @@ func _on_water_button_pressed() -> void:
 	song.hide()
 	light.hide()
 	water.show()
+	water_chart.show()
+	love_chart.hide()
+	light_chart.hide()
+	song_chart.hide()
 
 func _on_light_button_pressed() -> void:
 	water_area.hide()
@@ -97,3 +125,7 @@ func _on_light_button_pressed() -> void:
 	song.hide()
 	light.show()
 	water.hide()
+	water_chart.hide()
+	love_chart.hide()
+	light_chart.show()
+	song_chart.hide()

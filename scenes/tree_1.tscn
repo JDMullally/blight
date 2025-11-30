@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://nncvss1r0n67"]
+
+[ext_resource type="Texture2D" uid="uid://tydwq027kai1" path="res://art/tiles/Corrupted_Tree_1.png" id="1_tem7l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b2jax"]
+radius = 8.0
+height = 20.000002
+
+[node name="Tree1" type="Sprite2D"]
+position = Vector2(14.999999, 34)
+scale = Vector2(2.484375, 2.484375)
+texture = ExtResource("1_tem7l")
+offset = Vector2(15.220127, -51.92453)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(13.6855345, -53.53459)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-14, 59)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_b2jax")
