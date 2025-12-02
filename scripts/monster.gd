@@ -13,6 +13,7 @@ const KNOCKBACK : float = 250.0
 @onready var kill_me = false
 @onready var dazzle_particles: GPUParticles2D = $DazzleParticles
 @onready var stun_particles: GPUParticles2D = $StunParticles
+@onready var hurt_noise: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var monster_stats : MonsterStats
 
@@ -134,6 +135,7 @@ func knockback_from_player():
 
 func take_damage(damage : int):
 	monster_stats.take_damage(damage)
+	hurt_noise.play()
 	# print(monster_stats.hitpoints)
 	if skew_tween and skew_tween.is_valid():
 		skew_tween.kill()

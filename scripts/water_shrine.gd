@@ -35,3 +35,5 @@ func heal_shrine():
 	if MAX_HP == hitpoints:
 		var current_atlas_texture : AtlasTexture = shrine_sprite.texture
 		current_atlas_texture.region = Rect2(increment * (threshold + 1), 0.0, WIDTH, HEIGHT)
+		SignalBus.unlock_spell.emit(SignalBus.Element.Love)
+		SignalBus.complete_shrine.emit()

@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cqwqjfmk82rjd"]
+
+[ext_resource type="Texture2D" uid="uid://dm45ebrcuqavc" path="res://art/ui/basic button-Sheet-blight.png" id="1_2oivn"]
+
+[resource]
+atlas = ExtResource("1_2oivn")
+region = Rect2(0, 0, 128, 32)

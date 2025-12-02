@@ -27,8 +27,11 @@ func update_ring_time(delta : float):
 
 func check_ring_time():
 	if ring_time >= MAX_RING_TIME:
+		print("hi!")
 		completed = true
-		# print("You did it!")
+		point_light_2d.energy = 2.0
+		SignalBus.unlock_spell.emit(SignalBus.Element.Light)
+		SignalBus.complete_shrine.emit()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -39,9 +42,6 @@ func update_animation():
 	var current_atlas_texture : AtlasTexture = sprite_2d.texture
 	current_atlas_texture.region = Rect2(increment * threshold, 0.0, MAX_THRESHOLD, MAX_THRESHOLD)
 	point_light_2d.energy = ring_time / MAX_RING_TIME
-	if completed:
-		point_light_2d.energy = 2.0
-	
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:

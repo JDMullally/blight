@@ -48,7 +48,7 @@ offset_right = 1717.0
 offset_bottom = 851.0
 theme_override_styles/background = SubResource("StyleBoxFlat_i62wn")
 theme_override_styles/fill = SubResource("StyleBoxFlat_nekah")
-value = 75.0
+value = 100.0
 show_percentage = false
 
 [node name="HotbarTexture" type="TextureRect" parent="."]

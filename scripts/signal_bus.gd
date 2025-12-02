@@ -10,3 +10,7 @@ signal update_prog_bars(water_prog : float, love_prog : float, light_prog : floa
 signal hurt_player(damage : int, g_position : Vector2)
 signal unlock_spell(element : Element)
 signal update_spell_stats(element : Element, damage : float, pierce : float, speed : float, duration : float, cooldown : float)
+signal game_win_screen
+signal game_over_screen
+signal update_player_health(value : int)
+signal complete_shrine

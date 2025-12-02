@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6jlc0ruaqu1j"
+path="res://.godot/imported/USE_little-creature-hurt-sound-295405 (mp3cut.net).mp3-809828d3f10aa82160ec9e0da45323a0.mp3str"
+
+[deps]
+
+source_file="res://art/recent_downloads/USE_little-creature-hurt-sound-295405 (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/USE_little-creature-hurt-sound-295405 (mp3cut.net).mp3-809828d3f10aa82160ec9e0da45323a0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

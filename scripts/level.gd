@@ -7,18 +7,28 @@ extends Node2D
 @onready var dog_spawner: MonsterSpawner = %DogSpawner
 @onready var bird_spawner: MonsterSpawner = %BirdSpawner
 @onready var flower_spawner: MonsterSpawner = %FlowerSpawner
+@onready var background_music: AudioStreamPlayer = $BackgroundMusic
+@onready var completed_shrines : int = 0
 
 func _ready() -> void:
+	background_music.play()
+	SignalBus.complete_shrine.connect(complete_shrine)
+	SignalBus.game_over_screen.connect(game_over)
 	fps.text = str(Engine.get_frames_per_second())
 	num_enemies.text = str(len(frog_spawner.get_monster_list()))
 	timer.start()
-	SignalBus.unlock_spell.emit(SignalBus.Element.Light)
-	SignalBus.unlock_spell.emit(SignalBus.Element.Love)
-	SignalBus.unlock_spell.emit(SignalBus.Element.Song)
 	frog_spawner.locked = false
-	dog_spawner.locked = true
-	bird_spawner.locked = true
-	flower_spawner.locked = true
+
+func complete_shrine():
+	completed_shrines += 1	
+	if completed_shrines >= 2:
+		game_win()
+
+func game_over():
+	get_tree().change_scene_to_file("res://scenes/Lose_screen.tscn")
+	
+func game_win():
+	get_tree().change_scene_to_file("res://scenes/title.tscn")
 
 func _on_timer_timeout() -> void:
 	timer.start()
@@ -43,3 +53,7 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 	dog_spawner.enable_monster_spawner()
 	bird_spawner.enable_monster_spawner()
 	flower_spawner.enable_monster_spawner()
+
+
+func _on_background_music_finished() -> void:
+	background_music.play(60.0)

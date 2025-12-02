@@ -62,6 +62,8 @@ func get_uid() -> String:
 			return ""
 
 func _ready() -> void:
+	SignalBus.unlock_spell.connect(unlock_enemy_type)
+	# SignalBus.weaken_enemy.connect()
 	spawn_timer.wait_time = 1.0
 	spawn_timer.one_shot = true
 	spawn_timer.start()
@@ -69,6 +71,24 @@ func _ready() -> void:
 	talking_stick_timer.wait_time = .01
 	talking_stick_timer.one_shot = true
 	talking_stick_timer.start()
+
+func unlock_enemy_type(element : SignalBus.Element):
+	if is_right_element(element) and locked:
+		locked = false
+
+func is_right_element(element : SignalBus.Element):
+	match element:
+		SignalBus.Element.Water:
+			return type == SpawnerType.Frog
+		SignalBus.Element.Love:
+			return type == SpawnerType.Dog
+		SignalBus.Element.Light:
+			return type == SpawnerType.Flower
+		SignalBus.Element.Song:
+			return type == SpawnerType.Bird
+		_:
+			return false
+			
 
 func disable_monster_spawner():
 	despawned_monster_count = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5oqg6hilbih"]
+[gd_scene load_steps=16 format=3 uid="uid://b5oqg6hilbih"]
 
 [ext_resource type="Script" uid="uid://css51i5xkinaa" path="res://scripts/monster.gd" id="1_1cbnp"]
 [ext_resource type="SpriteFrames" uid="uid://ba66wxvryb5mp" path="res://resources/plant_sprite_frames.tres" id="2_akk5r"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://coslxlbdhcyhw" path="res://scenes/stun.gd" id="12_1v1i4"]
 [ext_resource type="PackedScene" uid="uid://cda0gwjkdeuwp" path="res://scenes/dazzle_particles.tscn" id="13_1v1i4"]
 [ext_resource type="PackedScene" uid="uid://dguu8adbse0xs" path="res://scenes/stun_particles.tscn" id="14_n78d1"]
+[ext_resource type="AudioStream" uid="uid://c6jlc0ruaqu1j" path="res://art/recent_downloads/USE_little-creature-hurt-sound-295405 (mp3cut.net).mp3" id="15_7han3"]
 
 [node name="Monster" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -109,6 +110,14 @@ scale = Vector2(0.5, 0.5)
 
 [node name="StunParticles" parent="." instance=ExtResource("14_n78d1")]
 position = Vector2(5, -17)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_7han3")
+volume_db = -5.0
+pitch_scale = 1.26
+max_distance = 306.0
+attenuation = 3.3635871
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="StateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="StateMachine/Chase" method="_on_timer_timeout"]

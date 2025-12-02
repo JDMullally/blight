@@ -13,8 +13,6 @@ func enter() -> void:
 		monster.modulate.a = 1.0
 		_update_agent_target(true)
 	monster.talking_stick = true
-	#if timer != null:
-		#timer.start(randf_range(0.0, timer.wait_time))
 
 func on_tick() -> void:
 	_move_to_target()

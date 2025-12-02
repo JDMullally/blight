@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://54h4hjoeo0dw"]
+[gd_scene load_steps=8 format=3 uid="uid://54h4hjoeo0dw"]
 
 [ext_resource type="Script" uid="uid://dta0mjfe67mcw" path="res://scripts/menuUtil.gd" id="1_4ignj"]
+[ext_resource type="Texture2D" uid="uid://b4bbndhepcbj2" path="res://art/title-screen.png" id="2_pyl7j"]
+[ext_resource type="Texture2D" uid="uid://cqwqjfmk82rjd" path="res://resources/bad_button_atlas_texture.tres" id="3_b3w7a"]
+[ext_resource type="Texture2D" uid="uid://dm45ebrcuqavc" path="res://art/ui/basic button-Sheet-blight.png" id="4_4rr2b"]
+[ext_resource type="AudioStream" uid="uid://scwiwagwcct7" path="res://art/recent_downloads/mainmenu.mp3" id="5_b3w7a"]
+[ext_resource type="PackedScene" uid="uid://cwig508gpj7v" path="res://scenes/volume.tscn" id="6_4rr2b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yql1r"]
+atlas = ExtResource("4_4rr2b")
+region = Rect2(128, 0, 128, 32)
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -11,30 +20,90 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4ignj")
 
-[node name="StartButton" type="Button" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 409.0
-offset_right = 471.0
-offset_bottom = 507.0
-text = "START"
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_pyl7j")
 
-[node name="SettingsButton" type="Button" parent="."]
+[node name="Start" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 534.0
-offset_right = 473.0
-offset_bottom = 632.0
-text = "SETTINGS"
+offset_left = 219.0
+offset_top = 609.00006
+offset_right = 347.0
+offset_bottom = 649.00006
+scale = Vector2(3.5, 3.5)
+texture_normal = ExtResource("3_b3w7a")
+texture_pressed = SubResource("AtlasTexture_yql1r")
+texture_hover = ExtResource("3_b3w7a")
 
-[node name="QuitGameButton" type="Button" parent="."]
+[node name="Settings" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 662.0
-offset_right = 473.0
-offset_bottom = 760.0
-text = "QUIT"
+offset_left = 219.0
+offset_top = 742.0
+offset_right = 347.0
+offset_bottom = 782.0
+scale = Vector2(3.5, 3.5)
+texture_normal = ExtResource("3_b3w7a")
+texture_pressed = SubResource("AtlasTexture_yql1r")
+texture_hover = ExtResource("3_b3w7a")
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="QuitGameButton" to="." method="_on_quit_game_button_pressed"]
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 883.0
+offset_right = 346.0
+offset_bottom = 923.0
+scale = Vector2(3.5, 3.5)
+texture_normal = ExtResource("3_b3w7a")
+texture_pressed = SubResource("AtlasTexture_yql1r")
+texture_hover = ExtResource("3_b3w7a")
+
+[node name="StartLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 382.0
+offset_top = 637.0
+offset_right = 718.0
+offset_bottom = 769.0
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/font_size = 96
+text = "Start"
+
+[node name="SettingsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 770.0
+offset_right = 869.0
+offset_bottom = 902.0
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/font_size = 96
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="ExitGameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 342.00006
+offset_top = 912.0
+offset_right = 889.00006
+offset_bottom = 1044.0
+scale = Vector2(0.4, 0.4)
+theme_override_font_sizes/font_size = 96
+text = "Exit Game"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_b3w7a")
+bus = &"Music"
+
+[node name="Volume" parent="." instance=ExtResource("6_4rr2b")]
+visible = false
+layout_mode = 0
+offset_left = 998.0
+offset_top = 221.0
+offset_right = 998.0
+offset_bottom = 221.0
+scale = Vector2(2, 2)
+
+[connection signal="pressed" from="Start" to="." method="start"]
+[connection signal="pressed" from="Settings" to="." method="settings"]
+[connection signal="pressed" from="Quit" to="." method="quit"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

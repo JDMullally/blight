@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://crumj7tyj5pac"]
+[gd_scene load_steps=38 format=4 uid="uid://crumj7tyj5pac"]
 
 [ext_resource type="Script" uid="uid://cg02b1yiyqdxh" path="res://scripts/level.gd" id="1_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://bj0goxb5cvvkb" path="res://art/tiles/Corrupted Bush1.png" id="2_2r41h"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cci67oisa0ctw" path="res://art/shrines/love_shrine/more stuff/col8.png" id="18_xy2fk"]
 [ext_resource type="Texture2D" uid="uid://db6g4514l615" path="res://art/shrines/love_shrine/more stuff/love_shrine_columntops.png" id="19_8gofh"]
 [ext_resource type="PackedScene" uid="uid://nncvss1r0n67" path="res://scenes/tree_1.tscn" id="21_h6wmr"]
+[ext_resource type="AudioStream" uid="uid://scwiwagwcct7" path="res://art/recent_downloads/mainmenu.mp3" id="22_pqd0y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b121j"]
 texture = ExtResource("2_2r41h")
@@ -1095,7 +1096,10 @@ process_mode = 3
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3
+stream = ExtResource("22_pqd0y")
+pitch_scale = 1.2
 autoplay = true
+bus = &"Music"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
@@ -1112,5 +1116,6 @@ collision_mask = 2
 polygon = PackedVector2Array(-1243, -1366, -1090, -1366, -962, -1233, -972, -1082, -1038, -1032, -1305, -1032, -1415, -1096, -1411, -1215, -1386, -1278, -1338, -1301, -1296, -1302)
 
 [connection signal="timeout" from="CanvasLayer/Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="BackgroundMusic" to="." method="_on_background_music_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -3,11 +3,17 @@ class_name Player
 
 const SPEED : int = 100
 const KNOCKBACK : int = 200
+const MAX_HP : int = 100
 var current_knockback_vector : Vector2 = Vector2.ZERO
 var input_vector : Vector2 = Vector2.ZERO
 var impulse_decay_timer : Timer
+
+@onready var hitpoints = MAX_HP
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var wand: Node2D = $Wand
+@onready var regen_timer: Timer = %RegenTimer
+@onready var walking: AudioStreamPlayer = $Walking
+@onready var hit: AudioStreamPlayer = $Hit
 
 func apply_impulse(dir : Vector2):
 	current_knockback_vector = current_knockback_vector + KNOCKBACK * dir
@@ -19,6 +25,7 @@ func _ready() -> void:
 	impulse_decay_timer.one_shot = true
 	add_child(impulse_decay_timer)
 	handle_animation(Vector2.ZERO, Vector2.ZERO)
+	regen_timer.start()
 
 func _physics_process(_delta: float) -> void:
 	input_vector = Vector2(
@@ -27,13 +34,22 @@ func _physics_process(_delta: float) -> void:
 	).normalized()
 	
 	velocity = input_vector * SPEED + Vector2(current_knockback_vector.x, current_knockback_vector.y)
+	if velocity == Vector2.ZERO:
+		walking.stop()
+	elif velocity != Vector2.ZERO and !walking.playing:
+		walking.play()
+		
 	handle_animation(input_vector, velocity)
 	decay_knockback()
 	move_and_slide()
 
 func hit_player(monster_damage : int, monster_global_position : Vector2):
-	print(monster_damage)
+	hit.play()
 	apply_impulse((self.global_position - monster_global_position).normalized())
+	hitpoints = hitpoints - monster_damage
+	SignalBus.update_player_health.emit(hitpoints)
+	if hitpoints < 0:
+		SignalBus.game_over_screen.emit()
 
 func decay_knockback():
 	if impulse_decay_timer.is_stopped():
@@ -49,3 +65,7 @@ func handle_animation(input_vec : Vector2, vel : Vector2):
 	else:
 		if animated_sprite_2d.animation != "idle":
 			animated_sprite_2d.play("idle")
+
+func _on_regen_timer_timeout() -> void:
+	hitpoints = clampi(hitpoints + 1, -MAX_HP, MAX_HP)
+	SignalBus.update_player_health.emit(hitpoints)

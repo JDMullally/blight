@@ -7,6 +7,7 @@ class_name StatChart
 @onready var difficulty: ProgressBar = $Difficulty
 @onready var rapidity: ProgressBar = $Rapidity
 
+
 func update_values(damage : float, pierce : float, speed : float, debuff : float, cooldown : float):
 	potentency.value = debuff
 	power.value = damage

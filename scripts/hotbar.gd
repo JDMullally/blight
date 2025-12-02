@@ -7,14 +7,20 @@ class_name Hotbar
 @onready var song_progress_bar: TextureProgressBar = %SongProgressBar
 @onready var healthbar : ProgressBar = $ProgressBar
 var shake_tween : Tween
+@onready var progress_bar: ProgressBar = $ProgressBar
 
 func _ready():
+	SignalBus.update_player_health.connect(update_health)
 	SignalBus.unlock_spell.connect(unlock_spell)
 	SignalBus.spell_error_message.connect(error_shake_button)
 	SignalBus.update_prog_bars.connect(update_progress_bars)
 	love_progress_bar.hide()
 	light_progress_bar.hide()
 	song_progress_bar.hide()
+
+func update_health(value : int):
+	var clamped_value = clampf(value, 0, 100.0)
+	progress_bar.value = clamped_value
 
 func update_progress_bars(water_prog : float, love_prog : float, light_prog : float, song_prog : float):
 	update_progress_bar(SignalBus.Element.Water, water_prog)

@@ -1,43 +1,39 @@
 extends Control
 
+@onready var volume: Control = $Volume
+@onready var showing_volume = false
+@onready var settings_label: Label = $SettingsLabel
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	settings_label.text = "Settings" if !showing_volume else "Hide Settings"
+	audio_stream_player.play(0.0)
 
-
-func _on_start_button_pressed() -> void:
+func start() -> void:
 	get_tree().change_scene_to_file("res://scenes/level.tscn")
 
-
-func _on_resume_button_pressed() -> void:
+func resume() -> void:
 	get_tree().paused = false
 	self.hide()
 
-
-func _on_restart_button_pressed() -> void:
+func restart() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/level.tscn")
 
+func settings() -> void:
+	if showing_volume:
+		volume.hide()
+	else:
+		volume.show()
+	showing_volume = !showing_volume
+	settings_label.text = "Settings" if !showing_volume else "Hide Settings"
 
-func _on_settings_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/settings.tscn")
-
-
-func _on_quit_game_button_pressed() -> void:
+func quit() -> void:
 	get_tree().quit(0)
 
-
-func _on_music_check_button_toggled(toggled_on: bool) -> void:
-	pass # Replace with function body.
-
-
-func _on_sfx_check_button_toggled(toggled_on: bool) -> void:
-	pass # Replace with function body.
-
-
-func _on_grey_scale_check_button_toggled(toggled_on: bool) -> void:
-	pass # Replace with function body.
-
-
-func _on_title_screen_button_pressed() -> void:
+func title() -> void:
 	get_tree().change_scene_to_file("res://scenes/title.tscn")
+
+func _on_audio_stream_player_finished() -> void:
+	audio_stream_player.play(60.0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bi5t5rs6j68by"]
+[gd_scene load_steps=30 format=3 uid="uid://bi5t5rs6j68by"]
 
 [ext_resource type="Script" uid="uid://csw2shgruxl4m" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cjaajdilua3co" path="res://art/player/walk cycle.png" id="2_dqkch"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bwyo38mngw3oq" path="res://art/player/idle_withoriginalcanvassize.png" id="3_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://dltvpaj0isjxc" path="res://scenes/mock_scenes/spellbook.tscn" id="4_dqkch"]
 [ext_resource type="PackedScene" uid="uid://qtbcio8t7kmf" path="res://scenes/hotbar.tscn" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://c18sbt2kqlqi5" path="res://art/recent_downloads/running-in-grass-6237 (mp3cut.net).mp3" id="7_fjrip"]
+[ext_resource type="AudioStream" uid="uid://bpt8u6unpsqt5" path="res://art/recent_downloads/USE_umph-47201 (mp3cut.net).mp3" id="8_smehm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
 atlas = ExtResource("2_dqkch")
@@ -192,10 +194,10 @@ texture_scale = 0.75
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hotbar" parent="CanvasLayer" instance=ExtResource("5_qlg0r")]
-offset_left = 61.0
-offset_top = 451.0
-offset_right = 61.0
-offset_bottom = 451.0
+offset_left = -551.0
+offset_top = 369.0
+offset_right = -551.0
+offset_bottom = 369.0
 mouse_filter = 2
 
 [node name="Menu" parent="CanvasLayer" instance=ExtResource("4_dqkch")]
@@ -205,3 +207,19 @@ offset_top = 64.0
 offset_right = 800.0
 offset_bottom = 424.0
 scale = Vector2(2.5, 2.5)
+
+[node name="RegenTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="Walking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_fjrip")
+pitch_scale = 1.21
+bus = &"SFX"
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_smehm")
+bus = &"SFX"
+
+[connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]
