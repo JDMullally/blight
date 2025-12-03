@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpjq6vmo78i8m"]
+
+[ext_resource type="PackedScene" uid="uid://bi5t5rs6j68by" path="res://scenes/player.tscn" id="1_feto3"]
+[ext_resource type="PackedScene" uid="uid://ntexepkarv3q" path="res://scenes/information_stone.tscn" id="2_daqyg"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="InformationStone" parent="." instance=ExtResource("2_daqyg")]
+position = Vector2(674, -682)
+scale = Vector2(1, 1)
+information = "Use WASD to move!"
+
+[node name="Player" parent="." instance=ExtResource("1_feto3")]
+position = Vector2(528, -609)

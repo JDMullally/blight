@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://ntexepkarv3q"]
+
+[ext_resource type="Script" uid="uid://cyl0j7rul0t8m" path="res://scripts/information_stone.gd" id="1_3ry1b"]
+[ext_resource type="Texture2D" uid="uid://c2n2ym0uajr7s" path="res://art/misc/notestone.png" id="1_onnr2"]
+[ext_resource type="PackedScene" uid="uid://blb1lbg353yxx" path="res://scenes/fireflies.tscn" id="3_ktyn8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ktyn8"]
+radius = 8.0
+height = 59.000004
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ktyn8"]
+radius = 45.01111
+
+[node name="InformationStone" type="Sprite2D"]
+modulate = Color(0.7014114, 0.7014114, 0.7014114, 1)
+y_sort_enabled = true
+position = Vector2(109, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("1_onnr2")
+offset = Vector2(2.5, -29.166668)
+script = ExtResource("1_3ry1b")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 5.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ktyn8")
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("3_ktyn8")]
+z_index = 100
+position = Vector2(-9, -33.499996)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, 1.0000038)
+shape = SubResource("CircleShape2D_ktyn8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

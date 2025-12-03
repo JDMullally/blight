@@ -14,3 +14,4 @@ signal game_win_screen
 signal game_over_screen
 signal update_player_health(value : int)
 signal complete_shrine
+signal update_player_text
