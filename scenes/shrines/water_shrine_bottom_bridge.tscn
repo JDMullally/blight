@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://dybrqid2jbtmy"]
+
+[ext_resource type="Texture2D" uid="uid://20ufubh41n0i" path="res://art/shrines/water shrine v2/Bridge Crimes/Left Bridge Piece.png" id="1_cb6fq"]
+[ext_resource type="Texture2D" uid="uid://ba6i41vs8d5wb" path="res://art/shrines/water shrine v2/Bridge Crimes/Right Bridge Piece 1.png" id="2_nucp2"]
+[ext_resource type="Texture2D" uid="uid://361m6jmpdmvy" path="res://art/shrines/water shrine v2/Bridge Crimes/Right Bridge Piece 2.png" id="2_wwo1d"]
+[ext_resource type="Texture2D" uid="uid://dodggvgr0xtqq" path="res://art/shrines/water shrine v2/Bridge Crimes/Right Bridge Piece 3.png" id="4_wwo1d"]
+
+[node name="Bottom Bridge" type="Node2D"]
+y_sort_enabled = true
+
+[node name="BL Bridge Bit 1" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-133, 61)
+texture = ExtResource("1_cb6fq")
+offset = Vector2(133, -61)
+
+[node name="BL Bridge Bit 2" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-167, 45)
+texture = ExtResource("2_wwo1d")
+offset = Vector2(167, -45)
+
+[node name="BL Bridge Bit 3" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-141, 33)
+texture = ExtResource("2_nucp2")
+offset = Vector2(141, -33)
+
+[node name="BL Bridge Bit 4" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-139, 34)
+texture = ExtResource("4_wwo1d")
+offset = Vector2(139, -34)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-168.66673, 47.94815)
+polygon = PackedVector2Array(-0.3332672, 3.0518494, -0.13327026, 5.151848, 2.6667328, 5.0518494, 2.6667328, 3.0518494)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-168.66673, 47.94815)
+polygon = PackedVector2Array(30.666733, 22.05185, 30.86673, 25.151848, 33.666733, 26.05185, 33.666733, 22.05185, 33.666733, 22.05185)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-144, 36)
+polygon = PackedVector2Array(2, 5, 5, 6, 5, 5, 2, 4)
