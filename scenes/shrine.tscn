@@ -1,84 +1,163 @@
-[gd_scene load_steps=14 format=3 uid="uid://b37yy2bwfqns2"]
+[gd_scene load_steps=26 format=3 uid="uid://b37yy2bwfqns2"]
 
 [ext_resource type="PackedScene" uid="uid://pofsb057c42" path="res://scenes/top_well.tscn" id="1_c1ic8"]
 [ext_resource type="Script" uid="uid://be072dwv1tcq4" path="res://scripts/water_shrine.gd" id="1_d4gs6"]
+[ext_resource type="PackedScene" uid="uid://cabv72hmdegkn" path="res://scenes/top_well_right.tscn" id="2_e2e6s"]
 [ext_resource type="PackedScene" uid="uid://dlmge34naqhh5" path="res://scenes/bottom_well.tscn" id="2_fmupm"]
-[ext_resource type="Texture2D" uid="uid://cqdveh2a81f66" path="res://art/shrines/water_shrine/Godot Import Top Left Well.png" id="2_sexw3"]
-[ext_resource type="Texture2D" uid="uid://bqw6rqh4aa2xm" path="res://art/shrines/water_shrine/Godot Import Shrine Structure.png" id="3_sexw3"]
-[ext_resource type="Texture2D" uid="uid://cks5qhiiu74h6" path="res://art/shrines/water_shrine/Godot Import Bottom Right Well.png" id="4_d4gs6"]
-[ext_resource type="Texture2D" uid="uid://b5icg53knshmq" path="res://art/shrines/water_shrine/Godot Import Bridge FG.png" id="7_kvg58"]
+[ext_resource type="PackedScene" uid="uid://b2kftgx3gd3yh" path="res://scenes/bottom_well_right.tscn" id="5_e2e6s"]
+[ext_resource type="Texture2D" uid="uid://kg1iqspq7i30" path="res://art/shrines/water shrine v2/Center Shrine.png" id="6_jndlm"]
+[ext_resource type="Texture2D" uid="uid://bri08p1rtd22v" path="res://art/shrines/water shrine v2/TR Bridge Piece.png" id="7_pdehf"]
+[ext_resource type="Texture2D" uid="uid://dpwgbjk82l2rm" path="res://art/shrines/water shrine v2/TL Bridge Piece.png" id="8_mbuan"]
+[ext_resource type="Texture2D" uid="uid://dxpshxc8dm7t7" path="res://art/shrines/water shrine v2/BR Bridge Piece.png" id="9_e2e6s"]
+[ext_resource type="Texture2D" uid="uid://b1r2sveq4y0l2" path="res://art/shrines/water shrine v2/All Bridges.png" id="9_pdehf"]
+[ext_resource type="Texture2D" uid="uid://wtn8wox65g13" path="res://art/shrines/water shrine v2/BL Bridge Piece.png" id="10_ecjea"]
+[ext_resource type="Texture2D" uid="uid://d188haercrmmo" path="res://art/shrines/water shrine v2/Center Trough.png" id="13_ecjea"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvg58"]
-atlas = ExtResource("2_sexw3")
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2e6s"]
+atlas = ExtResource("6_jndlm")
 region = Rect2(0, 0, 640, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x7q7c"]
-atlas = ExtResource("2_sexw3")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecjea"]
+atlas = ExtResource("6_jndlm")
+region = Rect2(5760, 0, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpgyt"]
+atlas = ExtResource("6_jndlm")
+region = Rect2(5120, 0, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x55fk"]
+atlas = ExtResource("6_jndlm")
+region = Rect2(4480, 0, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3nej"]
+atlas = ExtResource("6_jndlm")
+region = Rect2(3840, 0, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0mmr"]
+atlas = ExtResource("6_jndlm")
+region = Rect2(3200, 0, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8vq2"]
+atlas = ExtResource("6_jndlm")
 region = Rect2(0, 0, 640, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jndlm"]
-atlas = ExtResource("4_d4gs6")
-region = Rect2(0, 0, 640, 320)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtiwx"]
+atlas = ExtResource("6_jndlm")
+region = Rect2(640, 0, 640, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mbuan"]
-atlas = ExtResource("4_d4gs6")
-region = Rect2(0, 0, 640, 320)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuamg"]
+atlas = ExtResource("6_jndlm")
+region = Rect2(1280, 0, 640, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d4gs6"]
-atlas = ExtResource("3_sexw3")
-region = Rect2(0, 0, 640, 320)
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd1nm"]
+atlas = ExtResource("6_jndlm")
+region = Rect2(1920, 0, 640, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pdehf"]
-atlas = ExtResource("7_kvg58")
-region = Rect2(0, 0, 640, 320)
+[sub_resource type="AtlasTexture" id="AtlasTexture_36omv"]
+atlas = ExtResource("6_jndlm")
+region = Rect2(2560, 0, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8n7u"]
+atlas = ExtResource("6_jndlm")
+region = Rect2(3200, 0, 640, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h2x5r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2e6s")
+}],
+"loop": true,
+"name": &"water_shrine_corrupted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecjea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpgyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x55fk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3nej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0mmr")
+}],
+"loop": true,
+"name": &"water_shrine_full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8vq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtiwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uuamg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd1nm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36omv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8n7u")
+}],
+"loop": false,
+"name": &"water_shrine_healing",
+"speed": 5.0
+}]
 
 [node name="WaterShrine" type="Node2D"]
 script = ExtResource("1_d4gs6")
 
+[node name="TopRightWell" parent="." instance=ExtResource("2_e2e6s")]
+unique_name_in_owner = true
+
 [node name="TopLeftWell" parent="." instance=ExtResource("1_c1ic8")]
 unique_name_in_owner = true
-texture = SubResource("AtlasTexture_kvg58")
-
-[node name="TopRightWell" parent="." instance=ExtResource("1_c1ic8")]
-unique_name_in_owner = true
-position = Vector2(15, -2)
-rotation = 3.1415927
-scale = Vector2(1, -1)
-texture = SubResource("AtlasTexture_x7q7c")
 
 [node name="BottomLeftWell" parent="." instance=ExtResource("2_fmupm")]
 unique_name_in_owner = true
-position = Vector2(20, 0)
-texture = SubResource("AtlasTexture_jndlm")
 
-[node name="BottomRightWell" parent="." instance=ExtResource("2_fmupm")]
+[node name="BottomRightWell" parent="." instance=ExtResource("5_e2e6s")]
 unique_name_in_owner = true
-scale = Vector2(-1, 1)
-texture = SubResource("AtlasTexture_mbuan")
 
-[node name="ShrineSprite" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_d4gs6")
+[node name="ShrineSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h2x5r")
+animation = &"water_shrine_full"
+autoplay = "water_shrine_corrupted"
 
 [node name="TRBridgeBit" type="Sprite2D" parent="ShrineSprite"]
 z_index = 10
-position = Vector2(284, -97)
-texture = SubResource("AtlasTexture_pdehf")
+texture = ExtResource("7_pdehf")
 
 [node name="TLBridgeBit" type="Sprite2D" parent="ShrineSprite"]
 z_index = 10
-position = Vector2(-263, -97)
-scale = Vector2(-1, 1)
-texture = SubResource("AtlasTexture_pdehf")
+scale = Vector2(1, -1)
+texture = ExtResource("8_mbuan")
+flip_v = true
 
 [node name="BRBridgeBit" type="Sprite2D" parent="ShrineSprite"]
 z_index = 10
-position = Vector2(19, 0)
 scale = Vector2(-1, 1)
-texture = SubResource("AtlasTexture_pdehf")
+texture = ExtResource("9_e2e6s")
+flip_h = true
 
 [node name="BLBridgeBit" type="Sprite2D" parent="ShrineSprite"]
 z_index = 10
-texture = SubResource("AtlasTexture_pdehf")
+texture = ExtResource("10_ecjea")
+
+[node name="BLBridgeBit2" type="Sprite2D" parent="ShrineSprite"]
+z_index = 10
+texture = ExtResource("10_ecjea")
 
 [node name="Node2D" type="StaticBody2D" parent="ShrineSprite"]
 collision_layer = 3
@@ -86,4 +165,11 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="ShrineSprite/Node2D"]
 position = Vector2(6.5, -12)
-polygon = PackedVector2Array(41.5, -67, 51.5, -63, 70.5, -30, 72.5, 34, 76.5, 66, 46.5, 92, 16.5, 74, -6.5, 60, -42.5, 64, -72.5, 66, -86.5, 55, -72.5, 19, -68.5, -41, -37.5, -79, 0.5, -102, 24.5, -89, 26.5, -77)
+polygon = PackedVector2Array(36.5, -64, 50.5, -53, 62.5, -42, 70.5, -30, 74.5, -20, 73.5, -2, 72.5, 34, 69.5, 61, 60.5, 72, 58.5, 84, 40.5, 89, 16.5, 77, 11.5, 64, -6.5, 60, -16.5, 63, -42.5, 75, -58.5, 70, -72.5, 66, -78.5, 61, -80.5, 55, -69.5, 46, -68.5, 21, -68.5, -14, -58.5, -37, -39.5, -55, -19.5, -65, 15.5, -69, 25.5, -65)
+
+[node name="Base Bridges" type="Sprite2D" parent="."]
+texture = ExtResource("9_pdehf")
+
+[node name="Center Trough" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("13_ecjea")
