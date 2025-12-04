@@ -8,7 +8,7 @@ const MAX_HITS : int = 2
 
 const MAX_HP = 4
 
-@onready var shrine_sprite: Sprite2D = $ShrineSprite
+@onready var shrine_sprite: AnimatedSprite2D = $ShrineSprite
 @onready var top_left_well: Well = %TopLeftWell
 @onready var top_right_well: Well = %TopRightWell
 @onready var bottom_left_well: Well = %BottomLeftWell
@@ -23,17 +23,15 @@ func _ready() -> void:
 	top_right_well.all_done.connect(heal_shrine)
 	bottom_left_well.all_done.connect(heal_shrine)
 	bottom_right_well.all_done.connect(heal_shrine)
+	shrine_sprite.animation_finished.connect(play_full)
+	shrine_sprite.play("water_shrine_corrupted")
 
 func heal_shrine():
-	hitpoints += 1
-	
-	if hitpoints < MAX_HP:
-		threshold = clampi(threshold + 1, 0, MAX_THRESHOLD)
-		var current_atlas_texture : AtlasTexture = shrine_sprite.texture
-		current_atlas_texture.region = Rect2(increment * threshold, 0.0, WIDTH, HEIGHT)
-	
-	if MAX_HP == hitpoints:
-		var current_atlas_texture : AtlasTexture = shrine_sprite.texture
-		current_atlas_texture.region = Rect2(increment * (threshold + 1), 0.0, WIDTH, HEIGHT)
+	hitpoints = clampi(hitpoints+1,0,4)
+	if hitpoints == 4:
 		SignalBus.unlock_spell.emit(SignalBus.Element.Love)
-		SignalBus.complete_shrine.emit()
+		shrine_sprite.play("water_shrine_healing")
+
+func play_full():
+	if shrine_sprite.animation=="water_shrine_healing":
+		shrine_sprite.play("water_shrine_full")

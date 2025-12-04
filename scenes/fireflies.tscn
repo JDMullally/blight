@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://blb1lbg353yxx"]
+
+[sub_resource type="Curve" id="Curve_hbnsi"]
+_data = [Vector2(0.025423728, 1), 0.0, 0.0, 0, 0, Vector2(0.14124292, 0.5213447), 0.0, 0.0, 0, 0, Vector2(0.29096046, 1), 0.0, 0.0, 0, 0, Vector2(0.48305082, 0.4519744), 0.0, 0.0, 0, 0, Vector2(0.64689267, 0.99278575), 0.0, 0.0, 0, 0, Vector2(0.8050847, 0.38954115), 0.0, 0.0, 0, 0, Vector2(0.9322034, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 8
+
+[sub_resource type="CurveTexture" id="CurveTexture_837t3"]
+curve = SubResource("Curve_hbnsi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v3s22"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 25.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 17.859999
+initial_velocity_max = 28.06
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+orbit_velocity_min = -0.39999992
+orbit_velocity_max = 0.40000013
+radial_velocity_min = -20.000021
+radial_velocity_max = 19.999977
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+alpha_curve = SubResource("CurveTexture_837t3")
+
+[sub_resource type="Gradient" id="Gradient_4t2dn"]
+offsets = PackedFloat32Array(0, 0.50537634, 0.85215056)
+colors = PackedColorArray(1, 1, 0, 1, 0.23028398, 0.23028398, 0.23028398, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r4qpq"]
+gradient = SubResource("Gradient_4t2dn")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+modulate = Color(1, 1, 0.105882354, 1)
+amount = 40
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_v3s22")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 0, 1)
+energy = 0.65
+texture = SubResource("GradientTexture2D_r4qpq")
