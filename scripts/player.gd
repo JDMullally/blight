@@ -52,7 +52,7 @@ func move_player(_delta : float):
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_actiodn_pressed("dash") and dash_cooldown_timer.is_stopped():
+	if event.is_action_pressed("dash") and dash_cooldown_timer.is_stopped():
 		dash()
 
 func dash():
