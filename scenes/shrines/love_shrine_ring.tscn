@@ -4,13 +4,14 @@
 [ext_resource type="Script" uid="uid://cg6xphhtmnswv" path="res://scripts/love_shrine_ring.gd" id="1_w5s5e"]
 
 [sub_resource type="Gradient" id="Gradient_w5s5e"]
-offsets = PackedFloat32Array(0, 0.51476794, 0.5337553, 0.5527426, 0.556962, 0.60126585)
-colors = PackedColorArray(0, 0, 0, 1, 0.07042254, 0.07042254, 0.07042254, 1, 0.47277683, 0.47277683, 0.47277683, 1, 1, 1, 1, 1, 0.36619723, 0.36619723, 0.36619723, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.75)
+colors = PackedColorArray(1, 0.55326706, 0.6786595, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_d8ujt"]
 gradient = SubResource("Gradient_w5s5e")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9625, 0.025)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w5s5e"]
 atlas = ExtResource("1_snw1h")
@@ -20,14 +21,15 @@ region = Rect2(0, 0, 640, 640)
 script = ExtResource("1_w5s5e")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(3, -39)
-scale = Vector2(5, 2.5)
+position = Vector2(3.5000057, -35.999996)
+scale = Vector2(3.7343752, 1.8750001)
 color = Color(1, 0.53999996, 0.53999996, 1)
 energy = 0.63
 texture = SubResource("GradientTexture2D_d8ujt")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-92, -68, -65, -85, -39, -92, -9, -96, 20, -96, 47, -91, 74, -82, 94, -72, 111, -54, 115, -38, 110, -18, 93, -1, 64, 13, 35, 21, 9, 23, -12, 23, -46, 18, -75, 7, -97, -8, -105, -18, -110, -32, -109, -46, -102, -59)
+position = Vector2(1, 0)
+polygon = PackedVector2Array(-90, -73, -65, -85, -39, -92, -9, -96, 20, -96, 47, -91, 74, -82, 94, -72, 111, -54, 115, -38, 110, -18, 93, -1, 64, 13, 35, 21, 9, 23, -12, 23, -46, 18, -75, 7, -97, -8, -105, -18, -110, -32, -109, -46, -102, -59)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true

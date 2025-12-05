@@ -13,7 +13,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.9188034, 0.13675214)
 
-[node name="Wand" type="Node2D"]
+[node name="Wand" type="Node2D" groups=["wand"]]
 script = ExtResource("1_ran2g")
 
 [node name="WandSprite" type="Sprite2D" parent="."]
@@ -29,7 +29,7 @@ position = Vector2(7.1525574e-07, -17)
 position = Vector2(-1.66893e-06, 0.48056686)
 scale = Vector2(1.7174374, 1.8913617)
 color = Color(0.16862746, 0.40392157, 0.79607844, 1)
-energy = 4.0
+energy = 2.0
 texture = SubResource("GradientTexture2D_ran2g")
 texture_scale = 0.4
 

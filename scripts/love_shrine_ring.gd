@@ -22,12 +22,9 @@ func _process(delta: float) -> void:
 func update_ring_time(delta : float):
 	if within_ring:
 		ring_time = clampf(ring_time + delta, 0.0, 60.0)
-	else:
-		ring_time = clampf(ring_time - delta, 0.0, 60.0)
 
 func check_ring_time():
 	if ring_time >= MAX_RING_TIME:
-		print("hi!")
 		completed = true
 		point_light_2d.energy = 2.0
 		SignalBus.unlock_spell.emit(SignalBus.Element.Light)
@@ -41,7 +38,7 @@ func update_animation():
 	threshold = clampi(int(ring_time/(MAX_RING_TIME/8)), 0, MAX_THRESHOLD * 7)
 	var current_atlas_texture : AtlasTexture = sprite_2d.texture
 	current_atlas_texture.region = Rect2(increment * threshold, 0.0, MAX_THRESHOLD, MAX_THRESHOLD)
-	point_light_2d.energy = ring_time / MAX_RING_TIME
+	point_light_2d.energy = clampf(.4 + ring_time / MAX_RING_TIME, .4, 1.4) if within_ring else 0.0
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:

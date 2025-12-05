@@ -83,6 +83,17 @@ bbcode_enabled = true
 text = "[center]Save[/center]"
 scroll_active = false
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 213.0
+offset_right = 550.0
+offset_bottom = 253.0
+mouse_filter = 2
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1
+
 [connection signal="pressed" from="Del" to="." method="remove_all_polygons"]
 [connection signal="pressed" from="Und" to="." method="undo_last_drawing"]
 [connection signal="pressed" from="Sav" to="." method="save_all_polygons"]

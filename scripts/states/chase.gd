@@ -71,7 +71,7 @@ func get_circle_points(center: Vector2, radius: float, count: int = 16) -> Array
 func _update_agent_target(force : bool) -> void:
 	monster.play_animation()
 	var player_pos : Vector2 = player.global_position
-	var player_velocity : Vector2 = player.velocity
+	var _player_velocity : Vector2 = player.velocity
 	
 	if !agent.is_target_reachable():
 		if retries >= MAX_RETRIES:

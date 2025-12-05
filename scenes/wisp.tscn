@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://tib42aa06krh"]
+
+[ext_resource type="Script" uid="uid://cyjiirwu2l57u" path="res://scripts/wisp.gd" id="1_xtn4i"]
+[ext_resource type="Texture2D" uid="uid://kgtxbnuv6tf3" path="res://art/misc/lightparticle.png" id="2_8fhno"]
+
+[sub_resource type="Gradient" id="Gradient_8fhno"]
+offsets = PackedFloat32Array(0, 0.14409222, 0.21902017, 0.30208334, 0.39583334, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.6875, 0.6875, 0.6875, 1, 0.37233624, 0.37233624, 0.37233624, 1, 0.10219592, 0.10219592, 0.10219592, 1, 0.083425246, 0.083425246, 0.083425246, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a32ty"]
+gradient = SubResource("Gradient_8fhno")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8034188, 0.21367522)
+
+[sub_resource type="Curve" id="Curve_8fhno"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.054711252, -0.8099272), 0.0, 0.0, 0, 0, Vector2(0.49544078, 0.8268765), 0.0, 0.0, 0, 0, Vector2(1, -0.8886199), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_a32ty"]
+curve = SubResource("Curve_8fhno")
+
+[sub_resource type="Curve" id="Curve_a32ty"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6c0ip"]
+curve = SubResource("Curve_a32ty")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xtn4i"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 16.02
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 27.469984
+gravity = Vector3(0, 0, 0)
+scale_min = 0.29999998
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_6c0ip")
+hue_variation_curve = SubResource("CurveTexture_a32ty")
+
+[node name="Wisp" type="Node2D"]
+script = ExtResource("1_xtn4i")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 1.5
+texture = SubResource("GradientTexture2D_a32ty")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture = ExtResource("2_8fhno")
+process_material = SubResource("ParticleProcessMaterial_xtn4i")

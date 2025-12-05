@@ -8,6 +8,7 @@ func _ready():
 	$MasterVolume.value = AudioServer.get_bus_volume_linear(master_index)
 	$MusicVolume.value = AudioServer.get_bus_volume_linear(music_index)
 	$SFXVolume.value = AudioServer.get_bus_volume_linear(sfx_index)
+	_on_master_volume_value_changed(0)
 
 
 func _on_master_volume_value_changed(value: float) -> void:

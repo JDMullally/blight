@@ -2,11 +2,12 @@ extends Node2D
 
 const BULLET_SCENE_UID : String = "uid://dkg2e45s87qw0"
 
+@onready var firing = false
 @onready var spellbook : Dictionary = {}
 @onready var current_element : SignalBus.Element = SignalBus.Element.Water
 @onready var wand_sprite : Sprite2D = $WandSprite
 @onready var wand_point: Node2D = $WandSprite/WandPoint
-
+@onready var unlocked_spells : Array[String] = []
 @onready var water_spell_timer: Timer = %WaterSpellTimer
 @onready var love_spell_timer: Timer = %LoveSpellTimer
 @onready var light_spell_timer: Timer = %LightSpellTimer
@@ -35,6 +36,7 @@ func unlock_spell(element : SignalBus.Element):
 	new_bullet_poly.append(Vector2(150, 0))
 	new_bullet_poly.append(Vector2(75, 50))
 	new_bullet_poly.append(Vector2.ZERO)
+	unlocked_spells.append(SignalBus.Element.find_key(element))
 	print(SignalBus.Element.find_key(element))
 	# spellbook[SignalBus.Element.find_key(element)] = {"poly" : new_bullet_poly, "percentage" : .05}
 	update_bullet_poly(new_bullet_poly, .05, element)
@@ -43,6 +45,8 @@ func _ready() -> void:
 	SignalBus.unlock_spell.connect(unlock_spell)
 	SignalBus.select_spell.connect(update_current_element)
 	SignalBus.update_poly.connect(update_bullet_poly)
+	SignalBus.scroll_up.connect(scroll_up)
+	SignalBus.scroll_down.connect(scroll_down)
 	update_current_element(SignalBus.Element.Water)
 	unlock_spell(SignalBus.Element.Water)
 
@@ -51,7 +55,37 @@ func _process(_delta : float) -> void:
 	var to_mouse : Vector2 = mouse_pos - global_position
 	rotation = to_mouse.angle()
 	send_wand_progress()
+	if firing:
+		fire_bullet()
 
+func scroll_down():
+	var spells_to_check = get_next_order()
+	spells_to_check.reverse()
+	for spell in spells_to_check:
+		if SignalBus.Element.find_key(spell) in unlocked_spells:
+			SignalBus.select_spell.emit(spell)
+
+func scroll_up():
+	var spells_to_check = get_next_order()
+	print(spells_to_check)
+	for spell in spells_to_check:
+		if SignalBus.Element.find_key(spell) in unlocked_spells:
+			SignalBus.select_spell.emit(spell)
+
+func get_next_order() -> Array[SignalBus.Element]:
+	match current_element:
+		SignalBus.Element.Water:
+			return [SignalBus.Element.Love, SignalBus.Element.Light, SignalBus.Element.Song]
+		SignalBus.Element.Love:
+			return [SignalBus.Element.Light, SignalBus.Element.Song, SignalBus.Element.Water]
+		SignalBus.Element.Light:
+			return [SignalBus.Element.Song, SignalBus.Element.Water, SignalBus.Element.Love]
+		SignalBus.Element.Song:
+			return [SignalBus.Element.Water, SignalBus.Element.Love, SignalBus.Element.Light]
+		_:
+			return []
+	
+	
 
 func is_spell_ready(ele : SignalBus.Element) -> bool:
 	match ele:
@@ -91,30 +125,35 @@ func send_wand_progress():
 	SignalBus.update_prog_bars.emit(water_prog, love_prog, light_prog, song_prog)
 
 
+func fire_bullet() -> void:
+	var element_screenshot = current_element
+		
+	if !is_spell_ready(element_screenshot):
+		# SignalBus.spell_error_message.emit(element_screenshot)
+		return
+		
+	var bullet : Area2D = load(BULLET_SCENE_UID).instantiate() as Area2D
+	var start_pos : Vector2 = wand_point.global_position
+	#var mouse_pos : Vector2 = get_global_mouse_position()
+	#var wand_rotation = Vector2.RIGHT.rotated(wand_point.global_rotation)
+	var dir : Vector2 = Vector2.RIGHT.rotated(wand_point.global_rotation - deg_to_rad(90))
+		
+	var bullet_poly = spellbook[SignalBus.Element.find_key(element_screenshot)]["poly"]
+	var percentage = spellbook[SignalBus.Element.find_key(element_screenshot)]["percentage"]
+	var stats = spellbook[SignalBus.Element.find_key(element_screenshot)]["stats"].duplicate()
+	stats.update_stats(percentage, element_screenshot)
+	#var stupid_bullshit : BulletStats = BulletStats.new()
+	#stupid_bullshit.update_stats(percentage, element_screenshot)
+		
+	get_tree().current_scene.add_child(bullet)
+	trigger_cooldown(element_screenshot, stats.cooldown)
+	bullet.setup(bullet_poly, start_pos, dir, stats)
+
 func _unhandled_input(event : InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var element_screenshot = current_element
-		
-		if !is_spell_ready(element_screenshot):
-			SignalBus.spell_error_message.emit(element_screenshot)
-			return
-		
-		var bullet : Area2D = load(BULLET_SCENE_UID).instantiate() as Area2D
-		var start_pos : Vector2 = wand_point.global_position
-		#var mouse_pos : Vector2 = get_global_mouse_position()
-		#var wand_rotation = Vector2.RIGHT.rotated(wand_point.global_rotation)
-		var dir : Vector2 = Vector2.RIGHT.rotated(wand_point.global_rotation - deg_to_rad(90))
-		
-		var bullet_poly = spellbook[SignalBus.Element.find_key(element_screenshot)]["poly"]
-		var percentage = spellbook[SignalBus.Element.find_key(element_screenshot)]["percentage"]
-		var stats = spellbook[SignalBus.Element.find_key(element_screenshot)]["stats"].duplicate()
-		stats.update_stats(percentage, element_screenshot)
-		#var stupid_bullshit : BulletStats = BulletStats.new()
-		#stupid_bullshit.update_stats(percentage, element_screenshot)
-		
-		get_tree().current_scene.add_child(bullet)
-		trigger_cooldown(element_screenshot, stats.cooldown)
-		bullet.setup(bullet_poly, start_pos, dir, stats)
+		firing = true
+	elif event is InputEventMouseButton and event.is_released() and event.button_index == MOUSE_BUTTON_LEFT:
+		firing = false
 
 func update_bullet_poly(new_poly : PackedVector2Array, percentage_size : float, element : SignalBus.Element) -> void:
 	var stupid_bullshit : BulletStats = BulletStats.new()
