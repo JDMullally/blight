@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://churktfe13h4f"]
+[gd_scene load_steps=15 format=4 uid="uid://churktfe13h4f"]
 
 [ext_resource type="Texture2D" uid="uid://bj0goxb5cvvkb" path="res://art/tiles/Corrupted Bush1.png" id="1_4g3pk"]
 [ext_resource type="PackedScene" uid="uid://bi5t5rs6j68by" path="res://scenes/player.tscn" id="1_pp484"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://br4uejic5bp2o" path="res://art/tiles/dirt path1.png" id="3_icy5f"]
 [ext_resource type="Texture2D" uid="uid://sj3v3dk3yqix" path="res://art/tiles/Sample Corrupted Grass Tile.png" id="4_fo7ma"]
 [ext_resource type="Texture2D" uid="uid://bix8ilrimm4vu" path="res://art/tiles/tile_set_3.png" id="5_ma42w"]
+[ext_resource type="PackedScene" uid="uid://nncvss1r0n67" path="res://scenes/tree_1.tscn" id="8_rho02"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_42xhb"]
 texture = ExtResource("1_4g3pk")
@@ -654,6 +655,7 @@ sources/3 = SubResource("TileSetAtlasSource_irs1i")
 sources/4 = SubResource("TileSetAtlasSource_3lwp4")
 
 [node name="Node2D" type="Node2D"]
+y_sort_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
@@ -666,3 +668,6 @@ position = Vector2(274, -951)
 
 [node name="WaterShrine" parent="." instance=ExtResource("2_lr1yk")]
 position = Vector2(458, -753)
+
+[node name="Tree11" parent="." groups=["obstacles"] instance=ExtResource("8_rho02")]
+position = Vector2(354.00003, -951)

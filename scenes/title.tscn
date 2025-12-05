@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://54h4hjoeo0dw"]
+[gd_scene load_steps=9 format=3 uid="uid://54h4hjoeo0dw"]
 
 [ext_resource type="Script" uid="uid://dta0mjfe67mcw" path="res://scripts/menuUtil.gd" id="1_4ignj"]
 [ext_resource type="Texture2D" uid="uid://b4bbndhepcbj2" path="res://art/title-screen.png" id="2_pyl7j"]
 [ext_resource type="Texture2D" uid="uid://cqwqjfmk82rjd" path="res://resources/bad_button_atlas_texture.tres" id="3_b3w7a"]
 [ext_resource type="Texture2D" uid="uid://dm45ebrcuqavc" path="res://art/ui/basic button-Sheet-blight.png" id="4_4rr2b"]
 [ext_resource type="AudioStream" uid="uid://scwiwagwcct7" path="res://art/recent_downloads/mainmenu.mp3" id="5_b3w7a"]
+[ext_resource type="FontFile" uid="uid://c03ek57e7q0jk" path="res://art/ui/Ticketing.ttf" id="5_yql1r"]
 [ext_resource type="PackedScene" uid="uid://cwig508gpj7v" path="res://scenes/volume.tscn" id="6_4rr2b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yql1r"]
@@ -61,33 +62,39 @@ texture_hover = ExtResource("3_b3w7a")
 
 [node name="StartLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 382.0
-offset_top = 637.0
-offset_right = 718.0
-offset_bottom = 769.0
+offset_left = 385.0
+offset_top = 641.0
+offset_right = 721.0
+offset_bottom = 773.0
 scale = Vector2(0.4, 0.4)
-theme_override_font_sizes/font_size = 96
+theme_override_colors/font_color = Color(0.93333334, 0.7647059, 0.6039216, 1)
+theme_override_fonts/font = ExtResource("5_yql1r")
+theme_override_font_sizes/font_size = 120
 text = "Start"
 
 [node name="SettingsLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 330.0
-offset_top = 770.0
-offset_right = 869.0
-offset_bottom = 902.0
+offset_left = 339.0
+offset_top = 773.0
+offset_right = 878.0
+offset_bottom = 905.0
 scale = Vector2(0.4, 0.4)
-theme_override_font_sizes/font_size = 96
+theme_override_colors/font_color = Color(0.93333334, 0.7647059, 0.6039216, 1)
+theme_override_fonts/font = ExtResource("5_yql1r")
+theme_override_font_sizes/font_size = 120
 text = "Settings"
 horizontal_alignment = 1
 
 [node name="ExitGameLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 342.00006
-offset_top = 912.0
-offset_right = 889.00006
-offset_bottom = 1044.0
+offset_left = 349.0
+offset_top = 913.0
+offset_right = 896.0
+offset_bottom = 1045.0
 scale = Vector2(0.4, 0.4)
-theme_override_font_sizes/font_size = 96
+theme_override_colors/font_color = Color(0.93333334, 0.7647059, 0.6039216, 1)
+theme_override_fonts/font = ExtResource("5_yql1r")
+theme_override_font_sizes/font_size = 120
 text = "Exit Game"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

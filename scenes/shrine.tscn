@@ -1,9 +1,14 @@
-[gd_scene load_steps=26 format=3 uid="uid://b37yy2bwfqns2"]
+[gd_scene load_steps=33 format=3 uid="uid://b37yy2bwfqns2"]
 
 [ext_resource type="PackedScene" uid="uid://pofsb057c42" path="res://scenes/top_well.tscn" id="1_c1ic8"]
 [ext_resource type="Script" uid="uid://be072dwv1tcq4" path="res://scripts/water_shrine.gd" id="1_d4gs6"]
+[ext_resource type="PackedScene" uid="uid://dybrqid2jbtmy" path="res://scenes/shrines/water_shrine_bottom_bridge.tscn" id="2_a0mmr"]
 [ext_resource type="PackedScene" uid="uid://cabv72hmdegkn" path="res://scenes/top_well_right.tscn" id="2_e2e6s"]
 [ext_resource type="PackedScene" uid="uid://dlmge34naqhh5" path="res://scenes/bottom_well.tscn" id="2_fmupm"]
+[ext_resource type="Texture2D" uid="uid://8fer4jnlokwu" path="res://art/shrines/water shrine v2/TR_Bridge.png" id="2_x55fk"]
+[ext_resource type="Texture2D" uid="uid://2flt0tkv4ibp" path="res://art/shrines/water shrine v2/TL_Bridge.png" id="3_e3nej"]
+[ext_resource type="Texture2D" uid="uid://ceq3eeer5ymka" path="res://art/shrines/water shrine v2/BR_Bridge.png" id="4_a0mmr"]
+[ext_resource type="Texture2D" uid="uid://cy0boe0d41ie7" path="res://art/shrines/water shrine v2/BL_Bridge.png" id="5_b8vq2"]
 [ext_resource type="PackedScene" uid="uid://b2kftgx3gd3yh" path="res://scenes/bottom_well_right.tscn" id="5_e2e6s"]
 [ext_resource type="Texture2D" uid="uid://kg1iqspq7i30" path="res://art/shrines/water shrine v2/Center Shrine.png" id="6_jndlm"]
 [ext_resource type="Texture2D" uid="uid://bri08p1rtd22v" path="res://art/shrines/water shrine v2/TR Bridge Piece.png" id="7_pdehf"]
@@ -115,61 +120,136 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_450cr"]
+offsets = PackedFloat32Array(0, 0.15333334, 0.28666666, 0.50666666, 0.53333336, 0.9533333)
+colors = PackedColorArray(1, 1, 1, 1, 0.5078519, 0.5078519, 0.5078519, 1, 0.27026314, 0.27026314, 0.27026314, 1, 0.06, 0.06, 0.06, 1, 0.05373134, 0.05373134, 0.05373134, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a0mmr"]
+gradient = SubResource("Gradient_450cr")
+fill = 1
+fill_from = Vector2(0.4906542, 0.4813084)
+
 [node name="WaterShrine" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_d4gs6")
 
-[node name="TopRightWell" parent="." instance=ExtResource("2_e2e6s")]
-unique_name_in_owner = true
+[node name="Bottom Bridge Left" parent="." instance=ExtResource("2_a0mmr")]
 
-[node name="TopLeftWell" parent="." instance=ExtResource("1_c1ic8")]
-unique_name_in_owner = true
+[node name="Top Bridge Right" parent="." instance=ExtResource("2_a0mmr")]
+position = Vector2(280, -96)
 
-[node name="BottomLeftWell" parent="." instance=ExtResource("2_fmupm")]
-unique_name_in_owner = true
+[node name="Bottom Bridge Right" parent="." instance=ExtResource("2_a0mmr")]
+position = Vector2(26, 8)
+scale = Vector2(-1, 1)
 
-[node name="BottomRightWell" parent="." instance=ExtResource("5_e2e6s")]
-unique_name_in_owner = true
+[node name="Top Bridge Left" parent="." instance=ExtResource("2_a0mmr")]
+position = Vector2(-266, -104)
+scale = Vector2(-1, 1)
+
+[node name="Bridges" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -157)
+texture = ExtResource("9_pdehf")
+offset = Vector2(0, 157)
+
+[node name="TR Bridge" type="Sprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+position = Vector2(127, -51)
+texture = ExtResource("2_x55fk")
+offset = Vector2(-127, 51)
+
+[node name="TL Bridge" type="Sprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+texture = ExtResource("3_e3nej")
+
+[node name="BR Bridge" type="Sprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+texture = ExtResource("4_a0mmr")
+
+[node name="BL Bridge" type="Sprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+texture = ExtResource("5_b8vq2")
 
 [node name="ShrineSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 15)
 sprite_frames = SubResource("SpriteFrames_h2x5r")
-animation = &"water_shrine_full"
+animation = &"water_shrine_corrupted"
 autoplay = "water_shrine_corrupted"
-
-[node name="TRBridgeBit" type="Sprite2D" parent="ShrineSprite"]
-z_index = 10
-texture = ExtResource("7_pdehf")
-
-[node name="TLBridgeBit" type="Sprite2D" parent="ShrineSprite"]
-z_index = 10
-scale = Vector2(1, -1)
-texture = ExtResource("8_mbuan")
-flip_v = true
-
-[node name="BRBridgeBit" type="Sprite2D" parent="ShrineSprite"]
-z_index = 10
-scale = Vector2(-1, 1)
-texture = ExtResource("9_e2e6s")
-flip_h = true
-
-[node name="BLBridgeBit" type="Sprite2D" parent="ShrineSprite"]
-z_index = 10
-texture = ExtResource("10_ecjea")
-
-[node name="BLBridgeBit2" type="Sprite2D" parent="ShrineSprite"]
-z_index = 10
-texture = ExtResource("10_ecjea")
+offset = Vector2(-1, -15)
 
 [node name="Node2D" type="StaticBody2D" parent="ShrineSprite"]
 collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="ShrineSprite/Node2D"]
-position = Vector2(6.5, -12)
-polygon = PackedVector2Array(36.5, -64, 50.5, -53, 62.5, -42, 70.5, -30, 74.5, -20, 73.5, -2, 72.5, 34, 69.5, 61, 60.5, 72, 58.5, 84, 40.5, 89, 16.5, 77, 11.5, 64, -6.5, 60, -16.5, 63, -42.5, 75, -58.5, 70, -72.5, 66, -78.5, 61, -80.5, 55, -69.5, 46, -68.5, 21, -68.5, -14, -58.5, -37, -39.5, -55, -19.5, -65, 15.5, -69, 25.5, -65)
+y_sort_enabled = true
+position = Vector2(6, -27)
+polygon = PackedVector2Array(73, -20, 73.5, -2, 72.5, 34, 69.5, 61, 60.5, 72, 58.5, 84, 40.5, 89, 16.5, 77, 11.5, 64, -6.5, 60, -16.5, 63, -42.5, 75, -58.5, 70, -72.5, 66, -78.5, 61, -80.5, 55, -69.5, 46, -68.5, 21, -69, -3, -47, -27, -33, -34, -11, -38, 13, -39, 46, -33)
 
-[node name="Base Bridges" type="Sprite2D" parent="."]
-texture = ExtResource("9_pdehf")
+[node name="TopRightWell" parent="." instance=ExtResource("2_e2e6s")]
+unique_name_in_owner = true
+z_index = -1
+
+[node name="TopLeftWell" parent="." instance=ExtResource("1_c1ic8")]
+unique_name_in_owner = true
+z_index = -1
+
+[node name="BottomLeftWell" parent="." instance=ExtResource("2_fmupm")]
+unique_name_in_owner = true
+z_index = -1
+y_sort_enabled = false
+
+[node name="BottomRightWell" parent="." instance=ExtResource("5_e2e6s")]
+unique_name_in_owner = true
+z_index = -1
+
+[node name="TRBridgeBit" type="Sprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+position = Vector2(125, -56)
+texture = ExtResource("7_pdehf")
+offset = Vector2(-125, 56)
+
+[node name="TLBridgeBit" type="Sprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+position = Vector2(-131, -42)
+scale = Vector2(1, -1)
+texture = ExtResource("8_mbuan")
+offset = Vector2(131, -42)
+flip_v = true
+
+[node name="BRBridgeBit" type="Sprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+position = Vector2(160.29015, 73.5864)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+texture = ExtResource("9_e2e6s")
+offset = Vector2(160.29013, -73.5864)
+flip_h = true
+
+[node name="BLBridgeBit" type="Sprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+position = Vector2(-131, 66)
+texture = ExtResource("10_ecjea")
+offset = Vector2(131, -66)
 
 [node name="Center Trough" type="Sprite2D" parent="."]
 z_index = -1
+y_sort_enabled = true
+position = Vector2(1, -152)
 texture = ExtResource("13_ecjea")
+offset = Vector2(-1, 152)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(6, 2)
+color = Color(0.10412703, 0.06686426, 0.12940627, 1)
+energy = 5.97
+texture = SubResource("GradientTexture2D_a0mmr")
+texture_scale = 8.28
