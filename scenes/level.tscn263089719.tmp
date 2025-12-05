@@ -1,11 +1,10 @@
-[gd_scene load_steps=165 format=4 uid="uid://crumj7tyj5pac"]
+[gd_scene load_steps=162 format=4 uid="uid://crumj7tyj5pac"]
 
 [ext_resource type="Script" uid="uid://cg02b1yiyqdxh" path="res://scripts/level.gd" id="1_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://bj0goxb5cvvkb" path="res://art/tiles/Corrupted Bush1.png" id="2_2r41h"]
 [ext_resource type="Texture2D" uid="uid://ddln8rlhgeamr" path="res://art/tiles/tile set 2.png" id="2_3ies3"]
 [ext_resource type="PackedScene" uid="uid://bi5t5rs6j68by" path="res://scenes/player.tscn" id="2_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://11j228lt5bnd" path="res://art/tiles/tile_set_2.png" id="3_klq6b"]
-[ext_resource type="Texture2D" uid="uid://dfefcpn85w0cb" path="res://art/tiles/flowery.png" id="4_2e2fo"]
 [ext_resource type="Texture2D" uid="uid://br4uejic5bp2o" path="res://art/tiles/dirt path1.png" id="4_8c41q"]
 [ext_resource type="Texture2D" uid="uid://gqym8xk2tnua" path="res://art/Main Tree.png" id="4_klq6b"]
 [ext_resource type="PackedScene" uid="uid://b37yy2bwfqns2" path="res://scenes/shrine.tscn" id="5_2r41h"]
@@ -398,15 +397,9 @@ texture = ExtResource("12_556r4")
 5:5/0 = 0
 5:4/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gur6y"]
-texture = ExtResource("4_2e2fo")
-0:2/0 = 0
-1:2/0 = 0
-
 [sub_resource type="TileSet" id="TileSet_wu01b"]
 sources/0 = SubResource("TileSetAtlasSource_xy2fk")
 sources/1 = SubResource("TileSetAtlasSource_kih21")
-sources/2 = SubResource("TileSetAtlasSource_gur6y")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b121j"]
 texture = ExtResource("2_2r41h")
@@ -1044,11 +1037,6 @@ texture = ExtResource("6_olg7q")
 15:23/0 = 0
 15:23/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v3why"]
-texture = ExtResource("4_2e2fo")
-0:2/0 = 0
-1:2/0 = 0
-
 [sub_resource type="TileSet" id="TileSet_olg7q"]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 2
@@ -1057,7 +1045,6 @@ sources/1 = SubResource("TileSetAtlasSource_8c41q")
 sources/2 = SubResource("TileSetAtlasSource_t1rx8")
 sources/3 = SubResource("TileSetAtlasSource_8iemx")
 sources/4 = SubResource("TileSetAtlasSource_64w2a")
-sources/5 = SubResource("TileSetAtlasSource_v3why")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d5irf"]
 atlas = ExtResource("13_kih21")
@@ -2045,7 +2032,7 @@ y_sort_enabled = true
 position = Vector2(287, -1547)
 sprite_frames = SubResource("SpriteFrames_d5irf")
 autoplay = "default"
-frame_progress = 0.38294563
+frame_progress = 0.38333905
 offset = Vector2(1, -19)
 
 [node name="Birdies" type="AnimatedSprite2D" parent="YSortDoodads"]
@@ -2053,14 +2040,14 @@ z_index = -1
 position = Vector2(23, -1512)
 sprite_frames = SubResource("SpriteFrames_gxvwf")
 autoplay = "default"
-frame_progress = 0.644298
+frame_progress = 0.6446867
 
 [node name="flower" type="AnimatedSprite2D" parent="YSortDoodads"]
 y_sort_enabled = true
 position = Vector2(10, -1563)
 sprite_frames = SubResource("SpriteFrames_kih21")
 autoplay = "default"
-frame_progress = 0.115238845
+frame_progress = 0.11562889
 offset = Vector2(5, -7)
 
 [node name="flower2" type="AnimatedSprite2D" parent="YSortDoodads"]
@@ -2069,7 +2056,7 @@ position = Vector2(307, -1539)
 scale = Vector2(-0.56, 0.56)
 sprite_frames = SubResource("SpriteFrames_kih21")
 autoplay = "default"
-frame_progress = 0.69037277
+frame_progress = 0.6907632
 offset = Vector2(5, -7)
 
 [node name="tree" type="Sprite2D" parent="YSortDoodads"]
