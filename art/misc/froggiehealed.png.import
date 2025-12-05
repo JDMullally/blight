@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp56c2e4a3oq2"
-path="res://.godot/imported/water particle.png-31823bd02cb65a39a354d5179e0a0f38.ctex"
+uid="uid://i6e48rcdhsag"
+path="res://.godot/imported/froggiehealed.png-0bb567333cd292db2beee82b4e8e9e2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/misc/water particle.png"
-dest_files=["res://.godot/imported/water particle.png-31823bd02cb65a39a354d5179e0a0f38.ctex"]
+source_file="res://art/misc/froggiehealed.png"
+dest_files=["res://.godot/imported/froggiehealed.png-0bb567333cd292db2beee82b4e8e9e2d.ctex"]
 
 [params]
 
