@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://nncvss1r0n67"]
+[gd_scene load_steps=4 format=3 uid="uid://nncvss1r0n67"]
 
 [ext_resource type="Texture2D" uid="uid://b3vpmbndt0k21" path="res://art/misc/tree_1.png" id="1_b2jax"]
 [ext_resource type="Script" uid="uid://bftwex2gx0mht" path="res://scenes/tree_1.gd" id="2_b2jax"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b2jax"]
+height = 32.223755
 
 [node name="Tree1" type="Sprite2D"]
 y_sort_enabled = true
@@ -17,3 +20,9 @@ position = Vector2(-4.027969, -49.006996)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-0.6713286, -13.426573)
 polygon = PackedVector2Array(-9.398621, 75.86012, 0, 67.804184, -1.3426819, 63.10489, 14.0979, 63.10489, 16.783203, 66.46153, 30.881104, 71.83215, 26.853119, 74.51747, 12.083893, 75.86012, 1.3426514, 71.16083, -5.370636, 76.53146)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(9.398601, 55.048946)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_b2jax")
+disabled = true

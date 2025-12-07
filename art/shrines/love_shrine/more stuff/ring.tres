@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cuydeilia1ohw"]
+
+[ext_resource type="Texture2D" uid="uid://chuu2bacg65ql" path="res://art/shrines/love_shrine/Defense Ring.png" id="1_acchh"]
+
+[resource]
+atlas = ExtResource("1_acchh")
+region = Rect2(0, 0, 640, 640)

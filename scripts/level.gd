@@ -17,7 +17,10 @@ func _ready() -> void:
 	fps.text = str(Engine.get_frames_per_second())
 	num_enemies.text = str(len(frog_spawner.get_monster_list()))
 	timer.start()
-	frog_spawner.locked = false
+	dog_spawner.locked = false
+	#SignalBus.unlock_spell.emit(SignalBus.Element.Love)
+	#SignalBus.unlock_spell.emit(SignalBus.Element.Light)
+	#SignalBus.unlock_spell.emit(SignalBus.Element.Song)
 
 func complete_shrine():
 	completed_shrines += 1	
@@ -42,6 +45,8 @@ func _on_timer_timeout() -> void:
 
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
+	SignalBus.increase_player_healing.emit(1)
+	SignalBus.allow_spell_crafting.emit()
 	frog_spawner.disable_monster_spawner()
 	dog_spawner.disable_monster_spawner()
 	bird_spawner.disable_monster_spawner()
@@ -49,6 +54,8 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:
+	SignalBus.reduce_player_healing.emit()
+	SignalBus.stop_spell_crafting.emit()
 	frog_spawner.enable_monster_spawner()
 	dog_spawner.enable_monster_spawner()
 	bird_spawner.enable_monster_spawner()
@@ -56,4 +63,4 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 
 
 func _on_background_music_finished() -> void:
-	background_music.play(60.0)
+	background_music.play(60.5)

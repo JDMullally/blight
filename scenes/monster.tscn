@@ -40,7 +40,6 @@ path_desired_distance = 10.0
 target_desired_distance = 5.0
 navigation_layers = 2147483649
 avoidance_enabled = true
-debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 debug_path_custom_point_size = 2.0
 debug_path_custom_line_width = 1.0
@@ -96,7 +95,6 @@ state = 8
 monster = NodePath("../..")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 offset_left = -11.0
 offset_top = -28.0
 offset_right = 607.0
