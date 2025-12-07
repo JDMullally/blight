@@ -8,7 +8,10 @@ func enter() -> void:
 	timer.one_shot = true
 	#timer.autostart = true
 	self.add_child(timer)
-	timer.start()
+	if timer:
+		timer.start()
+	else:
+		transition_requested.emit(self, MonsterState.State.Cooldown, monster)
 
 func exit() -> void:
 	timer.queue_free()

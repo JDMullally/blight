@@ -15,3 +15,10 @@ signal game_over_screen
 signal update_player_health(value : int)
 signal complete_shrine
 signal update_player_text
+signal allow_spell_crafting
+signal stop_spell_crafting
+signal update_sprint_progress
+signal scroll_up
+signal scroll_down
+signal increase_player_healing(value : int)
+signal reduce_player_healing

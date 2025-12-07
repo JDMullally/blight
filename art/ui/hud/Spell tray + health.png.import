@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp56c2e4a3oq2"
-path="res://.godot/imported/water particle.png-31823bd02cb65a39a354d5179e0a0f38.ctex"
+uid="uid://d174wwuvhdt72"
+path="res://.godot/imported/Spell tray + health.png-276dbea6fd52a92444f22ba51afa5d12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/misc/water particle.png"
-dest_files=["res://.godot/imported/water particle.png-31823bd02cb65a39a354d5179e0a0f38.ctex"]
+source_file="res://art/ui/hud/Spell tray + health.png"
+dest_files=["res://.godot/imported/Spell tray + health.png-276dbea6fd52a92444f22ba51afa5d12.ctex"]
 
 [params]
 

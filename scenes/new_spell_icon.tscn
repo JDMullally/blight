@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://m3fr5ny1hu8u"]
+
+[ext_resource type="Texture2D" uid="uid://dxvfhlowrwxjn" path="res://art/ui/hud/new-spell.png" id="1_uvi63"]
+[ext_resource type="Script" uid="uid://pifpyoydq7c8" path="res://scripts/new_spell_icon.gd" id="2_8vn58"]
+
+[node name="NewSpellIcon" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("1_uvi63")
+script = ExtResource("2_8vn58")

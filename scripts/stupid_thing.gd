@@ -1,5 +1,6 @@
 extends TextureRect
 
+@export var disabled : bool = false
 @export var element : SignalBus.Element = SignalBus.Element.Water
 @export var line_width : float = 6.0
 @export var line_color : Color = Color.BLACK
@@ -13,6 +14,10 @@ extends TextureRect
 @export var simplify_enable : bool = true
 @export var simplify_distance : float = 2.0
 @export var simplify_collinear : float = 1.0
+@onready var sav: TextureButton = $Sav
+@onready var und: TextureButton = $Und
+@onready var del: TextureButton = $Del
+@onready var rich_text_label: RichTextLabel = $RichTextLabel
 
 var showing : bool = false
 var strokes : Array[PackedVector2Array] = []
@@ -21,9 +26,14 @@ var polygons : Array[PackedVector2Array] = []
 var is_drawing : bool = false
 
 func _ready() -> void:
+	SignalBus.allow_spell_crafting.connect(enable_drawing_area)
+	SignalBus.stop_spell_crafting.connect(disable_drawing_area)
+	rich_text_label.bbcode_enabled = true
+	rich_text_label.scroll_active = false
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	focus_mode = Control.FOCUS_ALL
 	clip_contents = true
+	disable_drawing_area()
 	queue_redraw()
 
 func _gui_input(event : InputEvent) -> void:
@@ -96,26 +106,43 @@ func remove_all_polygons():
 	queue_redraw()
 	accept_event()
 
+func disable_drawing_area():
+	rich_text_label.clear()
+	rich_text_label.append_text("[font_size=24][wave]Return to the grove to change your spells[/wave][/font_size]")
+	disabled = true
+	del.hide()
+	und.hide()
+	sav.hide()
+
+func enable_drawing_area():
+	disabled = false
+	rich_text_label.clear()
+	del.show()
+	und.show()
+	sav.show()
+
 func _draw() -> void:
-	for stroke in strokes:
-		if stroke.size() >= 2:
-			draw_polyline(stroke, line_color, line_width, true)
-	if current.size() >= 2:
-		draw_polyline(current, line_color, line_width, true)
-	if show_outline:
-		var outlines : Array[PackedVector2Array] = get_outline_polygons(line_width * 0.5)
-		for poly in outlines:
+	if !disabled:
+		for stroke in strokes:
+			if stroke.size() >= 2:
+				draw_polyline(stroke, line_color, line_width, true)
+		if current.size() >= 2:
+			draw_polyline(current, line_color, line_width, true)
+		if show_outline:
+			var outlines : Array[PackedVector2Array] = get_outline_polygons(line_width * 0.5)
+			for poly in outlines:
+				if poly.size() >= 3:
+					draw_colored_polygon(poly, outline_fill)
+					var closed : PackedVector2Array = poly.duplicate()
+					closed.append(poly[0])
+					draw_polyline(closed, outline_stroke, outline_stroke_width, true)
+		for poly in polygons:
 			if poly.size() >= 3:
-				draw_colored_polygon(poly, outline_fill)
-				var closed : PackedVector2Array = poly.duplicate()
-				closed.append(poly[0])
-				draw_polyline(closed, outline_stroke, outline_stroke_width, true)
-	for poly in polygons:
-		if poly.size() >= 3:
-			draw_colored_polygon(poly, saved_fill)
-			var closed_saved : PackedVector2Array = poly.duplicate()
-			closed_saved.append(poly[0])
-			draw_polyline(closed_saved, saved_stroke, outline_stroke_width, true)
+				draw_colored_polygon(poly, saved_fill)
+				var closed_saved : PackedVector2Array = poly.duplicate()
+				closed_saved.append(poly[0])
+				draw_polyline(closed_saved, saved_stroke, outline_stroke_width, true)
+
 
 func get_outline_polygons(half_width: float) -> Array[PackedVector2Array]:
 	var outlines: Array[PackedVector2Array] = []

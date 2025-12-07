@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bho2pewaxfgwj"
-path="res://.godot/imported/tree4.png-bf99694fbe6b24134476a3f6bba9cd84.ctex"
+uid="uid://2flt0tkv4ibp"
+path="res://.godot/imported/TL_Bridge.png-24b8419b774d32ee857a92e41e4b9671.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/misc/tree4.png"
-dest_files=["res://.godot/imported/tree4.png-bf99694fbe6b24134476a3f6bba9cd84.ctex"]
+source_file="res://art/shrines/water shrine v2/TL_Bridge.png"
+dest_files=["res://.godot/imported/TL_Bridge.png-24b8419b774d32ee857a92e41e4b9671.ctex"]
 
 [params]
 

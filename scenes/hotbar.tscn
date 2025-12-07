@@ -1,161 +1,203 @@
-[gd_scene load_steps=16 format=3 uid="uid://qtbcio8t7kmf"]
+[gd_scene load_steps=25 format=3 uid="uid://qtbcio8t7kmf"]
 
 [ext_resource type="Script" uid="uid://c300wk2tkowhm" path="res://scripts/hotbar.gd" id="1_4qkdb"]
-[ext_resource type="Texture2D" uid="uid://dc2hevk7oyu0l" path="res://art/ui/spell tray/Base.png" id="2_4qkdb"]
-[ext_resource type="Shader" uid="uid://daxp4am5011qp" path="res://resources/hotbar.gdshader" id="2_nekah"]
-[ext_resource type="Texture2D" uid="uid://dmgbvb0u86ill" path="res://art/ui/spell tray/LoveOn.png" id="3_2n1yv"]
-[ext_resource type="Texture2D" uid="uid://ctfs164aldrl4" path="res://art/ui/spell tray/LoveOff.png" id="4_vu8xs"]
-[ext_resource type="Texture2D" uid="uid://beo2enouo7gwv" path="res://art/ui/spell tray/SongOn.png" id="5_i62wn"]
-[ext_resource type="Texture2D" uid="uid://bm6o0ccf68ybi" path="res://art/ui/spell tray/SongOff.png" id="6_nekah"]
-[ext_resource type="Texture2D" uid="uid://x5qet6lkudky" path="res://art/ui/spell tray/SunOn.png" id="7_70wi1"]
-[ext_resource type="Texture2D" uid="uid://dp5h0fdj7t8s2" path="res://art/ui/spell tray/SunOff.png" id="8_mbjko"]
-[ext_resource type="Texture2D" uid="uid://iwwwxfsnhwex" path="res://art/ui/spell tray/WaterOn.png" id="9_4p213"]
-[ext_resource type="Texture2D" uid="uid://dj3ceinja2ypa" path="res://art/ui/spell tray/WaterOff.png" id="10_ymyrg"]
+[ext_resource type="Texture2D" uid="uid://dtneamr5iqurj" path="res://art/ui/hud/spell icons-water.png" id="4_i62wn"]
+[ext_resource type="Texture2D" uid="uid://b4u7ujid0whcf" path="res://art/ui/hud/spell tray + health new time.png" id="5_iapdy"]
+[ext_resource type="Texture2D" uid="uid://slgk5qdm2e1q" path="res://art/ui/hud/spell icons-love.png" id="5_nekah"]
+[ext_resource type="Texture2D" uid="uid://hf5qco4v5bgo" path="res://art/ui/hud/spell icons-sun.png" id="6_70wi1"]
+[ext_resource type="Texture2D" uid="uid://bs2sdj3xk01ss" path="res://art/ui/hud/Spell tray-keys.png" id="7_i62wn"]
+[ext_resource type="Texture2D" uid="uid://end25ywvm27b" path="res://art/ui/hud/spell icons-song.png" id="7_mbjko"]
+[ext_resource type="Texture2D" uid="uid://gxjqy3x40uqo" path="res://art/misc/Sprint1.png" id="8_4p213"]
+[ext_resource type="Texture2D" uid="uid://byreaqaqtgev2" path="res://art/ui/hud/Spell-select.png" id="8_70wi1"]
+[ext_resource type="Texture2D" uid="uid://cmncdnrdpun28" path="res://art/misc/Sprint2.png" id="9_ymyrg"]
+[ext_resource type="Texture2D" uid="uid://hshu6wa4nsnm" path="res://art/ui/hud/health-blight.png" id="11_70wi1"]
+[ext_resource type="Texture2D" uid="uid://pekoevd54ytf" path="res://art/ui/hud/health-green.png" id="12_mbjko"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_70wi1"]
-shader = ExtResource("2_nekah")
-shader_parameter/speed = 1.0
-shader_parameter/dark_red = Color(0.7397895, 2.0094587e-06, 5.7756904e-07, 1)
-shader_parameter/light_red = Color(1, 0.3, 0.3, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbu6h"]
+atlas = ExtResource("5_nekah")
+region = Rect2(0, 0, 32, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i62wn"]
-bg_color = Color(0, 0, 0, 1)
-draw_center = false
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lvyt"]
+atlas = ExtResource("5_nekah")
+region = Rect2(32, 0, 32, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nekah"]
-bg_color = Color(1, 0.1764706, 0.31764707, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_nekah"]
+atlas = ExtResource("7_i62wn")
+region = Rect2(32, 0, 32, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xrqkv"]
-atlas = ExtResource("2_4qkdb")
-region = Rect2(0, 0, 80, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c3f6"]
+atlas = ExtResource("4_i62wn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixfkr"]
+atlas = ExtResource("4_i62wn")
+region = Rect2(32, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70wi1"]
+atlas = ExtResource("7_i62wn")
+region = Rect2(64, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db7yd"]
+atlas = ExtResource("6_70wi1")
+region = Rect2(0, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecr4m"]
+atlas = ExtResource("6_70wi1")
+region = Rect2(32, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbjko"]
+atlas = ExtResource("7_i62wn")
+region = Rect2(96, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp1co"]
+atlas = ExtResource("7_mbjko")
+region = Rect2(0, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gh5r"]
+atlas = ExtResource("7_mbjko")
+region = Rect2(32, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p213"]
+atlas = ExtResource("7_i62wn")
+region = Rect2(128, 0, 32, 0)
 
 [node name="Hotbar" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 798.0
-offset_top = 379.0
-offset_right = 798.0
-offset_bottom = 379.0
-scale = Vector2(0.6, 0.6)
+offset_left = 250.0
+offset_top = 27.0
+offset_right = 250.0
+offset_bottom = 27.0
 script = ExtResource("1_4qkdb")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-material = SubResource("ShaderMaterial_70wi1")
+[node name="SprintProgressBar" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1101.0
-offset_top = 812.0
-offset_right = 1717.0
-offset_bottom = 851.0
-theme_override_styles/background = SubResource("StyleBoxFlat_i62wn")
-theme_override_styles/fill = SubResource("StyleBoxFlat_nekah")
-value = 100.0
-show_percentage = false
+offset_left = 370.0
+offset_top = -159.0
+offset_right = 418.0
+offset_bottom = -119.0
+scale = Vector2(3, 3)
+value = 40.0
+fill_mode = 1
+texture_under = ExtResource("8_4p213")
+texture_progress = ExtResource("9_ymyrg")
 
 [node name="HotbarTexture" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 1085.0001
-offset_top = 799.00006
-offset_right = 1165.0001
-offset_bottom = 823.00006
-scale = Vector2(8, 8)
-texture = SubResource("AtlasTexture_xrqkv")
+offset_left = -256.0
+offset_top = -39.0
+offset_right = -76.0
+offset_bottom = 31.0
+scale = Vector2(3, -3)
+texture = ExtResource("5_iapdy")
 
-[node name="WaterProgressBar" type="TextureProgressBar" parent="HotbarTexture"]
+[node name="Health" type="TextureProgressBar" parent="HotbarTexture"]
 unique_name_in_owner = true
-layout_mode = 1
-offset_left = 9.999987
-offset_top = 10.99999
-offset_right = 19.999987
-offset_bottom = 20.99999
-pivot_offset = Vector2(5, 5.291664)
-value = 70.0
-fill_mode = 4
-texture_under = ExtResource("9_4p213")
-texture_progress = ExtResource("10_ymyrg")
-tint_progress = Color(1, 1, 1, 0.78431374)
-
-[node name="Key_1" type="RichTextLabel" parent="HotbarTexture/WaterProgressBar"]
 layout_mode = 0
-offset_left = 0.47501373
-offset_top = -0.45832825
-offset_right = 57.975014
-offset_bottom = 95.79167
-scale = Vector2(0.05, 0.05)
-bbcode_enabled = true
-text = "[font_size=72]1[/font_size]"
-scroll_active = false
+offset_left = 9.666686
+offset_top = 3.0
+offset_right = 169.66669
+offset_bottom = 67.0
+value = 100.0
+texture_under = ExtResource("11_70wi1")
+texture_progress = ExtResource("12_mbjko")
 
 [node name="LoveProgressBar" type="TextureProgressBar" parent="HotbarTexture"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 26.999992
-offset_top = 10.5
-offset_right = 36.999992
-offset_bottom = 20.5
-pivot_offset = Vector2(4.8333282, 5.5)
+offset_left = 18.333334
+offset_top = 7.0
+offset_right = 50.33335
+offset_bottom = 39.0
+scale = Vector2(1, -1)
+pivot_offset = Vector2(16, 16)
 value = 50.0
 fill_mode = 4
-texture_under = ExtResource("3_2n1yv")
-texture_progress = ExtResource("4_vu8xs")
+texture_under = SubResource("AtlasTexture_gbu6h")
+texture_progress = SubResource("AtlasTexture_1lvyt")
 tint_progress = Color(1, 1, 1, 0.78431374)
 
-[node name="Key_2" type="RichTextLabel" parent="HotbarTexture/LoveProgressBar"]
-layout_mode = 0
-offset_left = 0.12501526
-offset_top = -0.375
-offset_right = 57.62502
-offset_bottom = 95.875
-scale = Vector2(0.05, 0.05)
-bbcode_enabled = true
-text = "[font_size=72]2[/font_size]"
-scroll_active = false
+[node name="LoveSelect" type="Sprite2D" parent="HotbarTexture/LoveProgressBar"]
+unique_name_in_owner = true
+position = Vector2(16.000008, 16)
+texture = ExtResource("8_70wi1")
+
+[node name="1" type="Sprite2D" parent="HotbarTexture/LoveProgressBar"]
+position = Vector2(37, 1)
+texture = SubResource("AtlasTexture_nekah")
+
+[node name="WaterProgressBar" type="TextureProgressBar" parent="HotbarTexture"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 55.333336
+offset_top = 7.0
+offset_right = 87.333336
+offset_bottom = 39.0
+scale = Vector2(1, -1)
+pivot_offset = Vector2(16, 16)
+value = 70.0
+fill_mode = 4
+texture_under = SubResource("AtlasTexture_3c3f6")
+texture_progress = SubResource("AtlasTexture_ixfkr")
+tint_progress = Color(1, 1, 1, 0.78431374)
+
+[node name="WaterSelect" type="Sprite2D" parent="HotbarTexture/WaterProgressBar"]
+unique_name_in_owner = true
+position = Vector2(16, 16)
+texture = ExtResource("8_70wi1")
+
+[node name="2" type="Sprite2D" parent="HotbarTexture/WaterProgressBar"]
+visible = false
+position = Vector2(36.666668, 0)
+texture = SubResource("AtlasTexture_70wi1")
 
 [node name="LightProgressBar" type="TextureProgressBar" parent="HotbarTexture"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 43.666668
-offset_top = 11.0
-offset_right = 53.666668
-offset_bottom = 21.0
-pivot_offset = Vector2(5.3333282, 5)
+offset_left = 92.0
+offset_top = 7.0
+offset_right = 124.0
+offset_bottom = 39.0
+scale = Vector2(1, -1)
+pivot_offset = Vector2(16, 16)
 value = 50.0
 fill_mode = 4
-texture_under = ExtResource("7_70wi1")
-texture_progress = ExtResource("8_mbjko")
+texture_under = SubResource("AtlasTexture_db7yd")
+texture_progress = SubResource("AtlasTexture_ecr4m")
 tint_progress = Color(1, 1, 1, 0.78431374)
 
-[node name="Key_3" type="RichTextLabel" parent="HotbarTexture/LightProgressBar"]
-layout_mode = 0
-offset_left = 0.458313
-offset_top = -0.75
-offset_right = 57.958313
-offset_bottom = 95.5
-scale = Vector2(0.05, 0.05)
-bbcode_enabled = true
-text = "[font_size=72]3[/font_size]"
-scroll_active = false
+[node name="LightSelect" type="Sprite2D" parent="HotbarTexture/LightProgressBar"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(16.000004, 16)
+texture = ExtResource("8_70wi1")
+
+[node name="3" type="Sprite2D" parent="HotbarTexture/LightProgressBar"]
+position = Vector2(34.66668, 0)
+texture = SubResource("AtlasTexture_mbjko")
 
 [node name="SongProgressBar" type="TextureProgressBar" parent="HotbarTexture"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 60.899986
-offset_top = 11.166664
-offset_right = 70.899994
-offset_bottom = 21.166664
-pivot_offset = Vector2(5.3333282, 4.708336)
+offset_left = 129.33334
+offset_top = 7.0000024
+offset_right = 161.33334
+offset_bottom = 39.000004
+scale = Vector2(1, -1)
+pivot_offset = Vector2(16.099976, 15.833313)
 value = 50.0
 fill_mode = 4
-texture_under = ExtResource("5_i62wn")
-texture_progress = ExtResource("6_nekah")
+texture_under = SubResource("AtlasTexture_mp1co")
+texture_progress = SubResource("AtlasTexture_6gh5r")
 tint_progress = Color(1, 1, 1, 0.78431374)
 
-[node name="Key_4" type="RichTextLabel" parent="HotbarTexture/SongProgressBar"]
-layout_mode = 0
-offset_left = -0.025009155
-offset_top = -0.9166641
-offset_right = 67.475
-offset_bottom = 94.083336
-scale = Vector2(0.05, 0.05)
-bbcode_enabled = true
-text = "[font_size=72]4[/font_size]"
-scroll_active = false
+[node name="SongSelect" type="Sprite2D" parent="HotbarTexture/SongProgressBar"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(15.999985, 15.666634)
+texture = ExtResource("8_70wi1")
+
+[node name="4" type="Sprite2D" parent="HotbarTexture/SongProgressBar"]
+position = Vector2(32.000015, 1)
+texture = SubResource("AtlasTexture_4p213")

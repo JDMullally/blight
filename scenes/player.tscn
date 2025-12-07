@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bi5t5rs6j68by"]
+[gd_scene load_steps=38 format=3 uid="uid://bi5t5rs6j68by"]
 
 [ext_resource type="Script" uid="uid://csw2shgruxl4m" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cjaajdilua3co" path="res://art/player/walk cycle.png" id="2_dqkch"]
@@ -8,7 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://qtbcio8t7kmf" path="res://scenes/hotbar.tscn" id="5_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://c18sbt2kqlqi5" path="res://art/recent_downloads/running-in-grass-6237 (mp3cut.net).mp3" id="7_fjrip"]
 [ext_resource type="Script" uid="uid://b8d3q5gh4uthv" path="res://scripts/player_text.gd" id="7_ur7pv"]
+[ext_resource type="PackedScene" uid="uid://m3fr5ny1hu8u" path="res://scenes/new_spell_icon.tscn" id="8_3v2ag"]
 [ext_resource type="AudioStream" uid="uid://bpt8u6unpsqt5" path="res://art/recent_downloads/USE_umph-47201 (mp3cut.net).mp3" id="8_smehm"]
+[ext_resource type="Script" uid="uid://qnpk3ty0r0bi" path="res://scripts/wisp_tracker.gd" id="10_d2wvv"]
+[ext_resource type="PackedScene" uid="uid://tib42aa06krh" path="res://scenes/wisp.tscn" id="10_y4r1p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
 atlas = ExtResource("2_dqkch")
@@ -173,8 +176,10 @@ initial_velocity_max = 26.55
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_y4r1p")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2wvv"]
+radius = 115.84904
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-z_index = 1
 y_sort_enabled = true
 position = Vector2(36, -2)
 collision_layer = 2147483651
@@ -214,10 +219,11 @@ texture_scale = 0.75
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hotbar" parent="CanvasLayer" instance=ExtResource("5_qlg0r")]
-offset_left = -551.0
-offset_top = 427.0
-offset_right = -551.0
-offset_bottom = 427.0
+offset_left = 970.0
+offset_top = 1086.0
+offset_right = 970.0
+offset_bottom = 1086.0
+scale = Vector2(0.6, 0.6)
 mouse_filter = 2
 
 [node name="Menu" parent="CanvasLayer" instance=ExtResource("4_dqkch")]
@@ -230,19 +236,25 @@ scale = Vector2(2.5, 2.5)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_left = 560.0
-offset_top = 730.0
-offset_right = 1641.0
-offset_bottom = 1012.0
+offset_left = 410.0
+offset_top = 650.0
+offset_right = 1510.0
+offset_bottom = 932.0
 mouse_filter = 2
 bbcode_enabled = true
 text = "[font_size=48][/font_size]"
 scroll_active = false
+horizontal_alignment = 1
 script = ExtResource("7_ur7pv")
+
+[node name="NewSpellIcon" parent="CanvasLayer" instance=ExtResource("8_3v2ag")]
+offset_left = 720.0
+offset_top = 150.0
+offset_right = 1200.0
+offset_bottom = 342.0
 
 [node name="RegenTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 2.0
 one_shot = true
 
 [node name="Invulnerability_Timer" type="Timer" parent="."]
@@ -270,4 +282,26 @@ lifetime = 0.2
 trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_d2wvv")
 
+[node name="WispTracker" type="Node2D" parent="."]
+position = Vector2(-2, -11)
+script = ExtResource("10_d2wvv")
+
+[node name="Wisp" parent="WispTracker" instance=ExtResource("10_y4r1p")]
+position = Vector2(-20, -20)
+
+[node name="Wisp2" parent="WispTracker" instance=ExtResource("10_y4r1p")]
+position = Vector2(0, -35)
+
+[node name="Wisp3" parent="WispTracker" instance=ExtResource("10_y4r1p")]
+position = Vector2(20, -20)
+
+[node name="Area2D" type="Area2D" parent="WispTracker"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WispTracker/Area2D"]
+shape = SubResource("CircleShape2D_d2wvv")
+
 [connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]
+[connection signal="body_entered" from="WispTracker/Area2D" to="WispTracker" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="WispTracker/Area2D" to="WispTracker" method="_on_area_2d_body_exited"]

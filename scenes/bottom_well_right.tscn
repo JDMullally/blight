@@ -235,15 +235,17 @@ collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
 position = Vector2(-92.47993, -47.238358)
-polygon = PackedVector2Array(34.523586, -74.27733, 44.474766, -55.569733, 48.94101, -50.087708, 59.343327, -37.76732, 71.49924, -17.025253, 74.83618, -4.421089, 68.05458, 2.9280548, 57.484905, 4.060257, 49.68172, -14.02594, 39.900814, -28.494308, 30.74131, -45.110664, 20.055214, -64.49643, 10.274307, -78.96478)
+polygon = PackedVector2Array(29.662964, -71.959076, 34.129208, -66.47705, 43.06169, -55.512985, 48.319607, -47.939713, 57.308846, -35.562576, 70.142914, -15.55542, 73.53662, -1.5381851, 68.05458, 2.9280548, 60.311054, 3.9467468, 46.51504, -22.39087, 38.995636, -33.41169, 33.567455, -45.224182, 20.733376, -65.23134, 16.153625, -73.53952)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(181, -19)
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(53, 81)
-polygon = PackedVector2Array(2, 9, 8, 4, 13, 2, 20, 1, 48, 1, 57, 4, 61, 8, 60, 22, 59, 30, 48, 35, 36, 38, 25, 38, 14, 35, 3, 26, -20, 26, -47, 23, -65, 13, -48, 1, -35, 7, -20, 9, -1, 13)
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(114.00003, 83.99999)
+rotation = 3.138102
+scale = Vector2(0.99999994, -0.99999994)
+polygon = PackedVector2Array(0, 6, 5, 2, 14, -2, 41, -2, 51, -1, 60, 5, 64, 12, 71, 11, 93, 8, 114, 0, 125.030685, 8.563629, 114, 14, 93, 19, 68, 20, 63, 20, 57, 23, 52, 29, 38, 35, 22, 35, 9, 31, 2, 25)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

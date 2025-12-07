@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d28wpluh7jjf2"
-path="res://.godot/imported/tree2.png-a35b9cb0cb16b3bb5445c9eda12e133e.ctex"
+uid="uid://hshu6wa4nsnm"
+path="res://.godot/imported/health-blight.png-ad16be1d209a5aee1390726565d803fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/misc/tree2.png"
-dest_files=["res://.godot/imported/tree2.png-a35b9cb0cb16b3bb5445c9eda12e133e.ctex"]
+source_file="res://art/ui/hud/health-blight.png"
+dest_files=["res://.godot/imported/health-blight.png-ad16be1d209a5aee1390726565d803fb.ctex"]
 
 [params]
 

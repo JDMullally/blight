@@ -214,12 +214,16 @@ animations = [{
 size = Vector2(63.5, 37)
 
 [node name="BottomWell" type="AnimatedSprite2D"]
+y_sort_enabled = true
+position = Vector2(3, 128)
 sprite_frames = SubResource("SpriteFrames_unmas")
 autoplay = "default"
+offset = Vector2(-3, -128)
 script = ExtResource("2_qh03e")
 
 [node name="Area2D" type="Area2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(-3, -128)
 collision_layer = 5
 collision_mask = 5
 
@@ -229,20 +233,20 @@ position = Vector2(-241.75, 75.5)
 shape = SubResource("RectangleShape2D_y28kb")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-292, 63)
+position = Vector2(-295, -65)
 collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(19, -4)
-polygon = PackedVector2Array(0, 6, 5, 2, 14, -2, 41, -2, 51, -1, 60, 5, 63, 10, 71, 9, 92, 7, 115, -2, 133, 8, 118, 17, 95, 22, 66, 24, 61, 22, 57, 23, 52, 29, 38, 35, 22, 35, 9, 31, 2, 25)
+polygon = PackedVector2Array(0, 6, 5, 2, 14, -2, 41, -2, 51, -1, 60, 5, 64, 12, 71, 11, 93, 8, 114, -1, 127, 8, 114, 14, 93, 19, 68, 20, 63, 20, 57, 23, 52, 29, 38, 35, 22, 35, 9, 31, 2, 25)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(-144, 35)
+position = Vector2(-147, -93)
 collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-polygon = PackedVector2Array(12, 11, 33, 26, 52, 19, 97, 9, 93, -12, 76, -5, 38, 4)
+polygon = PackedVector2Array(15, 12, 31, 23, 51, 15, 95, 4, 93, -12, 76, -3, 38, 6, 25, 11)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

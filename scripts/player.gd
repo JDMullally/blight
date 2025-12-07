@@ -7,7 +7,8 @@ const MAX_HP : int = 100
 var current_knockback_vector : Vector2 = Vector2.ZERO
 var input_vector : Vector2 = Vector2.ZERO
 var impulse_decay_timer : Timer
-
+var scroll_timer : Timer
+@onready var healing_amount : int = 0
 @onready var invulnerability_timer: Timer = $Invulnerability_Timer
 @onready var dash_cooldown_timer: Timer = $DashCooldownTimer
 @onready var hitpoints = MAX_HP
@@ -24,13 +25,23 @@ func apply_impulse(dir : Vector2):
 func _ready() -> void:
 	gpu_particles_2d.emitting = false
 	SignalBus.hurt_player.connect(hit_player)
+	SignalBus.increase_player_healing.connect(increase_healing_value)
+	SignalBus.reduce_player_healing.connect(func(): healing_amount = 0	)
 	invulnerability_timer.timeout.connect(hide_particles)
+	scroll_timer = Timer.new()
+	scroll_timer.wait_time = .1
+	scroll_timer.one_shot = true
+	add_child(scroll_timer)
+	
 	impulse_decay_timer = Timer.new()
 	impulse_decay_timer.wait_time = .05
 	impulse_decay_timer.one_shot = true
 	add_child(impulse_decay_timer)
 	handle_animation(Vector2.ZERO, Vector2.ZERO)
 	regen_timer.start()
+
+func increase_healing_value(value : int):
+	healing_amount = value
 
 func hide_particles():
 	gpu_particles_2d.emitting = false
@@ -54,6 +65,12 @@ func move_player(_delta : float):
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash") and dash_cooldown_timer.is_stopped():
 		dash()
+	elif event.is_action("scroll_up") and scroll_timer.is_stopped():
+		SignalBus.scroll_up.emit()
+		scroll_timer.start()
+	elif event.is_action("scroll_down") and scroll_timer.is_stopped():
+		SignalBus.scroll_down.emit()
+		scroll_timer.start()
 
 func dash():
 	gpu_particles_2d.emitting = true
@@ -69,6 +86,9 @@ func _physics_process(_delta: float) -> void:
 		move_player(_delta)
 	else:
 		move_and_slide()
+
+func _process(_delta: float) -> void:
+	SignalBus.update_sprint_progress.emit(dash_cooldown_timer.time_left/ dash_cooldown_timer.wait_time)
 
 func hit_player(monster_damage : int, monster_global_position : Vector2):
 	if !invulnerability_timer.is_stopped():
@@ -98,6 +118,6 @@ func handle_animation(input_vec : Vector2, vel : Vector2):
 			animated_sprite_2d.play("idle")
 
 func _on_regen_timer_timeout() -> void:
-	hitpoints = clampi(hitpoints + 1, -MAX_HP, MAX_HP)
+	hitpoints = clampi(hitpoints + healing_amount, -MAX_HP, MAX_HP)
 	SignalBus.update_player_health.emit(hitpoints)
 	regen_timer.start()

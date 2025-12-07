@@ -9,10 +9,10 @@ const MAX_HITS : int = 2
 const MAX_HP = 4
 
 @onready var shrine_sprite: AnimatedSprite2D = $ShrineSprite
-@onready var top_left_well: Well = %TopLeftWell
-@onready var top_right_well: Well = %TopRightWell
-@onready var bottom_left_well: Well = %BottomLeftWell
-@onready var bottom_right_well: Well = %BottomRightWell
+@onready var top_left_well: ShrineWell = %TopLeftWell
+@onready var top_right_well: ShrineWell = %TopRightWell
+@onready var bottom_left_well: ShrineWell = %BottomLeftWell
+@onready var bottom_right_well: ShrineWell = %BottomRightWell
 @onready var increment : float = 640.0
 @onready var threshold : int = 0
 @onready var hitpoints = 0
