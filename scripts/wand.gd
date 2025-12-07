@@ -3,6 +3,7 @@ class_name Wand
 
 const BULLET_SCENE_UID : String = "uid://dkg2e45s87qw0"
 
+@onready var player : Node2D = get_tree().get_first_node_in_group("player")
 @onready var firing = false
 @onready var spellbook : Dictionary = {}
 @onready var current_element : SignalBus.Element = SignalBus.Element.Love
@@ -83,8 +84,6 @@ func get_next_order() -> Array[SignalBus.Element]:
 			return [SignalBus.Element.Love, SignalBus.Element.Water, SignalBus.Element.Light]
 		_:
 			return []
-	
-	
 
 func is_spell_ready(ele : SignalBus.Element) -> bool:
 	match ele:
@@ -146,10 +145,13 @@ func gen_bullet(element : SignalBus.Element, start_pos : Vector2, dir: Vector2, 
 	var stats : BulletStats = generate_bullet_stats(element)
 	get_tree().current_scene.add_child(bullet)
 	bullet.setup(bullet_poly, start_pos, dir, stats)
+	var attack_speed_multiplier = 1.0
+	if !player.attack_speed_buff_timer.is_stopped():
+		attack_speed_multiplier = .25
 	if increase_cooldown:
-		trigger_cooldown(element, stats.cooldown * 1.5)
+		trigger_cooldown(element, stats.cooldown * 1.5 * attack_speed_multiplier)
 	else:
-		trigger_cooldown(element, stats.cooldown)
+		trigger_cooldown(element, stats.cooldown * attack_speed_multiplier)
 
 func _unhandled_input(event : InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

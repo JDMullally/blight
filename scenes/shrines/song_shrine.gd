@@ -102,10 +102,21 @@ func add_and_check(number : int):
 		if player_simon_says[i] != simon_says_key[i]:
 			player_simon_says.clear()
 			play_simon_says()
+		else:
+			if i == 0:
+				note_block.play("one_right_4")
+			elif i == 1:
+				note_block.play("two_right_4")
+			elif i == 2:
+				note_block.play("three_right_4")
+			elif i == 3:
+				note_block.play("four_right_4")
+				
 	if player_simon_says.size() == 4:
-		player_simon_says.clear()	
+		player_simon_says.clear()
 		increment_success_and_activate_bird_sprite()
 		generate_new_simon_says()
+		note_block.play("four_right_4")
 
 func _on_bottom_right_area_entered(area: Area2D) -> void:
 	if area is Bullet:

@@ -168,4 +168,5 @@ func dissapear():
 func die():
 	var tween := create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 1.0)
-	tween.tween_callback(func(): kill_me = true)
+	tween.tween_callback(func(): 
+		kill_me = true)

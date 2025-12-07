@@ -93,7 +93,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_450cr")
 }],
-"loop": true,
+"loop": false,
 "name": &"four_right_4",
 "speed": 5.0
 }, {
@@ -765,10 +765,13 @@ rotation = 1.5865043
 shape = SubResource("CapsuleShape2D_g5ujr")
 
 [node name="Note_Block" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(320, 321)
 sprite_frames = SubResource("SpriteFrames_3saka")
-animation = &"six"
+animation = &"four_right_4"
 autoplay = "default_4"
+frame = 4
+frame_progress = 0.02482946
 
 [node name="Floating_Platform" type="AnimatedSprite2D" parent="."]
 position = Vector2(320, 321)

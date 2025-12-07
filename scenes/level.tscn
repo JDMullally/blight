@@ -1970,7 +1970,7 @@ information = "The blighted creatures of these woods will hunt you. Cure them wi
 [node name="InformationStone7" parent="YSortDoodads" instance=ExtResource("10_7agi7")]
 position = Vector2(270, -1552)
 scale = Vector2(0.54937756, 0.54937756)
-information = "Use SPACE of SHIFT to dash a short distance."
+information = "Use SPACE or SHIFT to dash a short distance."
 
 [node name="Tree1" parent="YSortDoodads" groups=["obstacles"] instance=ExtResource("21_h6wmr")]
 position = Vector2(-293, -1276)
@@ -2347,7 +2347,7 @@ navigation_polygon = SubResource("NavigationPolygon_556r4")
 navigation_layers = 2147483648
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1297, -356)
+position = Vector2(1302, -351)
 collision_layer = 2
 collision_mask = 2
 

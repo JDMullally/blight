@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://vb68bis4s2l0"]
 
 [ext_resource type="Script" uid="uid://2uecl8s8o6yr" path="res://scripts/radar_chart_graph.gd" id="1_7se6q"]
-[ext_resource type="Texture2D" uid="uid://cqqn1t1h65xur" path="res://art/recent_downloads/Effectiveness 1.png" id="2_vtluu"]
-[ext_resource type="Texture2D" uid="uid://bh4s3mj11cs7o" path="res://art/recent_downloads/Power.png" id="3_eq3mp"]
-[ext_resource type="Texture2D" uid="uid://bxnjsl583we2f" path="res://art/recent_downloads/Cooldown.png" id="4_31880"]
-[ext_resource type="Texture2D" uid="uid://bc74ycpxxq1x8" path="res://art/recent_downloads/Speed.png" id="5_ffpie"]
-[ext_resource type="Texture2D" uid="uid://b5adrhjahwwmi" path="res://art/recent_downloads/Stun.png" id="6_3dgrj"]
+[ext_resource type="Texture2D" uid="uid://5d3qrmnfxki" path="res://art/ui/recent_bc_i_dont_wanna_look_for_these/potency.png" id="2_vtluu"]
+[ext_resource type="Texture2D" uid="uid://wq44wk8pus75" path="res://art/ui/recent_bc_i_dont_wanna_look_for_these/pierce-2.png" id="3_eq3mp"]
+[ext_resource type="Texture2D" uid="uid://bcv3pf1q2nf41" path="res://art/ui/recent_bc_i_dont_wanna_look_for_these/cooldown timer.png" id="4_31880"]
+[ext_resource type="Texture2D" uid="uid://cjf10qcqa7yu3" path="res://art/ui/recent_bc_i_dont_wanna_look_for_these/speed.png" id="5_ffpie"]
+[ext_resource type="Texture2D" uid="uid://bfc4cnlfph3y3" path="res://art/ui/recent_bc_i_dont_wanna_look_for_these/stun-2.png" id="6_3dgrj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqrc5"]
 bg_color = Color(0.9019608, 0.7176471, 0.5137255, 1)
@@ -58,7 +58,8 @@ offset_bottom = 248.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xqrc5")
 script = ExtResource("1_7se6q")
 
-[node name="Potentency" type="ProgressBar" parent="."]
+[node name="Disable" type="ProgressBar" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 20.0
 offset_top = 45.0
@@ -71,7 +72,8 @@ max_value = 15.0
 value = 14.26
 show_percentage = false
 
-[node name="Power" type="ProgressBar" parent="."]
+[node name="HealingPower" type="ProgressBar" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 45.0
 offset_top = 45.0
@@ -84,7 +86,8 @@ max_value = 15.0
 value = 15.0
 show_percentage = false
 
-[node name="Effectiveness" type="ProgressBar" parent="."]
+[node name="Pierce" type="ProgressBar" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 70.0
 offset_top = 45.0
@@ -97,7 +100,8 @@ max_value = 15.0
 value = 1.0
 show_percentage = false
 
-[node name="Difficulty" type="ProgressBar" parent="."]
+[node name="Cooldown" type="ProgressBar" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 95.0
 offset_top = 45.0
@@ -110,7 +114,8 @@ max_value = 15.0
 value = 13.6
 show_percentage = false
 
-[node name="Rapidity" type="ProgressBar" parent="."]
+[node name="Speed" type="ProgressBar" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 120.0
 offset_top = 45.0
@@ -123,27 +128,63 @@ max_value = 15.0
 value = 14.16
 show_percentage = false
 
-[node name="Effectiveness1" type="Sprite2D" parent="."]
-position = Vector2(50, 49)
+[node name="HealingPowerSprite" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 45.0
+offset_top = 44.0
+offset_right = 77.0
+offset_bottom = 76.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_vtluu")
 
-[node name="Power2" type="Sprite2D" parent="."]
-position = Vector2(75, 50)
+[node name="PierceSprite" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 70.0
+offset_top = 45.0
+offset_right = 102.0
+offset_bottom = 77.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_eq3mp")
 
-[node name="Cooldown" type="Sprite2D" parent="."]
-position = Vector2(100, 50)
+[node name="CooldownSprite" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 95.0
+offset_top = 45.0
+offset_right = 127.0
+offset_bottom = 77.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_31880")
 
-[node name="Speed" type="Sprite2D" parent="."]
-position = Vector2(125, 49)
+[node name="SpeedSprite" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 120.0
+offset_top = 44.0
+offset_right = 152.0
+offset_bottom = 76.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_ffpie")
 
-[node name="Stun" type="Sprite2D" parent="."]
-position = Vector2(25, 49)
+[node name="DisableSprite" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 20.0
+offset_top = 44.0
+offset_right = 52.0
+offset_bottom = 76.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_3dgrj")
+
+[node name="MouseOver" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -22.0
+offset_right = 294.0
+offset_bottom = 24.0
+scale = Vector2(0.5, 0.5)
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1

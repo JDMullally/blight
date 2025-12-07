@@ -11,6 +11,7 @@ extends Node2D
 @onready var grove_collision: CollisionPolygon2D = %GroveCollision
 @onready var gpu_particles_2d: GPUParticles2D = $Gauntlet/GPUParticles2D
 @onready var texture_progress_bar: SurviveBar = %TextureProgressBar
+const POWER_UP = "uid://cutbq3a0oj5q"
 
 func _ready() -> void:
 	gauntlet_timer = Timer.new()
@@ -22,11 +23,9 @@ func _ready() -> void:
 	background_music.play()
 	SignalBus.complete_shrine.connect(complete_shrine)
 	SignalBus.game_over_screen.connect(game_over)
+	SignalBus.create_powerup_at_location.connect(create_powerup_at_location)
 	dog_spawner.locked = false
-	# SignalBus.unlock_spell.emit(SignalBus.Element.Water)
-	# SignalBus.unlock_spell.emit(SignalBus.Element.Light)
-	# SignalBus.unlock_spell.emit(SignalBus.Element.Song)
-
+	
 func complete_shrine():
 	completed_shrines += 1
 	if completed_shrines >= 3:
@@ -51,8 +50,13 @@ func game_over():
 func game_win():
 	get_tree().change_scene_to_file("res://scenes/title.tscn")
 
+func create_powerup_at_location(global_pos : Vector2):
+	var new_power_up = load(POWER_UP).instantiate() as PowerUp
+	new_power_up.global_position = global_pos
+	add_child(new_power_up)
+
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-	SignalBus.increase_player_healing.emit(1)
+	SignalBus.increase_player_healing.emit(4)
 	SignalBus.allow_spell_crafting.emit()
 	frog_spawner.disable_monster_spawner()
 	dog_spawner.disable_monster_spawner()

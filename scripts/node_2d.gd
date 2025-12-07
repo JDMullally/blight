@@ -65,7 +65,7 @@ func _ready() -> void:
 	SignalBus.unlock_spell.connect(unlock_enemy_type)
 	SignalBus.debuff_shrine.connect(debuff_spawner)
 	# SignalBus.weaken_enemy.connect()
-	spawn_timer.wait_time = 1.0
+	spawn_timer.wait_time = 2.0
 	spawn_timer.one_shot = true
 	spawn_timer.start()
 	
@@ -116,6 +116,9 @@ func get_monster_list() -> Array[Monster]:
 		despawned_monster_count += 1
 	
 	for n in kill_list:
+		var val = randi_range(1, 20)
+		if val == 20:
+			SignalBus.create_powerup_at_location.emit(n.global_position)
 		n.queue_free()
 	
 	return monster_list
@@ -156,13 +159,13 @@ func _on_spawn_timer_timeout() -> void:
 		add_child(new_monster)
 		if despawned_monster_count > 0:
 			despawned_monster_count = clampi(despawned_monster_count - 1, 0, max_monsters)
-			spawn_timer.wait_time = .2
+			spawn_timer.wait_time = .4
 		else:
 			spawn_timer.wait_time = get_new_wait_time(monster_list)
 	spawn_timer.start()
 
 func get_new_wait_time(monster_list : Array[Monster]):
-	var new_wait_time =  clampf(len(monster_list) * .2, .1, 1.0)
+	var new_wait_time =  clampf(len(monster_list) * .4, .4, 2.0)
 	return new_wait_time
 
 func _on_talking_stick_timer_timeout() -> void:
