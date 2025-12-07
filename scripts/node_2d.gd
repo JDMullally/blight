@@ -140,7 +140,7 @@ func debuff_spawner(shrine_type : SignalBus.Element):
 		print("Something terribly wrong has occured :(")
 
 func debuff():
-	max_monsters = int(float(max_monsters / 2.0))
+	max_monsters = int(float(max_monsters / 3.0))
 
 func _on_spawn_timer_timeout() -> void:
 	if !spawning or locked:

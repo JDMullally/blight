@@ -6,11 +6,12 @@
 
 [resource]
 script = ExtResource("1_0xxel")
-hitpoints = 25
+hitpoints = 500
 damage = 25
-speed = 60
+speed = 50
 affinity = 2
 sprite_frames = ExtResource("3_pncdo")
 hitbox_shape = ExtResource("1_6q4ur")
 hitbox_position = Vector2(4, -15)
+scale = Vector2(2, 2)
 metadata/_custom_type_script = "uid://bsvgdfy8s6qb8"

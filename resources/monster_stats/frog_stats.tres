@@ -7,7 +7,9 @@
 [resource]
 script = ExtResource("1_h7mc3")
 hitpoints = 10
+speed = 90
 sprite_frames = ExtResource("3_6r1vb")
 hitbox_shape = ExtResource("1_q8nqs")
 hitbox_position = Vector2(0, -13)
+scale = Vector2(1, 1)
 metadata/_custom_type_script = "uid://bsvgdfy8s6qb8"

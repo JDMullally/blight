@@ -101,6 +101,7 @@ func add_and_check(number : int):
 	for i in range(current_length):
 		if player_simon_says[i] != simon_says_key[i]:
 			player_simon_says.clear()
+			note_block.play("default_4")
 			play_simon_says()
 		else:
 			if i == 0:

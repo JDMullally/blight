@@ -12,6 +12,8 @@ const max_hitpoints : int = 15
 @export var sprite_frames : SpriteFrames
 @export var hitbox_shape : Shape2D
 @export var hitbox_position : Vector2
+@export var scale : Vector2
+
 
 func take_damage(damage_taken : int):
 	hitpoints = hitpoints - damage_taken

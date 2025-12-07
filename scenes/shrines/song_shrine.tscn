@@ -505,22 +505,22 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_6s8hj")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_v7g3t")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_wqr5i")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_xlspe")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ivytt")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_yj3tf")
 }],
 "loop": false,
@@ -563,22 +563,22 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_b5o21")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_7r06s")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_nkb3x")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_k380s")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_k5ea5")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_1twtg")
 }],
 "loop": false,
@@ -621,22 +621,22 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_sk4v5")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_epuuo")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_4io4r")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_qkn8g")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_fcsow")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_lc0dy")
 }],
 "loop": false,
@@ -679,22 +679,22 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_mojjd")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_o3mjw")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ow6xy")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_pw0aw")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_044rp")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_gcqod")
 }],
 "loop": false,
@@ -768,10 +768,8 @@ shape = SubResource("CapsuleShape2D_g5ujr")
 unique_name_in_owner = true
 position = Vector2(320, 321)
 sprite_frames = SubResource("SpriteFrames_3saka")
-animation = &"four_right_4"
+animation = &"one_right_4"
 autoplay = "default_4"
-frame = 4
-frame_progress = 0.02482946
 
 [node name="Floating_Platform" type="AnimatedSprite2D" parent="."]
 position = Vector2(320, 321)
@@ -826,7 +824,8 @@ autoplay = "default"
 offset = Vector2(1, -71)
 
 [node name="Bottom Left Button" type="AnimatedSprite2D" parent="."]
-position = Vector2(320, 320)
+position = Vector2(320, 333)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_f6j3i")
 animation = &"pressed"
 autoplay = "default"
@@ -839,7 +838,8 @@ collision_mask = 4
 polygon = PackedVector2Array(-86, 57, -69, 88, -36, 109, 0, 115, 3, 134, -26, 135, -59, 124, -97, 94, -110, 48, -88, 46)
 
 [node name="Bottom Right Button" type="AnimatedSprite2D" parent="."]
-position = Vector2(320, 320)
+position = Vector2(320, 333)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_sk4v5")
 animation = &"pressed"
 autoplay = "default"
@@ -852,7 +852,8 @@ collision_mask = 4
 polygon = PackedVector2Array(6, 114, 37, 111, 59, 102, 77, 88, 92, 70, 96, 47, 114, 47, 115, 71, 97, 102, 68, 125, 32, 137, 6, 138)
 
 [node name="Top Left Button" type="AnimatedSprite2D" parent="."]
-position = Vector2(320, 320)
+position = Vector2(320, 333)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_mojjd")
 animation = &"pressed"
 autoplay = "default"
@@ -868,7 +869,8 @@ scale = Vector2(-1, -1)
 polygon = PackedVector2Array(6, 114, 37, 111, 77, 88, 94, 68, 116, 68, 111, 78, 95, 100, 67, 120, 34, 131, 9, 131)
 
 [node name="Top Right Button" type="AnimatedSprite2D" parent="."]
-position = Vector2(320, 321)
+position = Vector2(320, 334)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_o3mjw")
 animation = &"pressed"
 autoplay = "default"

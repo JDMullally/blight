@@ -25,6 +25,7 @@ func _ready() -> void:
 	SignalBus.game_over_screen.connect(game_over)
 	SignalBus.create_powerup_at_location.connect(create_powerup_at_location)
 	dog_spawner.locked = false
+	# SignalBus.unlock_spell.emit(SignalBus.Element.Song)
 	
 func complete_shrine():
 	completed_shrines += 1

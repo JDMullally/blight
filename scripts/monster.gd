@@ -108,6 +108,7 @@ func _ready() -> void:
 	if monster_stats:
 		animated_sprite_2d.sprite_frames = monster_stats.sprite_frames
 		collision_polygon_2d.shape = monster_stats.hitbox_shape
+		self.scale = monster_stats.scale
 		collision_polygon_2d.position = monster_stats.hitbox_position
 	else:
 		monster_stats = MonsterStats.new()
@@ -141,12 +142,13 @@ func take_damage(damage : int):
 	# print(monster_stats.hitpoints)
 	if skew_tween and skew_tween.is_valid():
 		skew_tween.kill()
+		skew = 0.0
 		
 	skew_tween = get_tree().create_tween()
 	
-	skew_tween.tween_property(self, "skew", 1, 0.1)
-	skew_tween.tween_property(self, "skew", -1, 0.2)
-	skew_tween.tween_property(self, "skew", 0.0, 0.1)
+	skew_tween.tween_property(self, "skew", .4, 0.05)
+	skew_tween.tween_property(self, "skew", -.4, 0.1)
+	skew_tween.tween_property(self, "skew", 0.0, 0.05)
 	
 	if monster_stats.is_dead():
 		# print('im dead!')
