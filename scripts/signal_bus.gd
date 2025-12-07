@@ -22,3 +22,5 @@ signal scroll_up
 signal scroll_down
 signal increase_player_healing(value : int)
 signal reduce_player_healing
+signal update_survival_bar(value : float)
+signal debuff_shrine(element : Element)

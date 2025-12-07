@@ -95,6 +95,7 @@ state = 8
 monster = NodePath("../..")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -11.0
 offset_top = -28.0
 offset_right = 607.0

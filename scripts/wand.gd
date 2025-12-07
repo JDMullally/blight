@@ -67,7 +67,6 @@ func scroll_down():
 
 func scroll_up():
 	var spells_to_check = get_next_order()
-	print(spells_to_check)
 	for spell in spells_to_check:
 		if SignalBus.Element.find_key(spell) in unlocked_spells:
 			SignalBus.select_spell.emit(spell)

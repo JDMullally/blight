@@ -778,7 +778,6 @@ autoplay = "default"
 [node name="Reset Button Left" type="AnimatedSprite2D" parent="."]
 position = Vector2(321, 323)
 sprite_frames = SubResource("SpriteFrames_qdgyc")
-frame_progress = 0.5405618
 
 [node name="Reset Button Right" type="AnimatedSprite2D" parent="."]
 position = Vector2(319, 324)
@@ -890,25 +889,17 @@ energy = 5.97
 texture = SubResource("GradientTexture2D_wh8n3")
 texture_scale = 8.28
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_riytp")
-bus = &"SFX"
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_l35bu")
-bus = &"SFX"
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_n5veg")
-bus = &"SFX"
 
-[node name="AudioStreamPlayer4" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_emxtu")
-bus = &"SFX"
 
 [connection signal="area_entered" from="Bottom Left Button/Area2D" to="." method="_on_bottom_left_area_entered"]
 [connection signal="area_entered" from="Bottom Right Button/Area2D" to="." method="_on_bottom_right_area_entered"]

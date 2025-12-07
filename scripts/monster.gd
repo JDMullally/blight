@@ -63,6 +63,8 @@ func apply_slow():
 	slow_timer.start()
 
 func apply_affix(element : SignalBus.Element, debuff_multiplier : float):
+	if state_machine.current_state.state == MonsterState.State.Dead:
+		return
 	match element:
 		SignalBus.Element.Water:
 			slow_duration = debuff_multiplier

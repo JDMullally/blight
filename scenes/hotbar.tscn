@@ -144,11 +144,11 @@ tint_progress = Color(1, 1, 1, 0.78431374)
 
 [node name="WaterSelect" type="Sprite2D" parent="HotbarTexture/WaterProgressBar"]
 unique_name_in_owner = true
+visible = false
 position = Vector2(16, 16)
 texture = ExtResource("8_70wi1")
 
 [node name="2" type="Sprite2D" parent="HotbarTexture/WaterProgressBar"]
-visible = false
 position = Vector2(36.666668, 0)
 texture = SubResource("AtlasTexture_70wi1")
 

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://btcqgpsavd5t2"]
+
+[ext_resource type="Texture2D" uid="uid://baxg1vknd7kyr" path="res://art/recent_downloads/timer_under-bg.png" id="1_o7qmm"]
+[ext_resource type="Texture2D" uid="uid://bcibcjpfrbhek" path="res://art/recent_downloads/timer-layer-blight.png" id="2_kg5ce"]
+[ext_resource type="Script" uid="uid://ytu74x00mnv5" path="res://scenes/survive_timer.gd" id="3_kg5ce"]
+
+[node name="TextureProgressBar" type="TextureProgressBar"]
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 321.0
+offset_bottom = 42.0
+mouse_filter = 2
+max_value = 1.0
+step = 0.001
+value = 0.4
+fill_mode = 1
+texture_under = ExtResource("1_o7qmm")
+texture_progress = ExtResource("2_kg5ce")
+script = ExtResource("3_kg5ce")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 22.0
+offset_right = 319.0
+offset_bottom = 72.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "[wave]The Grove cannot protect you.
+[shake]Survive[/shake] Champion of the Woods.[/wave]"
+scroll_active = false
+horizontal_alignment = 1

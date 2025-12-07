@@ -63,6 +63,7 @@ func get_uid() -> String:
 
 func _ready() -> void:
 	SignalBus.unlock_spell.connect(unlock_enemy_type)
+	SignalBus.debuff_shrine.connect(debuff_spawner)
 	# SignalBus.weaken_enemy.connect()
 	spawn_timer.wait_time = 1.0
 	spawn_timer.one_shot = true
@@ -123,7 +124,19 @@ func get_new_spawn_point() -> Vector2:
 	edge_points.shuffle()
 	return edge_points[0]
 
-func debuff_spawner():
+func debuff_spawner(shrine_type : SignalBus.Element):
+	if shrine_type == SignalBus.Element.Love and type == SpawnerType.Dog:
+		debuff()
+	elif shrine_type == SignalBus.Element.Water and type == SpawnerType.Frog:
+		debuff()
+	elif shrine_type == SignalBus.Element.Song and type == SpawnerType.Bird:
+		debuff()
+	elif shrine_type == SignalBus.Element.Light and type == SpawnerType.Flower:
+		debuff()
+	else:
+		print("Something terribly wrong has occured :(")
+
+func debuff():
 	max_monsters = int(float(max_monsters / 2.0))
 
 func _on_spawn_timer_timeout() -> void:

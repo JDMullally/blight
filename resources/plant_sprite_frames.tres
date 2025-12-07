@@ -1,7 +1,40 @@
-[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://ba66wxvryb5mp"]
+[gd_resource type="SpriteFrames" load_steps=23 format=3 uid="uid://ba66wxvryb5mp"]
 
 [ext_resource type="Texture2D" uid="uid://3mjgwpne0fw8" path="res://art/monsters/plantidle.png" id="1_3guex"]
+[ext_resource type="Texture2D" uid="uid://bcbilorh8ooyb" path="res://art/misc/flowerhealed.png" id="1_iuyv0"]
 [ext_resource type="Texture2D" uid="uid://c50dom0jwv11e" path="res://art/monsters/plantwalk.png" id="2_ue3fo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qxcr"]
+atlas = ExtResource("1_iuyv0")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcm4n"]
+atlas = ExtResource("1_iuyv0")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flu08"]
+atlas = ExtResource("1_iuyv0")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3yoi"]
+atlas = ExtResource("1_iuyv0")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11l5y"]
+atlas = ExtResource("1_iuyv0")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2eta"]
+atlas = ExtResource("1_iuyv0")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd6xb"]
+atlas = ExtResource("1_iuyv0")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yy6v"]
+atlas = ExtResource("1_iuyv0")
+region = Rect2(224, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n78d1"]
 atlas = ExtResource("1_3guex")
@@ -49,6 +82,35 @@ region = Rect2(160, 0, 32, 48)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_7qxcr")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_jcm4n")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_flu08")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_o3yoi")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_11l5y")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_u2eta")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_fd6xb")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_5yy6v")
+}],
+"loop": true,
+"name": &"cured",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_n78d1")
