@@ -25,12 +25,15 @@ func _hit_player():
 		transition_requested.emit(self, MonsterState.State.Hit, monster)
 
 func _move_to_target() -> void:
+	var should_move = false
 	if monster.talking_stick:
 		monster.talking_stick = false
 		if player == null:
 			return
-		_update_agent_target(false)
-	
+		should_move = _update_agent_target(false)
+	else:
+		should_move = true
+		
 	if player == null:
 		return
 	
@@ -38,24 +41,29 @@ func _move_to_target() -> void:
 		monster.velocity = Vector2.ZERO
 		monster.move_and_slide()
 		return
+		
+	if should_move:
+		# print("bye")
+		var next_point : Vector2 = agent.get_next_path_position()
+		var direction : Vector2 = next_point - monster.global_position
 	
-	var next_point : Vector2 = agent.get_next_path_position()
-	var direction : Vector2 = next_point - monster.global_position
-	
-	if direction.length() < 1.0:
-		monster.move_and_slide()
-		return
-	
-	direction = direction.normalized()
-	var player_pos : Vector2 = player.global_position
-	var distance_from_player: Vector2  = player_pos - monster.global_position
-	# print(abs(distance_from_player.length()))
-	monster.flip_to_direction(direction)
-	if abs(distance_from_player.length()) > 350:
-		monster.velocity = monster.create_velocity_vector(monster.get_speed() * 10, direction)
+		if direction.length() < 1.0:
+			monster.move_and_slide()
+			return
+		
+		direction = direction.normalized()
+		var player_pos : Vector2 = player.global_position
+		var distance_from_player: Vector2  = player_pos - monster.global_position
+		# print(abs(distance_from_player.length()))
+		monster.flip_to_direction(direction)
+		if abs(distance_from_player.length()) > 350:
+			monster.velocity = monster.create_velocity_vector(monster.get_speed() * 10, direction)
+		else:
+			monster.velocity = monster.create_velocity_vector(monster.get_speed(), direction)
 	else:
-		monster.velocity = monster.create_velocity_vector(monster.get_speed(), direction)
-
+		print("hi")
+		monster.velocity = Vector2.ZERO
+		
 	monster.play_animation()
 	monster.move_and_slide()
 
@@ -68,22 +76,13 @@ func get_circle_points(center: Vector2, radius: float, count: int = 16) -> Array
 		points.append(center + offset)
 	return points
 
-func _update_agent_target(force : bool) -> void:
-	monster.play_animation()
+func _update_agent_target(force : bool) -> bool:
 	var player_pos : Vector2 = player.global_position
 	var _player_velocity : Vector2 = player.velocity
-	
-	if !agent.is_target_reachable():
-		if retries >= MAX_RETRIES:
-			transition_requested.emit(self, MonsterState.State.Despawn, monster)
-			# awagent.target_position = monster.home
-			return
-		else:
-			retries += 1
-			return
-	
+
+	monster.play_animation()
 	if not force and last_player_target.distance_to(player_pos) < repath_distance_threshold:
-		return
+		return true
 	
 	var rad = 14
 	var points = get_circle_points(player_pos, rad)
@@ -92,3 +91,10 @@ func _update_agent_target(force : bool) -> void:
 	var new_pos = points[0] + player.velocity * monster.hunter_time/3
 	agent.target_position = new_pos
 	last_player_target = new_pos
+	
+	if !agent.is_target_reachable():
+		transition_requested.emit(self, MonsterState.State.Idle, monster)
+		monster.velocity = Vector2.ZERO
+		monster.play_animation()
+		return false
+	return true

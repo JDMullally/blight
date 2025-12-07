@@ -13,24 +13,24 @@
 [ext_resource type="Texture2D" uid="uid://hshu6wa4nsnm" path="res://art/ui/hud/health-blight.png" id="11_70wi1"]
 [ext_resource type="Texture2D" uid="uid://pekoevd54ytf" path="res://art/ui/hud/health-green.png" id="12_mbjko"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3c3f6"]
-atlas = ExtResource("4_i62wn")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ixfkr"]
-atlas = ExtResource("4_i62wn")
-region = Rect2(32, 0, 32, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nekah"]
-atlas = ExtResource("7_i62wn")
-region = Rect2(32, 0, 32, 0)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_gbu6h"]
 atlas = ExtResource("5_nekah")
 region = Rect2(0, 0, 32, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lvyt"]
 atlas = ExtResource("5_nekah")
+region = Rect2(32, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nekah"]
+atlas = ExtResource("7_i62wn")
+region = Rect2(32, 0, 32, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c3f6"]
+atlas = ExtResource("4_i62wn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixfkr"]
+atlas = ExtResource("4_i62wn")
 region = Rect2(32, 0, 32, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_70wi1"]
@@ -103,12 +103,36 @@ value = 100.0
 texture_under = ExtResource("11_70wi1")
 texture_progress = ExtResource("12_mbjko")
 
+[node name="LoveProgressBar" type="TextureProgressBar" parent="HotbarTexture"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 18.333334
+offset_top = 7.0
+offset_right = 50.33335
+offset_bottom = 39.0
+scale = Vector2(1, -1)
+pivot_offset = Vector2(16, 16)
+value = 50.0
+fill_mode = 4
+texture_under = SubResource("AtlasTexture_gbu6h")
+texture_progress = SubResource("AtlasTexture_1lvyt")
+tint_progress = Color(1, 1, 1, 0.78431374)
+
+[node name="LoveSelect" type="Sprite2D" parent="HotbarTexture/LoveProgressBar"]
+unique_name_in_owner = true
+position = Vector2(16.000008, 16)
+texture = ExtResource("8_70wi1")
+
+[node name="1" type="Sprite2D" parent="HotbarTexture/LoveProgressBar"]
+position = Vector2(37, 1)
+texture = SubResource("AtlasTexture_nekah")
+
 [node name="WaterProgressBar" type="TextureProgressBar" parent="HotbarTexture"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 17.666666
+offset_left = 55.333336
 offset_top = 7.0
-offset_right = 49.666664
+offset_right = 87.333336
 offset_bottom = 39.0
 scale = Vector2(1, -1)
 pivot_offset = Vector2(16, 16)
@@ -123,33 +147,9 @@ unique_name_in_owner = true
 position = Vector2(16, 16)
 texture = ExtResource("8_70wi1")
 
-[node name="1" type="Sprite2D" parent="HotbarTexture/WaterProgressBar"]
-position = Vector2(37.666668, 1.0000019)
-texture = SubResource("AtlasTexture_nekah")
-
-[node name="LoveProgressBar" type="TextureProgressBar" parent="HotbarTexture"]
-unique_name_in_owner = true
-layout_mode = 1
-offset_left = 55.33333
-offset_top = 7.0
-offset_right = 87.33334
-offset_bottom = 39.0
-scale = Vector2(1, -1)
-pivot_offset = Vector2(16, 16)
-value = 50.0
-fill_mode = 4
-texture_under = SubResource("AtlasTexture_gbu6h")
-texture_progress = SubResource("AtlasTexture_1lvyt")
-tint_progress = Color(1, 1, 1, 0.78431374)
-
-[node name="LoveSelect" type="Sprite2D" parent="HotbarTexture/LoveProgressBar"]
-unique_name_in_owner = true
+[node name="2" type="Sprite2D" parent="HotbarTexture/WaterProgressBar"]
 visible = false
-position = Vector2(16.000008, 16)
-texture = ExtResource("8_70wi1")
-
-[node name="2" type="Sprite2D" parent="HotbarTexture/LoveProgressBar"]
-position = Vector2(36.666668, -9.536743e-07)
+position = Vector2(36.666668, 0)
 texture = SubResource("AtlasTexture_70wi1")
 
 [node name="LightProgressBar" type="TextureProgressBar" parent="HotbarTexture"]

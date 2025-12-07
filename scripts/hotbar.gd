@@ -22,7 +22,7 @@ func _ready():
 	SignalBus.spell_error_message.connect(error_shake_button)
 	SignalBus.update_prog_bars.connect(update_progress_bars)
 	
-	love_progress_bar.hide()
+	water_progress_bar.hide()
 	light_progress_bar.hide()
 	song_progress_bar.hide()
 

@@ -22,10 +22,10 @@ func _ready() -> void:
 	SignalBus.unlock_spell.connect(unlock_spell)
 	SignalBus.update_spell_stats.connect(update_spell_stats)
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
-	love_button.hide()
+	water_button.hide()
 	song_button.hide()
 	light_button.hide()
-	_on_water_button_pressed()
+	_on_love_button_pressed()
 
 func unlock_spell(element : SignalBus.Element):
 	match element:

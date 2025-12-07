@@ -1,5 +1,5 @@
 extends AnimatedSprite2D
-class_name Well
+class_name ShrineWell
 
 const MAX_HP : int = 4
 const MAX_HITS : int = 1

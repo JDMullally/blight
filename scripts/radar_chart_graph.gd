@@ -14,4 +14,4 @@ func update_values(damage : float, pierce : float, speed : float, debuff : float
 	effectiveness.value = pierce
 	difficulty.value = cooldown
 	rapidity.value = speed
-	print(debuff, " ", damage, " ", pierce, " ", cooldown, " ", speed)
+	# print(debuff, " ", damage, " ", pierce, " ", cooldown, " ", speed)

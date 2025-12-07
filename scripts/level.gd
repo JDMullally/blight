@@ -17,10 +17,10 @@ func _ready() -> void:
 	fps.text = str(Engine.get_frames_per_second())
 	num_enemies.text = str(len(frog_spawner.get_monster_list()))
 	timer.start()
-	frog_spawner.locked = false
-	# SignalBus.unlock_spell.emit(SignalBus.Element.Love)
-	SignalBus.unlock_spell.emit(SignalBus.Element.Light)
-	# SignalBus.unlock_spell.emit(SignalBus.Element.Song)
+	dog_spawner.locked = false
+	#SignalBus.unlock_spell.emit(SignalBus.Element.Love)
+	#SignalBus.unlock_spell.emit(SignalBus.Element.Light)
+	#SignalBus.unlock_spell.emit(SignalBus.Element.Song)
 
 func complete_shrine():
 	completed_shrines += 1	

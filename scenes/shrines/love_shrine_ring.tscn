@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqmtsxecl8302"]
+[gd_scene load_steps=5 format=3 uid="uid://bqmtsxecl8302"]
 
-[ext_resource type="Texture2D" uid="uid://chuu2bacg65ql" path="res://art/shrines/love_shrine/Defense Ring.png" id="1_snw1h"]
+[ext_resource type="Texture2D" uid="uid://cuydeilia1ohw" path="res://art/shrines/love_shrine/more stuff/ring.tres" id="1_d8ujt"]
 [ext_resource type="Script" uid="uid://cg6xphhtmnswv" path="res://scripts/love_shrine_ring.gd" id="1_w5s5e"]
 
 [sub_resource type="Gradient" id="Gradient_w5s5e"]
@@ -13,27 +13,26 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.9625, 0.025)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w5s5e"]
-atlas = ExtResource("1_snw1h")
-region = Rect2(0, 0, 640, 640)
-
-[node name="DefenseRing" type="Area2D"]
+[node name="DefenseRing" type="Sprite2D"]
+y_sort_enabled = true
+position = Vector2(-32, -114)
+texture = ExtResource("1_d8ujt")
+offset = Vector2(6, 129)
 script = ExtResource("1_w5s5e")
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(4, 8)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(1, 121)
+polygon = PackedVector2Array(-90, -73, -65, -85, -39, -92, -9, -96, 20, -96, 47, -91, 74, -82, 94, -72, 111, -54, 115, -38, 110, -18, 93, -1, 64, 13, 35, 21, 9, 23, -12, 23, -46, 18, -75, 7, -97, -8, -105, -18, -110, -32, -109, -46, -102, -59)
+
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(3.5000057, -35.999996)
+position = Vector2(3.5000057, 92)
 scale = Vector2(3.7343752, 1.8750001)
 color = Color(1, 0.53999996, 0.53999996, 1)
 energy = 0.63
 texture = SubResource("GradientTexture2D_d8ujt")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(1, 0)
-polygon = PackedVector2Array(-90, -73, -65, -85, -39, -92, -9, -96, 20, -96, 47, -91, 74, -82, 94, -72, 111, -54, 115, -38, 110, -18, 93, -1, 64, 13, 35, 21, 9, 23, -12, 23, -46, 18, -75, 7, -97, -8, -105, -18, -110, -32, -109, -46, -102, -59)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-texture = SubResource("AtlasTexture_w5s5e")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]
