@@ -27,7 +27,8 @@ func check_ring_time():
 	if ring_time >= MAX_RING_TIME:
 		completed = true
 		point_light_2d.energy = 2.0
-		SignalBus.unlock_spell.emit(SignalBus.Element.Light)
+		SignalBus.unlock_spell.emit(SignalBus.Element.Water)
+		SignalBus.debuff_shrine.emit(SignalBus.Element.Love)
 		SignalBus.complete_shrine.emit()
 
 func _on_body_entered(body: Node2D) -> void:

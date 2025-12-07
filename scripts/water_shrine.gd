@@ -29,7 +29,9 @@ func _ready() -> void:
 func heal_shrine():
 	hitpoints = clampi(hitpoints+1,0,4)
 	if hitpoints == 4:
-		SignalBus.unlock_spell.emit(SignalBus.Element.Love)
+		SignalBus.complete_shrine.emit()
+		SignalBus.debuff_shrine.emit(SignalBus.Element.Water)
+		SignalBus.unlock_spell.emit(SignalBus.Element.Song)
 		shrine_sprite.play("water_shrine_healing")
 
 func play_full():

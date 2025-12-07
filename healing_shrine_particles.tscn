@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4drrcuasxqg"]
+
+[ext_resource type="Texture2D" uid="uid://2l8duhvm8eg1" path="res://art/misc/lightparticle2.png" id="1_8jum8"]
+
+[sub_resource type="Curve" id="Curve_7aua5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6139818, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_46r0d"]
+curve = SubResource("Curve_7aua5")
+
+[sub_resource type="Curve" id="Curve_nixcs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.15799034), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_slmg8"]
+curve = SubResource("Curve_nixcs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8qc2x"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(200, 150, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, -60, 0)
+linear_accel_min = -15.800002
+linear_accel_max = 6.5399976
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 3.2699976
+scale_min = 0.39999998
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_slmg8")
+color = Color(0.79611516, 1, 0.77597076, 1)
+alpha_curve = SubResource("CurveTexture_46r0d")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 100
+texture = ExtResource("1_8jum8")
+process_material = SubResource("ParticleProcessMaterial_8qc2x")

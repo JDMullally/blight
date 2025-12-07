@@ -93,7 +93,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_450cr")
 }],
-"loop": false,
+"loop": true,
 "name": &"four_right_4",
 "speed": 5.0
 }, {
@@ -505,22 +505,22 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6s8hj")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_v7g3t")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wqr5i")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xlspe")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ivytt")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_yj3tf")
 }],
 "loop": false,
@@ -563,22 +563,22 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_b5o21")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_7r06s")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_nkb3x")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_k380s")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_k5ea5")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1twtg")
 }],
 "loop": false,
@@ -621,22 +621,22 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sk4v5")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_epuuo")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4io4r")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qkn8g")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fcsow")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_lc0dy")
 }],
 "loop": false,
@@ -679,22 +679,22 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mojjd")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_o3mjw")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ow6xy")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pw0aw")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_044rp")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gcqod")
 }],
 "loop": false,
@@ -765,10 +765,9 @@ rotation = 1.5865043
 shape = SubResource("CapsuleShape2D_g5ujr")
 
 [node name="Note_Block" type="AnimatedSprite2D" parent="."]
-unique_name_in_owner = true
 position = Vector2(320, 321)
 sprite_frames = SubResource("SpriteFrames_3saka")
-animation = &"one_right_4"
+animation = &"six"
 autoplay = "default_4"
 
 [node name="Floating_Platform" type="AnimatedSprite2D" parent="."]
@@ -779,7 +778,6 @@ autoplay = "default"
 [node name="Reset Button Left" type="AnimatedSprite2D" parent="."]
 position = Vector2(321, 323)
 sprite_frames = SubResource("SpriteFrames_qdgyc")
-frame_progress = 0.5405618
 
 [node name="Reset Button Right" type="AnimatedSprite2D" parent="."]
 position = Vector2(319, 324)
@@ -824,8 +822,7 @@ autoplay = "default"
 offset = Vector2(1, -71)
 
 [node name="Bottom Left Button" type="AnimatedSprite2D" parent="."]
-position = Vector2(320, 333)
-scale = Vector2(0.8, 0.8)
+position = Vector2(320, 320)
 sprite_frames = SubResource("SpriteFrames_f6j3i")
 animation = &"pressed"
 autoplay = "default"
@@ -838,8 +835,7 @@ collision_mask = 4
 polygon = PackedVector2Array(-86, 57, -69, 88, -36, 109, 0, 115, 3, 134, -26, 135, -59, 124, -97, 94, -110, 48, -88, 46)
 
 [node name="Bottom Right Button" type="AnimatedSprite2D" parent="."]
-position = Vector2(320, 333)
-scale = Vector2(0.8, 0.8)
+position = Vector2(320, 320)
 sprite_frames = SubResource("SpriteFrames_sk4v5")
 animation = &"pressed"
 autoplay = "default"
@@ -852,8 +848,7 @@ collision_mask = 4
 polygon = PackedVector2Array(6, 114, 37, 111, 59, 102, 77, 88, 92, 70, 96, 47, 114, 47, 115, 71, 97, 102, 68, 125, 32, 137, 6, 138)
 
 [node name="Top Left Button" type="AnimatedSprite2D" parent="."]
-position = Vector2(320, 333)
-scale = Vector2(0.8, 0.8)
+position = Vector2(320, 320)
 sprite_frames = SubResource("SpriteFrames_mojjd")
 animation = &"pressed"
 autoplay = "default"
@@ -869,8 +864,7 @@ scale = Vector2(-1, -1)
 polygon = PackedVector2Array(6, 114, 37, 111, 77, 88, 94, 68, 116, 68, 111, 78, 95, 100, 67, 120, 34, 131, 9, 131)
 
 [node name="Top Right Button" type="AnimatedSprite2D" parent="."]
-position = Vector2(320, 334)
-scale = Vector2(0.8, 0.8)
+position = Vector2(320, 321)
 sprite_frames = SubResource("SpriteFrames_o3mjw")
 animation = &"pressed"
 autoplay = "default"
@@ -895,25 +889,17 @@ energy = 5.97
 texture = SubResource("GradientTexture2D_wh8n3")
 texture_scale = 8.28
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_riytp")
-bus = &"SFX"
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_l35bu")
-bus = &"SFX"
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_n5veg")
-bus = &"SFX"
 
-[node name="AudioStreamPlayer4" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_emxtu")
-bus = &"SFX"
 
 [connection signal="area_entered" from="Bottom Left Button/Area2D" to="." method="_on_bottom_left_area_entered"]
 [connection signal="area_entered" from="Bottom Right Button/Area2D" to="." method="_on_bottom_right_area_entered"]

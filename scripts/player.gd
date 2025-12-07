@@ -8,6 +8,7 @@ var current_knockback_vector : Vector2 = Vector2.ZERO
 var input_vector : Vector2 = Vector2.ZERO
 var impulse_decay_timer : Timer
 var scroll_timer : Timer
+var attack_speed_buff_timer : Timer
 @onready var healing_amount : int = 0
 @onready var invulnerability_timer: Timer = $Invulnerability_Timer
 @onready var dash_cooldown_timer: Timer = $DashCooldownTimer
@@ -26,12 +27,18 @@ func _ready() -> void:
 	gpu_particles_2d.emitting = false
 	SignalBus.hurt_player.connect(hit_player)
 	SignalBus.increase_player_healing.connect(increase_healing_value)
-	SignalBus.reduce_player_healing.connect(func(): healing_amount = 0	)
+	SignalBus.reduce_player_healing.connect(func(): healing_amount = 0)
 	invulnerability_timer.timeout.connect(hide_particles)
+	
 	scroll_timer = Timer.new()
 	scroll_timer.wait_time = .1
 	scroll_timer.one_shot = true
 	add_child(scroll_timer)
+	
+	attack_speed_buff_timer = Timer.new()
+	attack_speed_buff_timer.wait_time = 25.0
+	attack_speed_buff_timer.one_shot = true
+	add_child(attack_speed_buff_timer)
 	
 	impulse_decay_timer = Timer.new()
 	impulse_decay_timer.wait_time = .05
@@ -42,6 +49,13 @@ func _ready() -> void:
 
 func increase_healing_value(value : int):
 	healing_amount = value
+
+func heal(value : int):
+	hitpoints = clampi(hitpoints + value, -MAX_HP, MAX_HP)
+	SignalBus.update_player_health.emit(hitpoints)
+
+func increase_attack_speed():
+	attack_speed_buff_timer.start()
 
 func hide_particles():
 	gpu_particles_2d.emitting = false
