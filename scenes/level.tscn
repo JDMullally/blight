@@ -16,18 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://blpoau2otjyj5" path="res://art/misc/sleepybird.png" id="9_wu01b"]
 [ext_resource type="Texture2D" uid="uid://beljd8ir7lf23" path="res://art/misc/birdies.png" id="10_3ies3"]
 [ext_resource type="PackedScene" uid="uid://ntexepkarv3q" path="res://scenes/information_stone.tscn" id="10_7agi7"]
-[ext_resource type="Texture2D" uid="uid://bg47g1hyv4et1" path="res://art/shrines/love_shrine/more stuff/col_1.png" id="11_gunhw"]
-[ext_resource type="Texture2D" uid="uid://rv02dfgg7w7d" path="res://art/shrines/love_shrine/more stuff/col_2.png" id="12_8gofh"]
 [ext_resource type="Texture2D" uid="uid://dgbv2qx2i73wu" path="res://art/misc/tree_variant2.png" id="12_556r4"]
-[ext_resource type="Texture2D" uid="uid://cu10j4vmajbpv" path="res://art/shrines/love_shrine/more stuff/col3.png" id="13_h6wmr"]
 [ext_resource type="Texture2D" uid="uid://clmfnn2d670ub" path="res://art/misc/froggiehealed2.png" id="13_kih21"]
-[ext_resource type="Texture2D" uid="uid://dikmo6bljjri1" path="res://art/shrines/love_shrine/more stuff/col4.png" id="14_pqd0y"]
-[ext_resource type="Texture2D" uid="uid://flhigwros1ll" path="res://art/shrines/love_shrine/more stuff/col5.png" id="15_5k0ak"]
 [ext_resource type="Texture2D" uid="uid://bcbilorh8ooyb" path="res://art/misc/flowerhealed.png" id="16_w3o6u"]
-[ext_resource type="Texture2D" uid="uid://rgp1c67f06ly" path="res://art/shrines/love_shrine/more stuff/col6.png" id="16_wu01b"]
-[ext_resource type="Texture2D" uid="uid://dwdkjwfgma470" path="res://art/shrines/love_shrine/more stuff/col7.png" id="17_3ies3"]
-[ext_resource type="Texture2D" uid="uid://cci67oisa0ctw" path="res://art/shrines/love_shrine/more stuff/col8.png" id="18_xy2fk"]
-[ext_resource type="Texture2D" uid="uid://db6g4514l615" path="res://art/shrines/love_shrine/more stuff/love_shrine_columntops.png" id="19_8gofh"]
 [ext_resource type="PackedScene" uid="uid://nncvss1r0n67" path="res://scenes/tree_1.tscn" id="21_h6wmr"]
 [ext_resource type="AudioStream" uid="uid://scwiwagwcct7" path="res://art/recent_downloads/mainmenu.mp3" id="22_pqd0y"]
 [ext_resource type="PackedScene" uid="uid://btcqgpsavd5t2" path="res://scenes/survive_timer.tscn" id="30_gur6y"]
@@ -1834,38 +1825,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cmcjb"]
-radius = 8.0
-height = 18.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_556r4"]
-radius = 8.0
-height = 22.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7agi7"]
-radius = 8.0
-height = 18.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kih21"]
-radius = 6.0
-height = 18.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3o6u"]
-radius = 5.0
-height = 14.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2e2fo"]
-radius = 7.0
-height = 18.000004
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gur6y"]
-radius = 6.0
-height = 18.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h6wmr"]
-atlas = ExtResource("19_8gofh")
-region = Rect2(0, 0, 640, 640)
-
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_556r4"]
 vertices = PackedVector2Array(566.71875, -1382.1406, 1017.39844, -1217, 985.3672, -1217, -258.6875, -1233.5313, -259.3672, -1239.5938, 542.1719, -1379.8984, 1087.2188, -1414.1016, 1181.9688, -1818.9688, 1175.0313, -530, 1045.3125, -1196.5313, 1044.6328, -1202.5938, 729.71875, -1118.1406, 881.39844, -911, 849.3672, -911, 213.39844, -927, -856.3203, -957.71094, 705.1719, -1115.8984, 437.35938, -739.6875, 452.45313, -743.46094, 484.2422, -610.34375, 450.52344, -610.22656, 385.5, -615.2031, 352.60156, -618.60156, 352.60156, -630.34375, 20.257813, -740.5078, -2.1875, -724.0469, -2.2734375, -726.7969, 21, -749.60156, -3.0703125, -714.3594, -120.89844, -751.6172, -110.07031, -750.4219, -479.03125, -743.5781, -477.3203, -749.71094, -134.63281, -752.8672, 739.3125, -1124.5313, 738.6328, -1130.5938, 1011.1719, -1187.8984, 1035.7188, -1190.1406, 908.6328, -896.59375, 886.03906, -905.1797, 471.54688, -782.52344, 875.1719, -881.89844, 899.71875, -884.1406, 505.27344, -598.0078, 470.1797, -763.3125, 287.79688, -727.78125, 294.28125, -728.3672, 278.95313, -724.1875, -51.6875, -1080.5313, 670.03906, -1116.5938, 681.3828, -1114.7031, -61.28125, -1074.1406, -1.296875, -718.0703, 62.257813, -727.78125, 31.859375, -736.9922, 33.890625, -736.9219, 1086, -1431.1016, 1087.0938, -1466.8672, 389.64844, -597.8906, 376.64844, -602.78906, 384.28906, -602.52344, -151.11719, -758.3672, 274.90625, -727.3203, 261.03125, -718.21094, -61.09375, -612.1172, -55.34375, -612.3203, -71.36719, -605.4531, 909.3125, -890.53125, -11, -585.34375, 103.75, -600.0469, 170.22656, -599.39844, 202.47656, -583.27344, -134.96875, -563.2031, -116.13281, -571.28125, 576.3125, -1388.5313, 726.9219, -1398.8906, 1000.03125, -1413.3594, 1030.0781, -1398.8906, -40.8125, -1720.2813, -168.97656, -1595.1172, -558.6875, -1652.5313, -559.3672, -1658.5938, 947.90625, -1634.5391, 943.46094, -1630.0938, 924.1719, -1633, 922.6875, -1638.5938, -440.84375, -1360.6484, -170.02344, -1479.0313, -34.890625, -1335.7109, -443.1172, -1352.5938, 820.1797, -1623, 846.3125, -1627.4063, 850.40625, -1623.3125, 818.53906, -1616.9063, 898.40625, -1485.4063, 900.1797, -1492, 934.59375, -1497.4063, 939.40625, -1492.5938, 874.40625, -1503.4063, 869.59375, -1498.5938, 835.1797, -1504, 833.40625, -1510.5938, 502.46875, -570.5, 468.60938, -750.8125, 496.6172, -604.89844, 1040.2266, -1494.1563, 1001.15625, -1519.9375, 1003.59375, -1520.5938, 1064.4531, -1402.1094, 1022.03906, -1211.1797, -11.3984375, -760.2031, -11.3984375, -753.6875, -19.453125, -759.7422, 335.6875, -751.52344, 320.20313, -739.89844, 320.20313, -750.60156, 320.20313, -738.8594, 320.20313, -739.5703, 340.89063, -724.53125, 325, -717.2031, -158.90625, -769.27344, -31.398438, -736.3281, -11.3984375, -749.65625, -11.3984375, -748.46094, -12.7734375, -629.22656, -14.5078125, -622.46094, -15.796875, -623.65625, -15.796875, -635.39844, 306.67188, -705.3281, 311.64063, -708.3125, 311.8672, -704.7578, -29.398438, -628.2031, -44.226563, -617.09375, -48.203125, -615.3828, -48.203125, -624.7969, -29.398438, -639.9375, 1091.5938, -1658.9609, 1082.1094, -1671.1406, 347.32813, -579.96094, 347.8203, -587.6875, 361.5703, -580.97656, -43.15625, -588.64844, -24.617188, -597.2031, -24.132813, -589.5625, 371.39844, -615.2031, 371.39844, -604.77344, 362.32813, -608.1875, -754.8828, -1369.4063, -757.15625, -1361.3516, -785.6875, -1368.5313, -786.3672, -1374.5938, 771.1406, -1643.5234, 758.3281, -1650.2578, 760.8672, -1652.7969, 964.09375, -1634.5391, 958.65625, -1636, 999.1328, -1651.7969, 1001.65625, -1649.2578, 988.8594, -1642.5234, 969.3672, -1633.2813, 428.07813, -738.3594, 417.82813, -739.4922, 408.64063, -736.0469, 386.8828, -734.84375, 374.8828, -731.2422, 21, -740.28125, 354.70313, -730.0469, 339, -625.7969, 325, -700.53906, 481.96875, -1183.5781, 483.6797, -1189.7109, 974.3281, -1194.7188, 976.03906, -1188.5938, 711.39844, -1145, 679.3672, -1145, 247.14063, -714.2422, 246.90625, -722.5781, 273.70313, -740, 1086, -1467.4766, 1086, -1476.0703, 1075.6797, -1486.3906, 668.3281, -1122.7188, -52.367188, -1086.5938, 753.59375, -1524.4063, 756.77344, -1521.2188, 715.7578, -1494.1563, -344.03125, -1455.5781, -442.85938, -1368.7891, -355.3672, -1453.6875, 1008.40625, -1525.4063, 961.1797, -1504, 959.40625, -1510.5938, 965.02344, -1505.6563, -268.28125, -1227.1406, 413.35938, -1197.5938, 412.6797, -1191.5391, -486.03906, -1150.4063, -473.8203, -1196, -292.82813, -1224.8984, 941.8203, -1624, 922.6875, -1627.4063, 932.8203, -1504, 898.40625, -1498.5938, 867.8203, -1492, 833.40625, -1497.4063, -961, -1806.0391, -32.460938, -1814.9375, -586.60156, -1673, -618.6328, -1673, 844.8281, -1633, 818.53906, -1629.0938, 287.79688, -740, 306.60156, -743.39844, -11, -602, -24.0625, -602, -23.96875, -603.0625, 9.7734375, -605.7578, -568.28125, -1646.1406, -848.3203, -1562.7109, -862.3125, -1574.7031, -859.3672, -1585, -592.8281, -1643.8984, 959.40625, -1497.4063, 954.59375, -1492.5938, -733.28125, -670.1406, -723.6875, -676.53125, 47.09375, -699.0781, 64.60156, -694.40625, 66.71875, -692.8594, 67.1875, -670.28906, 66.34375, -649.28906, 62.632813, -647.3203, 28.90625, -707.5625, -724.3672, -682.59375, -16.203125, -710.1406, 1062.4609, -1588.7734, 1022.1797, -1577, 1020.8125, -1582.0938, 231.71875, -900.1406, 306.60156, -755.1406, 170.35156, -747.21875, 2.203125, -753, 2.203125, -764.7422, 207.17188, -897.89844, 1048.5078, -1495.0938, 1091.0625, -1600.6875, -488.3672, -772, -160.34375, -793.6328, -491.3125, -761.7031, 339, -614.0625, 335.0078, -613.9531, 334.0703, -619.97656, 371.67188, -1644.8594, 230.0625, -1741.5938, 231.88281, -1815.0234, 711.96875, -1681.0313, 694.7422, -1678.8828, 35.9375, -616.22656, 55.296875, -621.0703, 55.90625, -619.27344, 241.3125, -906.53125, 240.63281, -912.59375, 852.3125, -900.7031, 838.3281, -888.71875, 797.90625, -1633.5391, 795.1406, -1630.7734, 790.6406, -1634.2813, 754.8906, -1667.7422, 967.10156, -1631.5234, 725.5781, -1645.4609, 718.52344, -1643.1016, 698.39844, -1645.8516, 688.78125, -1650.2188, 681.53906, -1656.7969, 684.34375, -1661, 698.39844, -1667.1484, 710.10156, -1668.9531, 728.60156, -1667.1094, 744.5781, -1659.1172, 746.0469, -1656.9063, 739.8906, -1647.0625, 779.46875, -1613.5703, 792.7422, -1619.5703, 793.46094, -1616.9063, -850.03125, -1556.5781, -353.3672, -1484, 1015.4219, -1658.1172, 1031.3984, -1666.1094, 1049.8906, -1667.9531, 1061.5938, -1666.1484, 1075.6484, -1660, 1078.0313, -1656.4219, 1071.2109, -1650.2188, 1061.5938, -1645.8516, 1041.4688, -1643.1016, 1034.4219, -1645.4609, 1013.9375, -1655.9063, 1020.1094, -1646.0625, 968.9531, -1619.4531, 980.53125, -1613.5703, 968.53906, -1617.9063, 791.97656, -1505.6563, 808.59375, -1510.5938, 806.8203, -1504, 756.96875, -1413.3594, 983.59375, -1525.4063, 987.15625, -1521.8281, 985.1406, -1519.0234, 970.78906, -1510.2031, -439.84375, -1030.6484, -441.85938, -1038.7891, -76.40625, -778.65625, -80.3125, -779.6328, -79.25, -794.52344, 954.59375, -1515.4063, 981.8203, -1532, 1036.2813, -1479, 1055.9297, -1479, 1073.1016, -1471.2578, 1075.3516, -1465.6484, 1063.0938, -1457.7188, 1048.8438, -1455.0469, 1024.5078, -1457.8594, 1013.21875, -1463.9375, 1011.03125, -1466.5625, 1016.4219, -1476.2734, 992.97656, -1495.0234, 745.96094, -1466.5625, 743.77344, -1463.9375, 732.47656, -1457.8594, 708.14844, -1455.0469, 693.89844, -1457.7188, 680.85156, -1466.1719, 682.8906, -1471.2578, 700.0703, -1479, 719.71875, -1479, 740.5781, -1476.2734, 770.53906, -1518.7734, 764.02344, -1495.0234, 786.21094, -1510.2031, 773.59375, -1519.5938, 778.40625, -1524.4063, 548.39844, -1409, 670, -1460.8672, 670.09375, -1460.8516, 670.9922, -1431.1016, 669.78125, -1414.1016, 575.6328, -1394.5938, 553.03906, -1403.1797, 94.9375, -731.8594, 83.71875, -719.6328, 78.453125, -722.7969, 1065.2578, -1677.8828, 35.101563, -749.60156, 113.203125, -740.9922, 278.32813, -637.78125, 262.6328, -641.3906, 245.63281, -647.46094, 246.39063, -654.25, 265.28125, -687.0703, 283.53906, -695.59375, -712.84375, -1360.6484, -714.8594, -1368.7891, -485.15625, -1361.3516, -483.14063, -1353.2109, -711.84375, -1030.6484, -713.8594, -1038.7891, -484.15625, -1031.3516, -482.14063, -1023.21094, -482.8828, -1369.4063, -720.7031, -1374.7969, -715.1172, -1352.5938, -477.29688, -1347.2031, -481.8828, -1039.4063, -719.7031, -1044.7969, -714.1172, -1022.59375, -476.29688, -1017.2031, 808.59375, -1497.4063, 813.40625, -1492.5938, 948.65625, -1491, 873.1719, -1633, 897.3125, -1638.5938, 895.8281, -1633, 871.6875, -1627.4063, 871.6875, -1638.5938, 901.40625, -1642.6875, 897.3125, -1627.4063, 867.59375, -1623.3125, 247.17969, -682.53906, 988.3125, -1206.7031, 472.6328, -1212, 840.03906, -882.59375, 464.29688, -789.77344, 451.60938, -794, 320.21875, -624.60156, 292.8125, -631.7422, 313.82813, -717.2031, -65.953125, -770, -75.24219, -771.6875, -442.1172, -1022.59375, 2.0390625, -630.71094, 17.320313, -636.59375, 819.34375, -1491, -342.3203, -1461.7109, -364.75, -1461.2031, -379.17188, -1454.8906, -403.72656, -1457.1328, -448.70313, -1374.7969, -413.3203, -1463.5391, -456.10156, -1376.9063, -97.09375, -601.9531, -102.140625, -601.21875, -105.84375, -607.71094, -62.296875, -624.7969, 424.25, -600.2422, 420.5625, -593.75, 415.5078, -594.4531, 778.40625, -1606.8594, 797.90625, -1612.4609, 846.3125, -1638.5938, 814.09375, -1633.5391, 751.8203, -1531, 707.4922, -1495.0938, 934.59375, -1510.5938, 893.59375, -1503.4063, 869.59375, -1485.4063, 828.59375, -1492.5938, -917.72656, -953.1328, -783.6328, -697, -780.6797, -686.7031, -794.6719, -674.71875, -927.3203, -959.53906, -615.6797, -1662.7031, -629.6719, -1650.7188, -891.40625, -1585, -909.72656, -1558.1328, -845.6328, -1389, -842.6797, -1378.7031, -856.6719, -1366.7188, -919.3203, -1564.5391, -486.03906, -1241.5938, -318.6328, -1254, -315.6797, -1243.7031, -329.67188, -1231.7188, -111.63281, -1101, -108.67969, -1090.7031, -122.671875, -1078.7188, -519.40625, -1117.0391, 469.6797, -1201.7031, -858.03125, -951.5781, 181.36719, -927, 184.3125, -916.7031, 170.32813, -904.71875, -99.1875, -806, -133.96094, -806, 400.39844, -1422.2031, 516.3672, -1409, 519.3125, -1398.7031, 505.32813, -1386.7188, 239.03125, -1336.8906, 682.3125, -1134.7031, 470.6328, -1181.6875, -754.1406, -1023.21094, -870.3125, -969.7031, -867.3672, -980, -756.15625, -1031.3516, -356.3125, -1473.7031, -385.40625, -1484, -390.04688, -1478.1797, -412.64063, -1469.5938, -469.39063, -1377.1172, -476.85938, -1375.2422, -728.10156, -1376.9063, -741.3906, -1377.1172, -748.8594, -1375.2422, -808.9531, -1383.1797, -813.60156, -1389, -861.3672, -1554.6875, 231.70313, -606.85156, 239.92188, -616.8906, 261.28125, -611.3281, 229.00781, -590.6406, 964.09375, -1613.4609, 981.59375, -1606.8594, 943.46094, -1617.9063, 918.59375, -1623.3125, 183.38281, -896.7031, 192.75781, -904.21094, 851.3828, -880.7031, 860.7578, -888.21094, 518.3828, -1378.7031, 527.7578, -1386.2109, 987.3828, -1186.7031, 996.7578, -1194.2109, 716.03906, -1139.1797, 690.7578, -1122.2109, -893.1719, -950.8906, -878.75, -957.2031, -869.3672, -949.6875, -514.1719, -742.8906, -499.75, -749.2031, -490.3672, -741.6875, -885.1719, -1555.8906, -870.75, -1562.2031, 446.82813, -1182.8906, 461.2422, -1189.2031, -781.6172, -666.7031, -772.22656, -674.21094, -757.8281, -667.89844, -616.6172, -1642.7031, -607.22656, -1650.2109, -726.1797, -1196, -843.6172, -1358.7031, -834.22656, -1366.2109, -819.8281, -1359.8984, -713.96094, -1241.5938, -316.6172, -1223.7031, -307.22656, -1231.2109, -109.61719, -1070.7031, -100.22656, -1078.2109, -85.828125, -1071.8984, -755.1406, -1353.2109, -795.28125, -1362.1406, 1010.1797, -1532, 416.84375, -794, 407.5, -792.65625, 400.21094, -789.75, 390.3828, -781.5625, 670, -1476.0703, 670, -1466.9219, 669.90625, -1466.8672, 211.15625, -739.7969, 1020.8125, -1571.9063, 1048.0313, -1680.0313, 945.34375, -1491, 136.36719, -615.1094, 146.78906, -618.22656, 164.49219, -614.2969, -118.65625, -616.25, 507.03906, -1380.5938, 780.1797, -1531, 813.40625, -1515.4063, 437.04688, -608.8203, 1017.09375, -1585.8125, 1012.65625, -1587, 1007.34375, -1587, 1002.90625, -1585.8125, 999.1875, -1582.0938, 386.28906, -762.7578, 385.3672, -759.09375, 382.29688, -757.8594, 375.0078, -756.8203, 356.60156, -758.0469, 822.65625, -1491, 997.8203, -1577, 958.65625, -1612, 391.60156, -768.0781, 172.03906, -898.59375, -42.539063, -770, -86.5, -801.77344, 778.40625, -1537.5938, 819.34375, -1517, 82.828125, -606.59375, 65.00781, -611.6797, -447.70313, -1044.7969, -449.14063, -1346.7578, -286.60156, -1254, 948.65625, -1517, 983.59375, -1538.5938, -721.1406, -1346.7578, -469.89844, -1345.0938, -519.40625, -1274.9609, -564.34375, -1287, -475.85938, -1045.2422, -727.10156, -1046.9063, -720.1406, -1016.7578, -468.89844, -1015.09375, 867.59375, -1642.6875, 906.34375, -1644, 901.40625, -1623.3125, 887.65625, -1505, 880.34375, -1505, 828.59375, -1515.4063, 862.65625, -1622, -16.203125, -726.7969, 491.8125, -561.3125, 279.3203, -607.71875, 290.29688, -605.28125, 440.59375, -1212, 435.9375, -1206.1797, 422.27344, -1185.1328, -79.60156, -1101, -627.96094, -1644.5938, 953.34375, -1612, 999.1875, -1571.9063, 893.59375, -1480.5938, 887.65625, -1479, 1028.5625, -1677.8672, -448.14063, -1016.7578, 342.1328, -592.39844, 334.20313, -592.39844, 317.70313, -601.3594, -327.96094, -1225.5938, -456.60938, -1344.8828, 850.40625, -1642.6875, 808.65625, -1635, -150.59375, -801.75, -520.40625, -772, 697.53906, -1588.7734, 753.59375, -1537.5938, 680.3203, -1486.3906, 668.9375, -1600.6875, 953.34375, -1636, 918.59375, -1642.6875, 1005.1094, -1666.7422, 906.34375, -1622, 939.40625, -1515.4063, 874.40625, -1480.5938, 880.34375, -1479, -74.953125, -1095.1797, 773.59375, -1542.4063, 814.09375, -1612.4609, 855.34375, -1622, 822.65625, -1517, -749.2969, -1347.2031, 947.90625, -1613.4609, 913.65625, -1622, -468.39063, -1047.1172, -564.34375, -1105, -120.96094, -1072.5938, -455.10156, -1046.9063, 945.34375, -1517, 988.40625, -1543.4063, 803.34375, -1611, 1008.40625, -1538.5938, 1017.09375, -1568.1875, -899.40625, -980, -904.0469, -974.1797, -926.6406, -965.59375, 218.03906, -921.1797, -525.0469, -766.1797, -547.6406, -757.59375, -896.0469, -1579.1797, -918.6406, -1570.5938, -78.9375, -748.02344, -58.773438, -744.46094, -746.9531, -691.1797, -751.60156, -697, -581.9531, -1667.1797, -281.95313, -1248.1797, 1015.8672, -1671.5234, 913.65625, -1644, -143.29688, -804.65625, -548.3203, -751.53906, -110.03125, -578.59375, -104.82031, -581.2031, -99.89844, -581.2031, -69.3125, -582.4219, 418.39063, -573.71875, 423.3125, -573.71875, 428.53906, -571.1406, 434.65625, -563.85156, 334.20313, -575.7422, 387.8125, -574.8281, -961, -530, 1002.90625, -1568.1875, 994.34375, -1545, 803.34375, -1635, 855.34375, -1644, 744.1172, -1672.5234, 731.4375, -1678.8672, 692.5469, -1402.1094, 670, -1463.8906, -538.72656, -745.1328, -41.609375, -742.15625, 307.28906, -602.85156, 474.52344, -555.90625, 453.53906, -555.84375, 1090.0313, -1654.2734, 1012.65625, -1567, 1003.59375, -1543.4063, 1007.34375, -1567, 997.65625, -1545, 808.65625, -1611, 767.65625, -1544, 764.34375, -1544, 758.40625, -1542.4063, 668.40625, -1659.9609, 669.97656, -1655.2266, 140.64844, -745.97656, 862.65625, -1644, 677.8906, -1672.1406, 82.109375, -1350.9609, -635.65625, -1287, -680.59375, -1274.9609, -728.6094, -1344.8828, -741.89844, -1345.0938, -854.96094, -1360.5938, -713.96094, -1150.4063, -740.3906, -1047.1172, -680.59375, -1117.0391, -635.65625, -1105, -727.6094, -1014.8828, -455.60938, -1014.8828, -132.14844, -617.60156, -165.85938, -617.60156, -178.21875, -612.1094, -186.85938, -605.2031, -183.96094, -577.7031, -173.25781, -568.53125, -155.95313, -563.2031, -792.96094, -668.59375, -740.89844, -1015.09375, -748.2969, -1017.2031, -753.8828, -1039.4063, -747.8594, -1045.2422)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14, 15, 16), PackedInt32Array(17, 18, 19, 20, 21, 22, 23), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(28, 26, 25), PackedInt32Array(29, 30, 31, 32, 33), PackedInt32Array(34, 35, 36, 37, 38, 39, 12), PackedInt32Array(40, 41, 42, 43, 44), PackedInt32Array(45, 46, 47), PackedInt32Array(48, 49, 50, 51), PackedInt32Array(28, 25, 52), PackedInt32Array(53, 54, 55), PackedInt32Array(7, 6, 56, 57), PackedInt32Array(58, 59, 60), PackedInt32Array(61, 33, 32), PackedInt32Array(62, 45, 47, 63), PackedInt32Array(64, 65, 66), PackedInt32Array(9, 8, 67, 38, 37), PackedInt32Array(68, 69, 70, 71, 72, 73), PackedInt32Array(74, 75, 76, 77, 1, 0), PackedInt32Array(78, 79, 80, 81), PackedInt32Array(82, 83, 84, 85), PackedInt32Array(86, 87, 88, 89), PackedInt32Array(90, 91, 92, 93), PackedInt32Array(94, 95, 96, 97, 76), PackedInt32Array(98, 99, 100, 101), PackedInt32Array(67, 8, 102, 43, 42), PackedInt32Array(103, 44, 43, 104), PackedInt32Array(105, 106, 107), PackedInt32Array(108, 6, 10, 109, 1), PackedInt32Array(110, 111, 112), PackedInt32Array(113, 114, 115), PackedInt32Array(116, 117, 118, 119), PackedInt32Array(103, 104, 19, 18), PackedInt32Array(120, 61, 32), PackedInt32Array(121, 122, 123), PackedInt32Array(124, 125, 126, 127), PackedInt32Array(128, 129, 130), PackedInt32Array(131, 132, 133, 134, 135), PackedInt32Array(7, 136, 137), PackedInt32Array(138, 139, 140), PackedInt32Array(141, 142, 143), PackedInt32Array(144, 145, 146, 22), PackedInt32Array(147, 148, 149, 150), PackedInt32Array(151, 152, 153), PackedInt32Array(154, 155, 156, 157, 158, 159), PackedInt32Array(160, 17, 23), PackedInt32Array(161, 160, 23, 162), PackedInt32Array(163, 162, 23, 164), PackedInt32Array(27, 165, 24), PackedInt32Array(118, 166, 164, 23, 167, 168, 119), PackedInt32Array(169, 170, 171, 172, 173, 174), PackedInt32Array(77, 108, 1), PackedInt32Array(63, 175, 176, 177, 62), PackedInt32Array(7, 57, 178, 179), PackedInt32Array(7, 179, 180), PackedInt32Array(181, 49, 48, 182), PackedInt32Array(183, 184, 185), PackedInt32Array(186, 87, 86, 187, 188), PackedInt32Array(105, 107, 189), PackedInt32Array(190, 191, 192, 76), PackedInt32Array(193, 194, 195, 196, 197, 198), PackedInt32Array(84, 83, 199, 200), PackedInt32Array(201, 96, 95, 202), PackedInt32Array(100, 99, 203, 204), PackedInt32Array(205, 206, 78, 207, 208), PackedInt32Array(209, 91, 90, 210), PackedInt32Array(46, 45, 211, 212, 116), PackedInt32Array(213, 214, 215, 125, 216), PackedInt32Array(217, 79, 87, 218, 219, 220, 221), PackedInt32Array(222, 190, 76), PackedInt32Array(223, 222, 76), PackedInt32Array(224, 225, 226, 227, 228, 229, 230, 231, 135), PackedInt32Array(232, 226, 225, 233, 234), PackedInt32Array(235, 236, 237), PackedInt32Array(238, 239, 212, 240, 241, 242, 243), PackedInt32Array(7, 180, 244, 245), PackedInt32Array(11, 34, 12), PackedInt32Array(246, 247, 120, 32, 248), PackedInt32Array(167, 249, 250, 251, 168), PackedInt32Array(252, 253, 254, 7, 255, 256), PackedInt32Array(257, 258, 259, 68, 216), PackedInt32Array(260, 261, 13, 262, 263), PackedInt32Array(28, 52, 232), PackedInt32Array(264, 265, 266, 267), PackedInt32Array(159, 268, 154), PackedInt32Array(269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279), PackedInt32Array(269, 279, 280), PackedInt32Array(281, 269, 280, 282, 283), PackedInt32Array(284, 218, 87, 285), PackedInt32Array(286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296), PackedInt32Array(297, 296, 295), PackedInt32Array(298, 297, 295, 299, 300), PackedInt32Array(301, 302, 303, 304), PackedInt32Array(305, 306, 307, 308), PackedInt32Array(16, 309, 310, 50), PackedInt32Array(311, 312, 313), PackedInt32Array(308, 192, 191, 314, 315, 305), PackedInt32Array(316, 317, 318, 319, 320, 321, 322, 323, 324, 325), PackedInt32Array(307, 316, 325, 326), PackedInt32Array(307, 326, 308), PackedInt32Array(327, 328, 329, 330, 331, 332, 333, 334, 335, 336), PackedInt32Array(336, 335, 337, 338), PackedInt32Array(339, 338, 337, 340), PackedInt32Array(339, 340, 341, 302), PackedInt32Array(342, 343, 344, 345, 346, 347, 348), PackedInt32Array(349, 350, 351), PackedInt32Array(7, 137, 352), PackedInt32Array(349, 53, 55, 353, 354), PackedInt32Array(355, 356, 357, 358, 359, 360), PackedInt32Array(361, 362, 363, 364), PackedInt32Array(365, 366, 367, 368), PackedInt32Array(284, 369, 363, 362, 370), PackedInt32Array(371, 361, 364, 372), PackedInt32Array(373, 367, 366, 374), PackedInt32Array(375, 365, 368, 376), PackedInt32Array(304, 303, 377), PackedInt32Array(304, 377, 378), PackedInt32Array(379, 223, 76), PackedInt32Array(380, 381, 382, 383), PackedInt32Array(381, 380, 384, 385), PackedInt32Array(383, 382, 386, 387), PackedInt32Array(358, 388, 359), PackedInt32Array(3, 2, 389, 390), PackedInt32Array(260, 263, 391, 392, 393), PackedInt32Array(394, 395, 355, 360, 128, 130, 168), PackedInt32Array(251, 394, 168), PackedInt32Array(116, 119, 396, 46), PackedInt32Array(397, 398, 311), PackedInt32Array(399, 309, 16), PackedInt32Array(400, 124, 127, 401), PackedInt32Array(304, 378, 402), PackedInt32Array(186, 403, 87), PackedInt32Array(404, 188, 187, 405), PackedInt32Array(406, 405, 187, 407), PackedInt32Array(408, 406, 407, 409, 284), PackedInt32Array(410, 411, 412, 413), PackedInt32Array(414, 415, 416, 21), PackedInt32Array(417, 281, 283, 418), PackedInt32Array(419, 209, 210, 420), PackedInt32Array(421, 183, 185, 422), PackedInt32Array(423, 201, 202, 424), PackedInt32Array(204, 203, 425, 426), PackedInt32Array(427, 428, 429, 430, 431), PackedInt32Array(205, 208, 432, 433, 220, 434), PackedInt32Array(435, 436, 437, 438, 439), PackedInt32Array(440, 441, 442, 443, 197), PackedInt32Array(444, 445, 446, 447), PackedInt32Array(171, 170, 448, 390, 389), PackedInt32Array(449, 15, 450, 451, 452, 453, 454), PackedInt32Array(455, 456, 457, 458, 459), PackedInt32Array(169, 174, 460, 181, 182, 461), PackedInt32Array(462, 15, 463, 464, 465), PackedInt32Array(403, 466, 285, 87), PackedInt32Array(284, 285, 467), PackedInt32Array(284, 467, 468, 469), PackedInt32Array(284, 469, 408), PackedInt32Array(284, 409, 470), PackedInt32Array(284, 470, 471), PackedInt32Array(284, 471, 369), PackedInt32Array(284, 370, 472), PackedInt32Array(284, 472, 473), PackedInt32Array(284, 473, 474), PackedInt32Array(284, 474, 147, 150, 475, 476), PackedInt32Array(284, 476, 436, 477), PackedInt32Array(478, 479, 480, 481), PackedInt32Array(482, 300, 299, 483), PackedInt32Array(200, 199, 484, 485), PackedInt32Array(413, 64, 66, 410), PackedInt32Array(486, 487, 243), PackedInt32Array(488, 489, 41), PackedInt32Array(488, 41, 40), PackedInt32Array(391, 488, 40, 392), PackedInt32Array(490, 491, 5), PackedInt32Array(492, 493, 36), PackedInt32Array(492, 36, 35), PackedInt32Array(172, 492, 35, 494, 173), PackedInt32Array(50, 495, 16), PackedInt32Array(496, 497, 498), PackedInt32Array(499, 500, 501), PackedInt32Array(502, 503, 477, 436), PackedInt32Array(435, 502, 436), PackedInt32Array(504, 505, 461), PackedInt32Array(506, 507, 508), PackedInt32Array(509, 510, 221), PackedInt32Array(511, 512, 513, 514, 515), PackedInt32Array(516, 517, 198), PackedInt32Array(518, 519, 520), PackedInt32Array(149, 148, 521, 522), PackedInt32Array(105, 189, 523, 244), PackedInt32Array(260, 393, 524), PackedInt32Array(260, 524, 525), PackedInt32Array(260, 525, 526), PackedInt32Array(260, 526, 527, 238), PackedInt32Array(528, 529, 530, 342, 456), PackedInt32Array(177, 176, 531), PackedInt32Array(532, 236, 235), PackedInt32Array(7, 352, 533), PackedInt32Array(534, 379, 76), PackedInt32Array(535, 536, 537, 70, 69), PackedInt32Array(413, 412, 538), PackedInt32Array(490, 5, 4), PackedInt32Array(539, 490, 4), PackedInt32Array(458, 539, 4, 459), PackedInt32Array(302, 301, 339), PackedInt32Array(302, 341, 540, 541), PackedInt32Array(58, 60, 21, 416), PackedInt32Array(542, 414, 21), PackedInt32Array(235, 237, 543), PackedInt32Array(483, 235, 543, 544), PackedInt32Array(483, 544, 545), PackedInt32Array(483, 545, 546), PackedInt32Array(483, 546, 547), PackedInt32Array(238, 527, 548, 549, 550, 551, 552), PackedInt32Array(304, 402, 553), PackedInt32Array(482, 483, 547, 554, 555), PackedInt32Array(527, 556, 548), PackedInt32Array(238, 552, 113, 115, 239), PackedInt32Array(486, 243, 242), PackedInt32Array(557, 486, 242), PackedInt32Array(452, 557, 242, 110, 112, 558, 313, 559), PackedInt32Array(541, 540, 560, 561), PackedInt32Array(562, 69, 68, 563), PackedInt32Array(259, 563, 68), PackedInt32Array(216, 68, 213), PackedInt32Array(126, 125, 215, 132, 131), PackedInt32Array(50, 310, 564), PackedInt32Array(565, 89, 88, 4, 566), PackedInt32Array(315, 314, 567, 568), PackedInt32Array(349, 351, 53), PackedInt32Array(569, 371, 372, 570, 571, 572), PackedInt32Array(573, 373, 374, 574), PackedInt32Array(575, 375, 376, 576), PackedInt32Array(385, 384, 577, 7, 578), PackedInt32Array(387, 386, 579, 580, 581, 582, 583), PackedInt32Array(241, 27, 26, 584, 121, 123), PackedInt32Array(585, 102, 8), PackedInt32Array(481, 480, 586, 587), PackedInt32Array(3, 390, 588), PackedInt32Array(3, 588, 589, 194, 193), PackedInt32Array(447, 196, 195, 590, 591, 444), PackedInt32Array(217, 80, 79), PackedInt32Array(509, 221, 220), PackedInt32Array(592, 509, 220), PackedInt32Array(433, 592, 220), PackedInt32Array(593, 555, 554, 594), PackedInt32Array(397, 311, 313, 558), PackedInt32Array(97, 534, 76), PackedInt32Array(595, 94, 76), PackedInt32Array(596, 595, 76), PackedInt32Array(7, 533, 597), PackedInt32Array(598, 399, 16), PackedInt32Array(135, 134, 413, 224), PackedInt32Array(249, 22, 146, 599, 600, 601), PackedInt32Array(516, 198, 197), PackedInt32Array(602, 516, 197), PackedInt32Array(443, 602, 197), PackedInt32Array(565, 441, 440, 571, 603), PackedInt32Array(604, 419, 420, 605, 267), PackedInt32Array(449, 606, 247, 246, 607), PackedInt32Array(608, 609, 421, 422, 610, 611), PackedInt32Array(612, 82, 85, 613, 614), PackedInt32Array(615, 616, 423, 424, 580, 579), PackedInt32Array(98, 101, 582, 581), PackedInt32Array(426, 425, 617, 304, 553), PackedInt32Array(304, 617, 618, 76), PackedInt32Array(504, 461, 182), PackedInt32Array(590, 504, 182, 619, 591), PackedInt32Array(601, 250, 249), PackedInt32Array(620, 621, 93, 92, 622, 582, 623, 560), PackedInt32Array(514, 522, 521, 624, 515), PackedInt32Array(485, 484, 625, 626), PackedInt32Array(627, 628, 447, 446, 629, 630), PackedInt32Array(568, 567, 631, 615, 632), PackedInt32Array(417, 418, 633, 620), PackedInt32Array(244, 523, 634, 635, 235, 245), PackedInt32Array(636, 637, 638), PackedInt32Array(261, 639, 14, 13), PackedInt32Array(607, 640, 641, 449), PackedInt32Array(434, 642, 643, 205), PackedInt32Array(31, 30, 644, 645, 121, 584, 234, 233, 646, 647, 501), PackedInt32Array(81, 648, 207, 78), PackedInt32Array(4, 649, 566), PackedInt32Array(618, 596, 76), PackedInt32Array(614, 156, 155, 612), PackedInt32Array(650, 614, 613, 651, 7, 597), PackedInt32Array(234, 28, 232), PackedInt32Array(15, 14, 450), PackedInt32Array(452, 559, 453), PackedInt32Array(449, 454, 652), PackedInt32Array(449, 652, 606), PackedInt32Array(449, 641, 653, 498), PackedInt32Array(496, 498, 653), PackedInt32Array(623, 561, 560), PackedInt32Array(654, 655, 656, 73), PackedInt32Array(73, 656, 657), PackedInt32Array(658, 659, 660, 661), PackedInt32Array(662, 663, 658, 661, 664, 72), PackedInt32Array(615, 626, 625, 593, 594, 665, 666, 632), PackedInt32Array(151, 153, 267, 266), PackedInt32Array(667, 264, 267), PackedInt32Array(605, 667, 267), PackedInt32Array(7, 668, 604, 267, 669, 670), PackedInt32Array(75, 304, 76), PackedInt32Array(671, 75, 74), PackedInt32Array(346, 671, 74, 347), PackedInt32Array(672, 343, 342, 530), PackedInt32Array(427, 496, 653, 673, 647, 428), PackedInt32Array(635, 532, 235), PackedInt32Array(645, 674, 121), PackedInt32Array(481, 587, 675, 601, 600, 662, 71), PackedInt32Array(610, 528, 456, 611), PackedInt32Array(141, 143, 68, 657), PackedInt32Array(401, 127, 135, 231), PackedInt32Array(676, 585, 8), PackedInt32Array(676, 8, 664, 677), PackedInt32Array(661, 677, 664), PackedInt32Array(245, 678, 136, 7), PackedInt32Array(679, 635, 634, 680), PackedInt32Array(681, 679, 680, 682), PackedInt32Array(665, 681, 682, 666), PackedInt32Array(615, 631, 616), PackedInt32Array(622, 583, 582), PackedInt32Array(683, 621, 620), PackedInt32Array(633, 683, 620), PackedInt32Array(608, 417, 620, 684), PackedInt32Array(608, 684, 685), PackedInt32Array(608, 685, 686), PackedInt32Array(608, 686, 609), PackedInt32Array(252, 687, 688, 611, 456, 455), PackedInt32Array(50, 564, 630, 520), PackedInt32Array(138, 140, 663, 662), PackedInt32Array(205, 643, 439), PackedInt32Array(664, 205, 439, 431), PackedInt32Array(689, 354, 353), PackedInt32Array(7, 651, 578), PackedInt32Array(7, 577, 690), PackedInt32Array(7, 690, 668), PackedInt32Array(7, 670, 255), PackedInt32Array(252, 256, 691), PackedInt32Array(252, 691, 687), PackedInt32Array(692, 459, 4, 88), PackedInt32Array(565, 566, 441), PackedInt32Array(570, 603, 571), PackedInt32Array(569, 572, 693), PackedInt32Array(569, 693, 694, 695), PackedInt32Array(695, 694, 515, 696), PackedInt32Array(624, 696, 515), PackedInt32Array(638, 697, 512, 511, 698, 636), PackedInt32Array(627, 573, 574, 699, 700, 701), PackedInt32Array(15, 702, 575, 576, 703), PackedInt32Array(413, 538, 704), PackedInt32Array(224, 413, 704, 705), PackedInt32Array(224, 705, 706), PackedInt32Array(224, 706, 707), PackedInt32Array(224, 707, 708), PackedInt32Array(224, 708, 709, 508), PackedInt32Array(20, 542, 21), PackedInt32Array(22, 21, 144), PackedInt32Array(506, 508, 709, 710, 664), PackedInt32Array(73, 657, 68), PackedInt32Array(177, 531, 240, 212), PackedInt32Array(212, 211, 177), PackedInt32Array(241, 240, 689, 353), PackedInt32Array(241, 353, 27), PackedInt32Array(499, 501, 647), PackedInt32Array(673, 499, 647), PackedInt32Array(431, 430, 711, 664), PackedInt32Array(703, 598, 16), PackedInt32Array(703, 16, 15), PackedInt32Array(712, 702, 15), PackedInt32Array(713, 712, 15), PackedInt32Array(462, 713, 15), PackedInt32Array(714, 465, 464, 636), PackedInt32Array(715, 714, 636, 698), PackedInt32Array(72, 71, 662), PackedInt32Array(710, 72, 664), PackedInt32Array(711, 506, 664), PackedInt32Array(638, 431, 439), PackedInt32Array(638, 439, 438, 697), PackedInt32Array(699, 715, 698, 700), PackedInt32Array(627, 701, 628), PackedInt32Array(630, 629, 518), PackedInt32Array(520, 51, 50), PackedInt32Array(630, 518, 520)])
@@ -2116,173 +2075,6 @@ polygon = PackedVector2Array(-133.78972, 25.599854, -147.09045, 45.43994, -146.3
 [node name="Player" parent="YSortDoodads" instance=ExtResource("2_mx8sn")]
 position = Vector2(144, -1572)
 
-[node name="Col_1" type="Sprite2D" parent="YSortDoodads"]
-y_sort_enabled = true
-position = Vector2(831, -1533)
-texture = ExtResource("11_gunhw")
-offset = Vector2(60, -19)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="YSortDoodads/Col_1" groups=["obstacles"]]
-position = Vector2(-15, -119)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortDoodads/Col_1/StaticBody2D"]
-position = Vector2(-40, 95)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_cmcjb")
-
-[node name="Col_2" type="Sprite2D" parent="YSortDoodads"]
-y_sort_enabled = true
-position = Vector2(894, -1523)
-texture = ExtResource("12_8gofh")
-offset = Vector2(-3, -29)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="YSortDoodads/Col_2" groups=["obstacles"]]
-position = Vector2(-23, -102)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortDoodads/Col_2/StaticBody2D2"]
-position = Vector2(-40, 95)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_cmcjb")
-
-[node name="Col_3" type="Sprite2D" parent="YSortDoodads"]
-y_sort_enabled = true
-position = Vector2(957, -1535)
-texture = ExtResource("13_h6wmr")
-offset = Vector2(-66, -17)
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="YSortDoodads/Col_3" groups=["obstacles"]]
-position = Vector2(-24, -79)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortDoodads/Col_3/StaticBody2D3"]
-position = Vector2(-39, 96)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_556r4")
-
-[node name="Col_4" type="Sprite2D" parent="YSortDoodads"]
-y_sort_enabled = true
-position = Vector2(1006, -1563)
-texture = ExtResource("14_pqd0y")
-offset = Vector2(-115, 11)
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="YSortDoodads/Col_4" groups=["obstacles"]]
-position = Vector2(-10, -63)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortDoodads/Col_4/StaticBody2D4"]
-position = Vector2(-39, 96)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_7agi7")
-
-[node name="Col_10" type="Sprite2D" parent="YSortDoodads"]
-y_sort_enabled = true
-position = Vector2(1006, -1563)
-texture = ExtResource("14_pqd0y")
-offset = Vector2(-115, 11)
-flip_h = true
-
-[node name="StaticBody2D10" type="StaticBody2D" parent="YSortDoodads/Col_10" groups=["obstacles"]]
-position = Vector2(-47, -192)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortDoodads/Col_10/StaticBody2D10"]
-position = Vector2(-39, 96)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_kih21")
-
-[node name="Col_5" type="Sprite2D" parent="YSortDoodads"]
-y_sort_enabled = true
-position = Vector2(1020, -1607)
-texture = ExtResource("15_5k0ak")
-offset = Vector2(-129, 55)
-
-[node name="StaticBody2D5" type="StaticBody2D" parent="YSortDoodads/Col_5" groups=["obstacles"]]
-position = Vector2(25, -47)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortDoodads/Col_5/StaticBody2D5"]
-position = Vector2(-39, 96)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_7agi7")
-
-[node name="Col_6" type="Sprite2D" parent="YSortDoodads"]
-y_sort_enabled = true
-position = Vector2(966, -1653)
-texture = ExtResource("16_wu01b")
-offset = Vector2(-75, 101)
-
-[node name="StaticBody2D6" type="StaticBody2D" parent="YSortDoodads/Col_6" groups=["obstacles"]]
-position = Vector2(90, -42)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortDoodads/Col_6/StaticBody2D6"]
-position = Vector2(-36, 92)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_w3o6u")
-
-[node name="Col_7" type="Sprite2D" parent="YSortDoodads"]
-y_sort_enabled = true
-position = Vector2(920, -1662)
-texture = ExtResource("17_3ies3")
-offset = Vector2(-29, 110)
-
-[node name="StaticBody2D7" type="StaticBody2D" parent="YSortDoodads/Col_7" groups=["obstacles"]]
-position = Vector2(82, -81)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortDoodads/Col_7/StaticBody2D7"]
-position = Vector2(-36, 93)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_2e2fo")
-
-[node name="Col_8" type="Sprite2D" parent="YSortDoodads"]
-y_sort_enabled = true
-position = Vector2(869, -1660)
-texture = ExtResource("18_xy2fk")
-offset = Vector2(22, 108)
-
-[node name="StaticBody2D8" type="StaticBody2D" parent="YSortDoodads/Col_8" groups=["obstacles"]]
-position = Vector2(-17, -82)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortDoodads/Col_8/StaticBody2D8"]
-position = Vector2(-36, 93)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_2e2fo")
-
-[node name="Col_9" type="Sprite2D" parent="YSortDoodads"]
-y_sort_enabled = true
-position = Vector2(816, -1653)
-texture = ExtResource("16_wu01b")
-offset = Vector2(75, 101)
-flip_h = true
-
-[node name="StaticBody2D9" type="StaticBody2D" parent="YSortDoodads/Col_9" groups=["obstacles"]]
-position = Vector2(91, -101)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortDoodads/Col_9/StaticBody2D9"]
-position = Vector2(-38, 95)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_gur6y")
-
-[node name="Sprite2D" type="Sprite2D" parent="YSortDoodads"]
-position = Vector2(893, -1421)
-texture = SubResource("AtlasTexture_h6wmr")
-offset = Vector2(-9, -117)
-
 [node name="FrogSpawner" parent="YSortDoodads" node_paths=PackedStringArray("player") instance=ExtResource("5_ppgk2")]
 unique_name_in_owner = true
 y_sort_enabled = true
@@ -2311,7 +2103,6 @@ type = 3
 player = NodePath("../Player")
 
 [node name="LoveShrine" parent="YSortDoodads" groups=["obstacles"] instance=ExtResource("9_t1rx8")]
-y_sort_enabled = true
 position = Vector2(886, -1720)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

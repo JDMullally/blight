@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqmtsxecl8302"]
+[gd_scene load_steps=6 format=3 uid="uid://bqmtsxecl8302"]
 
 [ext_resource type="Texture2D" uid="uid://cuydeilia1ohw" path="res://art/shrines/love_shrine/more stuff/ring.tres" id="1_d8ujt"]
 [ext_resource type="Script" uid="uid://cg6xphhtmnswv" path="res://scripts/love_shrine_ring.gd" id="1_w5s5e"]
+[ext_resource type="PackedScene" uid="uid://bbr1fwu340b22" path="res://scenes/shrines/statue.tscn" id="3_d8ujt"]
 
 [sub_resource type="Gradient" id="Gradient_w5s5e"]
 offsets = PackedFloat32Array(0, 0.75)
@@ -28,11 +29,16 @@ position = Vector2(1, 121)
 polygon = PackedVector2Array(-90, -73, -65, -85, -39, -92, -9, -96, 20, -96, 47, -91, 74, -82, 94, -72, 111, -54, 115, -38, 110, -18, 93, -1, 64, 13, 35, 21, 9, 23, -12, 23, -46, 18, -75, 7, -97, -8, -105, -18, -110, -32, -109, -46, -102, -59)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(3.5000057, 92)
-scale = Vector2(3.7343752, 1.8750001)
+position = Vector2(6.9999995, 90)
+scale = Vector2(3.84375, 1.9375001)
 color = Color(1, 0.53999996, 0.53999996, 1)
 energy = 0.63
 texture = SubResource("GradientTexture2D_d8ujt")
+
+[node name="Statue" parent="." instance=ExtResource("3_d8ujt")]
+unique_name_in_owner = true
+position = Vector2(3.999999, 93)
+scale = Vector2(1.2468749, 1.2468749)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]

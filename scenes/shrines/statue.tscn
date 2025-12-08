@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbr1fwu340b22"]
+
+[ext_resource type="Texture2D" uid="uid://jl74gxskhkc1" path="res://art/shrines/love_shrine/New Shrine Bits/all_statues.png" id="1_8bwvl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypd1y"]
+atlas = ExtResource("1_8bwvl")
+
+[node name="Statue" type="Sprite2D"]
+z_index = 3
+y_sort_enabled = true
+texture = SubResource("AtlasTexture_ypd1y")
+offset = Vector2(0, 40)
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 640)
