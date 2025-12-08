@@ -1,17 +1,37 @@
 extends Panel
 class_name StatChart
 
-@onready var potentency: ProgressBar = $Potentency
-@onready var power: ProgressBar = $Power
-@onready var effectiveness: ProgressBar = $Effectiveness
-@onready var difficulty: ProgressBar = $Difficulty
-@onready var rapidity: ProgressBar = $Rapidity
+@onready var disable_bar: ProgressBar = %Disable
+@onready var healing_power_bar: ProgressBar = %HealingPower
+@onready var cooldown_bar: ProgressBar = %Cooldown
+@onready var speed_bar: ProgressBar = %Speed
+@onready var pierce_bar: ProgressBar = %Pierce
 
+@onready var healing_power_sprite: TextureRect = %HealingPowerSprite
+@onready var pierce_sprite: TextureRect = %PierceSprite
+@onready var cooldown_sprite: TextureRect = %CooldownSprite
+@onready var speed_sprite: TextureRect = %SpeedSprite
+@onready var disable_sprite: TextureRect = %DisableSprite
+@onready var mouse_over: RichTextLabel = $MouseOver
+
+func _ready():
+	healing_power_sprite.mouse_entered.connect(func(): mouse_over.append_text("[font_size=32]Healing Power[/font_size]\n"))
+	pierce_sprite.mouse_entered.connect(func(): mouse_over.append_text("[font_size=32]Piercing[/font_size]\n"))
+	cooldown_sprite.mouse_entered.connect(func(): mouse_over.append_text("[font_size=32]Cooldown[/font_size]\n"))
+	speed_sprite.mouse_entered.connect(func(): mouse_over.append_text("[font_size=32]Projectile Speed[/font_size]\n"))
+	disable_sprite.mouse_entered.connect(func(): mouse_over.append_text("[font_size=32]Disable Duration[/font_size]\n"))
+	healing_power_sprite.mouse_exited.connect(clear_text)
+	pierce_sprite.mouse_exited.connect(clear_text)
+	cooldown_sprite.mouse_exited.connect(clear_text)
+	speed_sprite.mouse_exited.connect(clear_text)
+	disable_sprite.mouse_exited.connect(clear_text)
+	
+func clear_text():
+	mouse_over.clear()
 
 func update_values(damage : float, pierce : float, speed : float, debuff : float, cooldown : float):
-	potentency.value = debuff
-	power.value = damage
-	effectiveness.value = pierce
-	difficulty.value = cooldown
-	rapidity.value = speed
-	# print(debuff, " ", damage, " ", pierce, " ", cooldown, " ", speed)
+	disable_bar.value = debuff
+	healing_power_bar.value = damage
+	pierce_bar.value = pierce
+	cooldown_bar.value = cooldown
+	speed_bar.value = speed

@@ -94,9 +94,9 @@ func _unhandled_input(event : InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		match event.keycode:
 			Key.KEY_1:
-				SignalBus.select_spell.emit(SignalBus.Element.Water)
-			Key.KEY_2:
 				SignalBus.select_spell.emit(SignalBus.Element.Love)
+			Key.KEY_2:
+				SignalBus.select_spell.emit(SignalBus.Element.Water)
 			Key.KEY_3:
 				SignalBus.select_spell.emit(SignalBus.Element.Light)
 			Key.KEY_4:

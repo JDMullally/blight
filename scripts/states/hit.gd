@@ -7,7 +7,7 @@ func enter() -> void:
 	timer.wait_time = .2
 	timer.one_shot = true
 	#timer.autostart = true
-	self.add_child(timer)
+	add_child(timer)
 	if timer:
 		timer.start()
 	else:
