@@ -1,14 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://cytnuj3gjits"]
+[gd_scene load_steps=13 format=3 uid="uid://cytnuj3gjits"]
 
 [ext_resource type="Texture2D" uid="uid://byto310f2c6en" path="res://art/recent_downloads/failure screen.png" id="1_i4yxe"]
-[ext_resource type="Texture2D" uid="uid://cqwqjfmk82rjd" path="res://resources/bad_button_atlas_texture.tres" id="2_4a6on"]
 [ext_resource type="Script" uid="uid://dg8wqekga8doe" path="res://scripts/lose_screen.gd" id="2_cqc6b"]
 [ext_resource type="Texture2D" uid="uid://dm45ebrcuqavc" path="res://art/ui/basic button-Sheet-blight.png" id="3_cqc6b"]
 [ext_resource type="AudioStream" uid="uid://dkbsdca44ggnn" path="res://art/recent_downloads/failure.mp3" id="5_2kj51"]
+[ext_resource type="FontFile" uid="uid://c03ek57e7q0jk" path="res://art/ui/Ticketing.ttf" id="5_wvuob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvuob"]
+atlas = ExtResource("3_cqc6b")
+region = Rect2(0, 0, 128, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2kj51"]
 atlas = ExtResource("3_cqc6b")
 region = Rect2(128, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmbtx"]
+atlas = ExtResource("3_cqc6b")
+region = Rect2(0, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk7ho"]
+atlas = ExtResource("3_cqc6b")
+region = Rect2(0, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juuh0"]
+atlas = ExtResource("3_cqc6b")
+region = Rect2(0, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nru56"]
+atlas = ExtResource("3_cqc6b")
+region = Rect2(0, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw1uj"]
+atlas = ExtResource("3_cqc6b")
+region = Rect2(0, 0, 128, 32)
 
 [node name="LoseScreen" type="TextureRect"]
 offset_right = 1920.0
@@ -23,9 +47,9 @@ offset_top = 537.0
 offset_right = 1328.0
 offset_bottom = 577.0
 scale = Vector2(4, 4)
-texture_normal = ExtResource("2_4a6on")
+texture_normal = SubResource("AtlasTexture_wvuob")
 texture_pressed = SubResource("AtlasTexture_2kj51")
-texture_hover = ExtResource("2_4a6on")
+texture_hover = SubResource("AtlasTexture_dmbtx")
 
 [node name="Quit" type="TextureButton" parent="."]
 layout_mode = 0
@@ -34,9 +58,9 @@ offset_top = 893.0
 offset_right = 1328.0
 offset_bottom = 933.0
 scale = Vector2(4, 4)
-texture_normal = ExtResource("2_4a6on")
+texture_normal = SubResource("AtlasTexture_xk7ho")
 texture_pressed = SubResource("AtlasTexture_2kj51")
-texture_hover = ExtResource("2_4a6on")
+texture_hover = SubResource("AtlasTexture_juuh0")
 
 [node name="Restart" type="TextureButton" parent="."]
 layout_mode = 0
@@ -45,37 +69,40 @@ offset_top = 718.0
 offset_right = 1328.0
 offset_bottom = 758.0
 scale = Vector2(4, 4)
-texture_normal = ExtResource("2_4a6on")
+texture_normal = SubResource("AtlasTexture_nru56")
 texture_pressed = SubResource("AtlasTexture_2kj51")
-texture_hover = ExtResource("2_4a6on")
+texture_hover = SubResource("AtlasTexture_qw1uj")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1384.0
-offset_top = 755.0
-offset_right = 1720.0
-offset_bottom = 887.0
+offset_left = 1396.0
+offset_top = 761.0
+offset_right = 1732.0
+offset_bottom = 893.0
 scale = Vector2(0.4, 0.4)
+theme_override_fonts/font = ExtResource("5_wvuob")
 theme_override_font_sizes/font_size = 96
 text = "Restart"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1351.0
-offset_top = 571.0
-offset_right = 1890.0
-offset_bottom = 703.0
+offset_left = 1363.0
+offset_top = 583.0
+offset_right = 1902.0
+offset_bottom = 715.0
 scale = Vector2(0.4, 0.4)
+theme_override_fonts/font = ExtResource("5_wvuob")
 theme_override_font_sizes/font_size = 96
 text = "Title Screen"
 
 [node name="Label3" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1362.0
-offset_top = 932.0
-offset_right = 1909.0
-offset_bottom = 1064.0
+offset_left = 1385.0
+offset_top = 938.0
+offset_right = 1932.0
+offset_bottom = 1070.0
 scale = Vector2(0.4, 0.4)
+theme_override_fonts/font = ExtResource("5_wvuob")
 theme_override_font_sizes/font_size = 96
 text = "Exit Game"
 
