@@ -4,6 +4,12 @@ class_name Ring
 const MAX_RING_TIME : float = 30.0
 const MAX_THRESHOLD : int = 640
 
+#added statue onready here
+@onready var statue: Sprite2D = %Statue
+var statue_frame := 0
+const statue_frame_count := 9
+var last_frame := -1                
+
 @onready var ring_time : float = 0
 @onready var completed : bool = false
 @onready var within_ring : bool = false
@@ -22,6 +28,13 @@ func _process(delta: float) -> void:
 func update_ring_time(delta : float):
 	if within_ring:
 		ring_time = clampf(ring_time + delta, 0.0, 60.0)
+	
+	#asked google how to update every 3.75 seconds ish
+		var frame := int(floor(ring_time / 3.75))
+		if frame != last_frame:
+			statue_frame = (statue_frame + 1) % statue_frame_count
+			update_animation()
+			last_frame = frame
 
 func check_ring_time():
 	if ring_time >= MAX_RING_TIME:
@@ -39,6 +52,10 @@ func update_animation():
 	var current_atlas_texture : AtlasTexture = self.texture
 	current_atlas_texture.region = Rect2(increment * threshold, 0.0, MAX_THRESHOLD, MAX_THRESHOLD)
 	point_light_2d.energy = clampf(.4 + ring_time / MAX_RING_TIME, .4, 1.4) if within_ring else 0.0
+	
+	#copying you
+	var new_atlas_texture : AtlasTexture = statue.texture
+	new_atlas_texture.region = Rect2(increment * threshold, 0.0, MAX_THRESHOLD, MAX_THRESHOLD)
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
