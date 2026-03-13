@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=28 format=3 uid="uid://034e2p7v8ow7"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://034e2p7v8ow7"]
 
 [ext_resource type="Texture2D" uid="uid://dsxko7sbeaevl" path="res://art/monsters/frogidle.png" id="1_2h6gg"]
 [ext_resource type="Texture2D" uid="uid://clmfnn2d670ub" path="res://art/misc/froggiehealed2.png" id="1_2qdn1"]

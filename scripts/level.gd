@@ -12,6 +12,7 @@ extends Node2D
 @onready var gpu_particles_2d: GPUParticles2D = $Gauntlet/GPUParticles2D
 @onready var texture_progress_bar: SurviveBar = %TextureProgressBar
 const POWER_UP = "uid://cutbq3a0oj5q"
+@onready var directional_light_2d: DirectionalLight2D = $CanvasLayer/DirectionalLight2D
 
 func _ready() -> void:
 	gauntlet_timer = Timer.new()
@@ -29,6 +30,7 @@ func _ready() -> void:
 	
 func complete_shrine():
 	completed_shrines += 1
+	directional_light_2d.energy = directional_light_2d.energy - .1
 	if completed_shrines >= 3:
 		gauntlet()
 
@@ -49,7 +51,7 @@ func game_over():
 	get_tree().change_scene_to_file("res://scenes/Lose_screen.tscn")
 	
 func game_win():
-	get_tree().change_scene_to_file("res://scenes/title.tscn")
+	get_tree().change_scene_to_file("res://scenes/Win_screen.tscn")
 
 func create_powerup_at_location(global_pos : Vector2):
 	var new_power_up = load(POWER_UP).instantiate() as PowerUp

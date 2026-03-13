@@ -146,9 +146,11 @@ func take_damage(damage : int):
 		
 	skew_tween = get_tree().create_tween()
 	
-	skew_tween.tween_property(self, "skew", .4, 0.05)
-	skew_tween.tween_property(self, "skew", -.4, 0.1)
+	skew_tween.tween_property(self, "skew", .2, 0.05)
+	skew_tween.tween_property(self, "skew", -.2, 0.1)
 	skew_tween.tween_property(self, "skew", 0.0, 0.05)
+	
+	flash_green()
 	
 	if monster_stats.is_dead():
 		# print('im dead!')
@@ -159,6 +161,14 @@ func play_animation():
 		animated_sprite_2d.play("run")
 	else:
 		animated_sprite_2d.play("idle")
+
+func flash_green():
+	var original_color : Color = modulate
+	
+	var tween : Tween = create_tween()
+	tween.tween_property(self, "modulate", Color(0, 1, 0), 0.08)
+	tween.tween_property(self, "modulate", original_color, 0.12)
+
 
 func dissapear():
 	var tween := create_tween()

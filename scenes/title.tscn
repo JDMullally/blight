@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://54h4hjoeo0dw"]
+[gd_scene format=3 uid="uid://54h4hjoeo0dw"]
 
 [ext_resource type="Script" uid="uid://dta0mjfe67mcw" path="res://scripts/menuUtil.gd" id="1_4ignj"]
 [ext_resource type="Texture2D" uid="uid://b4bbndhepcbj2" path="res://art/title-screen.png" id="2_pyl7j"]
@@ -12,7 +12,7 @@
 atlas = ExtResource("4_4rr2b")
 region = Rect2(128, 0, 128, 32)
 
-[node name="Title" type="Control"]
+[node name="Title" type="Control" unique_id=548964726]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,13 +21,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4ignj")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=989750070]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_pyl7j")
 
-[node name="Start" type="TextureButton" parent="."]
+[node name="Start" type="TextureButton" parent="." unique_id=1782971654]
 layout_mode = 0
 offset_left = 219.0
 offset_top = 609.00006
@@ -38,7 +38,7 @@ texture_normal = ExtResource("3_b3w7a")
 texture_pressed = SubResource("AtlasTexture_yql1r")
 texture_hover = ExtResource("3_b3w7a")
 
-[node name="Settings" type="TextureButton" parent="."]
+[node name="Settings" type="TextureButton" parent="." unique_id=2107891674]
 layout_mode = 0
 offset_left = 219.0
 offset_top = 742.0
@@ -49,7 +49,7 @@ texture_normal = ExtResource("3_b3w7a")
 texture_pressed = SubResource("AtlasTexture_yql1r")
 texture_hover = ExtResource("3_b3w7a")
 
-[node name="Quit" type="TextureButton" parent="."]
+[node name="Quit" type="TextureButton" parent="." unique_id=2059787679]
 layout_mode = 0
 offset_left = 218.0
 offset_top = 883.0
@@ -60,7 +60,7 @@ texture_normal = ExtResource("3_b3w7a")
 texture_pressed = SubResource("AtlasTexture_yql1r")
 texture_hover = ExtResource("3_b3w7a")
 
-[node name="StartLabel" type="Label" parent="."]
+[node name="StartLabel" type="Label" parent="." unique_id=617862541]
 layout_mode = 0
 offset_left = 385.0
 offset_top = 641.0
@@ -72,20 +72,20 @@ theme_override_fonts/font = ExtResource("5_yql1r")
 theme_override_font_sizes/font_size = 120
 text = "Start"
 
-[node name="SettingsLabel" type="Label" parent="."]
+[node name="SettingsLabel" type="Label" parent="." unique_id=1966392516]
 layout_mode = 0
-offset_left = 339.0
+offset_left = 327.0
 offset_top = 773.0
-offset_right = 878.0
+offset_right = 1029.0
 offset_bottom = 905.0
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.35, 0.35)
 theme_override_colors/font_color = Color(0.93333334, 0.7647059, 0.6039216, 1)
 theme_override_fonts/font = ExtResource("5_yql1r")
 theme_override_font_sizes/font_size = 120
-text = "Settings"
+text = "Show Settings"
 horizontal_alignment = 1
 
-[node name="ExitGameLabel" type="Label" parent="."]
+[node name="ExitGameLabel" type="Label" parent="." unique_id=411675177]
 layout_mode = 0
 offset_left = 349.0
 offset_top = 913.0
@@ -97,11 +97,11 @@ theme_override_fonts/font = ExtResource("5_yql1r")
 theme_override_font_sizes/font_size = 120
 text = "Exit Game"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=686191153]
 stream = ExtResource("5_b3w7a")
 bus = &"Music"
 
-[node name="Volume" parent="." instance=ExtResource("6_4rr2b")]
+[node name="Volume" parent="." unique_id=2140801774 instance=ExtResource("6_4rr2b")]
 visible = false
 layout_mode = 0
 offset_left = 998.0

@@ -7,7 +7,7 @@ extends Control
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	settings_label.text = "Settings" if !showing_volume else "Hide Settings"
+	settings_label.text = "Show Settings" if !showing_volume else "Hide Settings"
 	audio_stream_player.play(0.0)
 
 func start() -> void:
@@ -27,7 +27,7 @@ func settings() -> void:
 	else:
 		volume.show()
 	showing_volume = !showing_volume
-	settings_label.text = "Settings" if !showing_volume else "Hide Settings"
+	settings_label.text = "Show Settings" if !showing_volume else "Hide Settings"
 
 func quit() -> void:
 	get_tree().quit(0)

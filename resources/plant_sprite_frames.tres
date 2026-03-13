@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=23 format=3 uid="uid://ba66wxvryb5mp"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://ba66wxvryb5mp"]
 
 [ext_resource type="Texture2D" uid="uid://3mjgwpne0fw8" path="res://art/monsters/plantidle.png" id="1_3guex"]
 [ext_resource type="Texture2D" uid="uid://bcbilorh8ooyb" path="res://art/misc/flowerhealed.png" id="1_iuyv0"]

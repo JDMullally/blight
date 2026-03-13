@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=36 format=3 uid="uid://dmw8hikim0of7"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://dmw8hikim0of7"]
 
 [ext_resource type="Texture2D" uid="uid://xgcq7gfvhu8a" path="res://art/misc/healed_wolfhowl.png" id="1_0pc50"]
 [ext_resource type="Texture2D" uid="uid://b100c78yvhmhu" path="res://art/monsters/wolfidle.png" id="1_bbfvh"]
