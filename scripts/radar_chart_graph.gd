@@ -15,11 +15,11 @@ class_name StatChart
 @onready var mouse_over: RichTextLabel = $MouseOver
 
 func _ready():
-	healing_power_sprite.mouse_entered.connect(func(): mouse_over.append_text("[font_size=32]Healing Power[/font_size]\n"))
-	pierce_sprite.mouse_entered.connect(func(): mouse_over.append_text("[font_size=32]Piercing[/font_size]\n"))
-	cooldown_sprite.mouse_entered.connect(func(): mouse_over.append_text("[font_size=32]Cooldown[/font_size]\n"))
-	speed_sprite.mouse_entered.connect(func(): mouse_over.append_text("[font_size=32]Projectile Speed[/font_size]\n"))
-	disable_sprite.mouse_entered.connect(func(): mouse_over.append_text("[font_size=32]Disable Duration[/font_size]\n"))
+	healing_power_sprite.mouse_entered.connect(func(): mouse_over.append_text("Healing Power\n"))
+	pierce_sprite.mouse_entered.connect(func(): mouse_over.append_text("Piercing\n"))
+	cooldown_sprite.mouse_entered.connect(func(): mouse_over.append_text("Cooldown\n"))
+	speed_sprite.mouse_entered.connect(func(): mouse_over.append_text("Projectile Speed\n"))
+	disable_sprite.mouse_entered.connect(func(): mouse_over.append_text("Disable Duration\n"))
 	healing_power_sprite.mouse_exited.connect(clear_text)
 	pierce_sprite.mouse_exited.connect(clear_text)
 	cooldown_sprite.mouse_exited.connect(clear_text)

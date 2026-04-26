@@ -1,12 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://dltvpaj0isjxc"]
+[gd_scene format=3 uid="uid://dltvpaj0isjxc"]
 
 [ext_resource type="Texture2D" uid="uid://4i8h5thoh66k" path="res://art/ui/Menu (1).png" id="1_xssyf"]
 [ext_resource type="Script" uid="uid://bysufsh3ihv8f" path="res://scripts/spellbook.gd" id="2_xfrxm"]
 [ext_resource type="PackedScene" uid="uid://b8cti6qe10mbd" path="res://scenes/control.tscn" id="3_jclf1"]
-[ext_resource type="Texture2D" uid="uid://qr45pel4w7fw" path="res://art/ui/all buttons-Sheet.png" id="4_pqdiw"]
+[ext_resource type="Texture2D" uid="uid://84xpqqa72326" path="res://art/ui/all buttons-Sheet.png" id="4_pqdiw"]
 [ext_resource type="PackedScene" uid="uid://cwig508gpj7v" path="res://scenes/volume.tscn" id="5_ccaqx"]
 [ext_resource type="Texture2D" uid="uid://cl0eman8b4r4w" path="res://art/ui/basic button up.png" id="6_13a7e"]
 [ext_resource type="PackedScene" uid="uid://vb68bis4s2l0" path="res://scenes/radar_chart_graph.tscn" id="7_13a7e"]
+[ext_resource type="FontFile" uid="uid://dr2bgp0dus7et" path="res://art/ui/arcade_font/retro-pixel-arcade.ttf" id="7_d7fim"]
 [ext_resource type="Texture2D" uid="uid://bfsyul2q4hogu" path="res://art/ui/basic button down.png" id="7_shkej"]
 [ext_resource type="Texture2D" uid="uid://dlghbjssw5yhk" path="res://art/ui/Love Button.png" id="8_xfrxm"]
 [ext_resource type="Texture2D" uid="uid://bh36gp0tx1rtc" path="res://art/ui/Song Button.png" id="9_jclf1"]
@@ -69,24 +70,25 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("9_jclf1")
 region = Rect2(0, 0, 16, 16)
 
-[node name="Spellbook" type="TextureRect"]
+[node name="Spellbook" type="TextureRect" unique_id=1093890067]
 process_mode = 3
+z_index = 100
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(2, 2)
 texture = ExtResource("1_xssyf")
 script = ExtResource("2_xfrxm")
 
-[node name="ExitButton" type="TextureButton" parent="."]
+[node name="ExitButton" type="TextureButton" parent="." unique_id=804745465]
 layout_mode = 0
-offset_left = 553.5
-offset_top = 9.0
-offset_right = 585.5
-offset_bottom = 41.0
+offset_left = 635.5
+offset_top = 2.0
+offset_right = 667.5
+offset_bottom = 34.0
 texture_normal = SubResource("AtlasTexture_dnr16")
 texture_pressed = SubResource("AtlasTexture_eh7el")
 
-[node name="Components" type="Control" parent="."]
+[node name="Components" type="Control" parent="." unique_id=261273113]
 anchors_preset = 0
 offset_left = 103.0
 offset_top = -80.0
@@ -94,7 +96,8 @@ offset_right = 143.0
 offset_bottom = -80.0
 scale = Vector2(0.5, 0.5)
 
-[node name="GreyScaleCheckButton" type="CheckButton" parent="Components"]
+[node name="GreyScaleCheckButton" type="CheckButton" parent="Components" unique_id=274865062]
+visible = false
 layout_mode = 0
 offset_left = 100.0
 offset_top = 700.0
@@ -102,58 +105,65 @@ offset_right = 238.0
 offset_bottom = 773.0
 text = "GREYSCALE"
 
-[node name="Volume" parent="Components" instance=ExtResource("5_ccaqx")]
+[node name="Volume" parent="Components" unique_id=369935628 instance=ExtResource("5_ccaqx")]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 525.0
-offset_right = 25.0
-offset_bottom = 525.0
+offset_left = 7.0
+offset_top = 398.0
+offset_right = 19.0
+offset_bottom = 398.0
 
-[node name="Restart" type="TextureButton" parent="Components"]
+[node name="Restart" type="TextureButton" parent="Components" unique_id=1300659984]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 225.0
-offset_right = 153.0
-offset_bottom = 265.0
+offset_left = -91.0
+offset_top = 312.0
+offset_right = 37.0
+offset_bottom = 352.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("6_13a7e")
 texture_pressed = ExtResource("7_shkej")
 
-[node name="Restart" type="RichTextLabel" parent="Components/Restart"]
+[node name="Restart" type="RichTextLabel" parent="Components/Restart" unique_id=629712505]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 5.0
-offset_right = 110.0
-offset_bottom = 27.0
+offset_left = 29.5
+offset_top = 9.5
+offset_right = 118.874985
+offset_bottom = 23.875
 scale = Vector2(0.8, 0.8)
 mouse_filter = 2
+theme_override_colors/default_color = Color(0.32156864, 0.2, 0.09019608, 1)
+theme_override_fonts/normal_font = ExtResource("7_d7fim")
+theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center]Restart[/center]"
+text = "[center]RESTART[/center]"
 scroll_active = false
 
-[node name="Title" type="TextureButton" parent="Components"]
+[node name="Title" type="TextureButton" parent="Components" unique_id=1745703734]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 300.0
-offset_right = 153.0
-offset_bottom = 340.0
+offset_left = 160.0
+offset_top = 312.0
+offset_right = 288.0
+offset_bottom = 352.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("6_13a7e")
 texture_pressed = ExtResource("7_shkej")
 
-[node name="Title" type="RichTextLabel" parent="Components/Title"]
+[node name="Title" type="RichTextLabel" parent="Components/Title" unique_id=224161371]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 5.0
-offset_right = 120.25
-offset_bottom = 26.0
+offset_left = 28.0
+offset_top = 8.5
+offset_right = 118.25
+offset_bottom = 29.5
 scale = Vector2(0.8, 0.8)
 mouse_filter = 2
+theme_override_colors/default_color = Color(0.32156864, 0.2, 0.09019608, 1)
+theme_override_fonts/normal_font = ExtResource("7_d7fim")
+theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center]Title Screen[/center]"
+text = "[center]QUIT[/center]"
 scroll_active = false
 
-[node name="Quit" type="TextureButton" parent="Components"]
+[node name="Quit" type="TextureButton" parent="Components" unique_id=2141311393]
+visible = false
 layout_mode = 0
 offset_left = 25.0
 offset_top = 375.0
@@ -163,7 +173,7 @@ scale = Vector2(2, 2)
 texture_normal = ExtResource("6_13a7e")
 texture_pressed = ExtResource("7_shkej")
 
-[node name="Quit" type="RichTextLabel" parent="Components/Quit"]
+[node name="Quit" type="RichTextLabel" parent="Components/Quit" unique_id=367070081]
 layout_mode = 0
 offset_left = 30.0
 offset_top = 5.0
@@ -175,7 +185,8 @@ bbcode_enabled = true
 text = "[center]Quit[/center]"
 scroll_active = false
 
-[node name="Resume" type="TextureButton" parent="Components"]
+[node name="Resume" type="TextureButton" parent="Components" unique_id=244495606]
+visible = false
 layout_mode = 0
 offset_left = 25.0
 offset_top = 450.0
@@ -185,7 +196,7 @@ scale = Vector2(2, 2)
 texture_normal = ExtResource("6_13a7e")
 texture_pressed = ExtResource("7_shkej")
 
-[node name="Resume" type="RichTextLabel" parent="Components/Resume"]
+[node name="Resume" type="RichTextLabel" parent="Components/Resume" unique_id=540167076]
 layout_mode = 0
 offset_left = 30.0
 offset_top = 5.0
@@ -197,88 +208,119 @@ bbcode_enabled = true
 text = "[center]Resume[/center]"
 scroll_active = false
 
-[node name="Control" type="Control" parent="."]
+[node name="Title-text" type="RichTextLabel" parent="Components" unique_id=942848379]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 249.0
+offset_right = 304.74997
+offset_bottom = 291.5
+scale = Vector2(0.8, 0.8)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.32156864, 0.2, 0.09019608, 1)
+theme_override_fonts/normal_font = ExtResource("7_d7fim")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]OPTIONS[/center]"
+scroll_active = false
+
+[node name="Title-text2" type="RichTextLabel" parent="Components" unique_id=2025089711]
+layout_mode = 0
+offset_left = 31.000004
+offset_top = 707.0
+offset_right = 382.24994
+offset_bottom = 732.0
+scale = Vector2(0.8, 0.8)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.32156864, 0.2, 0.09019608, 1)
+theme_override_fonts/normal_font = ExtResource("7_d7fim")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "draw your spells on the page!"
+scroll_active = false
+
+[node name="Control" type="Control" parent="." unique_id=732206076]
 anchors_preset = 0
 
-[node name="WaterChart" parent="Control" instance=ExtResource("7_13a7e")]
+[node name="WaterChart" parent="Control" unique_id=1106585155 instance=ExtResource("7_13a7e")]
 visible = false
 layout_mode = 0
-offset_left = 437.5
-offset_top = 250.0
-offset_right = 588.0
-offset_bottom = 306.0
+offset_left = 428.0
+offset_top = 243.0
+offset_right = 578.5
+offset_bottom = 299.0
 
-[node name="LoveChart" parent="Control" instance=ExtResource("7_13a7e")]
+[node name="LoveChart" parent="Control" unique_id=625637098 instance=ExtResource("7_13a7e")]
 layout_mode = 0
-offset_left = 437.5
-offset_top = 249.5
-offset_right = 587.5
-offset_bottom = 305.5
+offset_left = 428.0
+offset_top = 234.0
+offset_right = 556.0
+offset_bottom = 298.0
 
-[node name="LightChart" parent="Control" instance=ExtResource("7_13a7e")]
+[node name="LightChart" parent="Control" unique_id=1827624369 instance=ExtResource("7_13a7e")]
 visible = false
 layout_mode = 0
-offset_left = 437.5
-offset_top = 249.5
-offset_right = 587.5
-offset_bottom = 305.5
+offset_left = 428.0
+offset_top = 243.0
+offset_right = 578.0
+offset_bottom = 299.0
 
-[node name="SongChart" parent="Control" instance=ExtResource("7_13a7e")]
+[node name="SongChart" parent="Control" unique_id=2016807835 instance=ExtResource("7_13a7e")]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 428.0
+offset_top = 243.0
+offset_right = 578.0
+offset_bottom = 299.0
+
+[node name="WaterArea" parent="Control" unique_id=1178287588 instance=ExtResource("3_jclf1")]
 visible = false
 layout_mode = 0
-offset_left = 437.5
-offset_top = 249.5
-offset_right = 587.5
-offset_bottom = 305.5
-
-[node name="WaterArea" parent="Control" instance=ExtResource("3_jclf1")]
-visible = false
-layout_mode = 0
-offset_left = 344.5
-offset_top = 41.0
-offset_right = 896.5
-offset_bottom = 511.0
+offset_left = 344.0
+offset_top = 47.5
+offset_right = 896.0
+offset_bottom = 517.5
 scale = Vector2(0.4, 0.4)
 
-[node name="LoveArea" parent="Control" instance=ExtResource("3_jclf1")]
+[node name="LoveArea" parent="Control" unique_id=474725036 instance=ExtResource("3_jclf1")]
 layout_mode = 0
-offset_left = 344.5
-offset_top = 40.5
-offset_right = 896.5
-offset_bottom = 510.5
+offset_left = 344.0
+offset_top = 47.500004
+offset_right = 896.0
+offset_bottom = 517.5
 scale = Vector2(0.4, 0.4)
 element = 1
 
-[node name="LightArea" parent="Control" instance=ExtResource("3_jclf1")]
+[node name="LightArea" parent="Control" unique_id=1700454482 instance=ExtResource("3_jclf1")]
 visible = false
 layout_mode = 0
-offset_left = 344.5
-offset_top = 40.5
-offset_right = 896.5
-offset_bottom = 510.5
+offset_left = 344.0
+offset_top = 47.5
+offset_right = 896.0
+offset_bottom = 517.5
 scale = Vector2(0.4, 0.4)
 element = 2
 
-[node name="SongArea" parent="Control" instance=ExtResource("3_jclf1")]
+[node name="SongArea" parent="Control" unique_id=239773635 instance=ExtResource("3_jclf1")]
 visible = false
 layout_mode = 0
-offset_left = 344.5
-offset_top = 40.5
-offset_right = 896.5
-offset_bottom = 510.5
+offset_left = 344.0
+offset_top = 47.5
+offset_right = 896.0
+offset_bottom = 517.5
 scale = Vector2(0.4, 0.4)
 element = 3
 
-[node name="LoveButton" type="TextureButton" parent="Control"]
+[node name="LoveButton" type="TextureButton" parent="Control" unique_id=251824703]
 layout_mode = 0
-offset_left = 382.5
-offset_top = 232.5
-offset_right = 398.5
-offset_bottom = 248.5
+offset_left = 391.0
+offset_top = 25.0
+offset_right = 407.0
+offset_bottom = 41.0
 texture_normal = SubResource("AtlasTexture_jclf1")
 texture_pressed = SubResource("AtlasTexture_pqdiw")
 
-[node name="SongButton" type="TextureButton" parent="Control"]
+[node name="SongButton" type="TextureButton" parent="Control" unique_id=1784521453]
 visible = false
 layout_mode = 0
 offset_left = 454.5
@@ -288,7 +330,7 @@ offset_bottom = 248.5
 texture_normal = SubResource("AtlasTexture_ccaqx")
 texture_pressed = SubResource("AtlasTexture_13a7e")
 
-[node name="WaterButton" type="TextureButton" parent="Control"]
+[node name="WaterButton" type="TextureButton" parent="Control" unique_id=1697551787]
 visible = false
 layout_mode = 0
 offset_left = 406.5
@@ -298,7 +340,7 @@ offset_bottom = 248.5
 texture_normal = SubResource("AtlasTexture_shkej")
 texture_pressed = SubResource("AtlasTexture_d7fim")
 
-[node name="LightButton" type="TextureButton" parent="Control"]
+[node name="LightButton" type="TextureButton" parent="Control" unique_id=54658388]
 visible = false
 layout_mode = 0
 offset_left = 430.5
@@ -308,39 +350,39 @@ offset_bottom = 248.5
 texture_normal = SubResource("AtlasTexture_6thth")
 texture_pressed = SubResource("AtlasTexture_ef3e6")
 
-[node name="Heart" type="TextureRect" parent="Control"]
+[node name="Heart" type="TextureRect" parent="Control" unique_id=718657696]
 visible = false
 layout_mode = 0
-offset_left = 345.0
-offset_top = 232.0
-offset_right = 377.0
-offset_bottom = 264.0
+offset_left = 355.0
+offset_top = 25.0
+offset_right = 387.0
+offset_bottom = 57.0
 texture = SubResource("AtlasTexture_yoydh")
 
-[node name="Water" type="TextureRect" parent="Control"]
+[node name="Water" type="TextureRect" parent="Control" unique_id=365528680]
 layout_mode = 0
-offset_left = 345.0
-offset_top = 231.5
-offset_right = 377.0
-offset_bottom = 263.5
+offset_left = 355.0
+offset_top = 25.0
+offset_right = 387.0
+offset_bottom = 57.0
 texture = SubResource("AtlasTexture_fpacq")
 
-[node name="Light" type="TextureRect" parent="Control"]
+[node name="Light" type="TextureRect" parent="Control" unique_id=1127993157]
 visible = false
 layout_mode = 0
-offset_left = 345.0
-offset_top = 232.0
-offset_right = 377.0
-offset_bottom = 264.0
+offset_left = 355.0
+offset_top = 25.0
+offset_right = 387.0
+offset_bottom = 57.0
 texture = SubResource("AtlasTexture_holsd")
 
-[node name="Song" type="TextureRect" parent="Control"]
+[node name="Song" type="TextureRect" parent="Control" unique_id=373165036]
 visible = false
 layout_mode = 0
-offset_left = 345.0
-offset_top = 232.0
-offset_right = 377.0
-offset_bottom = 264.0
+offset_left = 355.0
+offset_top = 25.0
+offset_right = 387.0
+offset_bottom = 57.0
 texture = SubResource("AtlasTexture_ipg7y")
 
 [connection signal="pressed" from="ExitButton" to="." method="show_or_hide"]

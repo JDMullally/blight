@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://84xpqqa72326"
-path="res://.godot/imported/all buttons-Sheet.png-ce2a512dd9bbec964ba4d80c0cf711df.ctex"
+uid="uid://5ehq1kxsw8vs"
+path="res://.godot/imported/icons-dash (1).png-b3f259249e82529a3230959110724e38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/ui/all buttons-Sheet.png"
-dest_files=["res://.godot/imported/all buttons-Sheet.png-ce2a512dd9bbec964ba4d80c0cf711df.ctex"]
+source_file="res://art/ui/hud/icons-dash (1).png"
+dest_files=["res://.godot/imported/icons-dash (1).png-b3f259249e82529a3230959110724e38.ctex"]
 
 [params]
 

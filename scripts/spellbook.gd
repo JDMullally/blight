@@ -18,7 +18,13 @@ var showing = false
 @onready var light_chart: StatChart = $Control/LightChart
 @onready var song_chart: StatChart = $Control/SongChart
 
+
 func _ready() -> void:
+	self.showing = false
+	self.hide()
+	get_tree().paused = false
+	set_label_colors($Components/Volume, Color.SADDLE_BROWN)
+	
 	SignalBus.unlock_spell.connect(unlock_spell)
 	SignalBus.update_spell_stats.connect(update_spell_stats)
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -48,6 +54,12 @@ func update_spell_stats(element : SignalBus.Element, damage : float, pierce : fl
 			light_chart.update_values(damage, pierce, speed, duration, cooldown)
 		SignalBus.Element.Song:
 			song_chart.update_values(damage, pierce, speed, duration, cooldown)
+			
+func set_label_colors(node, color):
+	for child in node.get_children():
+		if child is Label:
+			child.add_theme_color_override("font_color", color)
+		set_label_colors(child, color)
 
 func _input(event : InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == Key.KEY_TAB:
@@ -60,6 +72,8 @@ func show_or_hide():
 		self.show()
 	get_tree().paused = !self.showing
 	self.showing = !self.showing
+	
+	SignalBus.toggle_overlay.emit(self.showing)
 
 func restart():
 	get_tree().paused = false

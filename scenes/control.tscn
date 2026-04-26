@@ -1,54 +1,76 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8cti6qe10mbd"]
+[gd_scene format=3 uid="uid://b8cti6qe10mbd"]
 
-[ext_resource type="Texture2D" uid="uid://c3bo54inchesx" path="res://art/ui/draw_page.png" id="1_r67kn"]
+[ext_resource type="Texture2D" uid="uid://bimuegffcs2mt" path="res://art/ui/recent_bc_i_dont_wanna_look_for_these/draw-area.png" id="1_lt2xq"]
 [ext_resource type="Script" uid="uid://cdy1owx64b1nm" path="res://scripts/stupid_thing.gd" id="2_8n18e"]
 [ext_resource type="Texture2D" uid="uid://cl0eman8b4r4w" path="res://art/ui/basic button up.png" id="3_8n18e"]
+[ext_resource type="Texture2D" uid="uid://b1hd11y0p8fjv" path="res://art/ui/recent_bc_i_dont_wanna_look_for_these/trash-button (1).png" id="3_lt2xq"]
+[ext_resource type="Texture2D" uid="uid://d02024410op8a" path="res://art/ui/recent_bc_i_dont_wanna_look_for_these/undo-button (1).png" id="4_1p5nq"]
 [ext_resource type="Texture2D" uid="uid://bfsyul2q4hogu" path="res://art/ui/basic button down.png" id="4_tjwpk"]
+[ext_resource type="FontFile" uid="uid://dr2bgp0dus7et" path="res://art/ui/arcade_font/retro-pixel-arcade.ttf" id="7_hob4j"]
 
-[node name="DrawingArea" type="TextureRect"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_01bab"]
+atlas = ExtResource("3_lt2xq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exs80"]
+atlas = ExtResource("3_lt2xq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kql7n"]
+atlas = ExtResource("4_1p5nq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tac8f"]
+atlas = ExtResource("4_1p5nq")
+region = Rect2(32, 0, 32, 32)
+
+[node name="DrawingArea" type="TextureRect" unique_id=1962201753]
 process_mode = 3
-offset_left = 126.0
-offset_top = 107.0
-offset_right = 678.0
-offset_bottom = 577.0
-texture = ExtResource("1_r67kn")
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 737.0
+offset_bottom = 620.0
+texture = ExtResource("1_lt2xq")
+expand_mode = 1
 script = ExtResource("2_8n18e")
 
-[node name="Del" type="TextureButton" parent="."]
+[node name="Del" type="TextureButton" parent="." unique_id=955234530]
 z_index = 1
 layout_mode = 0
-offset_left = 234.0
-offset_top = 437.0
-offset_right = 362.0
-offset_bottom = 471.0
+offset_left = 421.0
+offset_top = 370.0
+offset_right = 453.0
+offset_bottom = 402.0
 tooltip_text = "Delete"
-texture_normal = ExtResource("3_8n18e")
-texture_pressed = ExtResource("4_tjwpk")
+texture_normal = SubResource("AtlasTexture_01bab")
+texture_pressed = SubResource("AtlasTexture_exs80")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Del"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Del" unique_id=999370447]
+visible = false
 z_index = 1
 layout_mode = 0
-offset_left = 20.0
-offset_top = 5.0
-offset_right = 109.0
-offset_bottom = 26.0
+offset_left = 19.0
+offset_top = 4.0
+offset_right = 107.99994
+offset_bottom = 25.0
 mouse_filter = 2
 bbcode_enabled = true
 text = "[center]Delete[/center]"
 scroll_active = false
 
-[node name="Und" type="TextureButton" parent="."]
+[node name="Und" type="TextureButton" parent="." unique_id=340305803]
 z_index = 1
 layout_mode = 0
-offset_left = -6.0
-offset_top = 437.0
-offset_right = 122.0
-offset_bottom = 471.0
+offset_left = 86.0
+offset_top = 372.0
+offset_right = 118.0
+offset_bottom = 406.0
 tooltip_text = "Delete"
-texture_normal = ExtResource("3_8n18e")
-texture_pressed = ExtResource("4_tjwpk")
+texture_normal = SubResource("AtlasTexture_kql7n")
+texture_pressed = SubResource("AtlasTexture_tac8f")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Und"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Und" unique_id=1192143907]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 20.0
@@ -60,30 +82,35 @@ bbcode_enabled = true
 text = "[center]Undo[/center]"
 scroll_active = false
 
-[node name="Sav" type="TextureButton" parent="."]
+[node name="Sav" type="TextureButton" parent="." unique_id=427157175]
 z_index = 1
 layout_mode = 0
-offset_left = 428.0
-offset_top = 437.0
-offset_right = 556.0
-offset_bottom = 471.0
+offset_left = 154.0
+offset_top = 364.0
+offset_right = 375.0
+offset_bottom = 403.0
 tooltip_text = "Delete"
 texture_normal = ExtResource("3_8n18e")
 texture_pressed = ExtResource("4_tjwpk")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Sav"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Sav" unique_id=840124966]
 z_index = 1
 layout_mode = 0
-offset_left = 20.0
-offset_top = 5.0
-offset_right = 109.0
-offset_bottom = 26.0
+offset_left = 60.0
+offset_top = 12.0
+offset_right = 183.0
+offset_bottom = 33.0
 mouse_filter = 2
+theme_override_colors/default_color = Color(0.2782347, 0.1955567, 0.07013168, 1)
+theme_override_fonts/normal_font = ExtResource("7_hob4j")
+theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center]Save[/center]"
+text = "SAVE SPELL"
 scroll_active = false
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1309272985]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 213.0

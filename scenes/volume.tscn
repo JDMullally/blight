@@ -1,64 +1,167 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwig508gpj7v"]
+[gd_scene format=3 uid="uid://cwig508gpj7v"]
 
-[ext_resource type="Script" path="res://scripts/volume_slider.gd" id="1_gm22o"]
+[ext_resource type="Script" uid="uid://0gcg1kqaos8p" path="res://scripts/volume_slider.gd" id="1_gm22o"]
+[ext_resource type="Texture2D" uid="uid://c3bo54inchesx" path="res://art/ui/draw_page.png" id="2_mch7p"]
+[ext_resource type="Texture2D" uid="uid://c0gsa14pi1mot" path="res://art/ui/slideras/slider-7.png" id="3_xvi8a"]
+[ext_resource type="Texture2D" uid="uid://lik0wdjjy0oc" path="res://art/ui/slideras/slider-6.png" id="4_w60lv"]
+[ext_resource type="FontFile" uid="uid://dr2bgp0dus7et" path="res://art/ui/arcade_font/retro-pixel-arcade.ttf" id="4_xvi8a"]
+[ext_resource type="Texture2D" uid="uid://xb58ds011how" path="res://art/ui/slideras/slider-3.png" id="5_7oq1j"]
+[ext_resource type="Texture2D" uid="uid://8h86n2f1ugkq" path="res://art/ui/slideras/slider-4.png" id="6_mch7p"]
+[ext_resource type="Texture2D" uid="uid://cwxj7fhrf4yt1" path="res://art/ui/slideras/slider-5.png" id="7_gocru"]
 
-[node name="Volume" type="Control"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xvi8a"]
+content_margin_left = 2.0
+content_margin_top = 8.0
+content_margin_right = 2.0
+content_margin_bottom = 8.0
+texture = ExtResource("3_xvi8a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w60lv"]
+content_margin_left = 2.0
+content_margin_top = 8.0
+content_margin_right = 2.0
+content_margin_bottom = 8.0
+texture = ExtResource("4_w60lv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ty1d"]
+content_margin_left = 2.0
+content_margin_top = 8.0
+content_margin_right = 2.0
+content_margin_bottom = 8.0
+texture = ExtResource("4_w60lv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7oq1j"]
+content_margin_left = 2.0
+content_margin_top = 8.0
+content_margin_right = 2.0
+content_margin_bottom = 8.0
+texture = ExtResource("3_xvi8a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mch7p"]
+content_margin_left = 2.0
+content_margin_top = 8.0
+content_margin_right = 2.0
+content_margin_bottom = 8.0
+texture = ExtResource("4_w60lv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gocru"]
+content_margin_left = 2.0
+content_margin_top = 8.0
+content_margin_right = 2.0
+content_margin_bottom = 8.0
+texture = ExtResource("4_w60lv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wv35w"]
+content_margin_left = 2.0
+content_margin_top = 8.0
+content_margin_right = 2.0
+content_margin_bottom = 8.0
+texture = ExtResource("3_xvi8a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ohds"]
+content_margin_left = 2.0
+content_margin_top = 8.0
+content_margin_right = 2.0
+content_margin_bottom = 8.0
+texture = ExtResource("4_w60lv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lhf5r"]
+content_margin_left = 2.0
+content_margin_top = 8.0
+content_margin_right = 2.0
+content_margin_bottom = 8.0
+texture = ExtResource("4_w60lv")
+
+[node name="Volume" type="Control" unique_id=660899278]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_gm22o")
 
-[node name="MasterVolume" type="HSlider" parent="."]
+[node name="DrawPage" type="Sprite2D" parent="." unique_id=1124386280]
+modulate = Color(1, 1, 1, 0.14509805)
+position = Vector2(168.99998, 133.00002)
+scale = Vector2(1.2226278, 0.959854)
+texture = ExtResource("2_mch7p")
+
+[node name="MasterVolume" type="HSlider" parent="." unique_id=1310116617]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 0
-offset_top = 26.0
-offset_right = 274.0
-offset_bottom = 52.0
+offset_left = 40.5
+offset_top = 60.0
+offset_right = 314.5
+offset_bottom = 100.0
+theme_override_styles/slider = SubResource("StyleBoxTexture_xvi8a")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_w60lv")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_8ty1d")
 max_value = 1.0
 step = 0.05
 
-[node name="Label" type="Label" parent="MasterVolume"]
+[node name="Label" type="Label" parent="MasterVolume" unique_id=2008101980]
 layout_mode = 0
 offset_left = 60.0
 offset_top = -22.0
 offset_right = 210.0
 offset_bottom = 3.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_xvi8a")
 text = "MASTER"
 horizontal_alignment = 1
 
-[node name="MusicVolume" type="HSlider" parent="."]
+[node name="MusicVolume" type="HSlider" parent="." unique_id=1203123133]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 96.0
-offset_right = 275.0
-offset_bottom = 123.0
+offset_left = 41.5
+offset_top = 130.0
+offset_right = 315.5
+offset_bottom = 157.0
+theme_override_styles/slider = SubResource("StyleBoxTexture_7oq1j")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_mch7p")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_gocru")
 max_value = 1.0
 step = 0.05
 
-[node name="Label" type="Label" parent="MusicVolume"]
+[node name="Label" type="Label" parent="MusicVolume" unique_id=844255385]
 layout_mode = 0
 offset_left = 60.0
 offset_top = -22.0
 offset_right = 210.0
 offset_bottom = 3.0
+theme_override_fonts/font = ExtResource("4_xvi8a")
 text = "MUSIC"
 horizontal_alignment = 1
 
-[node name="SFXVolume" type="HSlider" parent="."]
+[node name="SFXVolume" type="HSlider" parent="." unique_id=1026689022]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 165.0
-offset_right = 278.0
-offset_bottom = 190.0
+offset_left = 41.5
+offset_top = 199.0
+offset_right = 315.5
+offset_bottom = 224.0
+theme_override_styles/slider = SubResource("StyleBoxTexture_wv35w")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_1ohds")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_lhf5r")
 max_value = 1.0
 step = 0.05
 
-[node name="Label" type="Label" parent="SFXVolume"]
+[node name="Label" type="Label" parent="SFXVolume" unique_id=1837720504]
 layout_mode = 0
 offset_left = 60.0
 offset_top = -22.0
 offset_right = 210.0
 offset_bottom = 3.0
+theme_override_fonts/font = ExtResource("4_xvi8a")
 text = "SFX"
 horizontal_alignment = 1
+
+[node name="Slider3" type="Sprite2D" parent="." unique_id=173433317]
+position = Vector2(31.5, 80)
+texture = ExtResource("5_7oq1j")
+
+[node name="Slider4" type="Sprite2D" parent="." unique_id=901698684]
+position = Vector2(31.5, 142)
+texture = ExtResource("6_mch7p")
+
+[node name="Slider5" type="Sprite2D" parent="." unique_id=1842570607]
+position = Vector2(31.5, 209)
+texture = ExtResource("7_gocru")
 
 [connection signal="value_changed" from="MasterVolume" to="." method="_on_master_volume_value_changed"]
 [connection signal="value_changed" from="MusicVolume" to="." method="_on_music_volume_value_changed"]

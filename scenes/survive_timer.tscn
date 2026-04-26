@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://btcqgpsavd5t2"]
+[gd_scene format=3 uid="uid://btcqgpsavd5t2"]
 
 [ext_resource type="Texture2D" uid="uid://baxg1vknd7kyr" path="res://art/recent_downloads/timer_under-bg.png" id="1_o7qmm"]
 [ext_resource type="Texture2D" uid="uid://bcibcjpfrbhek" path="res://art/recent_downloads/timer-layer-blight.png" id="2_kg5ce"]
 [ext_resource type="Script" uid="uid://ytu74x00mnv5" path="res://scenes/survive_timer.gd" id="3_kg5ce"]
+[ext_resource type="FontFile" uid="uid://dr2bgp0dus7et" path="res://art/ui/arcade_font/retro-pixel-arcade.ttf" id="4_u7ggb"]
 
-[node name="TextureProgressBar" type="TextureProgressBar"]
+[node name="TextureProgressBar" type="TextureProgressBar" unique_id=398698107]
 offset_left = 1.0
 offset_top = 2.0
 offset_right = 321.0
@@ -18,12 +19,15 @@ texture_under = ExtResource("1_o7qmm")
 texture_progress = ExtResource("2_kg5ce")
 script = ExtResource("3_kg5ce")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1581465244]
 layout_mode = 0
-offset_top = 22.0
-offset_right = 319.0
-offset_bottom = 72.0
+offset_left = 2.0
+offset_top = 56.0
+offset_right = 351.0
+offset_bottom = 133.0
 mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_u7ggb")
+theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
 text = "[wave]The Grove cannot protect you.
 [shake]Survive[/shake] Champion of the Woods.[/wave]"

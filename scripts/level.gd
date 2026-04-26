@@ -77,4 +77,4 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 
 
 func _on_background_music_finished() -> void:
-	background_music.play(60.5)
+	background_music.play(60.5)	

@@ -1,17 +1,25 @@
-[gd_scene load_steps=25 format=3 uid="uid://qtbcio8t7kmf"]
+[gd_scene format=3 uid="uid://qtbcio8t7kmf"]
 
 [ext_resource type="Script" uid="uid://c300wk2tkowhm" path="res://scripts/hotbar.gd" id="1_4qkdb"]
+[ext_resource type="Texture2D" uid="uid://5ehq1kxsw8vs" path="res://art/ui/hud/icons-dash (1).png" id="2_nekah"]
 [ext_resource type="Texture2D" uid="uid://dtneamr5iqurj" path="res://art/ui/hud/spell icons-water.png" id="4_i62wn"]
 [ext_resource type="Texture2D" uid="uid://b4u7ujid0whcf" path="res://art/ui/hud/spell tray + health new time.png" id="5_iapdy"]
 [ext_resource type="Texture2D" uid="uid://slgk5qdm2e1q" path="res://art/ui/hud/spell icons-love.png" id="5_nekah"]
 [ext_resource type="Texture2D" uid="uid://hf5qco4v5bgo" path="res://art/ui/hud/spell icons-sun.png" id="6_70wi1"]
+[ext_resource type="Texture2D" uid="uid://c8obpdmt60l0g" path="res://art/ui/hud/Spell tray - vines.png" id="7_70wi1"]
 [ext_resource type="Texture2D" uid="uid://bs2sdj3xk01ss" path="res://art/ui/hud/Spell tray-keys.png" id="7_i62wn"]
 [ext_resource type="Texture2D" uid="uid://end25ywvm27b" path="res://art/ui/hud/spell icons-song.png" id="7_mbjko"]
-[ext_resource type="Texture2D" uid="uid://gxjqy3x40uqo" path="res://art/misc/Sprint1.png" id="8_4p213"]
 [ext_resource type="Texture2D" uid="uid://byreaqaqtgev2" path="res://art/ui/hud/Spell-select.png" id="8_70wi1"]
-[ext_resource type="Texture2D" uid="uid://cmncdnrdpun28" path="res://art/misc/Sprint2.png" id="9_ymyrg"]
 [ext_resource type="Texture2D" uid="uid://hshu6wa4nsnm" path="res://art/ui/hud/health-blight.png" id="11_70wi1"]
 [ext_resource type="Texture2D" uid="uid://pekoevd54ytf" path="res://art/ui/hud/health-green.png" id="12_mbjko"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymyrg"]
+atlas = ExtResource("2_nekah")
+region = Rect2(0, 0, 32.295807, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dam77"]
+atlas = ExtResource("2_nekah")
+region = Rect2(31.84196, 0, 32.15804, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gbu6h"]
 atlas = ExtResource("5_nekah")
@@ -61,7 +69,7 @@ region = Rect2(32, 0, 32, 0)
 atlas = ExtResource("7_i62wn")
 region = Rect2(128, 0, 32, 0)
 
-[node name="Hotbar" type="Control"]
+[node name="Hotbar" type="Control" unique_id=2005892863]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 250.0
@@ -70,20 +78,35 @@ offset_right = 250.0
 offset_bottom = 27.0
 script = ExtResource("1_4qkdb")
 
-[node name="SprintProgressBar" type="TextureProgressBar" parent="."]
+[node name="SprintProgressBar" type="TextureProgressBar" parent="." unique_id=1772792020]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 370.0
-offset_top = -159.0
-offset_right = 418.0
-offset_bottom = -119.0
+offset_left = 357.0
+offset_top = -191.0
+offset_right = 405.0
+offset_bottom = -143.0
 scale = Vector2(3, 3)
 value = 40.0
 fill_mode = 1
-texture_under = ExtResource("8_4p213")
-texture_progress = ExtResource("9_ymyrg")
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_ymyrg")
+texture_progress = SubResource("AtlasTexture_dam77")
 
-[node name="HotbarTexture" type="TextureRect" parent="."]
+[node name="Outline" type="TextureProgressBar" parent="." unique_id=1292293848]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 340.99997
+offset_top = -207.0
+offset_right = 399.66663
+offset_bottom = -149.0
+scale = Vector2(3, 3)
+value = 40.0
+fill_mode = 1
+nine_patch_stretch = true
+texture_under = ExtResource("8_70wi1")
+tint_under = Color(0.47, 0.25779498, 0.17390001, 1)
+
+[node name="HotbarTexture" type="TextureRect" parent="." unique_id=377069450]
 layout_mode = 0
 offset_left = -256.0
 offset_top = -39.0
@@ -92,7 +115,7 @@ offset_bottom = 31.0
 scale = Vector2(3, -3)
 texture = ExtResource("5_iapdy")
 
-[node name="Health" type="TextureProgressBar" parent="HotbarTexture"]
+[node name="Health" type="TextureProgressBar" parent="HotbarTexture" unique_id=1195972616]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 9.666686
@@ -103,7 +126,13 @@ value = 100.0
 texture_under = ExtResource("11_70wi1")
 texture_progress = ExtResource("12_mbjko")
 
-[node name="LoveProgressBar" type="TextureProgressBar" parent="HotbarTexture"]
+[node name="SpellTrayVines" type="Sprite2D" parent="HotbarTexture" unique_id=592223835]
+position = Vector2(93.909096, 35.848476)
+rotation = 3.1415927
+scale = Vector2(1.0467802, -0.97348493)
+texture = ExtResource("7_70wi1")
+
+[node name="LoveProgressBar" type="TextureProgressBar" parent="HotbarTexture" unique_id=955823426]
 unique_name_in_owner = true
 layout_mode = 1
 offset_left = 18.333334
@@ -118,16 +147,16 @@ texture_under = SubResource("AtlasTexture_gbu6h")
 texture_progress = SubResource("AtlasTexture_1lvyt")
 tint_progress = Color(1, 1, 1, 0.78431374)
 
-[node name="LoveSelect" type="Sprite2D" parent="HotbarTexture/LoveProgressBar"]
+[node name="LoveSelect" type="Sprite2D" parent="HotbarTexture/LoveProgressBar" unique_id=2145217474]
 unique_name_in_owner = true
 position = Vector2(16.000008, 16)
 texture = ExtResource("8_70wi1")
 
-[node name="1" type="Sprite2D" parent="HotbarTexture/LoveProgressBar"]
+[node name="1" type="Sprite2D" parent="HotbarTexture/LoveProgressBar" unique_id=1655249826]
 position = Vector2(37, 1)
 texture = SubResource("AtlasTexture_nekah")
 
-[node name="WaterProgressBar" type="TextureProgressBar" parent="HotbarTexture"]
+[node name="WaterProgressBar" type="TextureProgressBar" parent="HotbarTexture" unique_id=832932542]
 unique_name_in_owner = true
 layout_mode = 1
 offset_left = 55.333336
@@ -142,17 +171,17 @@ texture_under = SubResource("AtlasTexture_3c3f6")
 texture_progress = SubResource("AtlasTexture_ixfkr")
 tint_progress = Color(1, 1, 1, 0.78431374)
 
-[node name="WaterSelect" type="Sprite2D" parent="HotbarTexture/WaterProgressBar"]
+[node name="WaterSelect" type="Sprite2D" parent="HotbarTexture/WaterProgressBar" unique_id=829490593]
 unique_name_in_owner = true
 visible = false
 position = Vector2(16, 16)
 texture = ExtResource("8_70wi1")
 
-[node name="2" type="Sprite2D" parent="HotbarTexture/WaterProgressBar"]
+[node name="2" type="Sprite2D" parent="HotbarTexture/WaterProgressBar" unique_id=2032442948]
 position = Vector2(36.666668, 0)
 texture = SubResource("AtlasTexture_70wi1")
 
-[node name="LightProgressBar" type="TextureProgressBar" parent="HotbarTexture"]
+[node name="LightProgressBar" type="TextureProgressBar" parent="HotbarTexture" unique_id=572210247]
 unique_name_in_owner = true
 layout_mode = 1
 offset_left = 92.0
@@ -167,17 +196,17 @@ texture_under = SubResource("AtlasTexture_db7yd")
 texture_progress = SubResource("AtlasTexture_ecr4m")
 tint_progress = Color(1, 1, 1, 0.78431374)
 
-[node name="LightSelect" type="Sprite2D" parent="HotbarTexture/LightProgressBar"]
+[node name="LightSelect" type="Sprite2D" parent="HotbarTexture/LightProgressBar" unique_id=1812240543]
 unique_name_in_owner = true
 visible = false
 position = Vector2(16.000004, 16)
 texture = ExtResource("8_70wi1")
 
-[node name="3" type="Sprite2D" parent="HotbarTexture/LightProgressBar"]
+[node name="3" type="Sprite2D" parent="HotbarTexture/LightProgressBar" unique_id=207938152]
 position = Vector2(34.66668, 0)
 texture = SubResource("AtlasTexture_mbjko")
 
-[node name="SongProgressBar" type="TextureProgressBar" parent="HotbarTexture"]
+[node name="SongProgressBar" type="TextureProgressBar" parent="HotbarTexture" unique_id=992503504]
 unique_name_in_owner = true
 layout_mode = 1
 offset_left = 129.33334
@@ -192,12 +221,12 @@ texture_under = SubResource("AtlasTexture_mp1co")
 texture_progress = SubResource("AtlasTexture_6gh5r")
 tint_progress = Color(1, 1, 1, 0.78431374)
 
-[node name="SongSelect" type="Sprite2D" parent="HotbarTexture/SongProgressBar"]
+[node name="SongSelect" type="Sprite2D" parent="HotbarTexture/SongProgressBar" unique_id=305970054]
 unique_name_in_owner = true
 visible = false
 position = Vector2(15.999985, 15.666634)
 texture = ExtResource("8_70wi1")
 
-[node name="4" type="Sprite2D" parent="HotbarTexture/SongProgressBar"]
+[node name="4" type="Sprite2D" parent="HotbarTexture/SongProgressBar" unique_id=155467700]
 position = Vector2(32.000015, 1)
 texture = SubResource("AtlasTexture_4p213")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vb68bis4s2l0"]
+[gd_scene format=3 uid="uid://vb68bis4s2l0"]
 
 [ext_resource type="Script" uid="uid://2uecl8s8o6yr" path="res://scripts/radar_chart_graph.gd" id="1_7se6q"]
 [ext_resource type="Texture2D" uid="uid://5d3qrmnfxki" path="res://art/ui/recent_bc_i_dont_wanna_look_for_these/potency.png" id="2_vtluu"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bcv3pf1q2nf41" path="res://art/ui/recent_bc_i_dont_wanna_look_for_these/cooldown timer.png" id="4_31880"]
 [ext_resource type="Texture2D" uid="uid://cjf10qcqa7yu3" path="res://art/ui/recent_bc_i_dont_wanna_look_for_these/speed.png" id="5_ffpie"]
 [ext_resource type="Texture2D" uid="uid://bfc4cnlfph3y3" path="res://art/ui/recent_bc_i_dont_wanna_look_for_these/stun-2.png" id="6_3dgrj"]
+[ext_resource type="FontFile" uid="uid://dr2bgp0dus7et" path="res://art/ui/arcade_font/retro-pixel-arcade.ttf" id="7_eq3mp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqrc5"]
 bg_color = Color(0.9019608, 0.7176471, 0.5137255, 1)
@@ -13,7 +14,7 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.4, 0.28235295, 0.22745098, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
@@ -50,21 +51,21 @@ anti_aliasing = false
 bg_color = Color(0.9250991, 0.44587892, 0, 1)
 anti_aliasing = false
 
-[node name="ChartGraph" type="Panel"]
+[node name="ChartGraph" type="Panel" unique_id=1736627782]
 offset_left = 448.0
 offset_top = 192.0
-offset_right = 598.0
-offset_bottom = 248.0
+offset_right = 576.0
+offset_bottom = 256.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xqrc5")
 script = ExtResource("1_7se6q")
 
-[node name="Disable" type="ProgressBar" parent="."]
+[node name="Disable" type="ProgressBar" parent="." unique_id=1075234568]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 20.0
-offset_top = 45.0
-offset_right = 50.0
-offset_bottom = 55.0
+offset_left = 10.0
+offset_top = 38.0
+offset_right = 40.0
+offset_bottom = 48.0
 rotation = -1.5707964
 theme_override_styles/background = SubResource("StyleBoxFlat_7se6q")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0vcyj")
@@ -72,13 +73,13 @@ max_value = 15.0
 value = 14.26
 show_percentage = false
 
-[node name="HealingPower" type="ProgressBar" parent="."]
+[node name="HealingPower" type="ProgressBar" parent="." unique_id=907277687]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 45.0
-offset_top = 45.0
-offset_right = 75.0
-offset_bottom = 55.0
+offset_left = 35.0
+offset_top = 38.0
+offset_right = 65.0
+offset_bottom = 48.0
 rotation = -1.5707964
 theme_override_styles/background = SubResource("StyleBoxFlat_7se6q")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0jrok")
@@ -86,13 +87,13 @@ max_value = 15.0
 value = 15.0
 show_percentage = false
 
-[node name="Pierce" type="ProgressBar" parent="."]
+[node name="Pierce" type="ProgressBar" parent="." unique_id=1097953140]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 70.0
-offset_top = 45.0
-offset_right = 100.0
-offset_bottom = 55.0
+offset_left = 60.0
+offset_top = 38.0
+offset_right = 90.0
+offset_bottom = 48.0
 rotation = -1.5707964
 theme_override_styles/background = SubResource("StyleBoxFlat_7se6q")
 theme_override_styles/fill = SubResource("StyleBoxFlat_imfy8")
@@ -100,13 +101,13 @@ max_value = 15.0
 value = 1.0
 show_percentage = false
 
-[node name="Cooldown" type="ProgressBar" parent="."]
+[node name="Cooldown" type="ProgressBar" parent="." unique_id=170396810]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 95.0
-offset_top = 45.0
-offset_right = 125.0
-offset_bottom = 55.0
+offset_left = 85.0
+offset_top = 38.0
+offset_right = 115.0
+offset_bottom = 48.0
 rotation = -1.5707964
 theme_override_styles/background = SubResource("StyleBoxFlat_7se6q")
 theme_override_styles/fill = SubResource("StyleBoxFlat_uyln5")
@@ -114,13 +115,13 @@ max_value = 15.0
 value = 13.6
 show_percentage = false
 
-[node name="Speed" type="ProgressBar" parent="."]
+[node name="Speed" type="ProgressBar" parent="." unique_id=1758067166]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 120.0
-offset_top = 45.0
-offset_right = 150.0
-offset_bottom = 55.0
+offset_left = 110.0
+offset_top = 38.0
+offset_right = 140.0
+offset_bottom = 48.0
 rotation = -1.5707964
 theme_override_styles/background = SubResource("StyleBoxFlat_7se6q")
 theme_override_styles/fill = SubResource("StyleBoxFlat_vtluu")
@@ -128,63 +129,66 @@ max_value = 15.0
 value = 14.16
 show_percentage = false
 
-[node name="HealingPowerSprite" type="TextureRect" parent="."]
+[node name="HealingPowerSprite" type="TextureRect" parent="." unique_id=662127530]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 45.0
-offset_top = 44.0
-offset_right = 77.0
-offset_bottom = 76.0
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 84.0
+offset_bottom = 92.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_vtluu")
 
-[node name="PierceSprite" type="TextureRect" parent="."]
+[node name="PierceSprite" type="TextureRect" parent="." unique_id=622263172]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 70.0
-offset_top = 45.0
-offset_right = 102.0
-offset_bottom = 77.0
+offset_left = 57.0
+offset_top = 41.0
+offset_right = 109.0
+offset_bottom = 93.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_eq3mp")
 
-[node name="CooldownSprite" type="TextureRect" parent="."]
+[node name="CooldownSprite" type="TextureRect" parent="." unique_id=2143380956]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 95.0
-offset_top = 45.0
-offset_right = 127.0
-offset_bottom = 77.0
+offset_left = 82.0
+offset_top = 41.0
+offset_right = 134.0
+offset_bottom = 93.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_31880")
 
-[node name="SpeedSprite" type="TextureRect" parent="."]
+[node name="SpeedSprite" type="TextureRect" parent="." unique_id=747227577]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 120.0
-offset_top = 44.0
-offset_right = 152.0
-offset_bottom = 76.0
+offset_left = 107.0
+offset_top = 40.0
+offset_right = 159.0
+offset_bottom = 92.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_ffpie")
 
-[node name="DisableSprite" type="TextureRect" parent="."]
+[node name="DisableSprite" type="TextureRect" parent="." unique_id=266887175]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 20.0
-offset_top = 44.0
-offset_right = 52.0
-offset_bottom = 76.0
+offset_left = 7.0
+offset_top = 40.0
+offset_right = 59.0
+offset_bottom = 92.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_3dgrj")
 
-[node name="MouseOver" type="RichTextLabel" parent="."]
+[node name="MouseOver" type="RichTextLabel" parent="." unique_id=759503314]
 layout_mode = 0
-offset_left = 2.0
-offset_top = -22.0
-offset_right = 294.0
-offset_bottom = 24.0
+offset_left = -90.0
+offset_top = 11.0
+offset_right = 76.0
+offset_bottom = 101.0
 scale = Vector2(0.5, 0.5)
+theme_override_colors/default_color = Color(0.32156864, 0.2, 0.09019608, 1)
+theme_override_fonts/normal_font = ExtResource("7_eq3mp")
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 scroll_active = false
 horizontal_alignment = 1

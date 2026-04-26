@@ -7,8 +7,10 @@ extends Control
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	settings_label.text = "Show Settings" if !showing_volume else "Hide Settings"
+	settings_label.text = "Settings"
+	## settings_label.text = "Show Settings" if !showing_volume else "Hide Settings"
 	audio_stream_player.play(0.0)
+	set_label_colors(volume, Color.WHITE)
 
 func start() -> void:
 	get_tree().change_scene_to_file("res://scenes/level.tscn")
@@ -22,12 +24,15 @@ func restart() -> void:
 	get_tree().change_scene_to_file("res://scenes/level.tscn")
 
 func settings() -> void:
-	if showing_volume:
-		volume.hide()
-	else:
-		volume.show()
-	showing_volume = !showing_volume
-	settings_label.text = "Show Settings" if !showing_volume else "Hide Settings"
+	volume.show()
+	
+## func settings() -> void:
+##	if showing_volume:
+##		volume.hide()
+##	else:
+##		volume.show()
+##	showing_volume = !showing_volume
+##	settings_label.text = "Show Settings" if !showing_volume else "Hide Settings"
 
 func quit() -> void:
 	get_tree().quit(0)
@@ -37,3 +42,13 @@ func title() -> void:
 
 func _on_audio_stream_player_finished() -> void:
 	audio_stream_player.play(60.0)
+
+
+func _on_close_button_pressed() -> void:
+	volume.hide()
+	
+func set_label_colors(node, color):
+	for child in node.get_children():
+		if child is Label:
+			child.add_theme_color_override("font_color", color)
+		set_label_colors(child, color)
